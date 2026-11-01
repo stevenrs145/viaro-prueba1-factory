@@ -54,6 +54,21 @@ services:
     ports:
       - "${RECEPTOR_PORT:-8091}:80"
 
+  # Ejecutor de pruebas (funcionales y visuales). Comparte la red del contenedor web:
+  # usa http://localhost:8090 (= wwwroot) y resuelve "receptor" por DNS de compose.
+  qa:
+    image: mcr.microsoft.com/playwright:v1.64.1-noble
+    profiles: ["qa"]
+    network_mode: "service:web"
+    working_dir: /work
+    environment:
+      BASE_URL: http://localhost:8090
+      RECEPTOR_URL: http://receptor
+      CI: "1"
+    volumes:
+      - ..:/work
+    ipc: host
+
 volumes:
   dbdata:
   moodledata:

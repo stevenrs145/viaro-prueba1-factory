@@ -53,10 +53,12 @@ foreach ($temas as $code => $name) {
     $cats[$code] = $qgen->create_question_category(['contextid' => $bankctx->id, 'name' => $name, 'idnumber' => "TEMA-{$code}"]);
 }
 
+// Determinismo: sin mezclar opciones (la mezcla aleatoria rompe cualquier comparación visual y
+// vuelve ambiguos los selectores). Se fija en la pregunta Y en el quiz.
 $q = [];
-$q[] = $qgen->create_question('multichoice', 'one_of_four', ['category' => $cats['ALG']->id, 'name' => 'ALG-1 Opción múltiple']);
+$q[] = $qgen->create_question('multichoice', 'one_of_four', ['category' => $cats['ALG']->id, 'name' => 'ALG-1 Opción múltiple', 'shuffleanswers' => 0]);
 $q[] = $qgen->create_question('truefalse', 'true', ['category' => $cats['ALG']->id, 'name' => 'ALG-2 Verdadero o falso']);
-$q[] = $qgen->create_question('multichoice', 'one_of_four', ['category' => $cats['GEO']->id, 'name' => 'GEO-1 Opción múltiple']);
+$q[] = $qgen->create_question('multichoice', 'one_of_four', ['category' => $cats['GEO']->id, 'name' => 'GEO-1 Opción múltiple', 'shuffleanswers' => 0]);
 $q[] = $qgen->create_question('truefalse', 'true', ['category' => $cats['GEO']->id, 'name' => 'GEO-2 Verdadero o falso']);
 $q[] = $qgen->create_question('truefalse', 'true', ['category' => $cats['HIS']->id, 'name' => 'HIS-1 Verdadero o falso']);
 $q[] = $qgen->create_question('essay', 'editor', ['category' => $cats['HIS']->id, 'name' => 'HIS-2 Ensayo']);
@@ -65,7 +67,7 @@ $quizgen = $gen->get_plugin_generator('mod_quiz');
 $quiz = $quizgen->create_instance([
     'course' => $course->id, 'name' => 'Examen de regresión', 'idnumber' => 'QUIZ-REG',
     'intro' => 'Examen sembrado para la regresión del camino feliz.',
-    'questionsperpage' => 2, 'grade' => 10, 'sumgrades' => 0, 'attempts' => 0,
+    'questionsperpage' => 2, 'grade' => 10, 'sumgrades' => 0, 'attempts' => 0, 'shuffleanswers' => 0,
     'preferredbehaviour' => 'deferredfeedback',
     'overallfeedbacks' => [
         ['mingrade' => '50%', 'maxgrade' => '101%', 'feedbacktext' => 'Retro global: aprobado.'],

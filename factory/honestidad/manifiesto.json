@@ -1,0 +1,31 @@
+{
+  "pruebas": {
+    "factory/regresion/humo-helpers.spec.ts::[HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar": {
+      "asserts": 3,
+      "fuertes": 3,
+      "soft": 0,
+      "matchers": [
+        "toBeVisible",
+        "toHaveText",
+        "toHaveText"
+      ],
+      "capturas": 0,
+      "mascaras": 0,
+      "opcionesCaptura": [],
+      "modificador": null,
+      "tags": [
+        "[HUMO]"
+      ]
+    }
+  },
+  "omisiones": {
+    "factory/regresion/humo-helpers.spec.ts": [
+      "test.skip(({ isMobile }) => isMobile, 'La infraestructura se valida una vez, en escritorio');"
+    ]
+  },
+  "umbralVisual": {
+    "threshold": 0.2,
+    "maxDiffPixelRatio": 0.002,
+    "retries": 0
+  }
+}

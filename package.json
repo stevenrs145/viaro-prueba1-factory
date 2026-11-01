@@ -1,0 +1,19 @@
+{
+  "name": "viaro-moodle-quiz-factory",
+  "private": true,
+  "type": "module",
+  "description": "Mini software factory: specs de producto -> plugin de Moodle + pruebas funcionales y visuales + control de verificación honesta",
+  "scripts": {
+    "entorno": "bash entorno/setup.sh",
+    "factory": "node factory/cli.mjs run",
+    "suite": "node factory/cli.mjs suite",
+    "honestidad": "node factory/cli.mjs honestidad",
+    "linea-base:aprobar": "node factory/cli.mjs aprobar-linea-base"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

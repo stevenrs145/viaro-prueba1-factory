@@ -4,5 +4,8 @@ entorno/.moodle-src/
 entorno/data/
 test-results/
 playwright-report/
+.explor/
+corridas/*/artefactos/
+corridas/*/*/artefactos/
 *.log.tmp
 .DS_Store
