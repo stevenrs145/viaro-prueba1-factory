@@ -64,6 +64,9 @@ export function analizarArchivo(archivo, src) {
       opcionesCaptura: [...cuerpo.matchAll(/(maxDiffPixels|maxDiffPixelRatio|threshold)\s*:\s*([\d.]+)/g)].map((y) => `${y[1]}=${y[2]}`),
       mascaras: (cuerpoM.match(/\bmask\s*:/g) || []).length,
       triviales: [...cuerpo.matchAll(/expect\s*\(\s*(true|false|null|undefined|\d+|'[^']*'|"[^"]*")\s*\)/g)].map((y) => y[0]),
+      // Aserciones web-first (asíncronas) sin await: la promesa queda flotando y la prueba nunca falla por ellas.
+      sinAwait: [...cuerpoM.matchAll(/(await\s+)?expect\s*\([^;]*?\)\s*(\.\s*not)?\s*\.\s*(to(Have|BeVisible|BeHidden|BeEnabled|BeDisabled|BeChecked|BeEditable|BeEmpty|BeFocused|BeInViewport|BeAttached|ContainText|Pass)\w*)\s*\(/g)]
+        .filter((y) => !y[1]).map((y) => y[3]),
       tragaErrores: /\.catch\s*\(\s*\(\s*\w*\s*\)\s*=>\s*(\{\s*\}|undefined|null|true|false)\s*\)|catch\s*(\(\s*\w*\s*\))?\s*\{\s*\}/.test(cuerpo),
       mockRed: /\b(route\.fulfill|page\.route|context\.route|routeFromHAR)\b/.test(cuerpoM),
       tags: [...titulo.matchAll(/(@[\w-]+|\[(CA-\d+|HUMO|REG-[\w-]+)\])/g)].map((y) => y[1]),

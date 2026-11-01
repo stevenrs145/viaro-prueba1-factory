@@ -92,6 +92,7 @@ export function verificar({ resultados, sinFeature, plan } = {}) {
       const donde = `${f}:${p.linea} «${p.titulo}»`;
       if (p.asserts === 0) hallazgo('SIN-ASSERTS', donde, 'La prueba no tiene ningún expect(): no puede fallar por comportamiento.');
       if (p.triviales.length) hallazgo('ASSERT-TRIVIAL', donde, `Afirma sobre un literal: ${p.triviales.join(' ; ')}`);
+      if (p.sinAwait.length) hallazgo('ASSERT-SIN-AWAIT', donde, `Aserción asíncrona sin await (${p.sinAwait.join(', ')}): nunca hace fallar la prueba.`);
       if (p.tragaErrores) hallazgo('ERROR-TRAGADO', donde, 'Un .catch/try vacío puede convertir un fallo en éxito.');
       if (p.mockRed) hallazgo('RED-SIMULADA', donde, 'page.route/route.fulfill: la prueba verificaría una respuesta inventada, no Moodle.');
       if (p.modificador && !base.pruebas[idPrueba(p)]) hallazgo('OMITIDA', donde, `test.${p.modificador}() en prueba nueva.`);
