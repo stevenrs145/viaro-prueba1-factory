@@ -1,0 +1,6 @@
+# Forzar LF: la evaluación corre scripts en contenedores Linux desde Windows/WSL2.
+# Un clon en Windows con CRLF rompe los scripts bash (bad interpreter).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.mp4 binary
