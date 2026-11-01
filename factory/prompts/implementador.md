@@ -32,8 +32,8 @@ Podés leer `entorno/.moodle-src/` (Moodle real) y `factory/regresion/` (helpers
   nada de `test.skip/fixme/only`, nada de `expect.soft`. Matchers concretos (`toHaveText`, `toHaveCount`, `toBeVisible`, `toHaveURL`, `toEqual`), no `toBeTruthy`.
 - Datos: usá el curso QA101, el examen "Examen de regresión" y los usuarios sembrados. Si necesitás configurar algo
   (activar una opción en un quiz, configurar un ajuste de admin), hacelo DESDE LA UI en la prueba (como profesor/admin) y
-  dejalo como estaba al final, o usá un estudiante distinto (estudiante1..6) por prueba para no interferir.
-- Usuarios: estudiante1..5 para pruebas de spec; estudiante6 lo usa la prueba de humo.
+  dejalo como estaba al final. La configuración que dejes cambiada afecta a las pruebas de otros specs.
+- Usuarios: usá SOLO los estudiantes asignados a este spec (ver "Estudiantes por spec" en el conocimiento), uno distinto por prueba cuando haya intentos.
 - Visual: `await expect(page).toHaveScreenshot('<spec_id>-<pantalla>.png', { fullPage: true, mask: await prepararCaptura(page) })`.
   Nombres de captura con prefijo `{{spec_id}}-`. Toda pantalla que el spec introduce o cambia lleva su verificación visual.
 - Las pruebas corren en escritorio y móvil. Si una prueba solo tiene sentido en un viewport, NO uses skip: dividí en archivos o

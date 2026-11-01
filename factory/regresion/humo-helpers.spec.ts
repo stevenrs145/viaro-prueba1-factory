@@ -7,7 +7,7 @@ test.describe('[HUMO] helpers de prueba', () => {
   test.skip(({ isMobile }) => isMobile, 'La infraestructura se valida una vez, en escritorio');
 
   test('[HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar', async ({ page }) => {
-    await login(page, 'estudiante6');
+    await login(page, 'estudiante12');
     await abrirQuiz(page);
     await botonIntento(page).click();
     await elegir(page, 1, 'One');

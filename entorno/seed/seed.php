@@ -37,7 +37,8 @@ $mkuser = function (string $username, string $first, string $last) use ($gen) {
 };
 $profesor = $mkuser('profesor', 'Paula', 'Profesora');
 $gen->enrol_user($profesor->id, $course->id, 'editingteacher');
-for ($i = 1; $i <= 6; $i++) {
+// 12 estudiantes: cada spec usa un rango propio para que sus pruebas no compartan intentos (ver conocimiento).
+for ($i = 1; $i <= 12; $i++) {
     $u = $mkuser("estudiante{$i}", 'Estudiante', "Número {$i}");
     $gen->enrol_user($u->id, $course->id, 'student');
 }
@@ -82,4 +83,4 @@ foreach ($q as $i => $question) {
 
 echo "Sembrado OK\n";
 echo "  curso QA101 id={$course->id}\n  quiz QUIZ-REG id={$quiz->id} cmid={$quiz->cmid}\n";
-echo "  usuarios: admin, profesor, estudiante1..6 (clave " . PASS . ")\n";
+echo "  usuarios: admin, profesor, estudiante1..12 (clave " . PASS . ")\n";
