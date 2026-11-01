@@ -1,0 +1,23 @@
+# Imagen web de Moodle 5.3.
+# Base: imagen oficial de desarrollo de Moodle HQ (PHP 8.3 + Apache + extensiones requeridas).
+# Ajustes propios porque Moodle >= 5.1 cambió la estructura:
+#   - el DocumentRoot debe apuntar a public/ (config.php y vendor/ quedan fuera del webroot)
+#   - las dependencias PHP se instalan con Composer (ya no vienen en el repo)
+#   - el nuevo router necesita FallbackResource /r.php
+FROM moodlehq/moodle-php-apache:8.3
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# La imagen base toma el DocumentRoot de esta variable (no de una ruta fija en el vhost).
+ENV APACHE_DOCUMENT_ROOT=/var/www/moodle/public
+
+# Apache escucha también en 8090 (el puerto del wwwroot). Así el contenedor de Playwright, que comparte
+# la red del web (network_mode: service:web), llega a Moodle por la MISMA URL que el navegador del host,
+# sin redirecciones por wwwroot distinto.
+RUN sed -ri 's#<VirtualHost \*:80>#<VirtualHost *:80 *:8090>#' /etc/apache2/sites-available/000-default.conf \
+ && echo 'Listen 8090' >> /etc/apache2/ports.conf \
+ && printf '<Directory /var/www/moodle/public>\n  AllowOverride All\n  Require all granted\n  FallbackResource /r.php\n</Directory>\n' > /etc/apache2/conf-enabled/moodle.conf \
+ && printf 'max_input_vars = 5000\nmemory_limit = 512M\n' > /usr/local/etc/php/conf.d/zz-moodle.ini \
+ && mkdir -p /var/www/moodledata && chown -R www-data:www-data /var/www/moodledata
+
+WORKDIR /var/www/moodle
