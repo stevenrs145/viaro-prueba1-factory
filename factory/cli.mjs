@@ -36,7 +36,8 @@ async function run() {
 
   // 0. Precondiciones
   if (!moodle.moodleArriba()) return falla(c, 'precondicion', 'Moodle no responde en http://localhost:8090. Ejecutar: bash entorno/setup.sh');
-  const sucio = sh('git status --porcelain').out.trim();
+  // La carpeta de esta misma corrida ya existe (es donde se escribe el log): no cuenta como cambio.
+  const sucio = sh('git status --porcelain').out.split('\n').filter((l) => l && !l.slice(3).startsWith('corridas/')).join('\n');
   if (sucio) return falla(c, 'precondicion', 'El árbol de trabajo tiene cambios sin commit. La fábrica parte de un estado limpio.', sucio);
   shOk(`git checkout -q -b ${rama}`);
   fs.rmSync(path.join(RAIZ, specDir), { recursive: true, force: true });
