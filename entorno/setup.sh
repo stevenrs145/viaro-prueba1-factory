@@ -50,8 +50,14 @@ dc exec -T -u www-data web php /opt/seed/seed.php
 [[ "$(dc exec -T db psql -U moodle -d moodle -tAc "select count(*) from mdl_quiz_slots s join mdl_quiz q on q.id=s.quizid join mdl_course_modules cm on cm.instance=q.id where cm.idnumber='QUIZ-REG'")" == "6" ]] \
   || { echo "[setup] ERROR: el sembrado no dejó el examen QUIZ-REG con 6 preguntas" >&2; exit 1; }
 
+log "Ejecutando tareas ad hoc pendientes (migración de bancos de preguntas de mod_qbank, etc.)"
+# Mientras haya transferencias de mod_qbank en cola, Moodle 5.3 no muestra el banco de preguntas.
+dc exec -T -u www-data web php /var/www/moodle/admin/cli/adhoc_task.php --execute > /dev/null 2>&1 || true
+
 log "Levantando cron"
 dc up -d cron
+sleep 5
+dc ps cron --format '{{.Status}}' | grep -q '^Up' || { echo "[setup] ERROR: el contenedor de cron no quedó corriendo" >&2; dc logs --tail 20 cron >&2; exit 1; }
 
 log "Esperando a Moodle en http://localhost:${PORT}"
 for i in $(seq 1 60); do

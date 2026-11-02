@@ -50,7 +50,7 @@ async function run() {
   if (reanudar) {
     shOk(`git checkout -q ${reanudar}`);
     // La fábrica de main (con sus correcciones) es la que verifica; la rama solo aporta plan, código y pruebas.
-    shOk('git checkout -q main -- factory playwright.config.ts package.json');
+    shOk('git checkout -q main -- factory entorno playwright.config.ts package.json');
     if (!existe(`${specDir}/plan.json`)) return falla(c, 'reanudar', `La rama ${reanudar} no tiene ${specDir}/plan.json.`);
   } else {
     shOk(`git checkout -q -b ${rama}`);

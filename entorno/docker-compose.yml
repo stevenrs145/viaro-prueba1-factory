@@ -42,10 +42,11 @@ services:
 
   # Cron dedicado: las tareas en segundo plano (ad hoc) son las que hacen envíos
   # externos sin bloquear al estudiante (spec 2). Sin cron, esos envíos nunca salen.
+  # Arranca como root (el entrypoint de la imagen escribe la configuración de PHP) y ejecuta el cron como www-data.
+  # Con `user: www-data` el entrypoint fallaba y el cron NUNCA corría: las tareas ad hoc quedaban en cola.
   cron:
     <<: *moodle
-    user: www-data
-    command: ["bash", "-c", "while true; do php /var/www/moodle/admin/cli/cron.php --keep-alive=0 >/proc/1/fd/1 2>&1; sleep 15; done"]
+    command: ["bash", "-c", "while true; do su -s /bin/sh www-data -c 'php /var/www/moodle/admin/cli/cron.php --keep-alive=0'; sleep 15; done"]
 
   # Receptor propio que simula el sistema externo de la institución (spec 2).
   # Se puede forzar a fallar por API para ejercitar el camino de error.
