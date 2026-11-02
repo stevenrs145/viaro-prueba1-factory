@@ -1,0 +1,1644 @@
+<testsuites id="" name="" tests="26" failures="0" skipped="0" errors="26" time="1399.248002">
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-02T13:49:21.192Z" hostname="escritorio" tests="13" failures="0" skipped="0" time="679.421" errors="13">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="55.515">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:26:1 › [CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.924">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:51:1 › [CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.06">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:80:1 › [CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.792">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:90:1 › [CA-2] pantalla de ajustes del plugin @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.692">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:96:1 › [CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.402">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:115:1 › [CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.316">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:127:1 › [CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.61">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:153:1 › [CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.878">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:175:1 › [CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.831">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:189:1 › [CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.296">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:209:1 › [CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="54.061">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:226:1 › [CA-4] el admin abre el registro y un estudiante no puede @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.044">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:236:1 › [CA-4] pantalla del registro sin envíos @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-02T13:49:21.192Z" hostname="movil" tests="13" failures="0" skipped="0" time="680.285" errors="13">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.933">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:26:1 › [CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.688">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:51:1 › [CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.172">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:80:1 › [CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.682">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:90:1 › [CA-2] pantalla de ajustes del plugin @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="50.848">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:96:1 › [CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="53.005">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:115:1 › [CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="50.284">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:127:1 › [CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="58.14">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:153:1 › [CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.239">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:175:1 › [CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.484">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:189:1 › [CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="52.704">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:209:1 › [CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.655">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:226:1 › [CA-4] el admin abre el registro y un estudiante no puede @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="51.451">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.fill: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:236:1 › [CA-4] pantalla del registro sin envíos @requiere-feature 
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    TimeoutError: locator.fill: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_s_local_resultadoext_destino')
+
+
+       at salidas/spec-2/pruebas/apoyo.ts:28
+
+      26 |   await page.goto(AJUSTES);
+      27 |   await esperarJS(page);
+    > 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);
+         |                                                               ^
+      29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));
+      30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));
+      31 |   await page.locator('#adminsettings button[type="submit"]').click();
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-131424-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+</testsuites>

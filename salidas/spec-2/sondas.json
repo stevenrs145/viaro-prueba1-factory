@@ -34,7 +34,7 @@
     },
     "respuesta": {
       "http": 201,
-      "cuerpo": "{\"status\":\"accepted\",\"id\":\"f7c90c14-89eb-4f1b-bdfc-94a68cf32226\",\"duplicate\":false}"
+      "cuerpo": "{\"status\":\"accepted\",\"id\":\"b21fca74-6131-40d0-b765-0f94590c04b9\",\"duplicate\":false}"
     }
   },
   {
@@ -62,7 +62,7 @@
     },
     "respuesta": {
       "http": 200,
-      "cuerpo": "{\"status\":\"accepted\",\"id\":\"f7c90c14-89eb-4f1b-bdfc-94a68cf32226\",\"duplicate\":true}"
+      "cuerpo": "{\"status\":\"accepted\",\"id\":\"b21fca74-6131-40d0-b765-0f94590c04b9\",\"duplicate\":true}"
     }
   },
   {

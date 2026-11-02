@@ -207,6 +207,8 @@ async function run() {
   const pr = abrirPR(c, rama, plan, specDir, st, txtH, nuevas);
   c.etapa('pr', 'EJECUTADO', `PR propuesto: ${pr}. Pendiente de aprobación humana.`);
   c.log('fin', `PR propuesto: ${pr}. El pipeline se detiene en aprobación humana: no mergea ni despliega.`);
+  // El plugin vive en su rama: dejarlo instalado haría fallar el control de core del spec siguiente.
+  moodle.retirar(specDir);
   sh(`git add -A ${c.dir} && git commit -q -m "chore(${specId}): log final de la corrida" && git push -q origin ${rama}`);
   shOk('git checkout -q main');
   return 0;
