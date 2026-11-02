@@ -102,6 +102,13 @@ async function run() {
   const varsImpl = { spec: specTxt, spec_id: specId, plan, sondas, conocimiento: leer('factory/conocimiento/moodle-5.3.md'), helpers: leer('factory/regresion/helpers.ts'), spec_dir: specDir };
   if (!reanudar) llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
   c.etapa('implementacion', 'EJECUTADO', reanudar ? 'Código y pruebas reutilizados de la rama.' : 'Código y pruebas generados.');
+  // Adelanta las llamadas caras sin usar Moodle: las pruebas se hacen después con --reanudar.
+  if (process.env.FACTORY_SOLO_GENERAR) {
+    shOk(`git add -A ${specDir} ${c.dir} ia/transcripciones`);
+    shOk(`git commit -q -m "feat(${specId}): plan e implementación generados" -m "Corrida ${c.dir}. Pendiente de pruebas: --reanudar."`);
+    shOk('git checkout -q main');
+    return 0;
+  }
 
   // 4. Bucle validar -> desplegar -> probar -> corregir
   let verde = false;
