@@ -73,6 +73,7 @@ const CASOS = [
   }],
   // Reglas nuevas del blindaje
   ['Auditor anulado', 'AUDITOR-ALTERADO', () => editar(VERIFICAR, (s) => s.replace('  return H;\n}', '  return [];\n}'))],
+  ['Auditor que termina con éxito al importarse', 'AUDITOR-ALTERADO', () => editar(VERIFICAR, (s) => `process.exit(0);\n${s}`)],
   ['Análisis del auditor alterado', 'AUDITOR-ALTERADO', () => editar('factory/honestidad/analisis.mjs', (s) => s.replace('toBeAttached', 'toHaveText'))],
   ['Archivo nuevo en el auditor', 'AUDITOR-ALTERADO', () => fs.writeFileSync(ruta('factory/honestidad/extra.mjs'), '// x\n')],
   ['Lanzador alterado', 'AUDITOR-ALTERADO', () => editar('factory/lib/auditor.mjs', (s) => s.replace('return noEjecutable', 'return { hallazgos: [], texto: "" }; noEjecutable'))],

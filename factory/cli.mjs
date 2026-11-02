@@ -11,7 +11,6 @@ import { RAIZ, Corrida, sh, shOk, escribir, leer, existe, archivos } from './lib
 import { llamarIA, extraerJSON } from './lib/ia.mjs';
 import * as moodle from './lib/moodle.mjs';
 import { correrPruebas, resumen, contextoFallos } from './lib/pruebas.mjs';
-import { construirManifiesto } from './honestidad/verificar.mjs';
 import { auditar } from './lib/auditor.mjs';
 import { generarTrazabilidad } from './lib/trazabilidad.mjs';
 import { lineasBaseNuevas, registrarPendientes, proponerLineasBase, aprobarLineaBase } from './lib/lineas-base.mjs';
@@ -309,6 +308,8 @@ async function aprobarLB() {
 async function aprobarPruebas() {
   const razon = opt('--razon');
   if (!razon || razon.length < 15) throw new Error('Aprobar el manifiesto de pruebas exige --razon (mín. 15 caracteres).');
+  // Importación dinámica a propósito: nada de la copia de trabajo de factory/honestidad/ se carga al auditar.
+  const { construirManifiesto } = await import('./honestidad/verificar.mjs');
   const m = construirManifiesto();
   escribir('factory/honestidad/manifiesto.json', JSON.stringify(m, null, 2) + '\n');
   fs.appendFileSync(path.join(RAIZ, 'factory/honestidad/aprobaciones.log'), `${new Date().toISOString()} ${sh('git config user.name').out.trim()}: ${Object.keys(m.pruebas).length} pruebas — ${razon}\n`);
