@@ -58,6 +58,12 @@ $DB->delete_records_select('user_preferences', "name LIKE 'drawer-open-%'");
 foreach ($DB->get_fieldset_select('user', 'id', 'deleted = 0') as $idusuario) {
     set_user_preference('drawer-open-index', 0, $idusuario);
 }
+// Guardar el formulario del examen (lo hacen las pruebas para activar opciones) reescribe sus opciones de revisión:
+// sin "durante el intento" desaparece la columna Puntos del resumen. Se vuelve a los valores por defecto del sitio.
+foreach (['attempt', 'correctness', 'maxmarks', 'marks', 'specificfeedback', 'generalfeedback', 'rightanswer', 'overallfeedback'] as $revision) {
+    $DB->set_field('quiz', "review{$revision}", get_config('quiz', "review{$revision}"), ['course' => $course->id, 'name' => 'Examen de regresión']);
+}
+
 $DB->delete_records('notifications');
 $DB->delete_records('message_popup_notifications');
 $DB->set_field('tool_usertours_tours', 'enabled', 0);
