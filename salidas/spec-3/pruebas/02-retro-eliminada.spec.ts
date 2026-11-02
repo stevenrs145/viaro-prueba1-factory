@@ -26,7 +26,8 @@ test('[CA-2] la página del examen ya no muestra el bloque anterior y conserva l
   const intento = await hacerIntento(page, '6');
 
   await abrirQuiz(page);
-  await expect(page.locator('li .card table')).toContainText('Finalizado');
+  // Hay una tabla por intento y el más reciente va primero: el recién hecho es el primero.
+  await expect(page.locator('li .card table').first()).toContainText('Finalizado');
   await expect(page.locator('li .card table thead th', { hasText: 'Retroalimentación' })).toHaveCount(0);
   await expect(page.getByText('Retro global')).toHaveCount(0);
   // La nota depende de los intentos previos del estudiante: se comprueba que sigue ahí, no su valor.

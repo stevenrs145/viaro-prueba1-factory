@@ -52,7 +52,7 @@ test('[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota c
   await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
   await expect(filaResumen(page, 'Puntos')).toHaveText('4,00/6,00');
   await expect(filaResumen(page, 'Calificación')).toHaveText('6,67 de 10,00 (66,67%)');
-  await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+  await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
   await expect(page).toHaveScreenshot('spec-0-cierre.png', { fullPage: true, mask: await prepararCaptura(page) });
 
   await abrirQuiz(page);

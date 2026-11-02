@@ -24,6 +24,7 @@ test('[CA-4] la nota, la revisión de respuestas y la navegación siguen funcion
   await expect(page.locator('a.qnbutton').last()).toHaveAttribute('href', /#question-\d+-6$/);
 
   // "Finalizar revisión": con teclado, porque en móvil el clic por coordenadas puede caer en elementos fijos de la página.
-  await page.locator('a.mod_quiz-next-nav').press('Enter');
+  // El enlace aparece también dentro del bloque de navegación (aria-hidden, tabindex -1): se usa el de la página.
+  await page.getByRole('link', { name: 'Finalizar revisión' }).press('Enter');
   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
 });

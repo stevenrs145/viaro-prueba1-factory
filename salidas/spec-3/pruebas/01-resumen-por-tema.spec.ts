@@ -3,8 +3,8 @@
 // pruebas fallan sin el plugin. Las aserciones van contra el intento recién creado: cada prueba hace el suyo.
 import { test, expect } from '@playwright/test';
 import { abrirQuiz, bloquePregunta, filaResumen, login, prepararCaptura } from '../../../factory/regresion/helpers';
-import { ESPERA_EDITOR, guardarExamen } from '../../spec-0/pruebas/soporte';
-import { abrirOpcionesRevision, celdasTema, estudianteDe, filasTemas, hacerIntento, seccionTemas } from './soporte';
+import { ESPERA_EDITOR } from '../../spec-0/pruebas/soporte';
+import { abrirOpcionesRevision, celdasTema, estudianteDe, filasTemas, guardarEdicion, hacerIntento, seccionTemas } from './soporte';
 
 test('[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature', async ({ page, isMobile }) => {
   test.setTimeout(180_000);
@@ -78,7 +78,7 @@ test('[CA-1] si el profesor oculta las notas la sección no las filtra', async (
 
   try {
     for (const casilla of casillas) await page.locator(`#id_${casilla}`).setChecked(false);
-    await guardarExamen(page);
+    await guardarEdicion(page);
 
     await login(page, estudianteDe(isMobile));
     await hacerIntento(page, '6');
@@ -89,6 +89,6 @@ test('[CA-1] si el profesor oculta las notas la sección no las filtra', async (
     await login(page, 'profesor');
     await abrirOpcionesRevision(page, cmid);
     for (let i = casillas.length - 1; i >= 0; i--) await page.locator(`#id_${casillas[i]}`).setChecked(estadoInicial[i]);
-    await guardarExamen(page);
+    await guardarEdicion(page);
   }
 });

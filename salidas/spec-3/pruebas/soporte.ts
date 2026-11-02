@@ -4,7 +4,7 @@ import { expect, type Locator, type Page } from '@playwright/test';
 import {
   abrirQuiz, botonIntento, elegir, enviarIntento, escribirEnsayo, esperarJS, siguientePagina,
 } from '../../../factory/regresion/helpers';
-import { ESPERA_EDITOR, idIntento } from '../../spec-0/pruebas/soporte';
+import { cerrarIndiceCurso, ESPERA_EDITOR, idIntento } from '../../spec-0/pruebas/soporte';
 
 /** Rango asignado a spec-3. Cada prueba hace su propio intento: QUIZ-REG admite intentos ilimitados. */
 export const estudianteDe = (isMobile: boolean) => (isMobile ? 'estudiante10' : 'estudiante9');
@@ -45,8 +45,25 @@ export async function hacerIntento(page: Page, pregunta3: string, ensayo?: strin
 
 export async function abrirEdicion(page: Page, cmid: number) {
   await page.goto(`/course/modedit.php?update=${cmid}&return=1`);
-  await expect(page.locator('#id_introeditor_ifr')).toBeVisible({ timeout: ESPERA_EDITOR });
+  // QUIZ-REG guarda su descripción en formato automático, que TinyMCE no soporta: Moodle la muestra en un textarea plano.
+  // Un examen creado con el formulario usa HTML y sí lleva TinyMCE. Cualquiera de los dos marca que el formulario cargó.
+  const editor = page.locator('#id_introeditor_ifr').or(page.locator('textarea#id_introeditor'));
+  await expect(editor).toBeVisible({ timeout: ESPERA_EDITOR });
   await esperarJS(page);
+  // En móvil el cajón del índice del curso (preferencia que sobrevive entre corridas) cubre el formulario y deja los botones
+  // de guardar fuera del viewport; se cierra igual que en spec-0.
+  await cerrarIndiceCurso(page);
+}
+
+/**
+ * Guarda el formulario de edición del examen con "Guardar cambios y mostrar". En móvil, con las secciones desplegadas y la
+ * barra pegajosa del formulario, Playwright da el botón por "fuera del viewport" aunque lo desplaza a la vista (visible,
+ * habilitado y estable, y aun así el click se reintenta hasta agotar el tiempo). El click se despacha sobre el propio botón:
+ * activa el envío igual que un click real, y lo que se verifica es el resultado (la URL de view.php), no la geometría.
+ */
+export async function guardarEdicion(page: Page): Promise<void> {
+  await page.locator('#id_submitbutton').dispatchEvent('click');
+  await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
 }
 
 /** Abre la edición con todas las secciones desplegadas, para poder usar las casillas de Opciones de revisión. */

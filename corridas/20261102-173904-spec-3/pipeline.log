@@ -1,0 +1,1147 @@
+[2026-11-02T17:39:04.659Z] [inicio] Spec specs/spec-3-resumen-por-tema.md (spec-3). Corrida corridas/20261102-173904-spec-3. Rama factory/spec-3-20261102-171629 (REANUDADA).
+[2026-11-02T17:39:05.086Z] [reanudar] Se reutiliza salidas/spec-3/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T17:39:05.088Z] [implementacion] Prueba aprobada actualizada, pendiente de aprobación humana: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts
+    - await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+    + await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+    Motivo: Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR.
+[2026-11-02T17:39:05.089Z] [implementacion] Prueba aprobada actualizada, pendiente de aprobación humana: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts
+    - await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+    + await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+    Motivo: Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR.
+[2026-11-02T17:39:10.693Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T17:39:53.652Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T17:49:21.648Z] [pruebas] Intento 1: 14 OK, 6 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] si el profesor oculta las notas la sección no las filtra
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: locator('#id_introeditor_ifr')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms[22m
+    [2m  - waiting for locator('#id_introeditor_ifr')[22m
+    
+    
+    ### movil · [CA-1] si el profesor oculta las notas la sección no las filtra
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: locator('#id_introeditor_ifr')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms[22m
+    [2m  - waiting for locator('#id_introeditor_ifr')[22m
+    
+    
+    ### escritorio · [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('li .card table')
+    Expected substring: [32m"Finalizado"[39m
+    Error: strict mode violation: locator('li .card table') resolved to 5 elements:
+        1) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 5' })
+        2) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 4' })
+        3) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 3' })
+        4) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 2' })
+        5) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 1' })
+    
+    Call log:
+    [2m  - Expect "toContainText" locator('li .card table') with timeout 5000ms[22m
+    [2m  - waiting for locator('li .card table')[22m
+    
+    
+    ### movil · [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('li .card table')
+    Expected substring: [32m"Finalizado"[39m
+    Error: strict mode violation: locator('li .card table') resolved to 5 elements:
+        1) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 5' })
+        2) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 4' })
+        3) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 3' })
+        4) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 2' })
+        5) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 1' })
+    
+    Call log:
+    [2m  - Expect "toContainText" locator('li .card table') with timeout 5000ms[22m
+    [2m  - waiting for locator('li .card table')[22m
+    
+    
+    ### escritorio · [CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando
+    Error: locator.press: Error: strict mode violation: locator('a.mod_quiz-next-nav') resolved to 2 elements:
+        1) <a tabindex="-1" class="mod_quiz-next-nav" data-aria-hidden-tab-index="" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka locator('#mod_quiz_navblock').getByText('Finalizar revisión')
+        2) <a class="mod_quiz-next-nav" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka getByRole('link', { name: 'Finalizar revisión' })
+    
+    Call log:
+    [2m  - waiting for locator('a.mod_quiz-next-nav')[22m
+    
+    
+    ### movil · [CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando
+    Error: locator.press: Error: strict mode violation: locator('a.mod_quiz-next-nav') resolved to 2 elements:
+        1) <a tabindex="-1" class="mod_quiz-next-nav" data-aria-hidden-tab-index="" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka locator('#mod_quiz_navblock').getByText('Finalizar revisión')
+        2) <a class="mod_quiz-next-nav" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka getByRole('link', { name: 'Finalizar revisión' })
+    
+    Call log:
+    [2m  - waiting for locator('a.mod_quiz-next-nav')[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+    - Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeVisible() failed
+    
+    Locator: locator('#id_introeditor_ifr')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms
+      - waiting for locator('#id_introeditor_ifr')
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio":
+      - link "Viaro":
+        - /url: http://localhost:8090/my/
+      - menubar:
+        - menuitem "Área personal"
+      - switch "Modo de edición"
+      - text: Modo de edición
+      - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+      - button "Mostrar/ocultar cajón de mensajería"
+      - button "Menú de usuario":
+        - img "Paula Profesora": PP
+        - text: 
+    - button "Abrir índice del curso"
+    - banner:
+      - navigation "Camino de migas":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "General":
+              - /url: http://localhost:8090/course/section.php?id=1
+          - listitem:
+            - text: /
+            - link "Examen de regresión":
+              - /url: http://localhost:8090/mod/quiz/view.php?id=2
+          - listitem: / Configuración
+      - heading "Examen de regresión" [level=1]
+    - navigation "Menú de Actividad":
+      - menubar:
+        - menuitem "Cuestionario"
+        - menuitem "Configuración"
+        - menuitem "Preguntas"
+        - menuitem "Resultados"
+        - menuitem "Banco de preguntas"
+        - menuitem "Más "
+    - main:
+      - heading "Editar ajustes" [level=2]
+      - button "Expandir todo"
+      - group "General":
+        - text: General
+        - button "General" [expanded]
+        - text: Nombre
+        - textbox "Nombre": Examen de regresión
+        - text: Descripción
+        - textbox "Descripción": <p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>
+        - text: Formato Descripción
+        - combobox "Formato Descripción":
+          - option "Formato HTML"
+          - option "Formato automático" [selected]
+          - option "Formato de texto plano"
+          - option "Formato Markdown"
+        - checkbox "Muestra la descripción en la página del curso"
+        - text: Muestra la descripción en la página del curso
+        - button "Ayuda":
+          - img "Ayuda con Muestra la descripción en la página del curso": 
+      - group "Temporalización":
+        - text: Temporalización
+        - button "Temporalización"
+      - group "Calificación":
+        - text: Calificación
+        - button "Calificación"
+      - group "Esquema":
+        - text: Esquema
+        - button "Esquema"
+      - group "Comportamiento de las preguntas":
+        - text: Comportamiento de las preguntas
+        - button "Comportamiento de las preguntas"
+      - group "Opciones de revisión":
+        - text: Opciones de revisión
+        - button "Opciones de revisión"
+        - button "Ayuda":
+          - img "Ayuda con Opciones de revisión": 
+      - group "Apariencia":
+        - text: Apariencia
+        - button "Apariencia"
+      - group "Safe Exam Browser":
+        - text: Safe Exam Browser
+        - button "Safe Exam Browser"
+      - group "Restricciones extra sobre los intentos":
+        - text: Restricciones extra sobre los intentos
+        - button "Restricciones extra sobre los intentos"
+      - group "Ajustes comunes del módulo":
+        - text: Ajustes comunes del módulo
+        - button "Ajustes comunes del módulo"
+      - group "Restricciones de acceso":
+        - text: Restricciones de acceso
+        - button "Restricciones de acceso"
+      - group "Marcas":
+        - text: Marcas
+        - button "Marcas"
+      - group "Competencias":
+        - text: Competencias
+        - button "Competencias"
+      - checkbox "Enviar notificación de actualización de contenido"
+      - text: Enviar notificación de actualización de contenido
+      - button "Ayuda":
+        - img "Ayuda con Enviar notificación de actualización de contenido": 
+      - button "Guardar cambios y regresar al curso"
+      - button "Guardar cambios y mostrar"
+      - button "Cancelar"
+    - contentinfo:
+      - button "Mostrar pie de página"
+    ```
+    
+    # Test source
+    
+    ```ts
+      1  | // Soporte de las pruebas de spec-3. Reutiliza factory/regresion/helpers.ts y el soporte aprobado de spec-0; acá solo está lo
+      2  | // propio de este spec. Las aserciones que deciden si un criterio se cumple están en los .spec.ts.
+      3  | import { expect, type Locator, type Page } from '@playwright/test';
+      4  | import {
+      5  |   abrirQuiz, botonIntento, elegir, enviarIntento, escribirEnsayo, esperarJS, siguientePagina,
+      6  | } from '../../../factory/regresion/helpers';
+      7  | import { ESPERA_EDITOR, idIntento } from '../../spec-0/pruebas/soporte';
+      8  | 
+      9  | /** Rango asignado a spec-3. Cada prueba hace su propio intento: QUIZ-REG admite intentos ilimitados. */
+      10 | export const estudianteDe = (isMobile: boolean) => (isMobile ? 'estudiante10' : 'estudiante9');
+      11 | 
+      12 | export const seccionTemas = (page: Page): Locator => page.locator('#local-resumentema');
+      13 | export const filasTemas = (page: Page): Locator => seccionTemas(page).locator('tbody tr');
+      14 | export const celdasTema = (page: Page, posicion: number): Locator => filasTemas(page).nth(posicion).locator('td');
+      15 | 
+      16 | /** Selectores de lo que retira el plugin. Van por id: los campos ocultos que exige el core usan el nombre feedbacktext. */
+      17 | export const OPCIONES_RETIRADAS = [
+      18 |   '#id_overallfeedbackhdr',
+      19 |   '#id_boundary_add_fields',
+      20 |   '#id_overallfeedbackduring',
+      21 |   '#id_overallfeedbackimmediately',
+      22 |   '#id_overallfeedbackopen',
+      23 |   '#id_overallfeedbackclosed',
+      24 | ];
+      25 | 
+      26 | /**
+      27 |  * Hace un intento completo en QUIZ-REG y queda en la pantalla de cierre. Las preguntas 1, 2, 4 y 5 se responden 
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+    - Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeVisible() failed
+    
+    Locator: locator('#id_introeditor_ifr')
+    Expected: visible
+    Timeout: 30000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms
+      - waiting for locator('#id_introeditor_ifr')
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio":
+      - button "Panel lateral"
+      - switch "Modo de edición"
+      - text: Modo de edición
+      - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+      - button "Mostrar/ocultar cajón de mensajería"
+      - button "Menú de usuario":
+        - img "Paula Profesora": PP
+        - text: 
+    - button "Abrir índice del curso"
+    - banner:
+      - navigation "Camino de migas":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "General":
+              - /url: http://localhost:8090/course/section.php?id=1
+          - listitem:
+            - text: /
+            - link "Examen de regresión":
+              - /url: http://localhost:8090/mod/quiz/view.php?id=2
+          - listitem: / Configuración
+      - heading "Examen de regresión" [level=1]
+    - navigation "Menú de Actividad":
+      - menubar:
+        - menuitem "Cuestionario"
+        - menuitem "Configuración"
+        - menuitem "Más "
+    - main:
+      - heading "Editar ajustes" [level=2]
+      - button "Expandir todo"
+      - group "General":
+        - text: General
+        - button "General" [expanded]
+        - text: Nombre
+        - textbox "Nombre": Examen de regresión
+        - text: Descripción
+        - textbox "Descripción": <p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>
+        - text: Formato Descripción
+        - combobox "Formato Descripción":
+          - option "Formato HTML"
+          - option "Formato automático" [selected]
+          - option "Formato de texto plano"
+          - option "Formato Markdown"
+        - checkbox "Muestra la descripción en la página del curso"
+        - text: Muestra la descripción en la página del curso
+        - button "Ayuda":
+          - img "Ayuda con Muestra la descripción en la página del curso": 
+      - group "Temporalización":
+        - text: Temporalización
+        - button "Temporalización"
+      - group "Calificación":
+        - text: Calificación
+        - button "Calificación"
+      - group "Esquema":
+        - text: Esquema
+        - button "Esquema"
+      - group "Comportamiento de las preguntas":
+        - text: Comportamiento de las preguntas
+        - button "Comportamiento de las preguntas"
+      - group "Opciones de revisión":
+        - text: Opciones de revisión
+        - button "Opciones de revisión"
+        - button "Ayuda":
+          - img "Ayuda con Opciones de revisión": 
+      - group "Apariencia":
+        - text: Apariencia
+        - button "Apariencia"
+      - group "Safe Exam Browser":
+        - text: Safe Exam Browser
+        - button "Safe Exam Browser"
+      - group "Restricciones extra sobre los intentos":
+        - text: Restricciones extra sobre los intentos
+        - button "Restricciones extra sobre los intentos"
+      - group "Ajustes comunes del módulo":
+        - text: Ajustes comunes del módulo
+        - button "Ajustes comunes del módulo"
+      - group "Restricciones de acceso":
+        - text: Restricciones de acceso
+        - button "Restricciones de acceso"
+      - group "Marcas":
+        - text: Marcas
+        - button "Marcas"
+      - group "Competencias":
+        - text: Competencias
+        - button "Competencias"
+      - checkbox "Enviar notificación de actualización de contenido"
+      - text: Enviar notificación de actualización de contenido
+      - button "Ayuda":
+        - img "Ayuda con Enviar notificación de actualización de contenido": 
+      - button "Guardar cambios y regresar al curso"
+      - button "Guardar cambios y mostrar"
+      - button "Cancelar"
+    - contentinfo:
+      - link "Documentación para esta página":
+        - /url: https://docs.moodle.org/503/es/mod/quiz/mod
+      - link "Contactar con el soporte del sitio":
+        - /url: http://localhost:8090/user/contactsitesupport.php
+      - text: Usted se ha identificado como
+      - link "Paula Profesora":
+        - /url: http://localhost:8090/user/profile.php?id=3
+      - text: (
+      - link "Cerrar sesión":
+        - /url: http://localhost:8090/login/logout.php?sesskey=HhR9AovZac
+      - text: )
+      - link "Resumen de retención de datos":
+        - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+      - link "Cambiar al tema estándar":
+        - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fcourse%2Fmodedit.php%3Freturn%3D1%26amp%3Bupdate%3D2&device=default&sesskey=HhR9AovZac
+      - text: Desarrollado por
+      - link "Moodle":
+        - /url: https://moodle.com
+    ```
+    
+    # Test source
+    
+    ```ts
+      1  | // Soporte de las pruebas de spec-3. Reutiliza factory/regresion/helpers.ts y el soporte aprobado de spec-0; acá solo está lo
+      2  | // propio de este spec. Las aserciones que deciden si un criterio se cumple están en los .spec.ts.
+[2026-11-02T17:49:21.650Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T17:49:21.660Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-3/**), Edit(salidas/spec-3/**))
+    prompt: corridas/20261102-173904-spec-3/ia/01-corrector.prompt.md
+[2026-11-02T17:50:09.640Z] [uso-ia] Ventana de 5 h: 62 % usado (se reinicia 2026-11-02T22:10:00.000Z).
+[2026-11-02T17:50:09.640Z] [ia:corrector] Fin llamada 01: OK en 48s, costo USD 0.39
+    respuesta final:
+    **Causa raíz:** las tres fallas estaban en las pruebas. El plugin no tuvo nada que ver. No ejecuté las pruebas después de los cambios.
+    
+    1. **CA-1 (profesor oculta notas), en `abrirEdicion` de `soporte.ts`.**
+       - La función esperaba `#id_introeditor_ifr`, el iframe de TinyMCE.
+       - La descripción de QUIZ-REG está en "Formato automático", que TinyMCE no soporta. Moodle la muestra como textarea plano, así que el iframe nunca existe.
+       - El ARIA lo confirma: el campo "Descripción" aparece como `textbox` con el HTML en crudo.
+       - Los exámenes creados desde el formulario usan HTML y sí tienen iframe, por eso el CA-3 de "examen nuevo" pasaba.
+       - **Cambio:** ahora espera `#id_introeditor_ifr` o `textarea#id_introeditor`, con el mismo timeout. Sigue comprobando que el formulario cargó.
+    
+    2. **CA-2 (página del examen), en `02-retro-eliminada.spec.ts`.**
+       - `li .card table` encontró 5 tablas, una por intento acumulado, y Playwright falló por modo estricto.
+       - **Cambio:** uso `.first()`, porque los intentos se listan del más reciente al más antiguo y el recién hecho va primero. La aserción es la misma (`toContainText('Finalizado')`).
+    
+    3. **CA-4, en `03-cierre-intacto.spec.ts`.**
+       - `a.mod_quiz-next-nav` coincidía con dos enlaces: el del bloque de navegación (`tabindex=-1`, aria-hidden) y el de la página.
+       - **Cambio:** uso `getByRole('link', { name: 'Finalizar revisión' })`, que sólo resuelve el de la página. Se mantiene el `press('Enter')` y la comprobación de la URL de `view.php`.
+    
+    No debilité ningún assert, no agregué skip ni reintentos, y no toqué `login()` ni `prepararCaptura()`. Ningún helper de la fábrica fue la causa.
+[2026-11-02T17:50:16.354Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T17:50:18.211Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T17:59:08.797Z] [pruebas] Intento 2: 19 OK, 1 fallidas, 0 omitidas.
+    ### movil · [CA-1] si el profesor oculta las notas la sección no las filtra
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    29 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+    - Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_submitbutton')
+        - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+          - waiting 100ms
+        29 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - element is outside of the viewport
+         - retrying click action
+           - waiting 500ms
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f8e1]:
+      - status
+      - generic [ref=f8e2]:
+        - link "Salta al contenido principal" [ref=f8e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f8e4]:
+          - generic [ref=f8e5]:
+            - button "Panel lateral" [ref=f8e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f8e9]:
+              - generic [ref=f8e12]:
+                - switch "Modo de edición" [ref=f8e13] [cursor=pointer]
+                - generic [ref=f8e14] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f8e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f8e25]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f8e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f8e28]: 
+              - button "Menú de usuario" [ref=f8e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f8e38]: PP
+                - text: 
+        - generic [ref=f8e39]:
+          - generic [ref=f8e40]:
+            - button "Abrir índice del curso" [ref=f8e42] [cursor=pointer]
+            - banner [ref=f8e46]:
+              - generic [ref=f8e47]:
+                - navigation "Camino de migas" [ref=f8e50]:
+                  - list [ref=f8e51]:
+                    - listitem [ref=f8e52]:
+                      - link "QA101" [ref=f8e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f8e54]:
+                      - text: /
+                      - link "General" [ref=f8e55] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f8e56]:
+                      - text: /
+                      - generic [ref=f8e57]: Examen de regresión
+                - heading "Examen de regresión" [level=1] [ref=f8e66]
+            - navigation "Menú de Actividad" [ref=f8e69]:
+              - menubar [ref=f8e70]:
+                - menuitem "Cuestionario" [ref=f8e71] [cursor=pointer]
+                - menuitem "Configuración" [ref=f8e74] [cursor=pointer]
+                - menuitem "Más " [ref=f8e76] [cursor=pointer]:
+                  - generic [ref=f8e77]: Más
+                  - text: 
+            - generic [ref=f8e80]:
+              - paragraph [ref=f8e87]: Examen de práctica con preguntas de álgebra, geometría e historia.
+              - main [ref=f8e88]:
+                - button "Vista previa del cuestionario" [ref=f8e94] [cursor=pointer]
+                - paragraph [ref=f8e96]: "Método de calificación: Calificación más alta"
+                - 'link "Intentos: 10" [ref=f8e98] [cursor=pointer]':
+                  - /url: http://localhost:8090/mod/quiz/report.php?id=2&mode=overview
+                - link "Siguiente" [ref=f8e105] [cursor=pointer]:
+                  - /url: http://localhost:8090/r.php/course/cms/2/next
+                  - generic [aria-hidden] [ref=f8e108]: 
+                  - text: 
+          - contentinfo [ref=f8e109]:
+            - generic: "?"
+            - generic [ref=f8e110]:
+              - generic [ref=f8e111]:
+                - link "Documentación para esta página" [ref=f8e113] [cursor=pointer]:
+                  - /url: https://docs.moodle.org/503/es/mod/quiz/view
+                  - generic [aria-hidden] [ref=f8e114]: 
+                  - text: Documentación para esta página
+                - link "Contactar con el soporte del sitio" [ref=f8e116] [cursor=pointer]:
+                  - /url: http://localhost:8090/user/contactsitesupport.php
+                  - generic [aria-hidden] [ref=f8e117]: 
+                  - text: Contactar con el soporte del sitio
+              - generic [ref=f8e118]:
+                - generic [ref=f8e120]:
+                  - text: Usted se ha identificado como
+                  - link "Paula Profesora" [ref=f8e121] [cursor=pointer]:
+                    - /url: http://localhost:8090/user/profile.php?id=3
+                  - text: (
+                  - link "Cerrar sesión" [ref=f8e122] [cursor=pointer]:
+                    - /url: http://localhost:8090/login/logout.php?sesskey=6BSiVnehAN
+                  - text: )
+                - link "Resumen de retención de datos" [ref=f8e125] [cursor=pointer]:
+                  - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+                - link "Cambiar al tema estándar" [ref=f8e127] [cursor=pointer]:
+                  - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fmod%2Fquiz%2Fview.php%3Fid%3D2&device=default&sesskey=6BSiVnehAN
+              - generic [ref=f8e129]
+[2026-11-02T17:59:08.798Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/3).
+[2026-11-02T17:59:08.807Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-3/**), Edit(salidas/spec-3/**))
+    prompt: corridas/20261102-173904-spec-3/ia/02-corrector.prompt.md
+[2026-11-02T18:00:10.751Z] [uso-ia] Ventana de 5 h: 66 % usado (se reinicia 2026-11-02T22:10:00.000Z).
+[2026-11-02T18:00:10.752Z] [ia:corrector] Fin llamada 02: OK en 62s, costo USD 0.34
+    respuesta final:
+    **Causa raíz:** probablemente es la prueba, no el plugin. No pude correr Playwright, así que el arreglo está sin verificar.
+    
+    El fallo ocurre en la prueba móvil de "[CA-1] si el profesor oculta las notas…". El botón `#id_submitbutton` existe y está habilitado, pero Playwright lo reporta "outside of the viewport" tras cada desplazamiento. Esa prueba nunca llega a las aserciones sobre la sección por tema.
+    
+    La causa más probable es el cajón del índice del curso de Moodle en el Pixel 7. Es una preferencia de usuario que se conserva entre corridas. Si queda abierto, cubre el formulario de edición del quiz en pantallas angostas. En `salidas/spec-0/pruebas/soporte.ts` hay un `cerrarIndiceCurso` justo para eso. El `abrirEdicion` de spec-3 no lo llamaba. Dedujo esto de la documentación del helper y de que el botón se resuelve y está habilitado; no lo confirmé en el navegador.
+    
+    **Qué cambié** (solo en `salidas/spec-3/pruebas/soporte.ts`):
+    - Importé `cerrarIndiceCurso` desde el soporte de spec-0.
+    - `abrirEdicion` ahora lo llama después de `esperarJS`. `abrirOpcionesRevision` y las demás pruebas que abren el formulario de edición lo heredan.
+    
+    No toqué el plugin, los asserts ni los helpers de `factory/regresion`.
+    
+    **Si vuelve a fallar:** antes de culpar al plugin, hay que mirar si `#id_submitbutton` queda cubierto por otra cosa o fuera del ancho del formulario en móvil. En ese caso el origen sería el soporte de spec-0 (`guardarExamen`), que spec-3 no puede editar, y lo arreglaría la fábrica.
+[2026-11-02T18:00:18.535Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T18:00:20.934Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T18:09:16.620Z] [pruebas] Intento 3: 19 OK, 1 fallidas, 0 omitidas.
+    ### movil · [CA-1] si el profesor oculta las notas la sección no las filtra
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    29 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+    - Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_submitbutton')
+        - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+        - retrying click action
+          - waiting 100ms
+        29 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - element is outside of the viewport
+         - retrying click action
+           - waiting 500ms
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f8e1]:
+      - status
+      - generic [ref=f8e2]:
+        - link "Salta al contenido principal" [ref=f8e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f8e4]:
+          - generic [ref=f8e5]:
+            - button "Panel lateral" [ref=f8e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f8e9]:
+              - generic [ref=f8e12]:
+                - switch "Modo de edición" [ref=f8e13] [cursor=pointer]
+                - generic [ref=f8e14] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f8e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f8e25]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f8e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f8e28]: 
+              - button "Menú de usuario" [ref=f8e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f8e38]: PP
+                - text: 
+        - generic [ref=f8e39]:
+          - generic [ref=f8e40]:
+            - button "Abrir índice del curso" [ref=f8e42] [cursor=pointer]
+            - banner [ref=f8e46]:
+              - generic [ref=f8e47]:
+                - navigation "Camino de migas" [ref=f8e50]:
+                  - list [ref=f8e51]:
+                    - listitem [ref=f8e52]:
+                      - link "QA101" [ref=f8e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f8e54]:
+                      - text: /
+                      - link "General" [ref=f8e55] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f8e56]:
+                      - text: /
+                      - generic [ref=f8e57]: Examen de regresión
+                - heading "Examen de regresión" [level=1] [ref=f8e66]
+            - navigation "Menú de Actividad" [ref=f8e69]:
+              - menubar [ref=f8e70]:
+                - menuitem "Cuestionario" [ref=f8e71] [cursor=pointer]
+                - menuitem "Configuración" [ref=f8e74] [cursor=pointer]
+                - menuitem "Más " [ref=f8e76] [cursor=pointer]:
+                  - generic [ref=f8e77]: Más
+                  - text: 
+            - generic [ref=f8e80]:
+              - paragraph [ref=f8e87]: Examen de práctica con preguntas de álgebra, geometría e historia.
+              - main [ref=f8e88]:
+                - button "Vista previa del cuestionario" [ref=f8e94] [cursor=pointer]
+                - paragraph [ref=f8e96]: "Método de calificación: Calificación más alta"
+                - 'link "Intentos: 10" [ref=f8e98] [cursor=pointer]':
+                  - /url: http://localhost:8090/mod/quiz/report.php?id=2&mode=overview
+                - link "Siguiente" [ref=f8e105] [cursor=pointer]:
+                  - /url: http://localhost:8090/r.php/course/cms/2/next
+                  - generic [aria-hidden] [ref=f8e108]: 
+                  - text: 
+          - contentinfo [ref=f8e109]:
+            - generic: "?"
+            - generic [ref=f8e110]:
+              - generic [ref=f8e111]:
+                - link "Documentación para esta página" [ref=f8e113] [cursor=pointer]:
+                  - /url: https://docs.moodle.org/503/es/mod/quiz/view
+                  - generic [aria-hidden] [ref=f8e114]: 
+                  - text: Documentación para esta página
+                - link "Contactar con el soporte del sitio" [ref=f8e116] [cursor=pointer]:
+                  - /url: http://localhost:8090/user/contactsitesupport.php
+                  - generic [aria-hidden] [ref=f8e117]: 
+                  - text: Contactar con el soporte del sitio
+              - generic [ref=f8e118]:
+                - generic [ref=f8e120]:
+                  - text: Usted se ha identificado como
+                  - link "Paula Profesora" [ref=f8e121] [cursor=pointer]:
+                    - /url: http://localhost:8090/user/profile.php?id=3
+                  - text: (
+                  - link "Cerrar sesión" [ref=f8e122] [cursor=pointer]:
+                    - /url: http://localhost:8090/login/logout.php?sesskey=caOBlFt4WY
+                  - text: )
+                - link "Resumen de retención de datos" [ref=f8e125] [cursor=pointer]:
+                  - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+                - link "Cambiar al tema estándar" [ref=f8e127] [cursor=pointer]:
+                  - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fmod%2Fquiz%2Fview.php%3Fid%3D2&device=default&sesskey=caOBlFt4WY
+              - generic [ref=f8e129]
+[2026-11-02T18:09:16.622Z] [reintento] Intento 3 no quedó verde. Se le pide a la IA que corrija (3/3).
+[2026-11-02T18:09:16.623Z] [ia:corrector] Llamada 03 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-3/**), Edit(salidas/spec-3/**))
+    prompt: corridas/20261102-173904-spec-3/ia/03-corrector.prompt.md
+[2026-11-02T18:10:26.224Z] [uso-ia] Ventana de 5 h: 70 % usado (se reinicia 2026-11-02T22:10:00.000Z).
+[2026-11-02T18:10:26.224Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T18:10:26.224Z] [ia:corrector] Fin llamada 03: OK en 70s, costo USD 0.44
+    respuesta final:
+    **Causa raíz:** es un problema de la prueba, no del plugin. Sin poder ejecutar nada en esta sesión, no pude confirmar el mecanismo exacto, así que el arreglo es una hipótesis sin probar.
+    
+    - **Qué se ve:** en el viewport móvil, `#id_submitbutton` ("Guardar cambios y mostrar") del formulario de edición del quiz se resuelve y se reporta como visible, habilitado y estable. Aun así Playwright lo da por "outside of the viewport" tras cada scroll, y el click vence a los 15 s.
+    - **Por qué creo que es de la prueba:** el fallo ocurre al guardar la configuración de revisión, antes de que el estudiante llegue a ver la sección. El plugin no interviene en ese paso. La captura final muestra `view.php` del profesor, así que la pantalla de guardado funciona.
+    - **Lo que no pude averiguar:** por qué el botón queda fuera del viewport. Mi sospecha es la barra pegajosa del formulario con las secciones desplegadas, pero no abrí el trace. Esta es la tercera corrida con el mismo fallo.
+    - **Sobre los helpers:** `login()` y `prepararCaptura()` no tienen que ver con este fallo, así que no hay nada que pasarle a la fábrica por ahí.
+    
+    **Qué cambié (solo en `salidas/spec-3/pruebas/`):**
+    - `soporte.ts`: agregué `guardarEdicion(page)`. Hace `dispatchEvent('click')` sobre `#id_submitbutton` y exige `toHaveURL(/mod\/quiz\/view\.php\?id=\d+/)`. El evento activa el envío del formulario sin depender de la geometría del botón.
+    - `01-resumen-por-tema.spec.ts`: la prueba de notas ocultas usa `guardarEdicion` en las dos llamadas de guardado, el `try` y el `finally`. Quité el import de `guardarExamen`, que ya no se usa ahí.
+    - No toqué ninguna aserción: siguen el `toHaveCount(0)` de la sección, `Estado = Finalizado`, `Puntos` ausente y el try/finally que restaura la configuración. La intensidad de la verificación es la misma.
+    - No toqué `guardarExamen` de `spec-0/pruebas/soporte.ts`, porque está fuera de mi alcance de escritura.
+    
+    **Si vuelve a fallar:** en ese caso el arreglo no es suficiente y habrá que revisar el `trace.zip` de la corrida. La causa sería de entorno o de helper, y la tendría que arreglar la fábrica.
+[2026-11-02T18:10:33.198Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T18:10:35.372Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T18:19:19.646Z] [pruebas] Intento 4: 20 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T18:19:22.270Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T18:27:25.473Z] [mutacion] Sin la funcionalidad: 16 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T18:43:35.076Z] [visual] Cambios visuales declarados por el plan (spec-0-cierre, spec-0-crear-examen): se proponen 4 líneas base, pendientes de aprobación humana.
+    visual/lineas-base/spec-0-crear-examen--escritorio.png
+    visual/lineas-base/spec-0-crear-examen--movil.png
+    visual/lineas-base/spec-0-cierre-calificado--escritorio.png
+    visual/lineas-base/spec-0-cierre-calificado--movil.png
+[2026-11-02T18:43:35.107Z] [visual] Imágenes esperada/obtenida/diferencia copiadas a visual/diferencias/20261102-173904-spec-3/
+[2026-11-02T18:58:35.849Z] [regresion] Suite completa: 27 OK, 2 fallidas, 1 omitidas.
+    ### escritorio · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      30391 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-0-examen-estudiante.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-examen-estudiante.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 30391 pixels (ratio 0.03 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 30391 pixels (ratio 0.03 of all image pixels) are different.[22m
+    
+    
+    ### movil · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-resumen-envio.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-resumen-envio.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 4920 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 4920 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts >> [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    - Location: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      30391 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-0-examen-estudiante.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-examen-estudiante.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 30391 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 30391 pixels (ratio 0.03 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Salta al contenido principal" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - link "Viaro" [ref=f3e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f3e9]:
+              - menuitem "Área personal" [ref=f3e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f3e12]:
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f3e14] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e15]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f3e17] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e18]: 
+              - button "Menú de usuario" [ref=f3e24] [cursor=pointer]:
+                - img "Estudiante Número 1" [ref=f3e28]: EN
+                - generic [aria-hidden] [ref=f3e29]: Estudiante
+                - text: 
+        - generic [ref=f3e30]:
+          - generic [ref=f3e31]:
+            - generic [ref=f3e32]:
+              - link "Curso QA de Exámenes" [ref=f3e35] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Cerrar el índice del curso" [ref=f3e37] [cursor=pointer]
+            - generic [ref=f3e41]:
+              - separator [ref=f3e42]
+              - button [expanded] [ref=f3e43] [cursor=pointer]:
+                - generic [ref=f3e44]:
+                  - generic [aria-hidden] [ref=f3e45]: 
+                  - text: Colapsar todo
+                - text: 
+          - navigation [ref=f3e47]:
+            - tree [ref=f3e49]:
+              - treeitem [expanded] [selected] [ref=f3e50]:
+                - generic [ref=f3e51]:
+                  - link "Colapsar" [expanded] [ref=f3e52] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e53]:
+                      - generic [aria-hidden] [ref=f3e54]: 
+                  - link "General" [ref=f3e56] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f3e57]:
+                  - group [ref=f3e58]:
+                    - treeitem [ref=f3e59]:
+                      - link "Examen de regresión" [ref=f3e60] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f3e61]:
+                - generic [ref=f3e62]:
+                  - link "Colapsar" [expanded] [ref=f3e63] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e64]:
+                      - generic [aria-hidden] [ref=f3e65]: 
+                  - link "Nueva sección" [ref=f3e67] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e68]:
+                - generic [ref=f3e69]:
+                  - link "Colapsar" [expanded] [ref=f3e70] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e71]:
+                      - generic [aria-hidden] [ref=f3e72]: 
+                  - link "Nueva sección" [ref=f3e74] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e75]:
+                - generic [ref=f3e76]:
+                  - link "Colapsar" [expanded] [ref=f3e77] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e78]:
+                      - generic [aria-hidden] [ref=f3e79]: 
+                  - link "Nueva sección" [ref=f3e81] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e82]:
+                - generic [ref=f3e83]:
+                  - link "Colapsar" [expanded] [ref=f3e84] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e85]:
+                      - generic [aria-hidden] [ref=f3e86]: 
+                  - link "Nueva sección" [ref=f3e88] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e89]:
+                - generic [ref=f3e90]:
+                  - link "Colapsar" [expanded] [ref=f3e91] [cursor=pointer]:
+                    - /url
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts >> [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    - Location: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-resumen-envio.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-resumen-envio.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f9e1]:
+      - status
+      - generic [ref=f9e2]:
+        - link "Salta al contenido principal" [ref=f9e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f9e4]:
+          - generic [ref=f9e5]:
+            - button "Panel lateral" [ref=f9e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f9e9]:
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f9e11] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f9e12]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f9e14] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f9e15]: 
+              - button "Menú de usuario" [ref=f9e21] [cursor=pointer]:
+                - img "Estudiante Número 2" [ref=f9e25]: EN
+                - text: 
+        - generic [ref=f9e26]:
+          - generic [ref=f9e27]:
+            - banner [ref=f9e28]:
+              - generic [ref=f9e29]:
+                - navigation "Camino de migas" [ref=f9e32]:
+                  - list [ref=f9e33]:
+                    - listitem [ref=f9e34]:
+                      - link "QA101" [ref=f9e35] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f9e36]:
+                      - text: /
+                      - link "General" [ref=f9e37] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f9e38]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f9e39] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f9e40]:
+                      - text: /
+                      - generic [ref=f9e41]: Resumen del intento
+                - heading "Examen de regresión" [level=1] [ref=f9e50]
+            - main [ref=f9e55]:
+              - link "Atrás" [ref=f9e59] [cursor=pointer]:
+                - /url: http://localhost:8090/mod/quiz/view.php?id=2
+              - heading "Examen de regresión" [level=2] [ref=f9e60]
+              - heading "Resumen del intento" [level=3] [ref=f9e61]
+              - table [ref=f9e63]:
+                - rowgroup [ref=f9e64]:
+                  - row [ref=f9e65]:
+                    - columnheader "Pregunta" [ref=f9e66]
+                    - columnheader "Estatus" [ref=f9e67]
+                - rowgroup [ref=f9e68]:
+                  - row [ref=f9e69]:
+                    - rowheader [ref=f9e70]
+                  - row [ref=f9e71]:
+                    - cell [ref=f9e72]:
+                      - link "1" [ref=f9e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2#
+                    - cell "Respuesta guardada" [ref=f9e74]
+                  - row [ref=f9e75]:
+                    - cell [ref=f9e76]:
+                      - link "2" [ref=f9e77] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2#question-425-2
+                    - cell "Respuesta guardada" [ref=f9e78]
+                  - row [ref=f9e79]:
+                    - cell [ref=f9e80]:
+                      - link "3" [ref=f9e81] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2&page=1#
+                    - cell "Respuesta guardada" [ref=f9e82]
+                  - row [ref=f9e83]:
+                    - cell [ref=f9e84]:
+                      - link "4" [ref=f9e85] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2&page=1#question-425-4
+                    - cell "Respuesta guardada" [ref=f9e86]
+                  - row [ref=f9e87]:
+                    - cell [ref=f9e88]:
+                      - link "5" [ref=f9e89] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2&page=2#
+                    - cell "Respuesta guardada" [ref=f9e90]
+                  - row [ref=f9e91]:
+                    - cell [ref=f9e92]:
+                      - link "6" [ref=f9e93] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=425&cmid=2&page=2#question-425-6
+                    - cell "Sin responder aún" [ref=f9e94]
+              - button "Volver al intento" [ref=f9e99] [cursor=pointer]
+              - button "Enviar todo y terminar" [ref=f9e104] [cursor=pointer]
+          - contentinfo [ref=f9e105]:
+            - generic [ref=f9e106]:
+              - link "Contactar con el soporte del sitio" [ref=f9e109] [cursor=pointer]:
+                - /url: http://localhost:8090/user/contactsitesupport.php
+                - generic [aria-hidden] [ref=f9e110]: 
+                - text: Contactar con el soporte del sitio
+              - generic [ref=f9e111]:
+                - generic [ref=f9e113]:
+                  - text: Usted se ha identificado como
+                  - link "Estudiante Número 2" [ref=f9e114] [cursor=pointer]:
+                    - /url: http://localhost:8090/user
+[2026-11-02T18:58:35.866Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-3-cierre-pendiente--escritorio.png, spec-3-cierre-pendiente--movil.png, spec-3-cierre-por-tema--escritorio.png, spec-3-cierre-por-tema--movil.png, spec-3-formulario--escritorio.png, spec-3-formulario--movil.png
+[2026-11-02T18:58:36.441Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T18:58:36.595Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T18:58:36.595Z] [regresion] DETENIDO: La regresión completa tiene fallos. No se abre PR.

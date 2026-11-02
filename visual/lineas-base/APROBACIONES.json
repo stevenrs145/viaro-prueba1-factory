@@ -32,36 +32,44 @@
     "fecha": "2026-11-02T15:06:34.406Z"
   },
   "spec-0-cierre-calificado--escritorio.png": {
-    "sha256": "ee749ec33b007c144413c8d5ba667c928393ae2e9388d42c97f0e5653bd87d10",
-    "origen": "humano",
-    "estado": "aprobada",
+    "sha256": "b05350b387e75613d4aed15e56e1e9430551a0dc9e73919b8d1ea18a215bc4db",
+    "origen": "pipeline",
+    "estado": "propuesta-cambio",
     "aprobado_por": "Steven",
-    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
-    "fecha": "2026-11-02T15:06:34.407Z"
+    "razon": "Cambio visual declarado por spec-3 (pantallas_afectadas)",
+    "fecha": "2026-11-02T18:43:35.075Z",
+    "spec": "spec-3",
+    "reemplaza": "ee749ec33b007c144413c8d5ba667c928393ae2e9388d42c97f0e5653bd87d10"
   },
   "spec-0-cierre-calificado--movil.png": {
-    "sha256": "01ecef3d7733a550d7a311b618d1e1f209adc3dae55001aa65286b6eb1edec59",
-    "origen": "humano",
-    "estado": "aprobada",
+    "sha256": "31d05b306826a15d107bd2b7a01445c962e2ae80fd86df40b413a865c3b46bdd",
+    "origen": "pipeline",
+    "estado": "propuesta-cambio",
     "aprobado_por": "Steven",
-    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
-    "fecha": "2026-11-02T15:06:34.407Z"
+    "razon": "Cambio visual declarado por spec-3 (pantallas_afectadas)",
+    "fecha": "2026-11-02T18:43:35.076Z",
+    "spec": "spec-3",
+    "reemplaza": "01ecef3d7733a550d7a311b618d1e1f209adc3dae55001aa65286b6eb1edec59"
   },
   "spec-0-crear-examen--escritorio.png": {
-    "sha256": "763da10aa08f2b10ed3fecf79dc126fca945fce2d2a956b4f47862f3e723d602",
-    "origen": "humano",
-    "estado": "aprobada",
+    "sha256": "60b4d143cd3ff9007fc97e5eecad75b44f6cd8a360334cced0baf5e30458fc43",
+    "origen": "pipeline",
+    "estado": "propuesta-cambio",
     "aprobado_por": "Steven",
-    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
-    "fecha": "2026-11-02T15:06:34.408Z"
+    "razon": "Cambio visual declarado por spec-3 (pantallas_afectadas)",
+    "fecha": "2026-11-02T18:43:35.074Z",
+    "spec": "spec-3",
+    "reemplaza": "763da10aa08f2b10ed3fecf79dc126fca945fce2d2a956b4f47862f3e723d602"
   },
   "spec-0-crear-examen--movil.png": {
-    "sha256": "2bf1d01b4972d8d190ab33611625783b4ec98b783c43c83dcfa3b696202eb383",
-    "origen": "humano",
-    "estado": "aprobada",
+    "sha256": "8220868922e710e9e20897e3dd44985a098b1e15b0509553dacd01818ee0c1c9",
+    "origen": "pipeline",
+    "estado": "propuesta-cambio",
     "aprobado_por": "Steven",
-    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
-    "fecha": "2026-11-02T15:06:34.408Z"
+    "razon": "Cambio visual declarado por spec-3 (pantallas_afectadas)",
+    "fecha": "2026-11-02T18:43:35.075Z",
+    "spec": "spec-3",
+    "reemplaza": "2bf1d01b4972d8d190ab33611625783b4ec98b783c43c83dcfa3b696202eb383"
   },
   "spec-0-examen-estudiante--escritorio.png": {
     "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
@@ -110,5 +118,53 @@
     "aprobado_por": "Steven",
     "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
     "fecha": "2026-11-02T15:06:34.410Z"
+  },
+  "spec-3-cierre-pendiente--escritorio.png": {
+    "sha256": "52ca82644749b61f8127da41c956c8d7ab794fb2314c6e44d28f18025791f89c",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.856Z"
+  },
+  "spec-3-cierre-pendiente--movil.png": {
+    "sha256": "90e36b886b6b7c1f5067e1b00629474a23b275f0f56e9a7d337167c88d79c598",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.858Z"
+  },
+  "spec-3-cierre-por-tema--escritorio.png": {
+    "sha256": "b8bbf851a3f456a9cc864de6ba0e8263cd0606f95471e553314dd310ce1967b1",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.860Z"
+  },
+  "spec-3-cierre-por-tema--movil.png": {
+    "sha256": "67766350ea0eda5c87fe492827ba15c4426d2f2c26d9ab628cbe46c14259ea93",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.862Z"
+  },
+  "spec-3-formulario--escritorio.png": {
+    "sha256": "60b4d143cd3ff9007fc97e5eecad75b44f6cd8a360334cced0baf5e30458fc43",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.864Z"
+  },
+  "spec-3-formulario--movil.png": {
+    "sha256": "8220868922e710e9e20897e3dd44985a098b1e15b0509553dacd01818ee0c1c9",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-3",
+    "razon": "Pantalla nueva introducida por spec-3",
+    "fecha": "2026-11-02T18:58:35.865Z"
   }
 }

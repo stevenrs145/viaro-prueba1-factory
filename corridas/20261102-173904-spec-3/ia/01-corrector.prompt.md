@@ -1,0 +1,813 @@
+Sos el CORRECTOR de una fábrica de software sobre Moodle 5.3. La implementación de `salidas/spec-3/` no pasó la validación
+(intento 1). Escribís SOLO dentro de `salidas/spec-3/`. Podés leer `entorno/.moodle-src/` y `factory/regresion/`.
+
+# Qué falló (salida real del pipeline)
+### escritorio · [CA-1] si el profesor oculta las notas la sección no las filtra
+Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+Locator: locator('#id_introeditor_ifr')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+[2m  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms[22m
+[2m  - waiting for locator('#id_introeditor_ifr')[22m
+
+
+### movil · [CA-1] si el profesor oculta las notas la sección no las filtra
+Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+Locator: locator('#id_introeditor_ifr')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+[2m  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms[22m
+[2m  - waiting for locator('#id_introeditor_ifr')[22m
+
+
+### escritorio · [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature
+Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+Locator: locator('li .card table')
+Expected substring: [32m"Finalizado"[39m
+Error: strict mode violation: locator('li .card table') resolved to 5 elements:
+    1) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 5' })
+    2) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 4' })
+    3) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 3' })
+    4) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 2' })
+    5) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 1' })
+
+Call log:
+[2m  - Expect "toContainText" locator('li .card table') with timeout 5000ms[22m
+[2m  - waiting for locator('li .card table')[22m
+
+
+### movil · [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature
+Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+Locator: locator('li .card table')
+Expected substring: [32m"Finalizado"[39m
+Error: strict mode violation: locator('li .card table') resolved to 5 elements:
+    1) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 5' })
+    2) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 4' })
+    3) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 3' })
+    4) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 2' })
+    5) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 1' })
+
+Call log:
+[2m  - Expect "toContainText" locator('li .card table') with timeout 5000ms[22m
+[2m  - waiting for locator('li .card table')[22m
+
+
+### escritorio · [CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando
+Error: locator.press: Error: strict mode violation: locator('a.mod_quiz-next-nav') resolved to 2 elements:
+    1) <a tabindex="-1" class="mod_quiz-next-nav" data-aria-hidden-tab-index="" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka locator('#mod_quiz_navblock').getByText('Finalizar revisión')
+    2) <a class="mod_quiz-next-nav" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka getByRole('link', { name: 'Finalizar revisión' })
+
+Call log:
+[2m  - waiting for locator('a.mod_quiz-next-nav')[22m
+
+
+### movil · [CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando
+Error: locator.press: Error: strict mode violation: locator('a.mod_quiz-next-nav') resolved to 2 elements:
+    1) <a tabindex="-1" class="mod_quiz-next-nav" data-aria-hidden-tab-index="" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka locator('#mod_quiz_navblock').getByText('Finalizar revisión')
+    2) <a class="mod_quiz-next-nav" href="http://localhost:8090/mod/quiz/view.php?id=2">Finalizar revisión</a> aka getByRole('link', { name: 'Finalizar revisión' })
+
+Call log:
+[2m  - waiting for locator('a.mod_quiz-next-nav')[22m
+
+
+## Estado de la página al fallar (ARIA)
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+- Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('#id_introeditor_ifr')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms
+  - waiting for locator('#id_introeditor_ifr')
+
+```
+
+```yaml
+- status
+- link "Salta al contenido principal":
+  - /url: "#maincontent"
+- navigation "Navegación del sitio":
+  - link "Viaro":
+    - /url: http://localhost:8090/my/
+  - menubar:
+    - menuitem "Área personal"
+  - switch "Modo de edición"
+  - text: Modo de edición
+  - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+  - button "Mostrar/ocultar cajón de mensajería"
+  - button "Menú de usuario":
+    - img "Paula Profesora": PP
+    - text: 
+- button "Abrir índice del curso"
+- banner:
+  - navigation "Camino de migas":
+    - list:
+      - listitem:
+        - link "QA101":
+          - /url: http://localhost:8090/course/view.php?id=2
+      - listitem:
+        - text: /
+        - link "General":
+          - /url: http://localhost:8090/course/section.php?id=1
+      - listitem:
+        - text: /
+        - link "Examen de regresión":
+          - /url: http://localhost:8090/mod/quiz/view.php?id=2
+      - listitem: / Configuración
+  - heading "Examen de regresión" [level=1]
+- navigation "Menú de Actividad":
+  - menubar:
+    - menuitem "Cuestionario"
+    - menuitem "Configuración"
+    - menuitem "Preguntas"
+    - menuitem "Resultados"
+    - menuitem "Banco de preguntas"
+    - menuitem "Más "
+- main:
+  - heading "Editar ajustes" [level=2]
+  - button "Expandir todo"
+  - group "General":
+    - text: General
+    - button "General" [expanded]
+    - text: Nombre
+    - textbox "Nombre": Examen de regresión
+    - text: Descripción
+    - textbox "Descripción": <p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>
+    - text: Formato Descripción
+    - combobox "Formato Descripción":
+      - option "Formato HTML"
+      - option "Formato automático" [selected]
+      - option "Formato de texto plano"
+      - option "Formato Markdown"
+    - checkbox "Muestra la descripción en la página del curso"
+    - text: Muestra la descripción en la página del curso
+    - button "Ayuda":
+      - img "Ayuda con Muestra la descripción en la página del curso": 
+  - group "Temporalización":
+    - text: Temporalización
+    - button "Temporalización"
+  - group "Calificación":
+    - text: Calificación
+    - button "Calificación"
+  - group "Esquema":
+    - text: Esquema
+    - button "Esquema"
+  - group "Comportamiento de las preguntas":
+    - text: Comportamiento de las preguntas
+    - button "Comportamiento de las preguntas"
+  - group "Opciones de revisión":
+    - text: Opciones de revisión
+    - button "Opciones de revisión"
+    - button "Ayuda":
+      - img "Ayuda con Opciones de revisión": 
+  - group "Apariencia":
+    - text: Apariencia
+    - button "Apariencia"
+  - group "Safe Exam Browser":
+    - text: Safe Exam Browser
+    - button "Safe Exam Browser"
+  - group "Restricciones extra sobre los intentos":
+    - text: Restricciones extra sobre los intentos
+    - button "Restricciones extra sobre los intentos"
+  - group "Ajustes comunes del módulo":
+    - text: Ajustes comunes del módulo
+    - button "Ajustes comunes del módulo"
+  - group "Restricciones de acceso":
+    - text: Restricciones de acceso
+    - button "Restricciones de acceso"
+  - group "Marcas":
+    - text: Marcas
+    - button "Marcas"
+  - group "Competencias":
+    - text: Competencias
+    - button "Competencias"
+  - checkbox "Enviar notificación de actualización de contenido"
+  - text: Enviar notificación de actualización de contenido
+  - button "Ayuda":
+    - img "Ayuda con Enviar notificación de actualización de contenido": 
+  - button "Guardar cambios y regresar al curso"
+  - button "Guardar cambios y mostrar"
+  - button "Cancelar"
+- contentinfo:
+  - button "Mostrar pie de página"
+```
+
+# Test source
+
+```ts
+  1  | // Soporte de las pruebas de spec-3. Reutiliza factory/regresion/helpers.ts y el soporte aprobado de spec-0; acá solo está lo
+  2  | // propio de este spec. Las aserciones que deciden si un criterio se cumple están en los .spec.ts.
+  3  | import { expect, type Locator, type Page } from '@playwright/test';
+  4  | import {
+  5  |   abrirQuiz, botonIntento, elegir, enviarIntento, escribirEnsayo, esperarJS, siguientePagina,
+  6  | } from '../../../factory/regresion/helpers';
+  7  | import { ESPERA_EDITOR, idIntento } from '../../spec-0/pruebas/soporte';
+  8  | 
+  9  | /** Rango asignado a spec-3. Cada prueba hace su propio intento: QUIZ-REG admite intentos ilimitados. */
+  10 | export const estudianteDe = (isMobile: boolean) => (isMobile ? 'estudiante10' : 'estudiante9');
+  11 | 
+  12 | export const seccionTemas = (page: Page): Locator => page.locator('#local-resumentema');
+  13 | export const filasTemas = (page: Page): Locator => seccionTemas(page).locator('tbody tr');
+  14 | export const celdasTema = (page: Page, posicion: number): Locator => filasTemas(page).nth(posicion).locator('td');
+  15 | 
+  16 | /** Selectores de lo que retira el plugin. Van por id: los campos ocultos que exige el core usan el nombre feedbacktext. */
+  17 | export const OPCIONES_RETIRADAS = [
+  18 |   '#id_overallfeedbackhdr',
+  19 |   '#id_boundary_add_fields',
+  20 |   '#id_overallfeedbackduring',
+  21 |   '#id_overallfeedbackimmediately',
+  22 |   '#id_overallfeedbackopen',
+  23 |   '#id_overallfeedbackclosed',
+  24 | ];
+  25 | 
+  26 | /**
+  27 |  * Hace un intento completo en QUIZ-REG y queda en la pantalla de cierre. Las preguntas 1, 2, 4 y 5 se responden 
+---
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts >> [CA-1] si el profesor oculta las notas la sección no las filtra
+- Location: salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:70:1
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('#id_introeditor_ifr')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" locator('#id_introeditor_ifr') with timeout 30000ms
+  - waiting for locator('#id_introeditor_ifr')
+
+```
+
+```yaml
+- status
+- link "Salta al contenido principal":
+  - /url: "#maincontent"
+- navigation "Navegación del sitio":
+  - button "Panel lateral"
+  - switch "Modo de edición"
+  - text: Modo de edición
+  - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+  - button "Mostrar/ocultar cajón de mensajería"
+  - button "Menú de usuario":
+    - img "Paula Profesora": PP
+    - text: 
+- button "Abrir índice del curso"
+- banner:
+  - navigation "Camino de migas":
+    - list:
+      - listitem:
+        - link "QA101":
+          - /url: http://localhost:8090/course/view.php?id=2
+      - listitem:
+        - text: /
+        - link "General":
+          - /url: http://localhost:8090/course/section.php?id=1
+      - listitem:
+        - text: /
+        - link "Examen de regresión":
+          - /url: http://localhost:8090/mod/quiz/view.php?id=2
+      - listitem: / Configuración
+  - heading "Examen de regresión" [level=1]
+- navigation "Menú de Actividad":
+  - menubar:
+    - menuitem "Cuestionario"
+    - menuitem "Configuración"
+    - menuitem "Más "
+- main:
+  - heading "Editar ajustes" [level=2]
+  - button "Expandir todo"
+  - group "General":
+    - text: General
+    - button "General" [expanded]
+    - text: Nombre
+    - textbox "Nombre": Examen de regresión
+    - text: Descripción
+    - textbox "Descripción": <p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>
+    - text: Formato Descripción
+    - combobox "Formato Descripción":
+      - option "Formato HTML"
+      - option "Formato automático" [selected]
+      - option "Formato de texto plano"
+      - option "Formato Markdown"
+    - checkbox "Muestra la descripción en la página del curso"
+    - text: Muestra la descripción en la página del curso
+    - button "Ayuda":
+      - img "Ayuda con Muestra la descripción en la página del curso": 
+  - group "Temporalización":
+    - text: Temporalización
+    - button "Temporalización"
+  - group "Calificación":
+    - text: Calificación
+    - button "Calificación"
+  - group "Esquema":
+    - text: Esquema
+    - button "Esquema"
+  - group "Comportamiento de las preguntas":
+    - text: Comportamiento de las preguntas
+    - button "Comportamiento de las preguntas"
+  - group "Opciones de revisión":
+    - text: Opciones de revisión
+    - button "Opciones de revisión"
+    - button "Ayuda":
+      - img "Ayuda con Opciones de revisión": 
+  - group "Apariencia":
+    - text: Apariencia
+    - button "Apariencia"
+  - group "Safe Exam Browser":
+    - text: Safe Exam Browser
+    - button "Safe Exam Browser"
+  - group "Restricciones extra sobre los intentos":
+    - text: Restricciones extra sobre los intentos
+    - button "Restricciones extra sobre los intentos"
+  - group "Ajustes comunes del módulo":
+    - text: Ajustes comunes del módulo
+    - button "Ajustes comunes del módulo"
+  - group "Restricciones de acceso":
+    - text: Restricciones de acceso
+    - button "Restricciones de acceso"
+  - group "Marcas":
+    - text: Marcas
+    - button "Marcas"
+  - group "Competencias":
+    - text: Competencias
+    - button "Competencias"
+  - checkbox "Enviar notificación de actualización de contenido"
+  - text: Enviar notificación de actualización de contenido
+  - button "Ayuda":
+    - img "Ayuda con Enviar notificación de actualización de contenido": 
+  - button "Guardar cambios y regresar al curso"
+  - button "Guardar cambios y mostrar"
+  - button "Cancelar"
+- contentinfo:
+  - link "Documentación para esta página":
+    - /url: https://docs.moodle.org/503/es/mod/quiz/mod
+  - link "Contactar con el soporte del sitio":
+    - /url: http://localhost:8090/user/contactsitesupport.php
+  - text: Usted se ha identificado como
+  - link "Paula Profesora":
+    - /url: http://localhost:8090/user/profile.php?id=3
+  - text: (
+  - link "Cerrar sesión":
+    - /url: http://localhost:8090/login/logout.php?sesskey=HhR9AovZac
+  - text: )
+  - link "Resumen de retención de datos":
+    - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+  - link "Cambiar al tema estándar":
+    - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fcourse%2Fmodedit.php%3Freturn%3D1%26amp%3Bupdate%3D2&device=default&sesskey=HhR9AovZac
+  - text: Desarrollado por
+  - link "Moodle":
+    - /url: https://moodle.com
+```
+
+# Test source
+
+```ts
+  1  | // Soporte de las pruebas de spec-3. Reutiliza factory/regresion/helpers.ts y el soporte aprobado de spec-0; acá solo está lo
+  2  | // propio de este spec. Las aserciones que deciden si un criterio se cumple están en los .spec.ts.
+  3  | import { expect, type Locator, type Page } from '@playwright/test';
+  4  | import {
+  5  |   abrirQuiz, botonIntento, elegir, enviarIntento, escribirEnsayo, esperarJS, siguientePagina,
+  6  | } from '../../../factory/regresion/helpers';
+  7  | import { ESPERA_EDITOR, idIntento } from '../../spec-0/pruebas/soporte';
+  8  | 
+  9  | /** Rango asignado a spec-3. Cada prueba hace su propio intento: QUIZ-REG admite intentos ilimitados. */
+  10 | export const estudianteDe = (isMobile: boolean) => (isMobile ? 'estudiante10' : 'estudiante9');
+  11 | 
+  12 | export const seccionTemas = (page: Page): Locator => page.locator('#local-resumentema');
+  13 | export const filasTemas = (page: Page): Locator => seccionTemas(page).locator('tbody tr');
+  14 | export const c
+---
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: salidas/spec-3/pruebas/02-retro-eliminada.spec.ts >> [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature
+- Location: salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:23:1
+
+# Error details
+
+```
+Error: expect(locator).toContainText(expected) failed
+
+Locator: locator('li .card table')
+Expected substring: "Finalizado"
+Error: strict mode violation: locator('li .card table') resolved to 5 elements:
+    1) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 5' })
+    2) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 4' })
+    3) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 3' })
+    4) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 2' })
+    5) <table class="table generaltable generalbox quizreviewsummary mb-0">…</table> aka getByRole('table', { name: 'Resumen de intento 1' })
+
+Call log:
+  - Expect "toContainText" locator('li .card table') with timeout 5000ms
+  - waiting for locator('li .card table')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f10e1]:
+  - status
+  - generic [ref=f10e2]:
+    - link "Salta al contenido principal" [ref=f10e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio" [ref=f10e4]:
+      - generic [ref=f10e5]:
+        - link "Viaro" [ref=f10e6] [cursor=pointer]:
+          - /url: http://localhost:8090/my/
+        - menubar [ref=f10e9]:
+          - menuitem "Área personal" [ref=f10e10] [cursor=pointer]
+          - text: 
+        - generic [ref=f10e12]:
+          - button "Mostrar la ventana de notificaciones con 1 notificaciones nuevas" [ref=f10e14] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f10e15]: 
+            - generic [aria-hidden] [ref=f10e16]: "1"
+          - button "Mostrar/ocultar cajón de mensajería" [ref=f10e18] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f10e19]: 
+          - button "Menú de usuario" [ref=f10e25] [cursor=pointer]:
+            - img "Estudiante Número 9" [ref=f10e29]: EN
+            - generic [aria-hidden] [ref=f10e30]: Estudiante
+            - text: 
+    - generic [ref=f10e31]:
+      - generic [ref=f10e32]:
+        - button "Abrir índice del curso" [ref=f10e34] [cursor=pointer]
+        - banner [ref=f10e38]:
+          - generic [ref=f10e39]:
+            - navigation "Camino de migas" [ref=f10e42]:
+              - list [ref=f10e43]:
+                - listitem [ref=f10e44]:
+                  - link "QA101" [ref=f10e45] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/view.php?id=2
+                - listitem [ref=f10e46]:
+                  - text: /
+                  - link "General" [ref=f10e47] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                - listitem [ref=f10e48]:
+                  - text: /
+                  - generic [ref=f10e49]: Examen de regresión
+            - heading "Examen de regresión" [level=1] [ref=f10e58]
+        - generic [ref=f10e61]:
+          - paragraph [ref=f10e68]: Examen de práctica con preguntas de álgebra, geometría e historia.
+          - main [ref=f10e69]:
+            - button "Reintentar el cuestionario" [ref=f10e75] [cursor=pointer]
+            - paragraph [ref=f10e77]: "Método de calificación: Calificación más alta"
+            - 'heading "Calificación más alta: 9,17 / 10,00." [level=3] [ref=f10e79]'
+            - heading "Sus intentos" [level=3] [ref=f10e80]
+            - list [ref=f10e81]:
+              - listitem [ref=f10e82]:
+                - generic [ref=f10e83]:
+                  - heading "Intento 5" [level=4] [ref=f10e85]
+                  - table [ref=f10e86]:
+                    - caption [ref=f10e87]: Resumen de intento 5
+                    - rowgroup [ref=f10e88]:
+                      - row [ref=f10e89]:
+                        - rowheader "Estado" [ref=f10e90]
+                        - cell "Finalizado" [ref=f10e91]
+                      - row [ref=f10e92]:
+                        - rowheader "Comenzado" [ref=f10e93]
+                        - cell "lunes, 2 de noviembre de 2026, 17:43" [ref=f10e94]
+                      - row [ref=f10e95]:
+                        - rowheader "Completado" [ref=f10e96]
+                        - cell "lunes, 2 de noviembre de 2026, 17:43" [ref=f10e97]
+                      - row [ref=f10e98]:
+                        - rowheader "Duración" [ref=f10e99]
+                        - cell "9 segundos" [ref=f10e100]
+                      - row [ref=f10e101]:
+                        - rowheader "Puntos" [ref=f10e102]
+                        - cell "5,00/6,00" [ref=f10e103]
+                      - row [ref=f10e104]:
+                        - rowheader "Calificación" [ref=f10e105]
+                        - cell "8,33 de 10,00 (83,33%)" [ref=f10e106]
+                  - link "Revisión" [ref=f10e109] [cursor=pointer]:
+                    - /url: http://localhost:8090/mod/quiz/review.php?attempt=340&cmid=2
+              - listitem [ref=f10e110]:
+                - generic [ref=f10e111]:
+                  - heading "Intento 4" [level=4] [ref=f10e113]
+                  - table [ref=f10e114]:
+                    - caption [ref=f10e115]: Resumen de intento 4
+                    - rowgroup [ref=f10e116]:
+                      - row [ref=f10e117]:
+                        - rowheader "Estado" [ref=f10e118]
+                        - cell "Finalizado" [ref=f10e119]
+                      - row [ref=f10e120]:
+                        - rowheader "Comenzado" [ref=f10e121]
+          
+
+# Plan vigente
+```json
+{
+  "spec_id": "spec-3",
+  "titulo": "Reemplazo de la retroalimentación global por un resumen por tema",
+  "naturaleza": "reemplaza",
+  "componente": "local_resumentema",
+  "ruta_moodle": "public/local/resumentema",
+  "capa_justificacion": "Plugin local: el cambio cruza revisión, view.php, formulario del quiz, ajustes de admin y datos, y ninguna capa más específica lo cubre. Se descartan: (a) quizaccess_*: setup_attempt_page (classes/local/access_rule_base.php:248) solo permitiría alterar $quiz en memoria y no alcanza a profesores, porque locallib.php:1220 fuerza overallfeedback=VISIBLE; (b) tema hijo con renderer: cambiaría el tema sembrado y lo que miden todas las líneas base; (c) CSS: ocultaría sin eliminar, lo que incumple CA-2 y CA-3. El core no ofrece hook para quitar la fila: classes/hook/ de mod_quiz solo trae attempt_state_changed y structure_modified, y attempt_summary_information::create_for_attempt no es extensible (review.php:119). La supresión real es por datos: la fila exige texto de quiz_feedback (attempt_summary_information.php:271-274); view.php:190 y attempts_report.php:285 dependen de quiz_has_feedback (locallib.php:683); el servicio externo depende de lo mismo (classes/external.php:1759). Puntos de extensión verificados: (1) formulario: callback <plugin>_coursemodule_standard_elements en lib.php (course/moodleform_mod.php:669 y :829), invocado desde mod/quiz/mod_form.php:391, cuando ya existen la sección (:333-388) y los grupos de revisión (:241-247). CORRECCIÓN A LA PLATAFORMA: factory/conocimiento/moodle-5.3.md atribuye esto a core_course\\hook\\after_form_definition, pero ese hook solo se dispara en course/edit_form.php:435, no en formularios de actividad; hay que corregirlo ahí y en documentacion.md B3. (2) Ajustes de admin: settings.php del plugin; los locales cargan al final (admin/settings/plugins.php:848-860), así que $ADMIN->locate('modsettingquiz') ya existe; admin_settingpage::$settings es público (admin/classes/setting/settingpage/settingpage.php:42) y sus claves son plugin+nombre (:193-198): 'quizreviewoverallfeedback' y 'quizinitialnumfeedbacks' (mod/quiz/settings.php:87 y :226). (3) Bloque nuevo: \\core\\hook\\output\\after_standard_main_region_html_generation (lib/classes/hook/output/after_standard_main_region_html_generation.php:30, add_html :52), filtrando $PAGE->pagetype === 'mod-quiz-review'; se pinta en drawers.mustache:179, fuera de #region-main, así que un script mínimo lo mueve a continuación de la tabla resumen. (4) Datos: db/install.php y db/uninstall.php; el uninstall corre antes de borrar las tablas (lib/adminlib.php:169 y :226). (5) Reingreso de datos: eventos \\core\\event\\course_restored (backup/util/plan/restore_plan.class.php:216, solo TYPE_1COURSE), course_module_created (course/modlib.php:211 y duplicado en course/format/classes/local/cmactions.php:560), course_module_updated (course/modlib.php:820) y \\mod_quiz\\event\\attempt_started. (6) Cálculo: quiz_attempt::get_slots (:838), get_question_attempt (:886), question_definition::$category (question/type/questionbase.php:66). Mantiene intacto el core y no agrega ninguna opción.",
+  "bordes": [
+    {
+      "descripcion": "'Tema' no está definido: categoría del banco, tags, secciones o grade items.",
+      "decision": "Tema = categoría del banco de la pregunta realmente presentada en el intento (question_definition::$category). Para preguntas aleatorias cuenta la que le tocó al estudiante. Se agrupa por id de categoría, sin consolidar subcategorías, en orden de primera aparición en el examen. El nombre se muestra con format_string.",
+      "criterio": "Toda pregunta tiene categoría y no exige configuración nueva; el sembrado define 3 categorías = 3 temas (entorno/seed/seed.php:51-55); coincide con B2 de documentacion.md.",
+      "preguntaria": "¿El tema es la categoría del banco, y las subcategorías cuentan como temas propios?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Quitar el bloque del todo implica retirar datos de quiz_feedback que escribieron los profesores (CA-3 pide no dejar configuración huérfana), pero borrarlos sin más sería irreversible.",
+      "decision": "Migración reversible: db/install.php mueve a una tabla de archivo del plugin las filas con texto de quiz_feedback (conservando su id original) y quiz.reviewoverallfeedback de cada examen, deja ese campo en 0 y borra las filas de quiz_feedback. Los archivos del área mod_quiz/feedback no se tocan. db/uninstall.php lo restaura todo con import_record (mismo id, los archivos siguen enlazados) y descarta lo archivado de exámenes que ya no existan. El archivo no tiene UI ni se usa en ejecución; solo existe para revertir.",
+      "criterio": "Un borrado definitivo sí sería bloqueante; archivar lo hace reversible. Además es obligatorio para la fábrica: retirar() desinstala en la mutación y al final de la corrida (factory/cli.mjs:146 y :221). Sin restaurar, las pruebas de CA-2 pasarían sin el plugin (PASA-SIN-FUNCIONALIDAD) y QUIZ-REG quedaría sin retro para los demás specs.",
+      "preguntaria": "¿Los textos de retroalimentación global se pueden borrar definitivamente en algún momento, o hay que conservar el archivo por tiempo indefinido?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Quitar los campos del formulario rompería el guardado: mod_form.php:638 hace count($data['feedbacktext']) sin comprobar que exista, y lib.php:1167-1172 espera text, format e itemid.",
+      "decision": "El callback coursemodule_standard_elements, solo para el formulario de quiz, elimina overallfeedbackhdr, nogradewarning (si existe), gradeboundarystatic1/2, todos los feedbacktext[n] y feedbackboundaries[n], boundary_add_fields y boundary_repeats, y agrega hidden feedbacktext[0][text]='', [format]=1 e [itemid]=0 con PARAM_RAW. Las casillas overallfeedback{during,immediately,open,closed} y sus dos envoltorios html se quitan de cada grupo con getElements/setElements.",
+      "criterio": "Los hidden no son una opción de UI: solo cumplen el contrato de validación del core. El resultado es el mismo que un quiz sin retro: lib.php guarda una fila con texto vacío, quiz_has_feedback da falso y reviewoverallfeedback queda en 0 (quiz_review_option_form_to_db, lib.php:1094).",
+      "preguntaria": "Ninguna: es una restricción técnica del core.",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Hay más UI de la retro global que la sección del formulario: dos ajustes de admin (revisión por defecto y número inicial de campos) que quedarían sin efecto.",
+      "decision": "settings.php del plugin retira 'quizreviewoverallfeedback' y 'quizinitialnumfeedbacks' de modsettingquiz. Solo si $ADMIN->fulltree y la página existe. La instalación pone config quiz/reviewoverallfeedback en 0 guardando el valor anterior en la config del plugin, y el uninstall lo restaura. Las filas de configuración NO se borran: mod_form.php:365 y :429 las leen sin comprobar.",
+      "criterio": "CA-3 prohíbe opciones que ya no hacen nada; borrar la config generaría warnings en el core. Lo que el core lee de forma obligatoria se queda.",
+      "preguntaria": "Ninguna: el spec lo exige y el valor es reversible.",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "El core no se puede modificar: la tabla quiz_feedback, las funciones y las cadenas de la retro siguen en Moodle sin uso visible.",
+      "decision": "CA-3 se aplica a lo que el plugin entrega y a lo observable (diff, UI, datos). Se declara como límite: esas piezas del core quedan y no son código del entregable.",
+      "criterio": "Regla dura del proyecto: nunca tocar el core; el pipeline lo bloquea (factory/lib/moodle.mjs:57).",
+      "preguntaria": "¿Producto acepta que el esquema y el código nativo del core permanezcan sin uso?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Otras vías pueden reintroducir retro global: restauración de copias, duplicado de actividad, servicios web o escrituras directas.",
+      "decision": "Una única función idempotente archiva y limpia un quiz, invocada por observers de course_restored, course_module_created y course_module_updated (filtrados a quiz), y por attempt_started como red final antes de que un estudiante pueda llegar al cierre. course_module_deleted purga lo archivado de ese quiz. Las filas con texto vacío se ignoran.",
+      "criterio": "'Lo viejo se va' debe valer también para exámenes que llegan después; la restauración de actividad suelta no dispara course_restored (restore_plan.class.php:196). RIESGO DECLARADO: estas vías no quedan cubiertas por E2E, porque tras instalar el plugin no hay forma de crear retro desde la UI.",
+      "preguntaria": "¿Debe conservarse la retro de cursos restaurados de copias antiguas si el plugin se retira después?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "'Ocupa su lugar': el hook solo agrega HTML fuera de #region-main y la fila vivía dentro de la tabla resumen.",
+      "decision": "El servidor emite una sección propia y un script inline mínimo ($PAGE->requires->js_init_code, sin AMD ni build) la mueve justo después del contenedor de table.quizreviewsummary, antes de las preguntas. Sin JS queda visible al final de la página. Es una sección aparte, no una fila, porque un desglose no cabe en una celda.",
+      "criterio": "Es el punto más cercano al lugar anterior que no toca el core. Debe verse igual en escritorio y móvil.",
+      "preguntaria": "¿Una sección inmediatamente bajo la tabla cumple 'en su lugar', o debe ser una fila de la tabla?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Dónde y a quién se muestra el resumen: paginación, permisos, notas ocultas y estado del intento.",
+      "decision": "Solo en mod-quiz-review, primera página o showall (la tabla se recorta con page>0: renderer.php:148), con intento en estado FINISHED y quiz_has_grades. El callback corre también en páginas de error, así que debe comprobar is_review_allowed y get_display_options(true)->attempt. Si marks < MARK_AND_MAX no se emite el bloque. Lo ve quien puede ver esa revisión, incluido el profesor. No aparece en reviewquestion.php ni en view.php.",
+      "criterio": "Un resumen con puntos no puede filtrar notas que el profesor ocultó (B4). Misma condición que add_attempt_grades_if_appropriate (attempt_summary_information.php:295-303).",
+      "preguntaria": "Con notas ocultas, ¿debería mostrarse algo por tema, por ejemplo cantidad de correctas?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Qué mide el desempeño por tema, y cómo tratar ensayos pendientes, ensayos en blanco y preguntas sin puntaje.",
+      "decision": "Por tema: suma de marcas sobre suma de marcas máximas, en la escala de 'Puntos' (no la reescalada a 10), con quiz_format_question_grade, más porcentaje. Pendiente = solo estado needsgrading: suma 0 a lo obtenido, cuenta en el máximo, el tema muestra '1 pregunta sin calificar' (plural según corresponda) y sin porcentaje. Marca null en gaveup vale 0 sin aviso. Las preguntas con marca máxima 0 no cuentan; si no queda ningún tema, no hay bloque. Se calcula en vivo, sin guardar nada, así que reacciona a recalificaciones. Encabezados Tema/Puntos/Porcentaje: nunca 'Estado' ni otro que prepararCaptura enmascare, y la tabla no usa la clase quizreviewsummary.",
+      "criterio": "La suma por tema debe cuadrar con 'Puntos'. gaveup no es pendiente (behaviour.php:112-113, ya verificado en spec-0). A diferencia de la nota global, la revisión ya muestra marcas por pregunta, así que el desglose parcial no filtra nada.",
+      "preguntaria": "¿Se prefiere puntos, porcentaje o un nivel cualitativo con recomendación de estudio?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Intentos anteriores a la instalación.",
+      "decision": "Muestran el resumen por tema y ya no la retro global.",
+      "criterio": "Sale de la migración y el cálculo en vivo, y el segundo escenario del spec va en esa dirección.",
+      "preguntaria": "¿Hace falta conservar la retro que vieron los estudiantes en intentos históricos?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Efecto colateral: al desaparecer quiz_feedback, también se va la columna de retro del informe de intentos (attempts_report.php:285) y el texto bajo la nota en view.php. Reportes del profesor está fuera de alcance.",
+      "decision": "Se acepta: no se agrega código para mantener una columna que quedaría vacía. El recuadro #feedback de view.php sigue con la nota (renderer.php:1311), que spec-0 verifica.",
+      "criterio": "Es el mismo bloque viejo; conservarlo dejaría algo muerto y contradiría CA-3. No se agrega nada a los reportes.",
+      "preguntaria": "¿Producto acepta que el profesor deje de ver esa columna?",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Solo hay dos estudiantes para dos viewports y varios recorridos con intentos.",
+      "decision": "estudiante9 en escritorio y estudiante10 en móvil, por isMobile, sin skip. Cada prueba hace su propio intento (QUIZ-REG admite intentos ilimitados) y usa su URL de review.php. Ninguna asserta la nota final de view.php por estudiante, porque depende de intentos previos. Las aserciones van contra el intento recién creado.",
+      "criterio": "Rango asignado en el conocimiento; workers: 1 y sin reintentos (playwright.config.ts:11-14); reset borra los intentos antes de cada corrida.",
+      "preguntaria": "Ninguna: es una decisión técnica.",
+      "bloqueante": false
+    },
+    {
+      "descripcion": "Idioma del bloque.",
+      "decision": "lang/en (obligatorio) y lang/es en el plugin; las pruebas assertan el texto en español: 'Resumen por tema'.",
+      "criterio": "La UI de la instancia está en español.",
+      "preguntaria": "Ninguna: decisión menor y reversible.",
+      "bloqueante": false
+    }
+  ],
+  "criterios": [
+    {
+      "id": "CA-1",
+      "texto": "Al terminar el intento, el estudiante ve su desempeño agrupado por tema.",
+      "verificacion": "ambas",
+      "requiere_feature": true,
+      "camino_error": false,
+      "archivos": [
+        "version.php",
+        "db/hooks.php",
+        "classes/hook_callbacks.php",
+        "classes/resumen.php",
+        "lang/en/local_resumentema.php",
+        "lang/es/local_resumentema.php"
+      ],
+      "pruebas": [
+        "[CA-1] [CA-2] @requiere-feature: en QUIZ-REG responde 1='12', 2='Verdadero', 3='4' (mal), 4='Verdadero', 5='Verdadero', ensayo vacío; en la pantalla de cierre ve exactamente 3 filas en orden: Álgebra 2,00/2,00, Geometría 1,00/2,00 e Historia 1,00/2,00, con sus porcentajes y sin aviso de pendiente (gaveup vale 0).",
+        "En esa misma prueba: la sección está después de table.quizreviewsummary y antes de la primera .que (posición en el DOM); captura 'spec-3-cierre-por-tema.png'.",
+        "[CA-1] @requiere-feature: ensayo respondido: antes de calificar, Historia muestra 1,00/2,00 y '1 pregunta sin calificar', sin porcentaje; el profesor califica con 0.5 y el estudiante ve Historia 1,50/2,00 sin aviso. Captura 'spec-3-cierre-pendiente.png' antes de calificar.",
+        "[CA-1] @requiere-feature: con el intento terminado, la sección aparece una sola vez en showall=1 y no aparece con page=1&showall=0.",
+        "[CA-1] sin @requiere-feature: como profesor desde la UI, en QUIZ-REG desmarcar maxmarks y marks en 'immediately' y 'open'; el estudiante termina y NO ve la sección; se restaura la configuración en try/finally."
+      ]
+    },
+    {
+      "id": "CA-2",
+      "texto": "El bloque de retroalimentación general anterior ya no aparece donde aparecía.",
+      "verificacion": "ambas",
+      "requiere_feature": true,
+      "camino_error": false,
+      "archivos": [
+        "db/install.php",
+        "db/uninstall.php",
+        "db/install.xml",
+        "db/events.php",
+        "classes/retro_global.php",
+        "classes/observer.php"
+      ],
+      "pruebas": [
+        "[CA-1] [CA-2] @requiere-feature (escenario de examen ya existente: QUIZ-REG trae retro sembrada): filaResumen 'Retroalimentación' con toHaveCount(0) y ningún 'Retro global' en la página, junto con la sección por tema presente. Sin el plugin falla porque la desinstalación restaura la fila.",
+        "[CA-2] @requiere-feature: el profesor abre la revisión del intento de un estudiante y tampoco ve la fila ni el texto; demuestra que se fue el dato, ya que locallib.php:1220 fuerza overallfeedback para él. También ve la sección por tema.",
+        "[CA-2] @requiere-feature: en view.php el estudiante con intento terminado no ve 'Retro global', la tabla de intentos no tiene columna 'Retroalimentación' y #feedback sigue mostrando su nota; la sección por tema sigue visible en su review.php."
+      ]
+    },
+    {
+      "id": "CA-3",
+      "texto": "No queda nada muerto del bloque anterior: ni código sin uso, ni configuración huérfana, ni una opción en la interfaz que ya no hace nada. Se verifica en el diff.",
+      "verificacion": "funcional",
+      "requiere_feature": true,
+      "camino_error": false,
+      "archivos": [
+        "lib.php",
+        "settings.php",
+        "db/install.php",
+        "db/uninstall.php",
+        "classes/retro_global.php"
+      ],
+      "pruebas": [
+        "[CA-3] @requiere-feature: en el formulario de crear quiz, #id_overallfeedbackhdr, #id_boundary_add_fields y las casillas #id_overallfeedback{during,immediately,open,closed} tienen count 0; #id_marksimmediately y #id_generalfeedbackimmediately siguen presentes. Captura 'spec-3-formulario.png'. Se verifican por id, porque los hidden usan el nombre feedbacktext.",
+        "[CA-3] @requiere-feature: crea un quiz nuevo con ese formulario, guarda sin error, reabre la edición y sigue sin esas opciones; demuestra que la validación de mod_form.php:638 no se rompe.",
+        "[CA-3] @requiere-feature: como admin en /admin/settings.php?section=modsettingquiz no existen #id_s_quiz_initialnumfeedbacks ni controles [id^='id_s_quiz_reviewoverallfeedback'], y [id^='id_s_quiz_reviewmarks'] sigue presente."
+      ]
+    },
+    {
+      "id": "CA-4",
+      "texto": "El resto de la pantalla de cierre (nota, revisión de respuestas, navegación) sigue funcionando igual.",
+      "verificacion": "ambas",
+      "requiere_feature": false,
+      "camino_error": false,
+      "archivos": [
+        "classes/hook_callbacks.php"
+      ],
+      "pruebas": [
+        "[CA-4] sin @requiere-feature: tras enviar, Estado 'Finalizado', Puntos '4,00/6,00' y Calificación '6,67 de 10,00 (66,67%)'; hay 6 bloques .que con sus respuestas; sigue visible la retroalimentación por pregunta (fuera de alcance), con el texto sembrado de HIS-1; el bloque de navegación enlaza a las preguntas y 'Finalizar revisión' lleva a view.php.",
+        "Regresión spec-0: 02-estudiante-sin-ensayo y 03-calificacion-manual sobre las pantallas de cierre, comparando contra las líneas base propuestas."
+      ]
+    },
+    {
+      "id": "CA-5",
+      "texto": "Se entrega con pruebas automáticas derivadas de estos criterios, funcionales y visuales, ejecutadas y en verde.",
+      "verificacion": "proceso",
+      "requiere_feature": false,
+      "camino_error": false,
+      "archivos": [],
+      "pruebas": [
+        "Evidencia de la corrida: pruebas del spec y suite completa en verde, mutación sin el plugin, honestidad.log y trazabilidad.md."
+      ]
+    }
+  ],
+  "pantallas_afectadas": [
+    "spec-0-cierre",
+    "spec-0-crear-examen"
+  ],
+  "pruebas_afectadas": [
+    {
+      "archivo": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "antes": "await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');",
+      "despues": "await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);",
+      "motivo": "Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR."
+    },
+    {
+      "archivo": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "antes": "await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');",
+      "despues": "await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);",
+      "motivo": "Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR."
+    }
+  ],
+  "sondas": [],
+  "elimina": [
+    "Fila 'Retroalimentación' de la revisión (estudiante y profesor): se va al quedar sin texto en quiz_feedback. Verificación: CA-2 con toHaveCount(0), más las dos pruebas de spec-0 actualizadas.",
+    "Columna y bloque de retro global en view.php (renderer.php:1153, :1211 y :1304): quiz_has_feedback da falso. Verificación: prueba CA-2 de view.php.",
+    "Columna de retro del informe de intentos (attempts_report.php:285): consecuencia aceptada en los bordes; no se agrega código a reportes ni se le dedica prueba.",
+    "Sección 'Retroalimentación global' del formulario del quiz. Verificación: prueba CA-3 de formulario, línea base spec-0-crear-examen.",
+    "Casillas de retro global en Opciones de revisión, los cuatro momentos. Verificación: prueba CA-3 de formulario.",
+    "Ajustes de admin quiz/reviewoverallfeedback y quiz/initialnumfeedbacks en la UI. Verificación: prueba CA-3 de admin.",
+    "Datos de retro: filas con texto de quiz_feedback (archivadas y borradas) y quiz.reviewoverallfeedback en 0 en todos los exámenes; config quiz/reviewoverallfeedback en 0. Verificación: comportamiento de profesor en CA-2 y revisión de db/install.php en cambios.diff.",
+    "Convivencia: el plugin no agrega ninguna opción para activar la retro vieja. Verificación: settings.php solo retira ajustes y no llama a add() en cambios.diff.",
+    "No se elimina, por regla dura: tabla quiz_feedback, funciones y cadenas del core, y las filas de config que el core lee obligatoriamente (ver bordes)."
+  ]
+}
+```
+
+# Spec
+---
+id: spec-3
+titulo: Reemplazo del cierre del intento por un resumen por tema
+naturaleza: reemplaza
+---
+
+# Spec 3 · Reemplazo del cierre del intento por un resumen por tema
+
+## Intención
+Hoy, al terminar un intento, el estudiante ve el bloque de retroalimentación general que trae Moodle de fábrica, que es un texto único para todo el examen. Ese bloque **ya no sirve** y queremos otro en su lugar: un resumen que le muestre cómo le fue **agrupado por el tema al que pertenece cada pregunta**, para que sepa qué estudiar.
+
+Esto **no es agregar una sección más**. Lo viejo se va y lo nuevo ocupa su lugar.
+
+## Criterios de aceptación
+- CA-1: al terminar el intento, el estudiante ve su desempeño agrupado por tema.
+- CA-2: el bloque de retroalimentación general anterior **ya no aparece** donde aparecía.
+- CA-3: **no queda nada muerto del bloque anterior**: ni código sin uso, ni configuración huérfana, ni una opción en la interfaz que ya no hace nada. Esto se verifica en el diff.
+- CA-4: el resto de la pantalla de cierre del intento (nota, revisión de respuestas, navegación) sigue funcionando igual.
+- CA-5: se entrega con pruebas automáticas derivadas de estos criterios, funcionales y visuales, ejecutadas y en verde.
+
+## Escenarios
+- Dado un examen con preguntas de tres temas distintos, cuando el estudiante termina el intento, entonces ve su resultado desglosado por esos tres temas y no ve el bloque anterior.
+- Dado un examen ya existente que tenía retroalimentación general configurada, cuando el estudiante termina el intento, entonces ve el resumen por tema.
+
+## Fuera de alcance
+La retroalimentación por pregunta, que es otra cosa y se queda como está. Reportes del profesor.
+
+## Bordes
+Hay decisiones acá que el spec no resuelve a propósito. Resolvelas con criterio explícito o preguntá.
+
+## Decisión de producto
+Autorizado por producto el 2 de noviembre de 2026: las dos aserciones de spec-0 que exigen la fila "Retroalimentación" con el texto "Retro global: aprobado." (`02-estudiante-sin-ensayo.spec.ts` y `03-calificacion-manual.spec.ts`) pasan a exigir que la fila ya no exista, sin bajar la cantidad de asserts. Se declaran en `pruebas_afectadas` y quedan pendientes de aprobación humana en el PR.
+
+## Restricciones
+Reemplazo, no adición. Que las dos cosas convivan detrás de una opción de configuración **no cumple** el CA-2.
+
+
+# Cómo corregir
+1. Diagnosticá la CAUSA antes de editar: ¿es el código del plugin o es la prueba? Leé el estado ARIA de la página al fallar.
+2. Si el plugin no hace lo que el criterio pide, arreglá el PLUGIN. Nunca "arregles" una prueba para que acepte un comportamiento
+   que no cumple el criterio: debilitar, borrar o saltar asserts está prohibido y el control de honestidad lo bloquea.
+3. Si la prueba usa un selector o un flujo equivocado (verificá contra el estado ARIA real), corregí la prueba manteniendo
+   la misma intensidad de verificación.
+4. Mismas reglas de pruebas que en la implementación (títulos `[CA-n]`, `@requiere-feature`, `@camino-error`, sin mocks de red,
+   sin skip/only/soft, helpers de `factory/regresion/helpers.ts`).
+5. Nunca reimplementes `login()` ni `prepararCaptura()`, ni los envuelvas con reintentos o esperas propias, y no uses `'networkidle'`.
+   Si ya existe una copia en `salidas/spec-3/pruebas/`, bórrala y usá el helper. Si un helper es la causa, decilo en tu respuesta:
+   lo arregla la fábrica, no la prueba.
+6. Cada `test(...)` necesita al menos un `expect(` en su propio cuerpo: el auditor no cuenta los de funciones auxiliares.
+
+Respondé con: causa raíz encontrada, qué cambiaste y por qué.
