@@ -1,0 +1,99 @@
+// Capa de diseño de Viaro Exámenes sobre Boost. Solo presentación: no oculta controles ni cambia el contenido.
+$vx-tinta: #17272d;
+$vx-suave: #566a72;
+$vx-linea: #d5dee2;
+$vx-teal: #0f5c63;
+$vx-teal-claro: #e4f0f1;
+$vx-ambar: #fff4dc;
+
+// Barra superior
+.navbar.fixed-top {
+  background: $vx-tinta !important;
+  border-bottom: 0;
+  box-shadow: none;
+  .navbar-brand { color: #fff; font-weight: 700; letter-spacing: 0.01em; }
+  a.nav-link, .nav-link, .usertext, .icon, .userinitials { color: #fff; }
+  .nav-link.active, .nav-link[aria-current="true"] { border-bottom-color: #62c2ca; }
+}
+
+// Texto y avatar sobre la barra oscura
+.navbar.fixed-top {
+  .primary-navigation .nav-link, .primary-navigation .nav-link:hover { color: #fff !important; }
+  .userinitials { background-color: #62c2ca !important; color: $vx-tinta !important; }
+  .dropdown-toggle::after { border-top-color: #fff; }
+}
+
+// Icono de actividad en la paleta del sitio
+.activityiconcontainer img, .activityiconcontainer .activityicon { filter: grayscale(1) brightness(0.45) !important; }
+.navbar.fixed-top button, .navbar.fixed-top .btn { color: #fff !important; }
+.activityiconcontainer { background: $vx-teal-claro !important; }
+
+// Pantalla de acceso: panel de marca propio, sin foto ni cifras publicitarias de Moodle
+.login-layout-left {
+  background: linear-gradient(160deg, #17272d 0%, #0f5c63 100%) !important;
+  &::before, &::after { content: none !important; display: none !important; }
+}
+.login-layout-left-content {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  color: #fff;
+  text-align: left;
+  h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.015em; }
+  > div { font-size: 1.15rem; }
+  > p, .login-layout-stats { display: none !important; }
+}
+
+// Encabezado de la página
+.page-header-headings h1, #page-header h1 { font-weight: 700; letter-spacing: -0.01em; color: $vx-tinta; }
+.breadcrumb { font-size: 0.875rem; }
+
+// Tabla de resumen del intento
+table.quizreviewsummary {
+  background: #fff;
+  border: 1px solid $vx-linea;
+  border-radius: 0.75rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  th, td { padding: 0.55rem 0.9rem; border: 0; border-bottom: 1px solid $vx-linea; }
+  tr:last-child th, tr:last-child td { border-bottom: 0; }
+  th { background: #edf1f3; color: $vx-suave; font-weight: 600; text-align: left; }
+}
+
+// Preguntas
+.que {
+  .info {
+    background: #fff;
+    border: 1px solid $vx-linea;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    h3.no { color: $vx-suave; font-size: 0.8rem; }
+    .qno { color: $vx-tinta; font-size: 1.25rem; font-weight: 700; }
+  }
+  .content .formulation {
+    background: #fff;
+    border: 1px solid $vx-linea;
+    border-radius: 0.75rem;
+    color: $vx-tinta;
+    padding: 1rem 1.25rem;
+  }
+  .outcome, .comment {
+    background: $vx-ambar;
+    border: 1px solid #efd9a7;
+    border-radius: 0.75rem;
+    color: #553a05;
+  }
+  .specificfeedback { background: transparent; }
+}
+
+// Botones y tarjetas
+.btn { font-weight: 600; }
+.btn-primary { box-shadow: none; }
+.card { border-color: $vx-linea; border-radius: 0.75rem; }
+
+// Pie de ayuda
+.btn-footer-popover, .btn-footer-communication { box-shadow: none; }
+
+// Tablas de informes
+table.generaltable, table.grading-report { background: #fff; }
+table.generaltable thead th { background: #edf1f3; color: $vx-suave; }

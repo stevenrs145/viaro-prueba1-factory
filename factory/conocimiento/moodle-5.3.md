@@ -50,10 +50,11 @@ NUNCA se modifica nada fuera del directorio del plugin generado. El pipeline lo 
 - Estudiantes por spec (para que las pruebas de distintos specs no compartan intentos):
   regresión (spec-0): estudiante1..4 · spec-1: estudiante5..6 · spec-2: estudiante7..8 · spec-3: estudiante9..10 ·
   cualquier spec nuevo: estudiante11 · prueba de humo: estudiante12.
-- La UI está en inglés (en). Botones verificados: "Attempt quiz", "Next page", "Previous page", "Finish attempt ...",
-  "Submit all and finish" (y de nuevo en el modal de confirmación). Revisión: tabla `table.quizreviewsummary`
-  con filas Status/Started/Completed/Duration/Marks/Grade/Feedback. Con un ensayo sin calificar: "Grade: Not yet graded"
-  y NO aparecen Marks ni Feedback.
+- La UI está en español (es), con coma decimal: "9,17 de 10,00 (91,67%)", "1,00/6,00". Botones verificados: "Intento de cuestionario",
+  "Continuar el último intento", "Reintentar el cuestionario", "Siguiente página", "Página anterior", "Terminar intento...", "Enviar todo y terminar"
+  (y de nuevo en el modal de confirmación). Revisión: tabla `table.quizreviewsummary` con filas Estado/Comenzado/Completado/Duración/Puntos/Calificación/Retroalimentación.
+  Con un ensayo sin calificar: Calificación = "Sin calificar aún" y NO aparecen Puntos ni Retroalimentación. V/F: "Verdadero"/"Falso".
+  Las preguntas sembradas tienen la opción correcta primero: ALG-1 "12", GEO-1 "6"; ALG-2, GEO-2 e HIS-1 son "Verdadero".
 - Informe de intentos del profesor: /mod/quiz/report.php?id=<cmid>&mode=overview ; calificación manual: mode=grading.
 - Curso `QA101`; examen `QUIZ-REG` (6 preguntas: 3 temas = categorías Álgebra/Geometría/Historia; incluye ensayo;
   tiene retroalimentación global configurada).

@@ -10,18 +10,18 @@ test.describe('[HUMO] helpers de prueba', () => {
     await login(page, 'estudiante12');
     await abrirQuiz(page);
     await botonIntento(page).click();
-    await elegir(page, 1, 'One');
-    await elegir(page, 2, 'True');
+    await elegir(page, 1, '12');
+    await elegir(page, 2, 'Verdadero');
     await siguientePagina(page);
-    await elegir(page, 3, 'One');
-    await elegir(page, 4, 'True');
+    await elegir(page, 3, '6');
+    await elegir(page, 4, 'Verdadero');
     await siguientePagina(page);
-    await elegir(page, 5, 'True');
+    await elegir(page, 5, 'Verdadero');
     await escribirEnsayo(page, 6, 'Una rana saltó al estanque.');
     await enviarIntento(page);
-    await expect(filaResumen(page, 'Status')).toHaveText('Finished');
-    // Hecho verificado en 5.3: con un ensayo respondido la nota queda pendiente y no hay fila "Marks" ni "Feedback".
-    await expect(filaResumen(page, 'Grade')).toHaveText('Not yet graded');
+    await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
+    // Hecho verificado en 5.3: con un ensayo respondido la nota queda pendiente y no hay fila "Puntos" ni "Retroalimentación".
+    await expect(filaResumen(page, 'Calificación')).toHaveText('Sin calificar aún');
 
     await login(page, 'profesor');
     const cmid = await abrirQuiz(page);

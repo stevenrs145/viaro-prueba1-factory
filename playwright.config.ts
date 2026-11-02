@@ -30,6 +30,7 @@ export default defineConfig({
       //   el ruido de subpixel queda por debajo. Criterio y mediciones en cobertura.md.
       threshold: 0.2,
       maxDiffPixelRatio: 0.002,
+      maskColor: '#c9d3d7', // gris neutro: las máscaras no deben parecer un defecto en la captura
       animations: 'disabled',
       caret: 'hide',
       scale: 'css',
@@ -37,7 +38,7 @@ export default defineConfig({
   },
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:8090',
-    locale: 'en-US',
+    locale: 'es-GT',
     timezoneId: 'America/Guatemala',
     // Una acción que no encuentra su elemento falla en 15 s, no al agotar el timeout de la prueba:
     // los fallos se diagnostican rápido y no consumen minutos del pipeline.
