@@ -168,7 +168,10 @@ test.describe('[Spec 1] reconocimiento obligatorio', () => {
     try {
       await activar(page, TEXTO);
       const dialogo = await abrirDialogo(page, CON_RECONOCIMIENTO);
+      await expect(page.locator('.que')).toHaveCount(0);
       await aceptar(page, dialogo);
+      await expect(page).toHaveURL(/mod\/quiz\/attempt\.php/);
+      await expect(bloquePregunta(page, 1)).toBeVisible();
       await terminarDesdePrimeraPagina(page);
     } finally {
       await desactivar(page);
