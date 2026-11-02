@@ -3,7 +3,7 @@
   "spec": "specs/spec-4-intentos-restantes.md",
   "rama": "factory/spec-4-20261102-151215",
   "reanudada": true,
-  "estado": "EJECUTADO",
+  "estado": "VALIDADO",
   "etapas": {
     "precondicion": {
       "estado": "VALIDADO",
@@ -51,9 +51,9 @@
       "actualizado": "2026-11-02T17:23:53.225Z"
     },
     "pr": {
-      "estado": "PENDIENTE",
-      "detalle": null,
-      "actualizado": null
+      "estado": "EJECUTADO",
+      "detalle": "PR propuesto: https://github.com/stevenrs145/viaro-prueba1-factory/pull/4. Pendiente de aprobación humana.",
+      "actualizado": "2026-11-02T17:24:02.004Z"
     }
   }
 }
