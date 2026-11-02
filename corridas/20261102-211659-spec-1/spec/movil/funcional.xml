@@ -1,0 +1,46 @@
+<testsuites id="" name="" tests="13" failures="0" skipped="0" errors="0" time="448.765703">
+<testsuite name="salidas/spec-1/pruebas/reconocimiento.spec.ts" timestamp="2026-11-02T21:26:25.764Z" hostname="movil" tests="13" failures="0" skipped="0" time="425.039" errors="0">
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.72">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="32.34">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] abrir startattempt.php directamente muestra el formulario y no la pregunta @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="30.151">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] cancelar el diálogo deja al estudiante en la página del quiz sin intento @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.496">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] al aceptar se llega a la primera pregunta @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="36.095">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] captura del formulario de prechequeo @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.243">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-1-prechequeo--movil.png, writing actual.
+
+[[ATTACHMENT|../../../../visual/lineas-base/spec-1-prechequeo--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-1-pruebas-rec-efd04-prechequeo-requiere-feature-movil/spec-1-prechequeo-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-2] sin configurar, el botón lleva directo a la primera pregunta" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="14.773">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-2] tras activar y desactivar el flujo vuelve a ser directo y el texto se conserva @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="50.862">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] el texto se guarda por quiz y el estudiante ve siempre el último @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="49.117">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] activar con el texto vacío no guarda y muestra el error en el campo @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.68">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] el texto con etiquetas HTML se muestra escapado @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="28.114">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] captura de los ajustes con el reconocimiento activado @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="30.984">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-1-ajustes--movil.png, writing actual.
+
+[[ATTACHMENT|../../../../visual/lineas-base/spec-1-ajustes--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-1-pruebas-rec-c2e2c-o-activado-requiere-feature-movil/spec-1-ajustes-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1][CA-3] camino completo: el profesor configura, el estudiante acepta, responde y envía @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="34.464">
+</testcase>
+</testsuite>
+</testsuites>
