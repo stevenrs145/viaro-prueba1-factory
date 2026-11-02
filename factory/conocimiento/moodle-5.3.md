@@ -65,4 +65,4 @@ NUNCA se modifica nada fuera del directorio del plugin generado. El pipeline lo 
 - Nunca esperar `'networkidle'`: el índice del curso hace peticiones periódicas y no se cumple.
 - El login se hace SIEMPRE con `login()`: `core/togglesensitive` reemplaza el input de la clave y borra lo escrito, y una
   petición de la página anterior puede invalidar el `logintoken`. Por eso Moodle responde "Unable to log in" con la clave correcta.
-- Una página tiene su JS listo cuando `M.util.pending_js` está vacío: es la señal que usa Behat. Hacer clic antes puede saltarse el manejador.
+- Una página tiene su JS listo cuando `M.util.pending_js` está vacío: usar `esperarJS()` de los helpers al cargar y tras acciones con JS (filtros, autocompletar, modales). Hacer clic antes puede saltarse el manejador.
