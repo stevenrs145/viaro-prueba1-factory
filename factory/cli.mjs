@@ -21,7 +21,12 @@ const opt = (n) => { const i = resto.indexOf(n); return i >= 0 ? resto[i + 1] : 
 
 const comandos = { run, suite, honestidad, 'aprobar-linea-base': aprobarLB, 'aprobar-pruebas': aprobarPruebas };
 if (!comandos[comando]) { console.error(`Uso: node factory/cli.mjs <${Object.keys(comandos).join('|')}> ...`); process.exit(2); }
-try { process.exitCode = await comandos[comando](); } catch (e) { console.error(e.stack || e); process.exitCode = 1; }
+try { process.exitCode = await comandos[comando](); } catch (e) {
+  if (e.limiteIA) {
+    console.error(`\n⛔ ${e.message}\nLa corrida quedó en su rama. Cuando la IA vuelva a estar disponible:\n  node factory/cli.mjs run <spec> --reanudar $(git branch --show-current)`);
+    process.exitCode = 3;
+  } else { console.error(e.stack || e); process.exitCode = 1; }
+}
 
 // ---------------------------------------------------------------------------------------------------------
 async function run() {
@@ -31,20 +36,31 @@ async function run() {
   const specId = (specTxt.match(/^id:\s*(\S+)/m) || [])[1] || path.basename(specPath, '.md');
   const specDir = `salidas/${specId}`;
   const c = new Corrida(specId);
-  const rama = `factory/${specId}-${c.id.slice(0, 15)}`;
-  c.log('inicio', `Spec ${specPath} (${specId}). Corrida ${c.dir}. Rama ${rama}.`);
+  // --reanudar <rama>: retoma una corrida interrumpida (p. ej. por límite de uso de la IA) reutilizando el plan
+  // y el código ya generados en esa rama; vuelve a ejecutar TODAS las verificaciones desde la etapa 4.
+  const reanudar = opt('--reanudar');
+  const rama = reanudar || `factory/${specId}-${c.id.slice(0, 15)}`;
+  c.log('inicio', `Spec ${specPath} (${specId}). Corrida ${c.dir}. Rama ${rama}${reanudar ? ' (REANUDADA)' : ''}.`);
 
   // 0. Precondiciones
   if (!moodle.moodleArriba()) return falla(c, 'precondicion', 'Moodle no responde en http://localhost:8090. Ejecutar: bash entorno/setup.sh');
   // La carpeta de esta misma corrida ya existe (es donde se escribe el log): no cuenta como cambio.
   const sucio = sh('git status --porcelain').out.split('\n').filter((l) => l && !l.slice(3).startsWith('corridas/')).join('\n');
   if (sucio) return falla(c, 'precondicion', 'El árbol de trabajo tiene cambios sin commit. La fábrica parte de un estado limpio.', sucio);
-  shOk(`git checkout -q -b ${rama}`);
-  fs.rmSync(path.join(RAIZ, specDir), { recursive: true, force: true });
-  escribir(`${specDir}/spec.md`, specTxt);
+  if (reanudar) {
+    shOk(`git checkout -q ${reanudar}`);
+    // La fábrica de main (con sus correcciones) es la que verifica; la rama solo aporta plan, código y pruebas.
+    shOk('git checkout -q main -- factory playwright.config.ts package.json');
+    if (!existe(`${specDir}/plan.json`)) return falla(c, 'reanudar', `La rama ${reanudar} no tiene ${specDir}/plan.json.`);
+  } else {
+    shOk(`git checkout -q -b ${rama}`);
+    fs.rmSync(path.join(RAIZ, specDir), { recursive: true, force: true });
+    escribir(`${specDir}/spec.md`, specTxt);
+  }
 
   // 1. Análisis: plan, capa, bordes, criterios -> pruebas
-  let plan = null;
+  let plan = reanudar ? validarPlan(JSON.parse(leer(`${specDir}/plan.json`)), specId) : null;
+  if (reanudar) c.log('reanudar', `Se reutiliza ${specDir}/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.`);
   let feedback = '';
   for (let i = 1; i <= 3 && !plan; i++) {
     const lineas_base = fs.readdirSync(path.join(RAIZ, 'visual/lineas-base')).filter((f) => f.endsWith('.png')).join(', ') || '(ninguna todavía)';
@@ -66,7 +82,7 @@ async function run() {
 
   // 3. Implementación (código + pruebas)
   const varsImpl = { spec: specTxt, spec_id: specId, plan, sondas, conocimiento: leer('factory/conocimiento/moodle-5.3.md'), helpers: leer('factory/regresion/helpers.ts'), spec_dir: specDir };
-  llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
+  if (!reanudar) llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
 
   // 4. Bucle validar -> desplegar -> probar -> corregir
   let verde = false;
@@ -126,7 +142,9 @@ async function run() {
 
   // 7. Alcance: la IA solo pudo cambiar salidas/<spec>/ y líneas base nuevas; el core de Moodle intacto
   const fuera = sh('git status --porcelain').out.split('\n').filter(Boolean).map((l) => l.slice(3))
-    .filter((f) => !f.startsWith(specDir) && !f.startsWith('corridas/') && !f.startsWith('ia/transcripciones/') && !f.startsWith('visual/lineas-base/') && !f.startsWith('test-results'));
+    .filter((f) => !f.startsWith(specDir) && !f.startsWith('corridas/') && !f.startsWith('ia/transcripciones/') && !f.startsWith('visual/') && !f.startsWith('test-results'))
+    // al reanudar, la fábrica se toma de main (no de la rama): esas diferencias no son obra de la IA
+    .filter((f) => !(reanudar && sh(`git diff --quiet main -- '${f}'`).code === 0));
   const core = moodle.verificarCoreIntacto(rutasPluginsDesplegados());
   if (fuera.length || core.length) return falla(c, 'alcance', 'Cambios fuera del alcance permitido.', [...fuera.map((f) => `repo: ${f}`), ...core.map((x) => `core moodle: ${x}`)].join('\n'));
   c.log('alcance', 'Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).');

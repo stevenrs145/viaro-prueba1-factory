@@ -39,6 +39,10 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'http://localhost:8090',
     locale: 'en-US',
     timezoneId: 'America/Guatemala',
+    // Una acción que no encuentra su elemento falla en 15 s, no al agotar el timeout de la prueba:
+    // los fallos se diagnostican rápido y no consumen minutos del pipeline.
+    actionTimeout: 15_000,
+    navigationTimeout: 30_000,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
