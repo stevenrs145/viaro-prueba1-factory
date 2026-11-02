@@ -18,14 +18,23 @@ import { lineasBaseNuevas, registrarPendientes, proponerLineasBase, aprobarLinea
 const MAX_REINTENTOS = Number(process.env.FACTORY_REINTENTOS || 3);
 const [, , comando, ...resto] = process.argv;
 const opt = (n) => { const i = resto.indexOf(n); return i >= 0 ? resto[i + 1] : null; };
+const ETAPAS_RUN = ['precondicion', 'analisis', 'sondas', 'implementacion', 'pruebas', 'mutacion', 'regresion', 'alcance', 'honestidad', 'pr'];
+const ETAPAS_SUITE = ['precondicion', 'pruebas', 'honestidad'];
+let corridaActiva = null;
 
 const comandos = { run, suite, honestidad, 'aprobar-linea-base': aprobarLB, 'aprobar-pruebas': aprobarPruebas };
 if (!comandos[comando]) { console.error(`Uso: node factory/cli.mjs <${Object.keys(comandos).join('|')}> ...`); process.exit(2); }
 try { process.exitCode = await comandos[comando](); } catch (e) {
+  // Una excepción no debe dejar estado.json diciendo que la etapa sigue en curso.
+  const enCurso = corridaActiva?.etapaEnCurso();
   if (e.limiteIA) {
+    if (enCurso) corridaActiva.etapa(enCurso, 'BLOQUEADO', `Límite de uso de la IA: ${e.message}`);
     console.error(`\n⛔ ${e.message}\nLa corrida quedó en su rama. Cuando la IA vuelva a estar disponible:\n  node factory/cli.mjs run <spec> --reanudar $(git branch --show-current)`);
     process.exitCode = 3;
-  } else { console.error(e.stack || e); process.exitCode = 1; }
+  } else {
+    if (enCurso) corridaActiva.etapa(enCurso, 'FALLIDO', String(e.message || e).slice(0, 500));
+    console.error(e.stack || e); process.exitCode = 1;
+  }
 }
 
 // ---------------------------------------------------------------------------------------------------------
@@ -35,11 +44,12 @@ async function run() {
   const specTxt = leer(specPath);
   const specId = (specTxt.match(/^id:\s*(\S+)/m) || [])[1] || path.basename(specPath, '.md');
   const specDir = `salidas/${specId}`;
-  const c = new Corrida(specId);
+  const c = corridaActiva = new Corrida(specId);
   // --reanudar <rama>: retoma una corrida interrumpida (p. ej. por límite de uso de la IA) reutilizando el plan
   // y el código ya generados en esa rama; vuelve a ejecutar TODAS las verificaciones desde la etapa 4.
   const reanudar = opt('--reanudar');
   const rama = reanudar || `factory/${specId}-${c.id.slice(0, 15)}`;
+  c.iniciarEstado(ETAPAS_RUN, { spec: specPath, rama, reanudada: Boolean(reanudar) });
   c.log('inicio', `Spec ${specPath} (${specId}). Corrida ${c.dir}. Rama ${rama}${reanudar ? ' (REANUDADA)' : ''}.`);
 
   // 0. Precondiciones
@@ -57,6 +67,7 @@ async function run() {
     fs.rmSync(path.join(RAIZ, specDir), { recursive: true, force: true });
     escribir(`${specDir}/spec.md`, specTxt);
   }
+  c.etapa('precondicion', 'VALIDADO', 'Moodle responde y el árbol de trabajo está limpio.');
 
   // 1. Análisis: plan, capa, bordes, criterios -> pruebas
   let plan = reanudar ? validarPlan(JSON.parse(leer(`${specDir}/plan.json`)), specId) : null;
@@ -75,14 +86,20 @@ async function run() {
   }
   if (!plan) return falla(c, 'analisis', 'La IA no produjo un plan válido en 3 intentos.');
   escribir(`${specDir}/plan.json`, JSON.stringify(plan, null, 2));
+  // Una ambigüedad que solo producto puede resolver detiene la corrida antes de gastar en construir.
+  const bloqueantes = plan.bordes.filter((b) => b.bloqueante === true);
+  if (bloqueantes.length) return bloquear(c, rama, specDir, specPath, bloqueantes);
+  c.etapa('analisis', 'VALIDADO', `${reanudar ? 'Plan reutilizado de la rama' : 'Plan válido'}: ${plan.criterios.length} criterios, ${plan.bordes.length} bordes.`);
 
   // 2. Sondas: verificar contra la realidad antes de construir (contratos externos, comportamiento actual)
   const sondas = ejecutarSondas(c, plan.sondas || []);
   escribir(`${specDir}/sondas.json`, JSON.stringify(sondas, null, 2));
+  c.etapa('sondas', 'EJECUTADO', `${sondas.length} sonda(s).`);
 
   // 3. Implementación (código + pruebas)
   const varsImpl = { spec: specTxt, spec_id: specId, plan, sondas, conocimiento: leer('factory/conocimiento/moodle-5.3.md'), helpers: leer('factory/regresion/helpers.ts'), spec_dir: specDir };
   if (!reanudar) llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
+  c.etapa('implementacion', 'EJECUTADO', reanudar ? 'Código y pruebas reutilizados de la rama.' : 'Código y pruebas generados.');
 
   // 4. Bucle validar -> desplegar -> probar -> corregir
   let verde = false;
@@ -109,6 +126,7 @@ async function run() {
     llamarIA(c, { rol: 'corrector', plantilla: 'corrector', vars: { ...varsImpl, problemas: detalle, intento: String(intento) }, escritura: specDir });
   }
   if (!verde) return falla(c, 'pruebas', `Las pruebas del spec no quedaron en verde tras ${MAX_REINTENTOS} reintentos. Se detiene sin PR; la rama ${rama} queda para diagnóstico.`);
+  c.etapa('pruebas', 'VALIDADO', 'Pruebas del spec en verde.');
 
   // 5. Mutación "sin la funcionalidad": las pruebas @requiere-feature deben fallar sin el plugin
   let sinFeature = null;
@@ -121,7 +139,8 @@ async function run() {
     const s = resumen(sinFeature);
     c.log('mutacion', `Sin la funcionalidad: ${s.failed} fallan (esperado), ${s.passed} pasan (cada una es un hallazgo).`);
     moodle.desplegar(specDir);
-  }
+    c.etapa('mutacion', s.passed ? 'EJECUTADO' : 'VALIDADO', `Sin la funcionalidad: ${s.failed} fallan, ${s.passed} pasan.`);
+  } else c.etapa('mutacion', 'EJECUTADO', 'No aplica: el spec no trae plugin.');
 
   // 6. Regresión completa (nada de lo existente se rompió) + líneas base nuevas
   moodle.reset();
@@ -137,6 +156,7 @@ async function run() {
   }
   const st = resumen(total.resultados);
   c.log('regresion', `Suite completa: ${st.passed} OK, ${st.failed} fallidas, ${st.skipped} omitidas.`, st.failed ? contextoFallos(c.dir, total.resultados) : null);
+  c.etapa('regresion', st.failed ? 'EJECUTADO' : 'VALIDADO', `${st.passed} OK, ${st.failed} fallidas, ${st.skipped} omitidas.`);
   const nuevas = lineasBaseNuevas();
   if (nuevas.length) { registrarPendientes(nuevas, specId); c.log('visual', `Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: ${nuevas.join(', ')}`); }
 
@@ -148,12 +168,14 @@ async function run() {
   const core = moodle.verificarCoreIntacto(rutasPluginsDesplegados());
   if (fuera.length || core.length) return falla(c, 'alcance', 'Cambios fuera del alcance permitido.', [...fuera.map((f) => `repo: ${f}`), ...core.map((x) => `core moodle: ${x}`)].join('\n'));
   c.log('alcance', 'Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).');
+  c.etapa('alcance', 'VALIDADO', 'Solo cambió salidas/ del spec; core de Moodle intacto.');
 
   // 8. Control de verificación honesta (independiente). Bloquea.
   const { hallazgos: H, texto: txtH } = auditar({ resultados: total.resultados, sinFeature, plan });
   escribir(c.ruta('honestidad.log'), txtH);
   c.log('honestidad', H.length ? `BLOQUEADO con ${H.length} hallazgo(s).` : 'OK.', txtH);
   if (H.length) return falla(c, 'honestidad', 'El control de verificación honesta bloqueó la corrida. No se abre PR.');
+  c.etapa('honestidad', 'VALIDADO', 'Sin hallazgos.');
   if (st.failed) return falla(c, 'regresion', 'La regresión completa tiene fallos. No se abre PR.');
 
   // 9. Evidencia, trazabilidad, diff, commit, PR (sin merge)
@@ -164,6 +186,7 @@ async function run() {
   shOk(`git add -A ${specDir} ${c.dir} ia/transcripciones visual/lineas-base`);
   shOk(`git commit -q -m "feat(${specId}): ${plan.titulo}" -m "Generado por la fábrica. Corrida ${c.dir}."`);
   const pr = abrirPR(c, rama, plan, specDir, st, txtH, nuevas);
+  c.etapa('pr', 'EJECUTADO', `PR propuesto: ${pr}. Pendiente de aprobación humana.`);
   c.log('fin', `PR propuesto: ${pr}. El pipeline se detiene en aprobación humana: no mergea ni despliega.`);
   sh(`git add -A ${c.dir} && git commit -q -m "chore(${specId}): log final de la corrida" && git push -q origin ${rama}`);
   shOk('git checkout -q main');
@@ -260,8 +283,10 @@ function abrirPR(c, rama, plan, specDir, st, txtH, nuevas) {
 
 // ---------------------------------------------------------------------------------------------------------
 async function suite() {
-  const c = new Corrida('suite');
+  const c = corridaActiva = new Corrida('suite');
+  c.iniciarEstado(ETAPAS_SUITE);
   if (!moodle.moodleArriba()) return falla(c, 'precondicion', 'Moodle no responde. Ejecutar: bash entorno/setup.sh');
+  c.etapa('precondicion', 'VALIDADO', 'Moodle responde.');
   for (const s of fs.readdirSync(path.join(RAIZ, 'salidas'))) if (moodle.pluginsDe(`salidas/${s}`).length) {
     const d = moodle.desplegar(`salidas/${s}`);
     c.log('despliegue', `${s}: ${d.ok ? 'OK' : 'FALLÓ'}`, d.ok ? null : d.salida);
@@ -271,9 +296,11 @@ async function suite() {
   const s = resumen(r.resultados);
   c.log('suite', `Funcional + visual: ${s.passed} OK, ${s.failed} fallidas, ${s.skipped} omitidas. Reporte: ${c.dir}/visual/index.html`, s.failed ? contextoFallos(c.dir, r.resultados) : null);
   if (s.failed) copiarDiferencias(c);
+  c.etapa('pruebas', s.failed ? 'FALLIDO' : 'VALIDADO', `${s.passed} OK, ${s.failed} fallidas, ${s.skipped} omitidas.`);
   const { hallazgos: H, texto: txtH } = auditar({ resultados: r.resultados });
   escribir(c.ruta('honestidad.log'), txtH);
   c.log('honestidad', H.length ? `BLOQUEADO con ${H.length} hallazgo(s).` : 'OK.', txtH);
+  c.etapa('honestidad', H.length ? 'FALLIDO' : 'VALIDADO', H.length ? `${H.length} hallazgo(s).` : 'Sin hallazgos.');
   return s.failed || H.length ? 1 : 0;
 }
 
