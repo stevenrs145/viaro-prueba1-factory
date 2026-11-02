@@ -53,7 +53,11 @@ foreach ($cmbanco as $cmb) {
 }
 
 // El estado de los cajones se guarda por usuario y sobrevive entre corridas: abierto o cerrado mueve toda la página.
+// Se fija explícitamente: sin la preferencia Moodle abre el índice del curso, y las líneas base lo tienen cerrado.
 $DB->delete_records_select('user_preferences', "name LIKE 'drawer-open-%'");
+foreach ($DB->get_fieldset_select('user', 'id', 'deleted = 0') as $idusuario) {
+    set_user_preference('drawer-open-index', 0, $idusuario);
+}
 $DB->delete_records('notifications');
 $DB->delete_records('message_popup_notifications');
 $DB->set_field('tool_usertours_tours', 'enabled', 0);

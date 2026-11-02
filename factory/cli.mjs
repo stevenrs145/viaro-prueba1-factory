@@ -167,13 +167,17 @@ async function run() {
     moodle.reset();
     total = correrPruebas([], c.dir, { crearLineasBaseFaltantes: false });
   }
-  // Una prueba del propio spec que pasó sola y falla en la suite es inestable: va al corrector igual que en la etapa 4.
-  // Los fallos de pruebas de otros specs no se corrigen aquí: son regresiones y detienen la corrida.
+  // Lo que falla en la suite va al corrector: una prueba propia inestable, o una regresión que causó el plugin.
+  // El corrector solo escribe en salidas/<spec>/: una prueba de otro spec no se puede tocar, solo arreglar el plugin.
   for (let i = 1; i <= MAX_REINTENTOS; i++) {
-    const propias = total.resultados.filter((r) => ['failed', 'timedOut', 'interrupted'].includes(r.estado) && (r.archivo || '').includes(specDir));
-    if (!propias.length) break;
-    c.log('reintento', `${propias.length} prueba(s) del spec fallaron en la suite completa. Se le pide a la IA que corrija (${i}/${MAX_REINTENTOS}).`);
-    const problemas = `Estas pruebas pasaron ejecutadas solas y fallaron en la suite completa: son inestables. Buscá una carrera entre una acción y el JS de Moodle (usá esperarJS de los helpers).\nEl estado ARIA puede ser posterior a la limpieza de la prueba; guiate por la línea del error.\n\n${contextoFallos(c.dir, total.resultados)}`;
+    const fallidas = total.resultados.filter((r) => ['failed', 'timedOut', 'interrupted'].includes(r.estado));
+    if (!fallidas.length) break;
+    const ajenas = fallidas.filter((r) => !(r.archivo || '').includes(specDir));
+    c.log('reintento', `${fallidas.length} prueba(s) fallaron en la suite completa (${ajenas.length} de otros specs). Se le pide a la IA que corrija (${i}/${MAX_REINTENTOS}).`);
+    const problemas = (ajenas.length
+      ? 'Estas pruebas de OTROS specs pasaban antes y ahora fallan con tu plugin: es una regresión, y lo que se rompió debe seguir igual. Arreglá el PLUGIN; esas pruebas no se tocan. Comparar expected y actual en los artefactos muestra qué cambió.\n'
+      : 'Estas pruebas pasaron ejecutadas solas y fallaron en la suite completa: son inestables. Buscá una carrera entre una acción y el JS de Moodle (usá esperarJS de los helpers).\n')
+      + `El estado ARIA puede ser posterior a la limpieza de la prueba; guiate por la línea del error.\n\n${contextoFallos(c.dir, total.resultados)}`;
     llamarIA(c, { rol: 'corrector', plantilla: 'corrector', vars: { ...varsImpl, problemas, intento: `regresion-${i}` }, escritura: specDir });
     const estaticos = validacionesEstaticas(c, specDir, plan);
     if (estaticos.length) return falla(c, 'regresion', 'La corrección de la regresión no pasa las validaciones estáticas.', estaticos.join('\n'));
