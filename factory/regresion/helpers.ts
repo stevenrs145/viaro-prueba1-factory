@@ -8,10 +8,17 @@ export const QUIZ_REG = 'Examen de regresión';
 export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
 
 export async function login(page: Page, usuario: string) {
+  // Salir de la página ANTES de borrar cookies: al descargarse, Moodle lanza un POST a service.php
+  // (core_message_get_unsent_message). Sin cookie, su respuesta fija otra MoodleSession e invalida el logintoken.
+  await page.goto('about:blank');
   await page.context().clearCookies();
-  await page.goto('/login/index.php');
+  await page.goto('/login/index.php', { waitUntil: 'domcontentloaded' });
+  // core/togglesensitive reemplaza el input de la clave (outerHTML) al cargar y se pierde lo ya escrito:
+  // hay que esperar a su botón antes de rellenar, o Moodle rechaza el login con la clave vacía.
+  await expect(page.getByRole('button', { name: 'Toggle sensitive' })).toBeVisible();
   await page.fill('#username', usuario);
   await page.fill('#password', CLAVE);
+  await expect(page.locator('#password')).toHaveValue(CLAVE);
   await page.click('#loginbtn');
   await expect(page.locator('#loginbtn')).toHaveCount(0);
 }
@@ -69,6 +76,10 @@ export async function paginaAnterior(page: Page) {
 export async function enviarIntento(page: Page) {
   await page.getByRole('button', { name: /finish attempt/i }).click();
   await expect(page).toHaveURL(/summary\.php/);
+  // Si se hace clic antes de que submission_confirmation.js enlace su manejador, se envía sin modal.
+  // M.util.pending_js es la señal que usa Behat: vacío significa que los módulos AMD ya se inicializaron.
+  await page.waitForLoadState('load');
+  await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0);
   await page.getByRole('button', { name: 'Submit all and finish' }).click();
   const confirmar = page.locator('.modal-footer button', { hasText: 'Submit all and finish' });
   await expect(confirmar).toBeVisible({ timeout: 15_000 });
@@ -98,7 +109,10 @@ export async function receptor(page: Page, ruta: string, body?: unknown) {
 export async function prepararCaptura(page: Page): Promise<Locator[]> {
   await page.mouse.move(0, 0);
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
-  await page.waitForLoadState('networkidle');
+  // Sin 'networkidle': el índice del curso hace peticiones periódicas y nunca queda inactivo.
+  // toHaveScreenshot ya espera a que la imagen sea estable.
+  await page.waitForLoadState('load');
+  await page.evaluate(() => document.fonts.ready);
   // Columnas de tablas cuyo encabezado indica un valor temporal: se marcan por el TEXTO del encabezado,
   // no por posición (la posición cambia entre informes y vistas).
   await page.evaluate((patron) => {

@@ -5,8 +5,10 @@
 //   - visual/lineas-base/APROBACIONES.json TAL COMO ESTÁ EN main + aprobaciones nuevas firmadas por humano
 // Bloquea (exit 1) ante cualquier hallazgo. No advierte: o pasa, o no hay pull request.
 //
+// Se ejecuta desde la versión de main (factory/lib/auditor.mjs), no desde la copia de trabajo auditada.
+//
 // Uso: node factory/honestidad/verificar.mjs [--resultados <resultados.json>] [--sin-feature <resultados.json>]
-//                                            [--plan <plan.json>] [--salida <honestidad.log>]
+//                                            [--plan <plan.json>] [--salida <honestidad.log>] [--json <hallazgos.json>]
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -14,11 +16,15 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { analizarArchivo, idPrueba } from './analisis.mjs';
 
-const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const RAIZ = process.env.HONESTIDAD_RAIZ || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const REF = process.env.HONESTIDAD_REF || 'main';
 const MANIFIESTO = 'factory/honestidad/manifiesto.json';
 const APROBACIONES = 'visual/lineas-base/APROBACIONES.json';
 const CONFIG = 'playwright.config.ts';
+const DIR_AUDITOR = 'factory/honestidad';
+const LANZADOR = 'factory/lib/auditor.mjs';
+// Datos, no código: `aprobar-pruebas` los escribe en la rama y el auditor siempre los lee de main.
+const DATOS_AUDITOR = new Set([MANIFIESTO, `${DIR_AUDITOR}/aprobaciones.log`]);
 
 const arg = (n) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
 const enRef = (p) => { try { return execSync(`git show ${REF}:${p}`, { cwd: RAIZ, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }); } catch { return null; } };
@@ -59,11 +65,32 @@ const umbral = (cfg) => ({
   retries: Number((cfg.match(/retries:\s*(\d+)/) || [])[1]),
 });
 
+/** Texto de la configuración sin comentarios ni diferencias de espacios: cambiar un comentario no es un cambio. */
+const normalizarConfig = (s) => s.replace(/^\s*\/\/.*$/gm, '').replace(/\s\/\/.*$/gm, '').replace(/\s+/g, ' ').trim();
+
+function archivosDelAuditor() {
+  const enTrabajo = fs.readdirSync(path.join(RAIZ, DIR_AUDITOR), { recursive: true, withFileTypes: true })
+    .filter((e) => e.isFile()).map((e) => path.relative(RAIZ, path.join(e.parentPath ?? e.path, e.name)));
+  const enMain = execSync(`git ls-tree -r --name-only ${REF} -- ${DIR_AUDITOR}`, { cwd: RAIZ, encoding: 'utf8' }).split('\n').filter(Boolean);
+  return [...new Set([...enTrabajo, ...enMain, LANZADOR])].filter((f) => !DATOS_AUDITOR.has(f)).sort();
+}
+
 export function verificar({ resultados, sinFeature, plan } = {}) {
   const H = [];
   const hallazgo = (regla, donde, detalle) => H.push({ regla, donde, detalle });
   const ref = json(enRef(MANIFIESTO), null);
   const actual = construirManifiesto();
+
+  // 0) Las herramientas de verificación son las de main: quien se audita no puede cambiar al auditor ni qué se ejecuta.
+  for (const f of archivosDelAuditor()) {
+    const abs = path.join(RAIZ, f);
+    const copia = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
+    if (copia !== enRef(f)) hallazgo('AUDITOR-ALTERADO', f, `Difiere de ${REF}. Los cambios al auditor se hacen en ${REF}, no en la rama que se audita.`);
+  }
+  const cfgRef = enRef(CONFIG);
+  if (cfgRef === null || normalizarConfig(cfgRef) !== normalizarConfig(fs.readFileSync(path.join(RAIZ, CONFIG), 'utf8'))) {
+    hallazgo('CONFIG-PRUEBAS-ALTERADA', CONFIG, `Difiere de ${REF}: podría excluir pruebas (testMatch, testIgnore, grep, projects) o alterar cómo se reportan.`);
+  }
 
   if (!ref) hallazgo('SIN-REFERENCIA', `${REF}:${MANIFIESTO}`, `No existe manifiesto aprobado en ${REF}. Sin referencia no se puede afirmar que nada se debilitó.`);
   const base = ref || { pruebas: {}, omisiones: {}, umbralVisual: actual.umbralVisual };
@@ -141,6 +168,18 @@ export function verificar({ resultados, sinFeature, plan } = {}) {
     for (const r of resultados) if (r.estado === 'skipped' && !r.anotaciones.some((x) => x.startsWith('skip:') && x.length > 8)) hallazgo('OMITIDA-EN-EJECUCION', `${r.archivo} «${r.titulo}» [${r.proyecto}]`, 'Se omitió sin razón declarada.');
   }
 
+  // 5b) Cobertura real: cada criterio verificable debe tener una prueba [CA-n] que corrió y pasó.
+  if (plan) {
+    for (const ca of (plan.criterios || []).filter((x) => x.verificacion !== 'proceso')) {
+      const suyas = (resultados || []).filter((r) => r.titulo.includes(`[${ca.id}]`));
+      if (!suyas.some((r) => r.estado === 'passed')) {
+        hallazgo('CRITERIO-SIN-PRUEBA', ca.id, suyas.length
+          ? `Sus ${suyas.length} prueba(s) no pasaron: ${[...new Set(suyas.map((r) => r.estado))].join(', ')}.`
+          : `Ninguna prueba ejecutada lleva [${ca.id}] en el título: «${ca.texto}».`);
+      }
+    }
+  }
+
   // 6) Prueba de mutación "sin la funcionalidad": las pruebas @requiere-feature deben FALLAR sin el plugin.
   if (sinFeature) {
     for (const r of sinFeature.filter((x) => /@requiere-feature/.test(x.titulo))) {
@@ -161,6 +200,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const H = verificar({ resultados: leerRes(arg('--resultados')), sinFeature: leerRes(arg('--sin-feature')), plan: arg('--plan') ? JSON.parse(fs.readFileSync(arg('--plan'), 'utf8')) : null });
   const txt = informe(H);
   if (arg('--salida')) fs.writeFileSync(arg('--salida'), txt);
+  if (arg('--json')) fs.writeFileSync(arg('--json'), JSON.stringify(H));
   process.stdout.write(txt);
   process.exit(H.length ? 1 : 0);
 }

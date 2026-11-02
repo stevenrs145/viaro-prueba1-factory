@@ -7,11 +7,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { RAIZ, sh, escribir, leer } from './util.mjs';
 
+// Modelo por rol (configurable): análisis e implementación con el modelo más capaz; el corrector, que es la
+// llamada que más se repite, con uno más económico para no agotar la cuota de uso.
 const ROLES = {
-  analista: { tools: ['Read', 'Glob', 'Grep'], maxTurns: 40 },
-  implementador: { tools: ['Read', 'Glob', 'Grep', 'Write', 'Edit'], maxTurns: 120 },
-  corrector: { tools: ['Read', 'Glob', 'Grep', 'Write', 'Edit'], maxTurns: 80 },
+  analista: { tools: ['Read', 'Glob', 'Grep'], maxTurns: 40, modelo: process.env.FACTORY_MODELO_ANALISTA || 'opus' },
+  implementador: { tools: ['Read', 'Glob', 'Grep', 'Write', 'Edit'], maxTurns: 120, modelo: process.env.FACTORY_MODELO_IMPLEMENTADOR || 'opus' },
+  corrector: { tools: ['Read', 'Glob', 'Grep', 'Write', 'Edit'], maxTurns: 80, modelo: process.env.FACTORY_MODELO_CORRECTOR || 'sonnet' },
 };
+const ALERTA_USO = Number(process.env.FACTORY_ALERTA_USO || 0.7);
 
 export function renderizar(plantilla, vars) {
   return leer(`factory/prompts/${plantilla}.md`).replace(/\{\{(\w+)\}\}/g, (_, k) => {
@@ -39,6 +42,7 @@ export function llamarIA(corrida, { rol, plantilla, vars, escritura }) {
   const args = [
     '-p', '--output-format', 'stream-json', '--verbose',
     '--max-turns', String(cfg.maxTurns),
+    '--model', cfg.modelo,
     '--permission-mode', 'acceptEdits',
     '--allowedTools', permitidas.join(','),
     '--disallowedTools', 'Bash,WebFetch,WebSearch,Task',
@@ -56,12 +60,19 @@ export function llamarIA(corrida, { rol, plantilla, vars, escritura }) {
   let texto = '';
   let costo = null;
   let limite = null;
+  let uso = null;
   for (const linea of r.out.split('\n')) {
     try {
       const ev = JSON.parse(linea);
       if (ev.type === 'result') { texto = ev.result || ''; costo = ev.total_cost_usd; }
       if (ev.api_error_status === 429 || ev.api_error === 'usage_limit_reached') limite = ev.message?.content?.[0]?.text || 'límite de uso (429)';
+      const u = ev.rate_limit_info?.unifiedWindows?.five_hour;
+      if (u) uso = { pct: u.utilization, reinicia: new Date(u.resetsAt * 1000).toISOString() };
     } catch { /* línea no JSON */ }
+  }
+  if (uso) {
+    corrida.log('uso-ia', `Ventana de 5 h: ${Math.round(uso.pct * 100)} % usado (se reinicia ${uso.reinicia}).`);
+    if (uso.pct >= ALERTA_USO) corrida.log('uso-ia', `⚠️ ALERTA: se superó el ${Math.round(ALERTA_USO * 100)} % de la cuota de uso de la IA.`);
   }
   if (limite) {
     // No es un fallo de la implementación: la IA no está disponible. No se consume un reintento.

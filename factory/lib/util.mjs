@@ -57,6 +57,31 @@ export class Corrida {
     fs.mkdirSync(path.join(RAIZ, this.dir, 'ia'), { recursive: true });
     this.logPath = path.join(RAIZ, this.dir, 'pipeline.log');
     this.nIA = 0;
+    this.estado = null;
+  }
+  /** Crea corridas/<id>/estado.json con todas las etapas en PENDIENTE. */
+  iniciarEstado(etapas, datos = {}) {
+    const inicial = Object.fromEntries(etapas.map((e) => [e, { estado: 'PENDIENTE', detalle: null, actualizado: null }]));
+    this.estado = { corrida: this.id, ...datos, estado: 'PENDIENTE', etapas: inicial };
+    this.guardarEstado();
+  }
+  /** Registra el estado de una etapa: EJECUTADO, VALIDADO, FALLIDO o BLOQUEADO. */
+  etapa(nombre, estado, detalle = null) {
+    if (!this.estado) return;
+    this.estado.etapas[nombre] = { estado, detalle, actualizado: new Date().toISOString() };
+    this.guardarEstado();
+  }
+  /** La primera etapa sin terminar: donde se detuvo la corrida si algo la interrumpe. */
+  etapaEnCurso() {
+    return Object.entries(this.estado?.etapas || {}).find(([, e]) => e.estado === 'PENDIENTE')?.[0] || null;
+  }
+  guardarEstado() {
+    const v = Object.values(this.estado.etapas).map((e) => e.estado);
+    this.estado.estado = v.includes('FALLIDO') ? 'FALLIDO'
+      : v.includes('BLOQUEADO') ? 'BLOQUEADO'
+        : v.includes('PENDIENTE') ? (v.every((x) => x === 'PENDIENTE') ? 'PENDIENTE' : 'EJECUTADO')
+          : 'VALIDADO';
+    fs.writeFileSync(path.join(RAIZ, this.dir, 'estado.json'), JSON.stringify(this.estado, null, 2) + '\n');
   }
   log(etapa, msg, detalle) {
     const linea = `[${new Date().toISOString()}] [${etapa}] ${msg}`;

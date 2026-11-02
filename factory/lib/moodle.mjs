@@ -69,8 +69,14 @@ export function verificarCoreIntacto(rutasPermitidas) {
 
 export function reset() {
   const a = sh(`${DC} exec -T -u www-data web php /opt/seed/reset.php`);
+  // Tareas ad hoc en cola (p. ej. limpieza tras borrar actividades, migraciones de mod_qbank) se ejecutan ahora,
+  // no a mitad de una prueba: el estado inicial de cada corrida es siempre el mismo.
+  const t = sh(`${DC} exec -T -u www-data web php admin/cli/adhoc_task.php --execute`);
   const b = sh(`${DC} exec -T web curl -s -X POST http://receptor/_reset`);
-  return { ok: a.code === 0 && b.code === 0, salida: a.out + a.err + b.out };
+  // reset.php purga cachés y cambia la revisión del tema: sin calentar, la primera carga en el navegador
+  // se queda ~30 s en styles.php (bloquea domcontentloaded) y agota el timeout de page.goto.
+  sh(`u=$(curl -s -m 60 http://localhost:8090/login/index.php | grep -oE 'http://[^"]*theme/styles\\.php/[^"]*' | head -1); [ -n "$u" ] && curl -s -o /dev/null -m 120 "$u"`);
+  return { ok: a.code === 0 && b.code === 0, salida: a.out + a.err + b.out + (t.code ? t.err : '') };
 }
 
 export function moodleArriba() {

@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-050228-spec-0",
+  "spec": "specs/spec-0-regresion.md",
+  "rama": "factory/spec-0-20261101-232314",
+  "reanudada": true,
+  "estado": "FALLIDO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T05:02:30.396Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan reutilizado de la rama: 7 criterios, 16 bordes.",
+      "actualizado": "2026-11-02T05:02:30.400Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "0 sonda(s).",
+      "actualizado": "2026-11-02T05:02:30.401Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas reutilizados de la rama.",
+      "actualizado": "2026-11-02T05:02:30.402Z"
+    },
+    "pruebas": {
+      "estado": "FALLIDO",
+      "detalle": "Las pruebas del spec no quedaron en verde tras 0 reintentos. Se detiene sin PR; la rama factory/spec-0-20261101-232314 queda para diagnóstico.",
+      "actualizado": "2026-11-02T05:14:49.367Z"
+    },
+    "mutacion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "regresion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "alcance": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "honestidad": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}
