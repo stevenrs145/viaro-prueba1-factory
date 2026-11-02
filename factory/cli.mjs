@@ -101,6 +101,8 @@ async function run() {
   // 3. Implementación (código + pruebas)
   const varsImpl = { spec: specTxt, spec_id: specId, plan, sondas, conocimiento: leer('factory/conocimiento/moodle-5.3.md'), helpers: leer('factory/regresion/helpers.ts'), spec_dir: specDir };
   if (!reanudar) llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
+  const noAplicados = aplicarPruebasAfectadas(c, plan);
+  if (noAplicados.length) return falla(c, 'implementacion', 'Una prueba declarada en pruebas_afectadas no se pudo actualizar.', noAplicados.join('\n'));
   c.etapa('implementacion', 'EJECUTADO', reanudar ? 'Código y pruebas reutilizados de la rama.' : 'Código y pruebas generados.');
   // Adelanta las llamadas caras sin usar Moodle: las pruebas se hacen después con --reanudar.
   if (process.env.FACTORY_SOLO_GENERAR) {
@@ -188,6 +190,7 @@ async function run() {
 
   // 7. Alcance: la IA solo pudo cambiar salidas/<spec>/ y líneas base nuevas; el core de Moodle intacto
   const fuera = sh('git status --porcelain').out.split('\n').filter(Boolean).map((l) => l.slice(3))
+    .filter((f) => !(plan.pruebas_afectadas || []).some((d) => d.archivo === f))
     .filter((f) => !f.startsWith(specDir) && !f.startsWith('corridas/') && !f.startsWith('ia/transcripciones/') && !f.startsWith('visual/') && !f.startsWith('test-results'))
     // al reanudar, la fábrica se toma de main (no de la rama): esas diferencias no son obra de la IA
     .filter((f) => !(reanudar && sh(`git diff --quiet main -- '${f}'`).code === 0));
@@ -264,12 +267,33 @@ function bloquear(c, rama, specDir, specPath, bordes) {
   return 4;
 }
 
+/**
+ * Pruebas de regresión aprobadas que el spec cambia a propósito (como pantallas_afectadas, pero para aserciones).
+ * La fábrica aplica el reemplazo exacto del plan; la IA no edita esos archivos. El PR lo muestra y lo aprueba un humano.
+ */
+function aplicarPruebasAfectadas(c, plan) {
+  const problemas = [];
+  for (const d of plan.pruebas_afectadas || []) {
+    const texto = leer(d.archivo);
+    if (texto.includes(d.despues) && !texto.includes(d.antes)) continue; // ya aplicado en una corrida reanudada
+    if (texto.split(d.antes).length !== 2) { problemas.push(`${d.archivo}: el texto a reemplazar debe aparecer exactamente una vez: ${d.antes}`); continue; }
+    escribir(d.archivo, texto.replace(d.antes, d.despues));
+    c.log('implementacion', `Prueba aprobada actualizada, pendiente de aprobación humana: ${d.archivo}`, `- ${d.antes}\n+ ${d.despues}\nMotivo: ${d.motivo}`);
+  }
+  return problemas;
+}
+
 function validarPlan(p, specId) {
   const req = ['spec_id', 'titulo', 'naturaleza', 'capa_justificacion', 'criterios', 'bordes'];
   for (const k of req) if (p[k] === undefined) throw new Error(`falta "${k}"`);
   for (const b of p.bordes) {
     if (b.bloqueante !== undefined && typeof b.bloqueante !== 'boolean') throw new Error(`bloqueante debe ser true o false: ${b.descripcion}`);
     if (b.bloqueante && !b.preguntaria) throw new Error(`borde bloqueante sin pregunta: ${b.descripcion}`);
+  }
+  for (const d of p.pruebas_afectadas || []) {
+    if (!d.archivo || !d.antes || !d.despues || !d.motivo) throw new Error(`pruebas_afectadas incompleta: ${JSON.stringify(d)}`);
+    if (!/^(salidas\/[^/]+\/pruebas|factory\/regresion)\//.test(d.archivo)) throw new Error(`pruebas_afectadas fuera de las pruebas: ${d.archivo}`);
+    if (d.archivo.startsWith(`salidas/${specId}/`)) throw new Error(`pruebas_afectadas es para pruebas de otros specs: ${d.archivo}`);
   }
   if (p.spec_id !== specId) throw new Error(`spec_id debe ser "${specId}"`);
   if (!Array.isArray(p.criterios) || !p.criterios.length) throw new Error('criterios vacío');

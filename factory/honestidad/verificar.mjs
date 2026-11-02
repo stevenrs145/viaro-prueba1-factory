@@ -108,6 +108,16 @@ export function verificar({ resultados, sinFeature, plan } = {}) {
     if (b.modificador && b.modificador !== a.modificador) hallazgo('OMITIDA', id, `Ahora es test.${b.modificador}().`);
   }
 
+  // 1b) Una prueba aprobada no cambia en silencio: el archivo debe ser el de main, salvo los reemplazos exactos declarados
+  // en el plan del spec. Detecta también un valor esperado cambiado por otro igual de fuerte.
+  const declarados = (plan?.pruebas_afectadas || []);
+  for (const f of listarPruebas()) {
+    const aprobado = enRef(f);
+    if (aprobado === null) continue;
+    const esperado = declarados.filter((d) => d.archivo === f).reduce((t, d) => t.replace(d.antes, d.despues), aprobado);
+    if (fs.readFileSync(path.join(RAIZ, f), 'utf8') !== esperado) hallazgo('PRUEBA-APROBADA-MODIFICADA', f, 'Difiere de la versión aprobada en main y no coincide con los cambios declarados en pruebas_afectadas.');
+  }
+
   // 2) Reglas que aplican a TODAS las pruebas (también a las nuevas que trae un spec).
   for (const f of listarPruebas()) {
     const a = analizarArchivo(f, fs.readFileSync(path.join(RAIZ, f), 'utf8'));

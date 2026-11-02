@@ -56,6 +56,8 @@ const CASOS = [
   ['Error tragado', 'ERROR-TRAGADO', () => editar(PRUEBA, (s) => s.replace(`toHaveText('Hola');`, `toHaveText('Hola').catch(() => {});`))],
   ['Respuesta inventada', 'RED-SIMULADA', () => editar(PRUEBA, (s) => s.replace(`await page.goto('/');`, `await page.route('**/*', (r) => r.fulfill({ body: 'x' }));\n  await page.goto('/');`))],
   ['expect.soft', 'ASSERT-SOFT', () => editar(PRUEBA, (s) => s.replace(`await expect(page.locator('h1'))`, `await expect.soft(page.locator('h1'))`))],
+  ['Valor esperado cambiado por otro igual de fuerte', 'PRUEBA-APROBADA-MODIFICADA', () => editar(PRUEBA, (s) => s.replace(`toHaveText('Hola')`, `toHaveText('Adiós')`))],
+  ['Cambio distinto al declarado en el plan', 'PRUEBA-APROBADA-MODIFICADA', () => { editar(PRUEBA, (s) => s.replace(`toHaveText('Hola')`, `toHaveText('Adiós')`)); return { '--plan': { criterios: [], pruebas_afectadas: [{ archivo: PRUEBA, antes: `toHaveText('Hola')`, despues: `toHaveText('Chao')`, motivo: 'x' }] }, '--resultados': [] }; }],
   ['Prueba renombrada', 'PRUEBA-ELIMINADA', () => editar(PRUEBA, (s) => s.replace(TITULO, '[REG-sab] otro nombre'))],
   ['Captura quitada', 'CAPTURA-ELIMINADA', () => editar(PRUEBA, quitar(`  await expect(page).toHaveScreenshot('sab.png', { mask: [page.locator('time')] });\n`))],
   ['Máscara nueva', 'MASCARA-AGREGADA', () => editar(PRUEBA, (s) => s.replace(`{ mask: [page.locator('time')] }`, `{ mask: [page.locator('time')] }, { mask: [] }`))],
@@ -117,6 +119,10 @@ try {
   const comentario = (editar(CONFIG, (s) => s.replace('export default', '// comentario inofensivo\nexport default')), auditar());
   fila(comentario.status === 0, 'Control: un comentario en la configuración no bloquea', 'exit 0', comentario.status === 0 ? '' : comentario.stdout);
   limpiar();
+  const declarada = (editar(PRUEBA, (s) => s.replace(`toHaveText('Hola')`, `toHaveText('Adiós')`)),
+    auditar({ '--plan': { criterios: [], pruebas_afectadas: [{ archivo: PRUEBA, antes: `toHaveText('Hola')`, despues: `toHaveText('Adiós')`, motivo: 'x' }] }, '--resultados': [] }));
+  fila(declarada.status === 0, 'Control: un cambio declarado en el plan no bloquea', 'exit 0', declarada.status === 0 ? '' : declarada.stdout);
+  limpiar();
   const datos = (fs.appendFileSync(ruta('factory/honestidad/aprobaciones.log'), 'x\n'), auditar());
   fila(datos.status === 0, 'Control: aprobaciones.log (dato de aprobar-pruebas) no bloquea', 'exit 0', datos.status === 0 ? '' : datos.stdout);
   limpiar();
@@ -135,5 +141,5 @@ try {
 } finally {
   fs.rmSync(CLON, { recursive: true, force: true });
 }
-console.log(`\n${CASOS.length + 4 - fallos}/${CASOS.length + 4} casos correctos.`);
+console.log(`\n${CASOS.length + 5 - fallos}/${CASOS.length + 5} casos correctos.`);
 process.exitCode = fallos ? 1 : 0;
