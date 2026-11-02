@@ -23,7 +23,7 @@ $vx-ambar: #fff4dc;
   --bs-navbar-active-color: #fff;
   --bs-nav-link-color: #fff;
   .primary-navigation a, .primary-navigation a:hover, .primary-navigation button { color: #fff !important; opacity: 1 !important; }
-  label, .form-check, .form-check *, [class*="editmode"], [class*="editmode"] * { color: #fff !important; opacity: 1 !important; }
+  label, .form-check, .form-check *, [class*="editmode"], [class*="editmode"] * { color: #fff !important; }
   .userinitials { background-color: #62c2ca !important; color: $vx-tinta !important; }
   .dropdown-toggle::after { border-top-color: #fff; }
 }
