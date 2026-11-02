@@ -1,0 +1,152 @@
+[
+  {
+    "descripcion": "Cuerpo vacío: qué campos exige el receptor y con qué forma informa el rechazo.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/resultados",
+    "body": {},
+    "respuesta": {
+      "http": 422,
+      "cuerpo": "{\"status\":\"error\",\"errors\":[\"missing_field: idempotency_key\",\"missing_field: student\",\"missing_field: quiz\",\"missing_field: attempt\",\"missing_field: timestamp\"]}"
+    }
+  },
+  {
+    "descripcion": "Envío completo con la forma prevista: código y cuerpo de una aceptación, y si admite objetos y notas numéricas.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/resultados",
+    "body": {
+      "idempotency_key": "sonda-spec2-0001",
+      "student": {
+        "id": 0,
+        "username": "sonda",
+        "idnumber": "SONDA"
+      },
+      "quiz": {
+        "id": 0,
+        "cmid": 0,
+        "name": "Sonda"
+      },
+      "attempt": 0,
+      "attempt_grade": 7.5,
+      "final_grade": 7.5,
+      "max_grade": 10,
+      "grade_status": "graded",
+      "timestamp": "2026-11-02T12:00:00Z"
+    },
+    "respuesta": {
+      "http": 201,
+      "cuerpo": "{\"status\":\"accepted\",\"id\":\"f7c90c14-89eb-4f1b-bdfc-94a68cf32226\",\"duplicate\":false}"
+    }
+  },
+  {
+    "descripcion": "Misma idempotency_key: cómo responde a un reintento de algo ya aceptado.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/resultados",
+    "body": {
+      "idempotency_key": "sonda-spec2-0001",
+      "student": {
+        "id": 0,
+        "username": "sonda",
+        "idnumber": "SONDA"
+      },
+      "quiz": {
+        "id": 0,
+        "cmid": 0,
+        "name": "Sonda"
+      },
+      "attempt": 0,
+      "attempt_grade": 7.5,
+      "final_grade": 7.5,
+      "max_grade": 10,
+      "grade_status": "graded",
+      "timestamp": "2026-11-02T12:00:00Z"
+    },
+    "respuesta": {
+      "http": 200,
+      "cuerpo": "{\"status\":\"accepted\",\"id\":\"f7c90c14-89eb-4f1b-bdfc-94a68cf32226\",\"duplicate\":true}"
+    }
+  },
+  {
+    "descripcion": "Prepara una respuesta 200 con error en el cuerpo.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/_control",
+    "body": {
+      "mode": "ok_with_error_body",
+      "times": 1
+    },
+    "respuesta": {
+      "http": 200,
+      "cuerpo": "{\"mode\":\"ok_with_error_body\",\"times\":1}"
+    }
+  },
+  {
+    "descripcion": "Respuesta real de un 200 que no guardó el dato.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/resultados",
+    "body": {
+      "idempotency_key": "sonda-spec2-0002",
+      "student": {
+        "id": 0,
+        "username": "sonda",
+        "idnumber": "SONDA"
+      },
+      "quiz": {
+        "id": 0,
+        "cmid": 0,
+        "name": "Sonda"
+      },
+      "attempt": 0,
+      "timestamp": "2026-11-02T12:00:00Z"
+    },
+    "respuesta": {
+      "http": 200,
+      "cuerpo": "{\"status\":\"error\",\"message\":\"queue full, not stored\"}"
+    }
+  },
+  {
+    "descripcion": "Prepara una respuesta HTML de proxy.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/_control",
+    "body": {
+      "mode": "html_proxy",
+      "times": 1
+    },
+    "respuesta": {
+      "http": 200,
+      "cuerpo": "{\"mode\":\"html_proxy\",\"times\":1}"
+    }
+  },
+  {
+    "descripcion": "Respuesta real no JSON: el código no debe romperse al interpretarla.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/resultados",
+    "body": {
+      "idempotency_key": "sonda-spec2-0003",
+      "student": {
+        "id": 0,
+        "username": "sonda",
+        "idnumber": "SONDA"
+      },
+      "quiz": {
+        "id": 0,
+        "cmid": 0,
+        "name": "Sonda"
+      },
+      "attempt": 0,
+      "timestamp": "2026-11-02T12:00:00Z"
+    },
+    "respuesta": {
+      "http": 502,
+      "cuerpo": "<html><body><h1>502 Bad Gateway</h1>nginx</body></html>"
+    }
+  },
+  {
+    "descripcion": "Deja el receptor limpio: sin estado de las sondas para las pruebas.",
+    "metodo": "POST",
+    "url": "http://localhost:8091/_reset",
+    "body": {},
+    "respuesta": {
+      "http": 200,
+      "cuerpo": "{\"ok\":true}"
+    }
+  }
+]

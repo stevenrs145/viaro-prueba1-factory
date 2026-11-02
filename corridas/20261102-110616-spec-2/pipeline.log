@@ -1,0 +1,49 @@
+[2026-11-02T11:06:16.521Z] [inicio] Spec specs/spec-2-notificacion-externa.md (spec-2). Corrida corridas/20261102-110616-spec-2. Rama factory/spec-2-20261102-110616.
+[2026-11-02T11:06:17.081Z] [ia:analista] Llamada 01 con plantilla analista.md (herramientas: Read, Glob, Grep)
+    prompt: corridas/20261102-110616-spec-2/ia/01-analista.prompt.md
+[2026-11-02T11:10:27.276Z] [uso-ia] Ventana de 5 h: 81 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T11:10:27.276Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T11:10:27.276Z] [ia:analista] Fin llamada 01: OK en 250s, costo USD 1.45
+    respuesta final:
+    ```json
+    {
+      "spec_id": "spec-2",
+      "titulo": "Notificación del resultado del intento a un sistema externo",
+      "naturaleza": "integra",
+      "componente": "local_resultadoext",
+      "ruta_moodle": "public/local/resultadoext",
+      "capa_justificacion": "Plugin local con observer y tarea ad hoc: el spec reacciona a algo que ya pasó y depende de un tercero por HTTP. Una regla de acceso (quizaccess_*) sirve para condicionar intentos, no para esto. Nada toca el core. EVENTO: no se usa attempt_submitted, sino attempt_graded. attempt_submitted se dispara en public/mod/quiz/classes/quiz_attempt.php:1892, ANTES de calcular la nota; sumgrades se asigna en :1915, la nota final se recalcula en :1928 y attempt_graded se dispara en :1931. Si se escuchara attempt_submitted, CA-1 saldría sin notas. attempt_graded pasa por process_grade_submission(), que cubre el envío normal (:2251-2252) y los cierres automáticos (:1682-1683, :2039-2040). No se dispara en previsualizaciones (:1890, :1927). ENSAYOS: QUIZ-REG incluye un ensayo. get_total_mark() devuelve null mientras haya uno sin calificar (public/question/engine/questionusage.php:387-392), así que el primer aviso sale sin nota de intento. Para el aviso con nota se observa \\mod_quiz\\event\\question_manually_graded (public/mod/quiz/comment.php:98 y public/mod/quiz/report/grading/report.php:605-607, ambos después del commit). NO se usa attempt_manual_grading_completed, que el documento de conocimiento sugiere: lo dispara una tarea programada con minuto 'R' que corre una vez por hora (public/mod/quiz/db/tasks.php:39-41), y se omite si la opción de revisión manualcomment está oculta o el estudiante no tiene la capacidad (public/mod/quiz/classes/task/quiz_notify_attempt_manual_grading_completed.php:102-113). Por eso puede llegar muy tarde o no llegar nunca; conviene corregir ese punto en factory/conocimiento/moodle-5.3.md. AISLAMIENTO DEL ESTUDIANTE: los observers van con 'internal' => false y corren después del commit (public/lib/classes/event/manager.php:129-136), de modo que un fallo del plugin no afecta la transacción del intento. El observer solo guarda el registro y encola la tarea, sin HTTP. REINTENTO: \\core\\task\\adhoc_task + manager::queue_adhoc_task (public/lib/classes/task/manager.php:297). Lanzar una excepción aplica backoff nativo de 60 s que se duplica (manager.php:1381-1409). El tope por defecto es 12 ejecuciones (public/lib/classes/task/adhoc_task.php:49), o sea unas 34 h. HTTP: clase curl de Moodle (public/lib/filelib.php:4069), que expone la causa real en error/errno (:3830-3831) y también el bloqueo por seguridad (:3755). CONFIGURACIÓN: settings.php con PARAM_URL, que acepta hosts sin dominio como http://receptor/ (public/lib/validateurlsyntax.php:283-301). DATOS: tablas propias en db/install.xml y Privacy API con add_external_location_link().",
+      "bordes": [
+        {
+          "descripcion": "CA-1 dice 'al enviarse', pero en attempt_submitted todavía no hay nota.",
+          "decision": "Se notifica en attempt_grad
+[2026-11-02T11:10:27.277Z] [analisis] Plan válido en intento 1: capa local_resultadoext — 5 criterios, 14 bordes.
+[2026-11-02T11:10:27.305Z] [sonda] POST http://localhost:8091/resultados -> HTTP 422
+    Cuerpo vacío: qué campos exige el receptor y con qué forma informa el rechazo.
+    {"status":"error","errors":["missing_field: idempotency_key","missing_field: student","missing_field: quiz","missing_field: attempt","missing_field: timestamp"]}
+[2026-11-02T11:10:27.327Z] [sonda] POST http://localhost:8091/resultados -> HTTP 201
+    Envío completo con la forma prevista: código y cuerpo de una aceptación, y si admite objetos y notas numéricas.
+    {"status":"accepted","id":"f7c90c14-89eb-4f1b-bdfc-94a68cf32226","duplicate":false}
+[2026-11-02T11:10:27.344Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Misma idempotency_key: cómo responde a un reintento de algo ya aceptado.
+    {"status":"accepted","id":"f7c90c14-89eb-4f1b-bdfc-94a68cf32226","duplicate":true}
+[2026-11-02T11:10:27.358Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta 200 con error en el cuerpo.
+    {"mode":"ok_with_error_body","times":1}
+[2026-11-02T11:10:27.380Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Respuesta real de un 200 que no guardó el dato.
+    {"status":"error","message":"queue full, not stored"}
+[2026-11-02T11:10:27.396Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta HTML de proxy.
+    {"mode":"html_proxy","times":1}
+[2026-11-02T11:10:27.415Z] [sonda] POST http://localhost:8091/resultados -> HTTP 502
+    Respuesta real no JSON: el código no debe romperse al interpretarla.
+    <html><body><h1>502 Bad Gateway</h1>nginx</body></html>
+[2026-11-02T11:10:27.429Z] [sonda] POST http://localhost:8091/_reset -> HTTP 200
+    Deja el receptor limpio: sin estado de las sondas para las pruebas.
+    {"ok":true}
+[2026-11-02T11:10:27.430Z] [ia:implementador] Llamada 02 con plantilla implementador.md (herramientas: Read, Glob, Grep, Write(salidas/spec-2/**), Edit(salidas/spec-2/**))
+    prompt: corridas/20261102-110616-spec-2/ia/02-implementador.prompt.md
+[2026-11-02T11:21:45.853Z] [uso-ia] Ventana de 5 h: 101 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T11:21:45.853Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T11:21:45.853Z] [ia:implementador] LÍMITE DE USO DE LA IA en llamada 02: límite de uso (429)
