@@ -1,0 +1,48 @@
+<testsuites id="" name="" tests="18" failures="0" skipped="0" errors="0" time="617.4187830000001">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T21:49:17.635Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="21.559" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="21.559">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T21:49:17.635Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="80.608" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="20.636">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="59.972">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T21:49:17.635Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="27.225" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="27.225">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T21:49:17.635Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="36.697" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="36.697">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-1/pruebas/reconocimiento.spec.ts" timestamp="2026-11-02T21:49:17.635Z" hostname="escritorio" tests="13" failures="0" skipped="0" time="431.588" errors="0">
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="30.137">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="32.845">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] abrir startattempt.php directamente muestra el formulario y no la pregunta @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.721">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] cancelar el diálogo deja al estudiante en la página del quiz sin intento @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="29.067">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] al aceptar se llega a la primera pregunta @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="35.985">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1] captura del formulario de prechequeo @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="30.139">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-2] sin configurar, el botón lleva directo a la primera pregunta" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="15.678">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-2] tras activar y desactivar el flujo vuelve a ser directo y el texto se conserva @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="51.825">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] el texto se guarda por quiz y el estudiante ve siempre el último @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="50.118">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] activar con el texto vacío no guarda y muestra el error en el campo @requiere-feature @camino-error" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="30.124">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] el texto con etiquetas HTML se muestra escapado @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="28.191">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-3] captura de los ajustes con el reconocimiento activado @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="31.821">
+</testcase>
+<testcase name="[Spec 1] reconocimiento obligatorio › [CA-1][CA-3] camino completo: el profesor configura, el estudiante acepta, responde y envía @requiere-feature" classname="salidas/spec-1/pruebas/reconocimiento.spec.ts" time="35.937">
+</testcase>
+</testsuite>
+</testsuites>

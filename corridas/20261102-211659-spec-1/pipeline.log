@@ -1,0 +1,16 @@
+[2026-11-02T21:16:59.381Z] [inicio] Spec specs/spec-1-reconocimiento.md (spec-1). Corrida corridas/20261102-211659-spec-1. Rama factory/spec-1-20261102-094736 (REANUDADA).
+[2026-11-02T21:16:59.920Z] [reanudar] Se reutiliza salidas/spec-1/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T21:17:02.759Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T21:17:44.407Z] [despliegue] Plugins: quizaccess_reconocimiento — upgrade OK
+[2026-11-02T21:33:32.435Z] [pruebas] Intento 1: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T21:33:34.795Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T21:47:41.355Z] [mutacion] Sin la funcionalidad: 24 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T22:09:49.890Z] [regresion] Suite completa: 35 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T22:09:49.904Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-1-ajustes--escritorio.png, spec-1-ajustes--movil.png, spec-1-prechequeo--escritorio.png, spec-1-prechequeo--movil.png
+[2026-11-02T22:09:50.389Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T22:09:50.562Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T22:11:25.355Z] [fin] PR propuesto: (no creado: Warning: 7 uncommitted changes
+a pull request for branch "factory/spec-1-20261102-094736" into branch "main" already exists:
+https://github.com/stevenrs145/viaro-prueba1-factory/pull/2) corridas/20261102-211659-spec-1/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.

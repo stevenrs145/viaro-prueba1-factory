@@ -1,0 +1,507 @@
+[2026-11-02T09:47:36.704Z] [inicio] Spec specs/spec-1-reconocimiento.md (spec-1). Corrida corridas/20261102-094736-spec-1. Rama factory/spec-1-20261102-094736.
+[2026-11-02T09:47:36.874Z] [ia:analista] Llamada 01 con plantilla analista.md (herramientas: Read, Glob, Grep)
+    prompt: corridas/20261102-094736-spec-1/ia/01-analista.prompt.md
+[2026-11-02T09:50:58.904Z] [uso-ia] Ventana de 5 h: 48 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T09:50:58.905Z] [ia:analista] Fin llamada 01: OK en 202s, costo USD 1.36
+    respuesta final:
+    ```json
+    {
+      "spec_id": "spec-1",
+      "titulo": "Reconocimiento obligatorio antes de iniciar un quiz",
+      "naturaleza": "agrega",
+      "componente": "quizaccess_reconocimiento",
+      "ruta_moodle": "public/mod/quiz/accessrule/reconocimiento",
+      "capa_justificacion": "Regla de acceso quizaccess_*: es la capa más específica para pedir algo antes de iniciar un intento y no toca el core. Un local_* con hooks de salida solo agregaría HTML y no bloquearía startattempt.php; un observer de attempt_started llegaría tarde. Puntos de extensión verificados en entorno/.moodle-src/public/mod/quiz: las reglas se descubren por rule.php (classes/access_manager.php:103) y se instancian con make() (classes/access_manager.php:79; base en classes/local/access_rule_base.php:77). El prechequeo está en access_rule_base.php:111 (is_preflight_check_required), :124 (add_preflight_check_form_fields), :142 (validate_preflight_check) y :152 (notify_preflight_check_passed). El bloqueo real es del servidor: startattempt.php:76-101 no crea el intento hasta que el formulario valida, y startattempt.php:103-104 lo crea o arranca después; attempt.php:96-98 y summary.php:72 vuelven a comprobar; classes/external.php:1029-1037 aplica lo mismo a servicios web. La configuración por quiz usa access_rule_base.php:272 (add_settings_form_fields, llamado en mod_form.php:330, sección 'security'), :285 (validate_settings_form_fields), :307 (save_settings), :318 (delete_settings) y :342 (get_settings_sql); mod_form.php:517-520 copia a $toform lo que devuelve load_settings. Si make() devuelve null, la regla no existe para ese quiz: es la base de CA-2. Referencia de casilla obligatoria: accessrule/offlineattempts/rule.php:58-81. Trampa verificada: NO copiar is_preflight_check_required de timelimit (`$attemptid === null`, accessrule/timelimit/rule.php:64-67). Un intento precreado llega con id y estado NOT_STARTED (mod/quiz/locallib.php:1980-1985), startattempt.php:76 no validaría y startattempt.php:103 lo arrancaría sin aceptación.",
+      "bordes": [
+        {
+          "descripcion": "Frecuencia de la aceptación: el spec no dice si es una vez por quiz, por sesión o por intento.",
+          "decision": "Una vez por cada intento nuevo, incluido cada reintento. is_preflight_check_required devuelve true si $attemptid es null o si el intento está en estado NOT_STARTED (consultado en quiz_attempts), y false si ya está IN_PROGRESS u OVERDUE.",
+          "criterio": "El spec habla de aceptar antes de ver la primera pregunta. Ligarlo al arranque del intento lo garantiza siempre y no depende de la sesión: el patrón de password con $SESSION volvería a pedir la aceptación a mitad de intento tras expirar la sesión.",
+          "preguntaria": "¿Debe aceptarse en cada intento o basta una vez por estudiante y quiz?",
+          "bloqueante": false
+        },
+        {
+          "descripcion": "Intentos precreados (precreateattempts): existen en estado NOT_STARTED antes de que el estudiante entre.",
+          "decision": "Se tratan como intento nuevo: exigen aceptaci
+[2026-11-02T09:50:58.908Z] [analisis] Plan válido en intento 1: capa quizaccess_reconocimiento — 4 criterios, 14 bordes.
+[2026-11-02T09:50:58.910Z] [ia:implementador] Llamada 02 con plantilla implementador.md (herramientas: Read, Glob, Grep, Write(salidas/spec-1/**), Edit(salidas/spec-1/**))
+    prompt: corridas/20261102-094736-spec-1/ia/02-implementador.prompt.md
+[2026-11-02T09:58:35.774Z] [uso-ia] Ventana de 5 h: 62 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T09:58:35.774Z] [ia:implementador] Fin llamada 02: OK en 457s, costo USD 2.54
+    respuesta final:
+    El plugin y las pruebas están escritos, pero **no ejecuté nada**: esta sesión no tiene shell. Ni el PHP ni el `.spec.ts` se instalaron, se validaron ni corrieron, y CA-4 sigue pendiente hasta que corra la fábrica. Revisé cada punto de extensión, selector e id de error contra el código de `entorno/.moodle-src/`.
+    
+    ## Archivos creados
+    Plugin, en `salidas/spec-1/codigo/public/mod/quiz/accessrule/reconocimiento/`:
+    - `version.php`
+    - `rule.php`
+    - `db/install.xml`
+    - `classes/privacy/provider.php` (null_provider)
+    - `backup/moodle2/backup_quizaccess_reconocimiento_subplugin.class.php`
+    - `backup/moodle2/restore_quizaccess_reconocimiento_subplugin.class.php`
+    - `lang/en/quizaccess_reconocimiento.php`
+    - `lang/es/quizaccess_reconocimiento.php`
+    
+    Pruebas: `salidas/spec-1/pruebas/reconocimiento.spec.ts`, con 13 pruebas que corren en escritorio y móvil.
+    
+    ## Cobertura por criterio
+    | Criterio | Qué verifican las pruebas |
+    |---|---|
+    | CA-1 | El diálogo aparece sin preguntas. |
+    | CA-1 `@camino-error` | Enviar sin marcar la casilla da error y no crea intento. |
+    | CA-1 `@camino-error` | Abrir `startattempt.php` directamente muestra el formulario, y Cancelar por servidor no crea intento. |
+    | CA-1 | Cancelar el diálogo no crea intento. |
+    | CA-1 | Aceptar lleva a la pregunta 1 y el intento se envía. |
+    | CA-1 (visual) | Captura `spec-1-prechequeo`. |
+    | CA-2 | Sin configurar, el flujo es directo. Esta prueba debe pasar también sin el plugin. |
+    | CA-2 | Tras activar y desactivar, el flujo vuelve a ser directo y el texto se conserva. |
+    | CA-3 | El texto A se guarda y se ve, y al cambiar a B ya no aparece A. |
+    | CA-3 `@camino-error` | Activar con texto vacío no guarda y muestra el error en el campo. |
+    | CA-3 | El HTML del texto se muestra escapado. |
+    | CA-3 (visual) | Captura `spec-1-ajustes`. |
+    | CA-1 + CA-3 | Camino completo: el profesor configura, el estudiante acepta, llega a la pregunta 1 y envía. |
+    
+    Todas llevan `@requiere-feature`, salvo la de CA-2 "sin configurar".
+    
+    ## Decisiones fuera del plan
+    - **Captura `spec-1-prechequeo`:** se toma en `startattempt.php`, no en el diálogo. Detrás del diálogo queda la tabla de intentos del estudiante, que cambia según el orden de las pruebas. El formulario es el mismo, pero la apariencia del diálogo no queda cubierta por ninguna captura.
+    - **Aviso de `view.php`:** por la misma razón se comprueba solo funcionalmente, sin captura.
+    - **Etiquetas:** la segunda prueba de CA-2 lleva `@requiere-feature` aunque el criterio dice `requiere_feature: false`, porque usa los ajustes del plugin y sin él no puede pasar. La de texto vacío lleva `@camino-error` porque fuerza un error real.
+    - **`setType`:** el texto usa `PARAM_RAW_TRIMMED`, porque `PARAM_TEXT` borraría las etiquetas antes de guardar y el escapado no se podría comprobar. El HTML se escapa al mostrarlo.
+    - **Ocultar el texto:** el campo se oculta con `hideIf` y no con `disabledIf`, porque un campo deshabilitado no se envía y el plan pide conservar el texto al desactivar.
+    - **Columna de la 
+[2026-11-02T09:58:38.202Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T09:59:15.484Z] [despliegue] Plugins: quizaccess_reconocimiento — upgrade OK
+[2026-11-02T10:18:12.086Z] [pruebas] Intento 1: 14 OK, 12 fallidas, 0 omitidas.
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m  28 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    
+    
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m  28 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    
+    
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] abrir startattempt.php directamente muestra el formulario y no la pregunta @requiere-feature @camino-error
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m  28 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    
+    
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] cancelar el diálogo deja al estudiante en la página del quiz sin intento @requiere-feature
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m  28 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    
+    
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] al aceptar se llega a la primera pregunta @requiere-feature
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - element is outside of the viewport[22m
+    [2m  28 × retrying click action[22m
+    [2m       - waiting 500ms[22m
+    [2m       - waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 500ms[22m
+    
+    
+    ### movil · [Spec 1] reconocimiento obligatorio › [CA-1] captura del formulario de prechequeo @requiere-feature
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_submitbutton')[22m
+    [2m    - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    29 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - element is outside of the viewport[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-1/pruebas/reconocimiento.spec.ts >> [Spec 1] reconocimiento obligatorio >> [CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature
+    - Location: salidas/spec-1/pruebas/reconocimiento.spec.ts:92:3
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_submitbutton')
+        - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+      28 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - element is outside of the viewport
+      - retrying click action
+        - waiting 500ms
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [ref=f11e1]:
+      - status
+      - generic [ref=f11e2]:
+        - link "Salta al contenido principal" [ref=f11e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f11e4]:
+          - generic [ref=f11e5]:
+            - button "Panel lateral" [ref=f11e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f11e9]:
+              - generic [ref=f11e12]:
+                - switch "Modo de edición" [ref=f11e13] [cursor=pointer]
+                - generic [ref=f11e14] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f11e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f11e25]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f11e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f11e28]: 
+              - button "Menú de usuario" [ref=f11e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f11e38]: PP
+                - text: 
+        - generic [ref=f11e39]:
+          - generic [ref=f11e40]:
+            - button "Abrir índice del curso" [ref=f11e42] [cursor=pointer]
+            - banner [ref=f11e46]:
+              - generic [ref=f11e47]:
+                - navigation "Camino de migas" [ref=f11e50]:
+                  - list [ref=f11e51]:
+                    - listitem [ref=f11e52]:
+                      - link "QA101" [ref=f11e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f11e54]:
+                      - text: /
+                      - link "General" [ref=f11e55] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f11e56]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f11e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f11e58]:
+                      - text: /
+                      - generic [ref=f11e59]: Configuración
+                - heading "Examen de regresión" [level=1] [ref=f11e68]
+            - navigation "Menú de Actividad" [ref=f11e71]:
+              - menubar [ref=f11e72]:
+                - menuitem "Cuestionario" [ref=f11e73] [cursor=pointer]
+                - menuitem "Configuración" [ref=f11e75] [cursor=pointer]
+                - menuitem "Más " [ref=f11e78] [cursor=pointer]:
+                  - generic [ref=f11e79]: Más
+                  - text: 
+            - main [ref=f11e84]:
+              - heading "Editar ajustes" [level=2] [ref=f11e85]
+              - generic [ref=f11e86]:
+                - button "Expandir todo" [ref=f11e88] [cursor=pointer]
+                - group "General" [ref=f11e90]:
+                  - generic [ref=f11e93]:
+                    - button "General" [expanded] [ref=f11e94] [cursor=pointer]:
+                      - generic "Colapsar" [ref=f11e95]:
+                        - generic [aria-hidden] [ref=f11e96]: 
+                      - text:  
+                    - heading [level=3] [aria-hidden] [ref=f11e98]: General
+                  - generic [ref=f11e99]:
+                    - generic [ref=f11e100]:
+                      - generic [ref=f11e101]:
+                        - generic [ref=f11e102]: Nombre
+                        - generic [aria-hidden] [ref=f11e105]: 
+                      - textbox "Nombre" [ref=f11e107]: Examen de regresión
+                    - generic [ref=f11e108]:
+                      - generic [ref=f11e109]: Descripción
+                      - generic [ref=f11e112]:
+                        - textbox "Descripción" [ref=f11e114]: <p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>
+                        - generic [ref=f11e115]:
+                          - generic [ref=f11e116]: Formato Descripción
+                          - combobox "Formato Descripción" [ref=f11e117]:
+                            - option "Formato HTML"
+                            - option "Formato automático" [selected]
+                            - option "Formato de texto plano"
+                            - option "Formato Markdown"
+                    - generic [ref=f11e120]:
+                      - checkbox "Muestra la descripción en la página del curso" [ref=f11e121]
+                      - generic [ref=f11e122]: Muestra la descripción en la página del curso
+                      - button "Ayuda" [ref=f11e124] [cursor=pointer]:
+                        - img "Ayuda con Muestra la descripción en 
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-1/pruebas/reconocimiento.spec.ts >> [Spec 1] reconocimiento obligatorio >> [CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error
+    - Location: salidas/spec-1/pruebas/reconocimiento.spec.ts:105:3
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_submitbutton')
+        - locator resolved to <input type="submit" name="submitbutton" id="id_submitbutton" value="Guardar cambios y mostrar" class="btn↵                        btn-primary↵                        ↵                    ↵                    "/>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - element is outside of the viewport
+      28 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - element is outside of the viewport
+      - retrying click action
+        - waiting 500ms
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [ref=f11e1]:
+      - status
+      - generic [ref=f11e2]:
+        - link "Salta al contenido principal" [ref=f11e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f11e4]:
+          - generic [ref=f11e5]:
+            - button "Panel lateral" [ref=f11e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f11e9]:
+              - generic [ref=f11e12]:
+                - switch "Modo de edición" [ref=f11e13] [cursor=pointer]
+                - generic [ref=f11e14] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f11e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f11e25]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f11e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f11e28]: 
+              - button "Menú de usuario" [ref=f11e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f11e38]: PP
+                - text: 
+        - generic [ref=f11e39]:
+          - generic [ref=f11e40]:
+            - button "Abrir índice del curso" [ref=f11e42] [cursor=pointer]
+            - banner [ref=f11e46]:
+              - generic [ref=f11e47]:
+                - navigation "Camino de migas" [ref=f11e50]:
+                  - list [ref=f11e51]:
+                    - listitem [ref=f11e52]:
+                      - link "QA101" [ref=f11e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f11e54]:
+                      - text: /
+                      - link "General" [ref=f11e55] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f11e56]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f11e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f11e58]:
+                      - text: /
+                      - generic [ref=f11e59]: Configuración
+                - heading "Examen de regresión" [level=1] [ref=f11e68]
+            - navigation "Menú de Actividad" [ref=f11e71]:
+              - menubar [ref=f11e72]:
+                - menuitem "Cuestionario" [ref=f11e73] [cursor=pointer]
+                - menuitem "Configuración" [ref=f11e75] [cursor=pointer]
+                - menuitem "Más " [ref=f11e78] [cursor=pointer]:
+                  - generic [ref=f11e79]: Más
+                  - text: 
+[2026-11-02T10:18:12.091Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T10:18:12.095Z] [ia:corrector] Llamada 03 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-1/**), Edit(salidas/spec-1/**))
+    prompt: corridas/20261102-094736-spec-1/ia/03-corrector.prompt.md
+[2026-11-02T10:18:50.701Z] [uso-ia] Ventana de 5 h: 65 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T10:18:50.702Z] [ia:corrector] Fin llamada 03: OK en 39s, costo USD 0.34
+    respuesta final:
+    Voy a cerrar con el resumen, porque ya está hecho el cambio.
+    
+    **Causa raíz:** el problema está en la prueba, no en el plugin. Los seis fallos de móvil terminan en el mismo `click()` sobre `#id_submitbutton`, en los ajustes del quiz como profesor. Playwright informa «element is outside of the viewport» incluso después de hacer scroll. El botón está en el pie fijo de `mod_form` y, con el viewport móvil, nunca queda dentro de la pantalla. Es el paso de configuración previo a cada prueba `@requiere-feature`, así que las pruebas fallan antes de llegar al plugin. En escritorio pasan. No se llegó a evaluar el comportamiento del plugin en móvil.
+    
+    **Qué cambié** (solo `salidas/spec-1/pruebas/reconocimiento.spec.ts`):
+    - Agregué `pulsarGuardar()`. Comprueba que `#id_submitbutton` esté en el DOM y dispara su `click()` nativo. Eso envía el formulario con ese botón como remitente y ejecuta la validación de Moodle, y no pasa por la comprobación de visibilidad.
+    - `guardarAjustes()` y la prueba de texto vacío ahora usan `pulsarGuardar()`. En la de texto vacío el error del campo sigue verificándose igual.
+    
+    **Por qué es legítimo:** solo cambia cómo el docente pulsa «Guardar», que es preparación y no lo que se verifica. No se tocó ningún assert, no hay `skip`/`only` y no reimplementé `login()` ni `prepararCaptura()`.
+    
+    **Sin verificar:** no tengo una herramienta para ejecutar Playwright en esta sesión, así que no corrí la suite. Tampoco confirmé por qué el pie queda fuera de pantalla en móvil; mi hipótesis es el pie fijo de Boost y no la comprobé en el navegador. Si hay otro botón del formulario que sí sea clicable en móvil, se podría usar en su lugar. Si la causa es CSS del entorno o del helper de capturas, debería arreglarse en la fábrica. Hace falta una nueva pasada del pipeline para confirmarlo.
+[2026-11-02T10:18:53.012Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T10:18:54.973Z] [despliegue] Plugins: quizaccess_reconocimiento — upgrade OK
+[2026-11-02T10:33:20.731Z] [pruebas] Intento 2: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T10:33:23.203Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T10:46:46.283Z] [mutacion] Sin la funcionalidad: 24 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T11:05:07.709Z] [regresion] Suite completa: 27 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T11:05:07.730Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-1-ajustes--escritorio.png, spec-1-ajustes--movil.png, spec-1-prechequeo--escritorio.png, spec-1-prechequeo--movil.png
+[2026-11-02T11:05:08.391Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T11:05:08.518Z] [honestidad] BLOQUEADO con 1 hallazgo(s).
+    HONESTIDAD: BLOQUEADO — 1 hallazgo(s). El pipeline no puede llegar al pull request.
+    
+    1. [SIN-ASSERTS] salidas/spec-1/pruebas/reconocimiento.spec.ts:167 «[CA-1] al aceptar se llega a la primera pregunta @requiere-feature»
+       La prueba no tiene ningún expect(): no puede fallar por comportamiento.
+    
+[2026-11-02T11:05:08.518Z] [honestidad] DETENIDO: El control de verificación honesta bloqueó la corrida. No se abre PR.

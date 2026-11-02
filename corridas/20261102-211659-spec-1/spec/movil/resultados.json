@@ -1,0 +1,673 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "--project=movil",
+      "--update-snapshots=missing"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-211659-spec-1/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-211659-spec-1/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-211659-spec-1/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-211659-spec-1/spec/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-211659-spec-1/spec/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-211659-spec-1/spec/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Spec 1] reconocimiento obligatorio",
+          "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+          "line": 102,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29720,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:26:26.389Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-56fefdce9e39ed44c8ef",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error",
+              "ok": true,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 32340,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:26:56.241Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-850eebe4d6d0801cdf2f",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 116,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] abrir startattempt.php directamente muestra el formulario y no la pregunta @requiere-feature @camino-error",
+              "ok": true,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 30151,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:27:28.601Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-faaae329af9011e35293",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 133,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] cancelar el diálogo deja al estudiante en la página del quiz sin intento @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29496,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:27:58.771Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-340fd300314976134639",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 152,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] al aceptar se llega a la primera pregunta @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 36095,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:28:28.290Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-41b1d3307c625703b1e4",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 167,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] captura del formulario de prechequeo @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29243,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-1-prechequeo--movil.png, writing actual.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:29:04.400Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "spec-1-prechequeo-expected.png",
+                          "contentType": "image/png",
+                          "path": "/work/visual/lineas-base/spec-1-prechequeo--movil.png"
+                        },
+                        {
+                          "name": "spec-1-prechequeo-actual.png",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/spec/movil/artefactos/salidas-spec-1-pruebas-rec-efd04-prechequeo-requiere-feature-movil/spec-1-prechequeo-actual.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-fac23f31b60937d77c2b",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 181,
+              "column": 3
+            },
+            {
+              "title": "[CA-2] sin configurar, el botón lleva directo a la primera pregunta",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14773,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:29:33.664Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-6e12d96c18892a6eacfa",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 196,
+              "column": 3
+            },
+            {
+              "title": "[CA-2] tras activar y desactivar el flujo vuelve a ser directo y el texto se conserva @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 50862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:29:48.456Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-910d51551d8ef26f86f8",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] el texto se guarda por quiz y el estudiante ve siempre el último @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 49117,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:30:39.328Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-58af7de39f7eb4c1ea36",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 232,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] activar con el texto vacío no guarda y muestra el error en el campo @requiere-feature @camino-error",
+              "ok": true,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29680,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:31:28.466Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-4b119932b8873747e55a",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 253,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] el texto con etiquetas HTML se muestra escapado @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 28114,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:31:58.154Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-8243bc640ba0e5e8bdc8",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 270,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] captura de los ajustes con el reconocimiento activado @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 30984,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-1-ajustes--movil.png, writing actual.\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:32:26.288Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "spec-1-ajustes-expected.png",
+                          "contentType": "image/png",
+                          "path": "/work/visual/lineas-base/spec-1-ajustes--movil.png"
+                        },
+                        {
+                          "name": "spec-1-ajustes-actual.png",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/spec/movil/artefactos/salidas-spec-1-pruebas-rec-c2e2c-o-activado-requiere-feature-movil/spec-1-ajustes-actual.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-610432dd2f990ca84992",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 282,
+              "column": 3
+            },
+            {
+              "title": "[CA-1][CA-3] camino completo: el profesor configura, el estudiante acepta, responde y envía @requiere-feature",
+              "ok": true,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 34464,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:32:57.291Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-ff2fed700f5f31ae4b58",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 293,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T21:26:03.432Z",
+    "duration": 448765.703,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

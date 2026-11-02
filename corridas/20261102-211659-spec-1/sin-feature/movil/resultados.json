@@ -1,0 +1,1091 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "--project=movil",
+      "--update-snapshots=none",
+      "--grep",
+      "@requiere-feature"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-211659-spec-1/sin-feature/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-211659-spec-1/sin-feature/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-211659-spec-1/sin-feature/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[Spec 1] reconocimiento obligatorio",
+          "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+          "line": 102,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[CA-1] con el reconocimiento activado el botón de intento abre el diálogo y no muestra preguntas @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30953,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:112:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:112:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:41:05.167Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-175b0--preguntas-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-175b0--preguntas-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-175b0--preguntas-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-56fefdce9e39ed44c8ef",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] enviar sin marcar la casilla muestra el error y no crea intento @requiere-feature @camino-error",
+              "ok": false,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30238,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:129:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:129:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:41:38.136Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-26a3e-quiere-feature-camino-error-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-26a3e-quiere-feature-camino-error-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-26a3e-quiere-feature-camino-error-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-850eebe4d6d0801cdf2f",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 116,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] abrir startattempt.php directamente muestra el formulario y no la pregunta @requiere-feature @camino-error",
+              "ok": false,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 31199,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:148:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:148:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:42:10.403Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-8dc06-quiere-feature-camino-error-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-8dc06-quiere-feature-camino-error-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-8dc06-quiere-feature-camino-error-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-faaae329af9011e35293",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 133,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] cancelar el diálogo deja al estudiante en la página del quiz sin intento @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30751,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:163:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:163:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:42:43.615Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-70b7b-in-intento-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-70b7b-in-intento-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-70b7b-in-intento-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-340fd300314976134639",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 152,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] al aceptar se llega a la primera pregunta @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30809,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:177:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:177:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:43:16.401Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-ff60e-a-pregunta-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-ff60e-a-pregunta-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-ff60e-a-pregunta-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-41b1d3307c625703b1e4",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 167,
+              "column": 3
+            },
+            {
+              "title": "[CA-1] captura del formulario de prechequeo @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30749,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:192:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:192:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:43:49.223Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-efd04-prechequeo-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-efd04-prechequeo-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-efd04-prechequeo-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-fac23f31b60937d77c2b",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 181,
+              "column": 3
+            },
+            {
+              "title": "[CA-2] tras activar y desactivar el flujo vuelve a ser directo y el texto se conserva @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30822,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:228:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:228:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:44:22.163Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-55113-e-conserva-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-55113-e-conserva-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-55113-e-conserva-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-910d51551d8ef26f86f8",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 209,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] el texto se guarda por quiz y el estudiante ve siempre el último @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 31044,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:249:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:249:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:44:55.264Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-302e5--el-último-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-302e5--el-último-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-302e5--el-último-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-58af7de39f7eb4c1ea36",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 232,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] activar con el texto vacío no guarda y muestra el error en el campo @requiere-feature @camino-error",
+              "ok": false,
+              "tags": [
+                "requiere-feature",
+                "camino-error"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30730,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:266:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:266:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:45:28.481Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-92057-quiere-feature-camino-error-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-92057-quiere-feature-camino-error-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-92057-quiere-feature-camino-error-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-4b119932b8873747e55a",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 253,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] el texto con etiquetas HTML se muestra escapado @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30973,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:278:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:278:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:46:01.182Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-49f38-a-escapado-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-49f38-a-escapado-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-49f38-a-escapado-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-8243bc640ba0e5e8bdc8",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 270,
+              "column": 3
+            },
+            {
+              "title": "[CA-3] captura de los ajustes con el reconocimiento activado @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30585,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:289:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:289:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:46:34.168Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-c2e2c-o-activado-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-c2e2c-o-activado-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-c2e2c-o-activado-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-610432dd2f990ca84992",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 282,
+              "column": 3
+            },
+            {
+              "title": "[CA-1][CA-3] camino completo: el profesor configura, el estudiante acepta, responde y envía @requiere-feature",
+              "ok": false,
+              "tags": [
+                "requiere-feature"
+              ],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 31174,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:302:7",
+                        "location": {
+                          "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                          "column": 32,
+                          "line": 30
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.fheader[aria-controls=\"id_securitycontainer\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m   }\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(activado(page))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 31 |\u001b[39m }\n \u001b[90m 32 |\u001b[39m\n \u001b[90m 33 |\u001b[39m \u001b[90m/**\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                            "column": 32,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#id_reconocimientoenabled')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#id_reconocimientoenabled') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_reconocimientoenabled')\u001b[22m\n\n\n  28 |     await page.locator('a.fheader[aria-controls=\"id_securitycontainer\"]').click();\n  29 |   }\n> 30 |   await expect(activado(page)).toBeVisible();\n     |                                ^\n  31 | }\n  32 |\n  33 | /**\n    at abrirAjustes (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:30:32)\n    at desactivar (/work/salidas/spec-1/pruebas/reconocimiento.spec.ts:57:3)\n    at /work/salidas/spec-1/pruebas/reconocimiento.spec.ts:302:7"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T21:47:06.917Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-40bf1-de-y-envía-requiere-feature-movil/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-40bf1-de-y-envía-requiere-feature-movil/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/work/corridas/20261102-211659-spec-1/sin-feature/movil/artefactos/salidas-spec-1-pruebas-rec-40bf1-de-y-envía-requiere-feature-movil/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/salidas/spec-1/pruebas/reconocimiento.spec.ts",
+                        "column": 32,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1980febf8413bd8264b5-ff2fed700f5f31ae4b58",
+              "file": "salidas/spec-1/pruebas/reconocimiento.spec.ts",
+              "line": 293,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T21:40:42.787Z",
+    "duration": 416716.20599999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 12,
+    "flaky": 0
+  }
+}

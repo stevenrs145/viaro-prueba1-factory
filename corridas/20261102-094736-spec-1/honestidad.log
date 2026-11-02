@@ -1,0 +1,4 @@
+HONESTIDAD: BLOQUEADO — 1 hallazgo(s). El pipeline no puede llegar al pull request.
+
+1. [SIN-ASSERTS] salidas/spec-1/pruebas/reconocimiento.spec.ts:167 «[CA-1] al aceptar se llega a la primera pregunta @requiere-feature»
+   La prueba no tiene ningún expect(): no puede fallar por comportamiento.

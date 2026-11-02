@@ -1,0 +1,58 @@
+diff --git a/visual/lineas-base/APROBACIONES.json b/visual/lineas-base/APROBACIONES.json
+index 05fa45b..4654fe8 100644
+--- a/visual/lineas-base/APROBACIONES.json
++++ b/visual/lineas-base/APROBACIONES.json
+@@ -110,5 +110,37 @@
+     "aprobado_por": "Steven",
+     "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+     "fecha": "2026-11-02T15:06:34.410Z"
++  },
++  "spec-1-ajustes--escritorio.png": {
++    "sha256": "86449f6d353f6fd4157fb926e00068d6d84890f8b6a24ec85a7660709731cc19",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-1",
++    "razon": "Pantalla nueva introducida por spec-1",
++    "fecha": "2026-11-02T22:09:49.898Z"
++  },
++  "spec-1-ajustes--movil.png": {
++    "sha256": "fe49b17498783c5fdf82f9fab51d6e2868578c7ea0f06f5cd60049c19b708588",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-1",
++    "razon": "Pantalla nueva introducida por spec-1",
++    "fecha": "2026-11-02T22:09:49.900Z"
++  },
++  "spec-1-prechequeo--escritorio.png": {
++    "sha256": "a3b5f071b7c381f65990757ed35f68604601342a8638f552161944094c5bc0bb",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-1",
++    "razon": "Pantalla nueva introducida por spec-1",
++    "fecha": "2026-11-02T22:09:49.901Z"
++  },
++  "spec-1-prechequeo--movil.png": {
++    "sha256": "acec639eb513d6a8eb00e05591961d1897eef5ccd59593c8996791244b634a50",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-1",
++    "razon": "Pantalla nueva introducida por spec-1",
++    "fecha": "2026-11-02T22:09:49.902Z"
+   }
+ }
+diff --git a/visual/lineas-base/spec-1-ajustes--escritorio.png b/visual/lineas-base/spec-1-ajustes--escritorio.png
+new file mode 100644
+index 0000000..dfa393d
+Binary files /dev/null and b/visual/lineas-base/spec-1-ajustes--escritorio.png differ
+diff --git a/visual/lineas-base/spec-1-ajustes--movil.png b/visual/lineas-base/spec-1-ajustes--movil.png
+new file mode 100644
+index 0000000..7765208
+Binary files /dev/null and b/visual/lineas-base/spec-1-ajustes--movil.png differ
+diff --git a/visual/lineas-base/spec-1-prechequeo--escritorio.png b/visual/lineas-base/spec-1-prechequeo--escritorio.png
+new file mode 100644
+index 0000000..171ec0d
+Binary files /dev/null and b/visual/lineas-base/spec-1-prechequeo--escritorio.png differ
+diff --git a/visual/lineas-base/spec-1-prechequeo--movil.png b/visual/lineas-base/spec-1-prechequeo--movil.png
+new file mode 100644
+index 0000000..5d2e180
+Binary files /dev/null and b/visual/lineas-base/spec-1-prechequeo--movil.png differ

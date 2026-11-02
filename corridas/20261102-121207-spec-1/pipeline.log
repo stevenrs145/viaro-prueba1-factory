@@ -1,0 +1,35 @@
+[2026-11-02T12:12:07.900Z] [inicio] Spec specs/spec-1-reconocimiento.md (spec-1). Corrida corridas/20261102-121207-spec-1. Rama factory/spec-1-20261102-094736 (REANUDADA).
+[2026-11-02T12:12:11.063Z] [reanudar] Se reutiliza salidas/spec-1/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T12:12:14.590Z] [validacion] 1 problema(s) estáticos.
+    [SIN-ASSERTS] salidas/spec-1/pruebas/reconocimiento.spec.ts:167 «[CA-1] al aceptar se llega a la primera pregunta @requiere-feature»: La prueba no tiene ningún expect(): no puede fallar por comportamiento.
+[2026-11-02T12:12:14.591Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T12:12:14.593Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-1/**), Edit(salidas/spec-1/**))
+    prompt: corridas/20261102-121207-spec-1/ia/01-corrector.prompt.md
+[2026-11-02T12:12:44.336Z] [uso-ia] Ventana de 5 h: 9 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T12:12:44.336Z] [ia:corrector] Fin llamada 01: OK en 30s, costo USD 0.24
+    respuesta final:
+    **Causa raíz:** el fallo estaba en la prueba, no en el plugin. El test `[CA-1] al aceptar se llega a la primera pregunta` (línea 167) delegaba todas sus comprobaciones en los helpers `aceptar()` y `terminarDesdePrimeraPagina()`. Esos helpers sí contienen `expect`, pero el auditor solo cuenta los del cuerpo del propio `test(...)`, así que lo marcó como `[SIN-ASSERTS]`. No hay ningún indicio de que el plugin se comporte mal.
+    
+    **Qué cambié** (`salidas/spec-1/pruebas/reconocimiento.spec.ts`, solo ese test):
+    - Antes de aceptar, `expect(page.locator('.que')).toHaveCount(0)`. Esto comprueba que mientras el diálogo está abierto no hay preguntas visibles, que es el bloqueo de CA-1.
+    - Después de aceptar, `expect(page).toHaveURL(/attempt\.php/)` y `expect(bloquePregunta(page, 1)).toBeVisible()`. Esto comprueba que se llegó a la pregunta 1, que es el objetivo del test.
+    
+    Las comprobaciones de los helpers siguen en su sitio. El test ahora verifica más que antes: no cambié selectores, no debilité nada y no usé `skip`, `only` ni `soft`. Tampoco toqué `login()` ni `prepararCaptura()`, y ningún helper de la fábrica causó el fallo.
+    
+    No ejecuté la suite. El siguiente paso es volver a correr el pipeline para confirmar que el auditor ya no marca el test.
+[2026-11-02T12:12:47.358Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T12:13:31.738Z] [despliegue] Plugins: quizaccess_reconocimiento — upgrade OK
+[2026-11-02T12:33:10.383Z] [pruebas] Intento 2: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T12:33:12.993Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T12:49:43.606Z] [mutacion] Sin la funcionalidad: 24 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T13:10:00.733Z] [regresion] Suite completa: 27 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T13:10:01.359Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T13:10:01.472Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T13:12:06.208Z] [pr] No se pudo hacer push (¿sin remoto/credenciales?). El PR queda descrito en pr.md.
+    error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408
+    send-pack: unexpected disconnect while reading sideband packet
+    fatal: the remote end hung up unexpectedly
+    
+[2026-11-02T13:12:06.208Z] [fin] PR propuesto: (local) corridas/20261102-121207-spec-1/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.
