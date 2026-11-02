@@ -118,8 +118,18 @@ export async function prepararCaptura(page: Page): Promise<Locator[]> {
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
   // Sin 'networkidle': el índice del curso hace peticiones periódicas y nunca queda inactivo.
   // toHaveScreenshot ya espera a que la imagen sea estable.
-  await page.waitForLoadState('load');
+  await esperarJS(page);
+  await page.waitForFunction(() => {
+    const tiny = (window as any).tinymce;
+    return !tiny || tiny.get().every((editor: any) => editor.initialized);
+  });
   await page.evaluate(() => document.fonts.ready);
+  await page.addStyleTag({ content: `
+    [data-qa-mascara], [data-qa-mascara] * { color: transparent !important; background: #c9d3d7 !important; border-color: #c9d3d7 !important; }
+    /* En una captura de página completa, lo fijo a la pantalla aparecería en medio del contenido. */
+    #sticky-footer, .stickyfooter { position: static !important; }
+    .drawer-toggles, .btn-footer-popover { visibility: hidden !important; }
+  ` });
   // Columnas de tablas cuyo encabezado indica un valor temporal: se marcan por el TEXTO del encabezado,
   // no por posición (la posición cambia entre informes y vistas).
   await page.evaluate((patron) => {
@@ -131,13 +141,12 @@ export async function prepararCaptura(page: Page): Promise<Locator[]> {
         t.querySelectorAll('tbody tr').forEach((tr) => tr.children[i]?.setAttribute('data-qa-mascara', 'tiempo'));
       });
     });
-  }, '^(comenzado|completado|duración|enviado|tiempo|estado)');
-  return [
-    filaResumen(page, 'Comenzado'),
-    filaResumen(page, 'Completado'),
-    filaResumen(page, 'Duración'),
-    page.locator('[data-qa-mascara]'),
-    page.locator('#quiz-timer-wrapper'),
-    page.locator('.popover-region .count-container'),
-  ];
+  }, '^(comenzado|completado|duración|enviado|tiempo|hora|estado)');
+  // La máscara se pinta en la página y no con `mask`: Playwright no admite maskColor global y sale magenta en cada captura.
+  const dinamicos = [filaResumen(page, 'Comenzado'), filaResumen(page, 'Completado'), filaResumen(page, 'Duración'),
+    page.locator('#quiz-timer-wrapper'), page.locator('.popover-region .count-container')];
+  for (const dinamico of dinamicos) {
+    await dinamico.evaluateAll((els) => els.forEach((e) => e.setAttribute('data-qa-mascara', 'valor')));
+  }
+  return [];
 }

@@ -94,6 +94,8 @@ foreach ($preguntas as $nombre => $p) {
     }
 }
 
+$DB->set_field('quiz', 'intro', '<p>Examen de práctica con preguntas de álgebra, geometría e historia.</p>', ['name' => 'Examen de regresión']);
+
 // 4. Diseño: ajustes de Boost
 set_config('theme', 'boost');
 set_config('scsspre', file_get_contents(__DIR__ . '/tema-variables.scss'), 'theme_boost');

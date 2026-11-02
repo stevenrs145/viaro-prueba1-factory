@@ -18,7 +18,12 @@ $vx-ambar: #fff4dc;
 
 // Texto y avatar sobre la barra oscura
 .navbar.fixed-top {
-  .primary-navigation .nav-link, .primary-navigation .nav-link:hover { color: #fff !important; }
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+  --bs-nav-link-color: #fff;
+  .primary-navigation a, .primary-navigation a:hover, .primary-navigation button { color: #fff !important; opacity: 1 !important; }
+  label, .form-check, .form-check *, [class*="editmode"], [class*="editmode"] * { color: #fff !important; opacity: 1 !important; }
   .userinitials { background-color: #62c2ca !important; color: $vx-tinta !important; }
   .dropdown-toggle::after { border-top-color: #fff; }
 }
@@ -90,6 +95,9 @@ table.quizreviewsummary {
 .btn { font-weight: 600; }
 .btn-primary { box-shadow: none; }
 .card { border-color: $vx-linea; border-radius: 0.75rem; }
+
+// Títulos de sección de los formularios
+.mform .ftoggler h3, .mform .ftoggler .h3, .mform fieldset legend { font-size: 1.1rem; font-weight: 600; }
 
 // Pie de ayuda
 .btn-footer-popover, .btn-footer-communication { box-shadow: none; }

@@ -30,7 +30,6 @@ export default defineConfig({
       //   el ruido de subpixel queda por debajo. Criterio y mediciones en cobertura.md.
       threshold: 0.2,
       maxDiffPixelRatio: 0.002,
-      maskColor: '#c9d3d7', // gris neutro: las máscaras no deben parecer un defecto en la captura
       animations: 'disabled',
       caret: 'hide',
       scale: 'css',
