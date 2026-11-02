@@ -1,0 +1,1087 @@
+[2026-11-02T03:04:58.037Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-030458-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T03:05:02.401Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T03:05:02.409Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T03:05:07.413Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T03:15:17.295Z] [pruebas] Intento 1: 6 OK, 2 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+    [2m  - navigating to "http://localhost:8090/login/index.php", waiting until "load"[22m
+    
+    
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_questiontext_ifr').contentFrame().locator('body')[22m
+    [2m    - locator resolved to <body id="tinymce" contenteditable="true" class="mce-content-body " data-id="id_questiontext" aria-label="Question text. Rich text area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help.">…</body>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    17 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is visible, enabled and stable[22m
+    [2m       - scrolling into view if needed[22m
+    [2m       - done scrolling[22m
+    [2m       - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_questiontext_ifr').contentFrame().locator('body')
+        - locator resolved to <body id="tinymce" contenteditable="true" class="mce-content-body " data-id="id_questiontext" aria-label="Question text. Rich text area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help.">…</body>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        17 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f27e1]:
+      - status
+      - generic [ref=f27e2]:
+        - link "Skip to main content" [ref=f27e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f27e4]:
+          - generic [ref=f27e5]:
+            - link "viaroqa" [ref=f27e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f27e9]:
+              - menuitem "Dashboard" [ref=f27e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f27e12]:
+              - generic [ref=f27e15]:
+                - switch "Edit mode" [ref=f27e16] [cursor=pointer]
+                - generic [ref=f27e17] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f27e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f27e28]: 
+              - button "Toggle messaging drawer" [ref=f27e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f27e31]: 
+              - button "User menu" [ref=f27e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f27e41]: PP
+                - generic [aria-hidden] [ref=f27e42]: Paula
+                - text: 
+        - generic [ref=f27e43]:
+          - generic [ref=f27e44]:
+            - button "Open course index" [ref=f27e46] [cursor=pointer]
+            - banner [ref=f27e50]:
+              - generic [ref=f27e51]:
+                - navigation "Breadcrumb" [ref=f27e54]:
+                  - list [ref=f27e55]:
+                    - listitem [ref=f27e56]:
+                      - link "QA101" [ref=f27e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f27e58]:
+                      - text: /
+                      - generic [ref=f27e59]: System shared question bank
+                - heading "System shared question bank" [level=1] [ref=f27e68]
+            - navigation "Activity menu" [ref=f27e71]:
+              - menubar [ref=f27e72]:
+                - menuitem "Question bank" [ref=f27e73] [cursor=pointer]
+                - menuitem "Settings" [ref=f27e75] [cursor=pointer]
+                - menuitem "More " [ref=f27e77] [cursor=pointer]:
+                  - generic [ref=f27e78]: More
+                  - text: 
+            - main [ref=f27e83]:
+              - navigation [ref=f27e87]:
+                - generic [ref=f27e88]:
+                  - generic [ref=f27e89]: Question bank tertiary navigation
+                  - combobox "Question bank tertiary navigation" [ref=f27e90] [cursor=pointer]:
+                    - heading "Categories" [level=2] [ref=f27e91]
+                    - text: 
+                  - text: 
+              - heading [level=2] [ref=f27e94]:
+                - text: Edit categories
+                - button "Help" [ref=f27e95] [cursor=pointer]:
+                  - img "Help with Edit categories" [ref=f27e96]: 
+              - generic [ref=f27e97]:
+                - button "Add category" [ref=f27e99] [cursor=pointer]
+                - generic [ref=f27e101]:
+                  - checkbox "Show descriptions" [ref=f27e102]
+                  - generic [ref=f27e103]: Show descriptions
+              - generic [ref=f27e104]:
+                - 'heading "Question categories for ''Question bank: System shared question bank''" [level=3] [ref=f27e105]'
+                - list [ref=f27e107]:
+                  - listitem [ref=f27e108]:
+                    - generic [ref=f27e110]:
+                      - generic [ref=f27e111]: 
+                      - generic [ref=f27e115]:
+                        - button "Collapse Álgebra" [expanded] [ref=f27e116] [cursor=pointer]:
+                          - generic "Collapse" [ref=f27e117]:
+                            - generic [aria-hidden] [ref=f27e118]: 
+                          - text:  
+                        - strong [ref=f27e121]:
+                          - generic [ref=f27e122]:
+                            - button "Álgebra (2)" [ref=f27e123] [cursor=pointer]
+                            - link [ref=f27e124] [cursor=pointer]:
+                              - /url: "#"
+                              - img "Edit category name" [ref=f27e126]: 
+                          - ge
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8090/login/index.php", waiting until "load"
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=e1]:
+      - status
+      - generic [ref=e2]:
+        - link "Skip to main content" [ref=e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - generic [ref=e5]:
+          - complementary [ref=e6]:
+            - generic [ref=e7]:
+              - heading "Welcome to Moodle" [level=1] [ref=e8]
+              - generic [ref=e9]: Your learning journey starts here. Access courses, connect with peers, and achieve your goals.
+              - paragraph [ref=e10]: You're part of a global learning community
+              - generic [ref=e11]:
+                - generic [ref=e12]:
+                  - strong [ref=e13]: 500M
+                  - generic [ref=e14]: users
+                - generic [ref=e15]:
+                  - strong [ref=e16]: 150K
+                  - generic [ref=e17]: sites
+                - generic [ref=e18]:
+                  - strong [ref=e19]: 200+
+                  - generic [ref=e20]: countries
+            - text: AI-generated image
+          - main [ref=e24]:
+            - generic [ref=e26]:
+              - heading "Welcome back" [level=1] [ref=e27]
+              - paragraph [ref=e28]: Log in to Viaro QA
+              - generic [ref=e29]:
+                - generic [ref=e30]:
+                  - generic [ref=e31]: Username or email
+                  - generic [ref=e32]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - textbox "Username or email" [ref=e33]:
+                      - /placeholder: Enter your username or email
+                - generic [ref=e34]:
+                  - generic [ref=e35]: Password
+                  - generic [ref=e36]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - textbox "Password" [ref=e37]:
+                      - /placeholder: Enter your password
+                - link "Forgot password?" [ref=e39] [cursor=pointer]:
+                  - /url: http://localhost:8090/login/forgot_password.php
+                - button "Log in" [ref=e41] [cursor=pointer]
+              - button "Cookies notice" [ref=e43] [cursor=pointer]
+        - contentinfo:
+          - button "Show footer" [ref=e44] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e45]: "?"
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Helpers compartidos por TODAS las pruebas (regresión y las generadas por la fábrica).
+      2   | // Selectores verificados contra Moodle 5.3 en la instancia (ver ia/bitacora.md). La IA de la fábrica
+      3   | // debe usar estos helpers en vez de reinventar selectores.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | 
+      6   | export const CLAVE = 'Viaro.2026';
+      7   | export const QUIZ_REG = 'Examen de regresión';
+      8   | export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
+      9   | 
+      10  | export async function login(page: Page, usuario: string) {
+      11  |   await page.context().clearCookies();
+    > 12  |   await page.goto('/login/index.php');
+          |              ^ TimeoutError: page.goto: Timeout 30000ms exceeded.
+      13  |   await page.fill('#username', usuario);
+      14  |   await page.fill('#password', CLAVE);
+      15  |   await page.click('#loginbtn');
+      16  |   await expect(page.locator('#loginbtn')).toHaveCount(0);
+      17  | }
+      18  | 
+      19  | /** Abre la página de un quiz del curso QA101 por su nombre visible. Devuelve el cmid. */
+      20  | export async function abrirQuiz(page: Page, nombre = QUIZ_REG): Promise<number> {
+      21  |   await page.goto('/course/view.php?name=QA101');
+      22  |   await page.locator('a.aalink', { hasText: nombre }).first().click();
+      23  |   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
+      24  |   return Number(new URL(page.url()).searchParams.get('id'));
+      25  | }
+      26  | 
+      27  | /** Botón principal de la página del quiz (Attempt quiz / Continue your attempt / Re-attempt quiz). */
+      28  | export function botonIntento(page: Page): Locator {
+      29  |   return page.getByRole('button', { name: /attempt quiz|continue your attempt|re-attempt quiz/i });
+      30  | }
+      31  | 
+      32  | /** Responde una pregunta de opción múltiple o V/F por el texto de la opción, dentro del bloque de la pregunta N (1-based, número visible). */
+      33  | export async function elegir(page: Page, pregunta: number, opcion: string) {
+      34  |   const q = bloquePregunta(page, pregunta);
+      35  |   // Opción múltiple: el nombre accesible incluye la numeración ("1. One"); V/F no ("True").
+      36  |   const esc = opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      37  |   await q.getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${esc}$`, 'i') }).check();
+      38  | }
+      39  | 
+      40  | /** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es "<id del textarea>_ifr" (p. ej. q2:6_answer_id_ifr). */
+      41  | export async function escribirEnsayo(page: Page, pregunta: number, texto: string) {
+      42  |   const q = bloquePregunta(page, pregunta);
+      43  |   const iframe = q.locator('iframe[id$="_answer_id_ifr"]');
+      44  |   await expect(iframe.or(q.locator('textarea[name$="_answer"]:visible'))).toBeVisible();
+      45  |   if (await iframe.count()) {
+      46  |     const cuerpo = q.frameLocator('iframe[id$="_answer_id_ifr"]').locator('body');
+      47  |     await cuerpo.click();
+      48  |     await cuerpo.fill(texto);
+      49  |   } else {
+      50  |     await q.locator('textarea[name$="_answer"]').fill(texto);
+      51  |   }
+      52  | }
+      53  | 
+      54  | export function bloquePregunta(page: Page, numero: number): Locator {
+      55  |   return page.locator('.que').filter({ has: page.locator('.qno', { hasText: new RegExp(`^${numero}$`) }) });
+     
+[2026-11-02T03:15:17.298Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T03:15:17.312Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-030458-spec-0/ia/01-corrector.prompt.md
+[2026-11-02T03:16:04.361Z] [uso-ia] Ventana de 5 h: 64 % usado (se reinicia 2026-11-02T07:10:00.000Z).
+[2026-11-02T03:16:04.362Z] [ia:corrector] Fin llamada 01: OK en 47s, costo USD 0.34
+    respuesta final:
+    Los dos fallos eran de la prueba, no de Moodle: ninguno señala un comportamiento incorrecto. No ejecuté las pruebas, así que los arreglos no están verificados.
+    
+    **Causas raíz**
+    
+    1. **`[CA-1] [CA-6]`: `page.goto('/login/index.php')` agotó los 30 s.**
+       - El snapshot muestra el formulario de login ya renderizado, así que el servidor sí respondió.
+       - `login()` de `helpers.ts` espera el evento `load`. En el arranque en frío de Moodle, ese evento tarda más de 30 s por los recursos pesados de la portada de login.
+       - Es la primera prueba de la corrida, y las pruebas de los otros archivos que usan `login()` no fallaron así.
+    
+    2. **`[CA-2]`: `cuerpo.click()` en el editor de la pregunta no pudo completarse.**
+       - En `escribirEditor`, el iframe de TinyMCE ya es visible mientras el editor sigue cargando.
+       - El `.tox-throbber` (con `aria-busy`) se superpone al editor e intercepta los clics. Playwright reintentó hasta el timeout.
+       - Mi `expect(...).toBeVisible()` anterior solo esperaba al iframe, no a que el editor terminara de cargar.
+    
+    **Cambios** (todos en `salidas/spec-0/pruebas/`)
+    
+    - `soporte.ts`, `escribirEditor`: antes de hacer clic, espera a que el `.tox-throbber` de ese editor desaparezca. Si el throbber no existe, la espera pasa. El `click` y el `fill` siguen igual.
+    - `soporte.ts`, nuevo `iniciarSesion`: es igual a `login()` pero usa `waitUntil: 'domcontentloaded'` con 60 s de margen. Mantiene la misma verificación final (`#loginbtn` ausente). También exporté `CLAVE` desde `helpers` para usarla ahí.
+    - `01-profesor-examen.spec.ts`: sus dos pruebas usan `iniciarSesion` en vez de `login`, y quité el import de `login`, que ya no se usa.
+    
+    No debilité ninguna aserción ni toqué `helpers.ts`. Cada `expect` sigue en el cuerpo de su test, como exige el control de honestidad.
+    
+    Si el login de las pruebas de estudiante (`02` y `03`) también llegara a agotar el tiempo en frío, habría que pasarlas a `iniciarSesion`. Hoy no lo necesitan.
+[2026-11-02T03:16:04.363Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T03:16:08.715Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T03:29:19.984Z] [pruebas] Intento 2: 6 OK, 2 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    TimeoutError: page.waitForLoadState: Timeout 30000ms exceeded.
+    
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: page.goto: net::ERR_ABORTED at http://localhost:8090/login/index.php
+    Call log:
+    [2m  - navigating to "http://localhost:8090/login/index.php", waiting until "load"[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: page.waitForLoadState: Timeout 30000ms exceeded.
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Skip to main content" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - link "viaroqa" [ref=f3e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f3e9]:
+              - menuitem "Dashboard" [ref=f3e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f3e12]:
+              - generic [ref=f3e15]:
+                - switch "Edit mode" [ref=f3e16] [cursor=pointer]
+                - generic [ref=f3e17] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f3e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e28]: 
+              - button "Toggle messaging drawer" [ref=f3e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e31]: 
+              - button "User menu" [ref=f3e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f3e41]: PP
+                - generic [aria-hidden] [ref=f3e42]: Paula
+                - text: 
+        - generic [ref=f3e43]:
+          - generic [ref=f3e44]:
+            - generic [ref=f3e45]:
+              - link "Curso QA de Exámenes" [ref=f3e48] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Close course index" [ref=f3e50] [cursor=pointer]
+            - generic [ref=f3e54]:
+              - separator [ref=f3e55]
+              - button [expanded] [ref=f3e56] [cursor=pointer]:
+                - generic [ref=f3e57]:
+                  - generic [aria-hidden] [ref=f3e58]: 
+                  - text: Collapse all
+                - text: 
+          - navigation [ref=f3e60]:
+            - tree [ref=f3e62]:
+              - treeitem [expanded] [selected] [ref=f3e63]:
+                - generic [ref=f3e64]:
+                  - link "Collapse" [expanded] [ref=f3e65] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Collapse" [ref=f3e66]:
+                      - generic [aria-hidden] [ref=f3e67]: 
+                  - link "General" [ref=f3e69] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f3e70]:
+                  - group [ref=f3e71]:
+                    - treeitem [ref=f3e72]:
+                      - link "Examen de regresión" [ref=f3e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f3e74]:
+                - generic [ref=f3e75]:
+                  - link "Collapse" [expanded] [ref=f3e76] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Collapse" [ref=f3e77]:
+                      - generic [aria-hidden] [ref=f3e78]: 
+                  - link "New section" [ref=f3e80] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f3e81]:
+                - generic [ref=f3e82]:
+                  - link "Collapse" [expanded] [ref=f3e83] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Collapse" [ref=f3e84]:
+                      - generic [aria-hidden] [ref=f3e85]: 
+                  - link "New section" [ref=f3e87] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f3e88]:
+                - generic [ref=f3e89]:
+                  - link "Collapse" [expanded] [ref=f3e90] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Collapse" [ref=f3e91]:
+                      - generic [aria-hidden] [ref=f3e92]: 
+                  - link "New section" [ref=f3e94] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f3e95]:
+                - generic [ref=f3e96]:
+                  - link "Collapse" [expanded] [ref=f3e97] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Collapse" [ref=f3e98]:
+                      - generic [aria-hidden] [ref=f3e99]: 
+                  - link "New section" [ref=f3e101] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f3e102]:
+                - generic [ref=f3e103]:
+                  - link "Collapse" [expanded] [ref=f3e104] [cursor=pointer]:
+                    - /url: "#courseindexcollapse5"
+                    - text:  
+                    - generic "Collapse" [ref=f3e105]:
+                      - generic [aria-hidden] [ref=f3e106]: 
+                  - link "New section" [ref=f3e108] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=6
+                  - text: 
+                - group "New section":
+                  - group
+        - generic [ref=f3e109]:
+          - generic [ref=f3e110]:
+            - banner [ref=f3e111]:
+              - heading "Curso QA de Exámenes" [level=1] [ref=f3e118]
+            - navigation "Course menu" [ref=f3e121]:
+              - men
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts >> [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    - Location: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    Error: page.goto: net::ERR_ABORTED at http://localhost:8090/login/index.php
+    Call log:
+      - navigating to "http://localhost:8090/login/index.php", waiting until "load"
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f17e1]:
+      - status
+      - generic [ref=f17e2]:
+        - link "Skip to main content" [ref=f17e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - generic [ref=f17e5]:
+          - complementary [ref=f17e6]:
+            - generic [ref=f17e7]:
+              - heading "Welcome to Moodle" [level=1] [ref=f17e8]
+              - generic [ref=f17e9]: Your learning journey starts here. Access courses, connect with peers, and achieve your goals.
+              - paragraph [ref=f17e10]: You're part of a global learning community
+              - generic [ref=f17e11]:
+                - generic [ref=f17e12]:
+                  - strong [ref=f17e13]: 500M
+                  - generic [ref=f17e14]: users
+                - generic [ref=f17e15]:
+                  - strong [ref=f17e16]: 150K
+                  - generic [ref=f17e17]: sites
+                - generic [ref=f17e18]:
+                  - strong [ref=f17e19]: 200+
+                  - generic [ref=f17e20]: countries
+            - text: AI-generated image
+          - main [ref=f17e24]:
+            - generic [ref=f17e26]:
+              - heading "Welcome back" [level=1] [ref=f17e27]
+              - paragraph [ref=f17e28]: Log in to Viaro QA
+              - generic [ref=f17e29]:
+                - generic [ref=f17e30]:
+                  - generic [ref=f17e31]: Username or email
+                  - generic [ref=f17e32]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - textbox "Username or email" [ref=f17e33]:
+                      - /placeholder: Enter your username or email
+                - generic [ref=f17e34]:
+                  - generic [ref=f17e35]: Password
+                  - generic [ref=f17e36]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - generic [ref=f17e37]:
+                      - textbox "Password" [ref=f17e38]:
+                        - /placeholder: Enter your password
+                      - button "Toggle sensitive" [ref=f17e39] [cursor=pointer]:
+                        - generic [aria-hidden] [ref=f17e40]: 
+                - link "Forgot password?" [ref=f17e42] [cursor=pointer]:
+                  - /url: http://localhost:8090/login/forgot_password.php
+                - button "Log in" [ref=f17e44] [cursor=pointer]
+              - button "Cookies notice" [ref=f17e46] [cursor=pointer]
+        - contentinfo:
+          - button "Show footer" [ref=f17e47] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f17e48]: "?"
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Helpers compartidos por TODAS las pruebas (regresión y las generadas por la fábrica).
+      2   | // Selectores verificados contra Moodle 5.3 en la instancia (ver ia/bitacora.md). La IA de la fábrica
+      3   | // debe usar estos helpers en vez de reinventar selectores.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | 
+      6   | export const CLAVE = 'Viaro.2026';
+      7   | export const QUIZ_REG = 'Examen de regresión';
+      8   | export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
+      9   | 
+      10  | export async function login(page: Page, usuario: string) {
+      11  |   await page.context().clearCookies();
+    > 12  |   await page.goto('/login/index.php');
+          |              ^ Error: page.goto: net::ERR_ABORTED at http://localhost:8090/login/index.php
+      13  |   await page.fill('#username', usuario);
+      14  |   await page.fill('#password', CLAVE);
+      15  |   await page.click('#loginbtn');
+      16  |   await expect(page.locator('#loginbtn')).toHaveCount(0);
+      17  | }
+      18  | 
+      19  | /** Abre la página de un quiz del curso QA101 por su nombre visible. Devuelve el cmid. */
+      20  | export async function abrirQuiz(page: Page, nombre = QUIZ_REG): Promise<number> {
+      21  |   await page.goto('/course/view.php?name=QA101');
+      22  |   await page.locator('a.aalink', { hasText: nombre }).first().click();
+      23  |   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
+      24  |   return Number(new URL(page.url()).searchParams.get('id'));
+      25  | }
+      26  | 
+      27  | /** Botón principal de la página del quiz (Attempt quiz / Continue your attempt / Re-attempt quiz). */
+      28  | export function botonIntento(page: Page): Locator {
+      29  |   return page.getByRole('button', { name: /attempt quiz|continue your attempt|re-attempt quiz/i });
+      30  | }
+      31  | 
+      32  | /** Responde una pregunta de opción múltiple o V/F por el texto de la opción, dentro del bloque de la pregunta N (1-based, número visible). */
+      33  | export async function elegir(page: Page, pregunta: number, opcion: string) {
+      34  |   const q = bloquePregunta(page, pregunta);
+      35  |   // Opción múltiple: el nombre accesible incluye la numeración ("1. One"); V/F no ("True").
+      36  |   const esc = opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      37  |   await q.getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${esc}$`, 'i') }).check();
+      38  | }
+      39  | 
+      40  | /** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es "<id del textarea>_ifr" (p. ej. q2:6_answer_id_ifr). */
+      41  | export async function escribirEnsayo(page: Page, pregunta: number, texto: string) {
+      42  |   const q = bloquePregunta(page, pregunta);
+      43  |   const iframe = q.locator('iframe[id$="_answer_id_ifr"]');
+      44  |   await expect(iframe.or(q.locator('textarea[name$="_answer"]:visible'))).toBeVisible();
+      45  |   if (await iframe.count()) {
+      46  |     const cuerpo = q.frameLocator('iframe[id$="_answer_id_ifr"]').locator('body');
+      47  |     await cuerpo.c
+[2026-11-02T03:29:19.985Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/3).
+[2026-11-02T03:29:19.989Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-030458-spec-0/ia/02-corrector.prompt.md
+[2026-11-02T03:30:11.475Z] [uso-ia] Ventana de 5 h: 72 % usado (se reinicia 2026-11-02T07:10:00.000Z).
+[2026-11-02T03:30:11.476Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T03:30:11.476Z] [ia:corrector] Fin llamada 02: OK en 51s, costo USD 0.38
+    respuesta final:
+    **Causa raíz:** el problema es de tiempos de la prueba, no del plugin ni de Moodle. No hay ningún criterio incumplido. Las dos pruebas fallaron por esperas de carga que no alcanzaron con el entorno lento. No ejecuté las pruebas después de editar, así que no sé si pasan.
+    
+    - **`[CA-1]`: `page.waitForLoadState` agotó los 30 s.** Esa espera es el `networkidle` que está dentro de `prepararCaptura()` en `factory/regresion/helpers.ts`. La página del formulario ya se veía bien en la captura ARIA. Moodle con TinyMCE y los módulos AMD en frío tarda más de 30 s en quedarse sin tráfico de red. Ese helper no se puede editar desde este spec.
+    - **`[CA-5]`: `page.goto` a `/login/index.php` falló con `net::ERR_ABORTED`.** Usaba `login()` de helpers, que espera el evento `load`. Esa navegación la canceló otra anterior que seguía en curso. La captura ARIA muestra un formulario de login sano.
+    
+    **Qué cambié (solo en `salidas/spec-0/pruebas/`):**
+    - **`soporte.ts`:**
+      - Nuevo `prepararCapturaLenta()`. Espera `networkidle` con un límite de 90 s y luego llama al `prepararCaptura()` original, que ya lo encuentra cumplido. Las máscaras son las mismas.
+      - `iniciarSesion()` reintenta una sola vez el `goto` si falla con `ERR_ABORTED`. Cualquier otro error se propaga. Sigue usando `domcontentloaded`.
+      - Subí a 90 s las esperas de `networkidle` de `crearCategoria` y `agregarDesdeBanco`, por la misma razón.
+    - **`01-profesor-examen.spec.ts`:** usa `prepararCapturaLenta`.
+    - **`02-estudiante-sin-ensayo.spec.ts` y `03-calificacion-manual.spec.ts`:** importan `iniciarSesion as login` y `prepararCapturaLenta as prepararCaptura` desde `soporte`, en lugar de los de helpers.
+    
+    No toqué ningún `expect`, ni los valores esperados, ni las capturas, ni los títulos `[CA-n]`. Todas las aserciones siguen en el cuerpo de cada test, y no agregué skip, mocks ni tolerancias. Cada test conserva su `test.setTimeout(180_000)`.
+    
+    Esta causa ya se había corregido de forma parcial en `iniciarSesion` (el cambio a `domcontentloaded`). Si vuelve a fallar por tiempo, conviene revisar la carga del contenedor de Moodle. Subir más los límites solo taparía una lentitud real del entorno.
+[2026-11-02T03:30:11.483Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T03:30:17.105Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T03:42:05.923Z] [pruebas] Intento 3: 6 OK, 2 fallidas, 0 omitidas.
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('#loginbtn')
+    Expected: [32m0[39m
+    Received: [31m1[39m
+    Timeout:  5000ms
+    
+    Call log:
+    [2m  - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms[22m
+    [2m  - waiting for locator('#loginbtn')[22m
+    [2m    12 × locator resolved to 1 element[22m
+    [2m       - unexpected value "1"[22m
+    
+    
+    ### movil · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('#loginbtn')
+    Expected: [32m0[39m
+    Received: [31m1[39m
+    Timeout:  5000ms
+    
+    Call log:
+    [2m  - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms[22m
+    [2m  - waiting for locator('#loginbtn')[22m
+    [2m    12 × locator resolved to 1 element[22m
+    [2m       - unexpected value "1"[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts >> [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    - Location: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:15:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveCount(expected) failed
+    
+    Locator:  locator('#loginbtn')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+    
+    Call log:
+      - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms
+      - waiting for locator('#loginbtn')
+        12 × locator resolved to 1 element
+           - unexpected value "1"
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [ref=f10e1]:
+      - status
+      - generic [ref=f10e2]:
+        - link "Skip to main content" [ref=f10e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - generic [ref=f10e5]:
+          - complementary [ref=f10e6]:
+            - generic [ref=f10e7]:
+              - heading "Welcome to Moodle" [level=1] [ref=f10e8]
+              - generic [ref=f10e9]: Your learning journey starts here. Access courses, connect with peers, and achieve your goals.
+              - paragraph [ref=f10e10]: You're part of a global learning community
+              - generic [ref=f10e11]:
+                - generic [ref=f10e12]:
+                  - strong [ref=f10e13]: 500M
+                  - generic [ref=f10e14]: users
+                - generic [ref=f10e15]:
+                  - strong [ref=f10e16]: 150K
+                  - generic [ref=f10e17]: sites
+                - generic [ref=f10e18]:
+                  - strong [ref=f10e19]: 200+
+                  - generic [ref=f10e20]: countries
+            - text: AI-generated image
+          - main [ref=f10e24]:
+            - generic [ref=f10e26]:
+              - heading "Welcome back" [level=1] [ref=f10e27]
+              - paragraph [ref=f10e28]: Log in to Viaro QA
+              - alert [ref=f10e29]:
+                - strong [ref=f10e30]: Unable to log in
+                - text: Your login info may be incorrect. Please try again.
+              - generic [ref=f10e31]:
+                - generic [ref=f10e32]:
+                  - generic [ref=f10e33]: Username or email
+                  - generic [ref=f10e34]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - textbox "Username or email" [active] [ref=f10e35]:
+                      - /placeholder: Enter your username or email
+                - generic [ref=f10e36]:
+                  - generic [ref=f10e37]: Password
+                  - generic [ref=f10e38]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - generic [ref=f10e39]:
+                      - textbox "Password" [ref=f10e40]:
+                        - /placeholder: Enter your password
+                      - button "Toggle sensitive" [ref=f10e41] [cursor=pointer]:
+                        - generic [aria-hidden] [ref=f10e42]: 
+                - link "Forgot password?" [ref=f10e44] [cursor=pointer]:
+                  - /url: http://localhost:8090/login/forgot_password.php
+                - button "Log in" [ref=f10e46] [cursor=pointer]
+              - button "Cookies notice" [ref=f10e48] [cursor=pointer]
+        - contentinfo:
+          - button "Show footer" [ref=f10e49] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f10e50]: "?"
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Soporte exclusivo de las pruebas de spec-0. Complementa factory/regresion/helpers.ts (que este spec no puede editar).
+      2   | // Selectores tomados del código de Moodle 5.3 en entorno/.moodle-src/. Las aserciones que deciden si un criterio se
+      3   | // cumple están en los .spec.ts; acá solo hay esperas y comprobaciones de que cada paso auxiliar terminó bien.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | import { CLAVE, bloquePregunta, prepararCaptura } from '../../../factory/regresion/helpers';
+      6   | 
+      7   | export type TipoPregunta = 'multichoice' | 'truefalse' | 'essay';
+      8   | export type Categoria = { id: string; contexto: string };
+      9   | 
+      10  | type ConfigMoodle = { courseId: number; contextid: number; sesskey: string };
+      11  | 
+      12  | const configMoodle = (page: Page): Promise<ConfigMoodle> =>
+      13  |   page.evaluate(() => (window as unknown as { M: { cfg: ConfigMoodle } }).M.cfg);
+      14  | 
+      15  | /** Nombre único que no contiene "Examen de regresión", para que abrirQuiz nunca tome este examen por QUIZ-REG. */
+      16  | export const nombreUnico = (prefijo: string, proyecto: string) => `${prefijo} ${proyecto} ${Date.now()}`;
+      17  | 
+      18  | /**
+      19  |  * TinyMCE crea su iframe oculto y lo muestra al terminar de cargar sus módulos, lo que puede superar los 5 s por defecto
+      20  |  * de expect con el servidor bajo carga. Es una espera de carga: la aserción sobre el editor no cambia.
+      21  |  */
+      22  | export const ESPERA_EDITOR = 30_000;
+      23  | 
+      24  | /**
+      25  |  * Inicio de sesión de las pruebas de profesor de spec-0. Igual que login() de helpers.ts, pero espera 'domcontentloaded'
+      26  |  * en vez de 'load': la primera petición tras un arranque en frío de Moodle puede tardar más de 30 s en terminar de
+      27  |  * cargar todos los recursos de la portada de login aunque el formulario ya esté usable. Cada paso siguiente
+      28  |  * (fill, click, expect) sigue esperando por sí mismo a su elemento, y la aserción final es la misma.
+      29  |  */
+      30  | export async function iniciarSesion(page: Page, usuario: string) {
+      31  |   await page.context().clearCookies();
+      32  |   // net::ERR_ABORTED: una navegación anterior (o la recarga de una ventana emergente que se cerró) todavía estaba en curso
+      33  |   // y el navegador la cancela al empezar esta. No es un fallo de Moodle: se reintenta una vez la misma navegación.
+      34  |   for (let intento = 1; ; intento++) {
+      35  |     try {
+      36  |       await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      37  |       break;
+      38  |     } catch (error) {
+      39  |       if (intento >= 2 || !String(error).in
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts >> [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    - Location: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:15:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveCount(expected) failed
+    
+    Locator:  locator('#loginbtn')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+    
+    Call log:
+      - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms
+      - waiting for locator('#loginbtn')
+        12 × locator resolved to 1 element
+           - unexpected value "1"
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [ref=f10e1]:
+      - status
+      - generic [ref=f10e2]:
+        - link "Skip to main content" [ref=f10e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - generic [ref=f10e5]:
+          - text: AI-generated image
+          - main [ref=f10e9]:
+            - generic [ref=f10e11]:
+              - heading "Welcome back" [level=1] [ref=f10e12]
+              - paragraph [ref=f10e13]: Log in to Viaro QA
+              - alert [ref=f10e14]:
+                - strong [ref=f10e15]: Unable to log in
+                - text: Your login info may be incorrect. Please try again.
+              - generic [ref=f10e16]:
+                - generic [ref=f10e17]:
+                  - generic [ref=f10e18]: Username or email
+                  - generic [ref=f10e19]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - textbox "Username or email" [active] [ref=f10e20]:
+                      - /placeholder: Enter your username or email
+                - generic [ref=f10e21]:
+                  - generic [ref=f10e22]: Password
+                  - generic [ref=f10e23]:
+                    - generic:
+                      - generic [aria-hidden]: 
+                    - generic [ref=f10e24]:
+                      - textbox "Password" [ref=f10e25]:
+                        - /placeholder: Enter your password
+                      - button "Toggle sensitive" [ref=f10e26] [cursor=pointer]:
+                        - generic [aria-hidden] [ref=f10e27]: 
+                - link "Forgot password?" [ref=f10e29] [cursor=pointer]:
+                  - /url: http://localhost:8090/login/forgot_password.php
+                - button "Log in" [ref=f10e31] [cursor=pointer]
+              - button "Cookies notice" [ref=f10e33] [cursor=pointer]
+        - contentinfo [ref=f10e34]:
+          - generic: "?"
+          - generic [ref=f10e35]:
+            - generic [ref=f10e36]:
+              - generic [ref=f10e37]: You are not logged in.
+              - link "Data retention summary" [ref=f10e41] [cursor=pointer]:
+                - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+              - link "Switch to the standard theme" [ref=f10e43] [cursor=pointer]:
+                - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Flogin%2Findex.php&device=default&sesskey=aWuBGp4zPX
+            - generic [ref=f10e45]:
+              - text: Powered by
+              - link "Moodle" [ref=f10e46] [cursor=pointer]:
+                - /url: https://moodle.com
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Soporte exclusivo de las pruebas de spec-0. Complementa factory/regresion/helpers.ts (que este spec no puede editar).
+      2   | // Selectores tomados del código de Moodle 5.3 en entorno/.moodle-src/. Las aserciones que deciden si un criterio se
+      3   | // cumple están en los .spec.ts; acá solo hay esperas y comprobaciones de que cada paso auxiliar terminó bien.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | import { CLAVE, bloquePregunta, prepararCaptura } from '../../../factory/regresion/helpers';
+      6   | 
+      7   | export type TipoPregunta = 'multichoice' | 'truefalse' | 'essay';
+      8   | export type Categoria = { id: string; contexto: string };
+      9   | 
+      10  | type ConfigMoodle = { courseId: number; contextid: number; sesskey: string };
+      11  | 
+      12  | const configMoodle = (page: Page): Promise<ConfigMoodle> =>
+      13  |   page.evaluate(() => (window as unknown as { M: { cfg: ConfigMoodle } }).M.cfg);
+      14  | 
+      15  | /** Nombre único que no contiene "Examen de regresión", para que abrirQuiz nunca tome este examen por QUIZ-REG. */
+      16  | export const nombreUnico = (prefijo: string, proyecto: string) => `${prefijo} ${proyecto} ${Date.now()}`;
+      17  | 
+      18  | /**
+      19  |  * TinyMCE crea su iframe oculto y lo muestra al terminar de cargar sus módulos, lo que puede superar los 5 s por defecto
+      20  |  * de expect con el servidor bajo carga. Es una espera de carga: la aserción sobre el editor no cambia.
+      21  |  */
+      22  | export const ESPERA_EDITOR = 30_000;
+      23  | 
+      24  | /**
+      25  |  * Inicio de sesión de las pruebas de profesor de spec-0. Igual que login() de helpers.ts, pero espera 'domcontentloaded'
+      26  |  * en vez de 'load': la primera petición tras un arranque en frío de Moodle puede tardar más de 30 s en terminar de
+      27  |  * cargar todos los recursos de la portada de login aunque el formulario ya esté usable. Cada paso siguiente
+      28  |  * (fill, click, expect) sigue esperando por sí mismo a su elemento, y la aserción final es la misma.
+      29  |  */
+      30  | export async function iniciarSesion(page: Page, usuario: string) {
+      31  |   await page.context().clearCookies();
+      32  |   // net::ERR_ABORTED: una navegación anterior (o la recarga de una ventana emergente que se cerró) todavía estaba en curso
+      33  |   // y el navegador la cancela al empezar esta. No es un fallo de Moodle: se reintenta una vez la misma navegación.
+      34  |   for (let intento = 1; ; intento++) {
+      35  |     try {
+      36  |       await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      37  |       break;
+      38  |     } catch (error) {
+      39  |       if (intento >= 2 || !String(error).includes('ERR_ABORTED')) throw error;
+      40  |     }
+      41  |   }
+      42  |   await page.fill('#username', usuario);
+      43  |   await page.fill('#password', CLAVE);
+      
+[2026-11-02T03:42:05.925Z] [reintento] Intento 3 no quedó verde. Se le pide a la IA que corrija (3/3).
+[2026-11-02T03:42:05.951Z] [ia:corrector] Llamada 03 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-030458-spec-0/ia/03-corrector.prompt.md
+[2026-11-02T03:42:55.143Z] [uso-ia] Ventana de 5 h: 79 % usado (se reinicia 2026-11-02T07:10:00.000Z).
+[2026-11-02T03:42:55.144Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T03:42:55.144Z] [ia:corrector] Fin llamada 03: OK en 49s, costo USD 0.34
+    respuesta final:
+    **Causa raíz.** Falló el inicio de sesión como `profesor` (línea 38 de `03-calificacion-manual.spec.ts`), justo después de la sesión del estudiante. Fue en `iniciarSesion` de `soporte.ts:45`, y en los dos viewports. Moodle respondió "Unable to log in" y el formulario quedó con los campos vacíos. Las credenciales son las correctas: el mismo usuario y la misma clave inician sesión en la prueba 01.
+    
+    Mi hipótesis, que no pude comprobar porque no ejecuté las pruebas, es que `iniciarSesion` espera solo `domcontentloaded`. En esa prueba la página de login se abre justo después de `review.php` del estudiante, y la página puede recargarse o limpiar los campos entre el `fill` y el clic. Si es así, el formulario se envía vacío. No es un defecto del plugin ni de Moodle, así que no toqué nada fuera de las pruebas.
+    
+    **Qué cambié.** Solo `salidas/spec-0/pruebas/soporte.ts`, en `iniciarSesion`:
+    - Después de rellenar usuario y clave, hace `expect(...).toHaveValue(...)` en ambos campos antes de hacer clic. Esto confirma que los valores siguen puestos al enviar.
+    - Si el envío es rechazado, vuelve a cargar `/login/index.php` y repite el formulario una vez. Si el segundo intento falla, el error se propaga.
+    - La aserción final es la de `helpers.ts`: `#loginbtn` ya no está en la página.
+    
+    No debilité ninguna aserción. Los `expect` nuevos solo comprueban que el paso auxiliar se hizo bien, y los `expect` de los criterios siguen en los `.spec.ts`. Los títulos `[CA-n]` y los helpers de `factory/regresion/helpers.ts` no cambian.
+    
+    Este arreglo no está probado. Hay que volver a correr `03-calificacion-manual.spec.ts` en escritorio y móvil.
+[2026-11-02T03:42:55.144Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T03:42:59.551Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T03:53:44.473Z] [pruebas] Intento 4: 7 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveValue[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('#password')
+    Expected: [32m"Viaro.2026"[39m
+    Received: [31m""[39m
+    Timeout:  5000ms
+    
+    Call log:
+    [2m  - Expect "toHaveValue" locator('#password') with timeout 5000ms[22m
+    [2m  - waiting for locator('#password')[22m
+    [2m    14 × locator resolved to <input value="" id="password" type="password" name="password" class="form-control" autocomplete="current-password" placeholder="Enter your password"/>[22m
+    [2m       - unexpected value ""[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts >> [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    - Location: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:15:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveValue(expected) failed
+    
+    Locator:  locator('#password')
+    Expected: "Viaro.2026"
+    Received: ""
+    Timeout:  5000ms
+    
+    Call log:
+      - Expect "toHaveValue" locator('#password') with timeout 5000ms
+      - waiting for locator('#password')
+        14 × locator resolved to <input value="" id="password" type="password" name="password" class="form-control" autocomplete="current-password" placeholder="Enter your password"/>
+           - unexpected value ""
+    
+    ```
+    
+    ```yaml
+    - textbox "Password":
+      - /placeholder: Enter your password
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Soporte exclusivo de las pruebas de spec-0. Complementa factory/regresion/helpers.ts (que este spec no puede editar).
+      2   | // Selectores tomados del código de Moodle 5.3 en entorno/.moodle-src/. Las aserciones que deciden si un criterio se
+      3   | // cumple están en los .spec.ts; acá solo hay esperas y comprobaciones de que cada paso auxiliar terminó bien.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | import { CLAVE, bloquePregunta, prepararCaptura } from '../../../factory/regresion/helpers';
+      6   | 
+      7   | export type TipoPregunta = 'multichoice' | 'truefalse' | 'essay';
+      8   | export type Categoria = { id: string; contexto: string };
+      9   | 
+      10  | type ConfigMoodle = { courseId: number; contextid: number; sesskey: string };
+      11  | 
+      12  | const configMoodle = (page: Page): Promise<ConfigMoodle> =>
+      13  |   page.evaluate(() => (window as unknown as { M: { cfg: ConfigMoodle } }).M.cfg);
+      14  | 
+      15  | /** Nombre único que no contiene "Examen de regresión", para que abrirQuiz nunca tome este examen por QUIZ-REG. */
+      16  | export const nombreUnico = (prefijo: string, proyecto: string) => `${prefijo} ${proyecto} ${Date.now()}`;
+      17  | 
+      18  | /**
+      19  |  * TinyMCE crea su iframe oculto y lo muestra al terminar de cargar sus módulos, lo que puede superar los 5 s por defecto
+      20  |  * de expect con el servidor bajo carga. Es una espera de carga: la aserción sobre el editor no cambia.
+      21  |  */
+      22  | export const ESPERA_EDITOR = 30_000;
+      23  | 
+      24  | /**
+      25  |  * Inicio de sesión de las pruebas de profesor de spec-0. Igual que login() de helpers.ts, pero espera 'domcontentloaded'
+      26  |  * en vez de 'load': la primera petición tras un arranque en frío de Moodle puede tardar más de 30 s en terminar de
+      27  |  * cargar todos los recursos de la portada de login aunque el formulario ya esté usable. Cada paso siguiente
+      28  |  * (fill, click, expect) sigue esperando por sí mismo a su elemento, y la aserción final es la misma.
+      29  |  */
+      30  | export async function iniciarSesion(page: Page, usuario: string) {
+      31  |   await page.context().clearCookies();
+      32  |   // net::ERR_ABORTED: una navegación anterior (o la recarga de una ventana emergente que se cerró) todavía estaba en curso
+      33  |   // y el navegador la cancela al empezar esta. No es un fallo de Moodle: se reintenta una vez la misma navegación.
+      34  |   for (let intento = 1; ; intento++) {
+      35  |     try {
+      36  |       await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      37  |       break;
+      38  |     } catch (error) {
+      39  |       if (intento >= 2 || !String(error).includes('ERR_ABORTED')) throw error;
+      40  |     }
+      41  |   }
+      42  |   // Con 'domcontentloaded' el formulario puede recargarse (navegación anterior que termina, scripts de la portada) entre el
+      43  |   // fill y el clic, y entonces se envía vacío: Moodle responde "Unable to log in" aunque las credenciales sean correctas.
+      44  |   // Se comprueba que los valores siguen en los campos justo antes de enviar y, si el envío fue rechazado, se repite
+      45  |   // el formulario una vez. La aserción final (ya no hay #loginbtn) es la misma de login() de helpers.ts.
+      46  |   for (let intento = 1; ; intento++) {
+      47  |     await page.fill('#username', usuario);
+      48  |     await page.fill('#password', CLAVE);
+      49  |     await expect(page.locator('#username')).toHaveValue(usuario);
+    > 50  |     await expect(page.locator('#password')).toHaveValue(CLAVE);
+          |                                             ^ Error: expect(locator).toHaveValue(expected) failed
+      51  |     await page.click('#loginbtn');
+      52  |     try {
+      53  |       await expect(page.locator('#loginbtn')).toHaveCount(0);
+      54  |       return;
+      55  |     } catch (error) {
+      56  |       if (intento >= 2) throw error;
+      57  |       await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      58  |     }
+      59  |   }
+      60  | }
+      61  | 
+      62  | /**
+      63  |  * prepararCaptura() espera 'networkidle' con el límite por defecto de 30 s, que no alcanza cuando Moodle carga en frío
+      64  |  * (TinyMCE, AMD, estilos). Se espera primero la misma condición con un límite mayor; luego prepararCaptura() la
+      65  |  * encuentra ya cumplida. Devuelve las mismas máscaras; no cambia qué se compara.
+      66  |  */
+      67  | export async function prepararCapturaLenta(page: Page): Promise<Locator[]> {
+      68  |   await page.waitForLoadState('networkidle', { timeout: 90_000 });
+      69  |   return prepararCaptura(page);
+      70  | }
+      71  | 
+      72  | export async function idCursoQA101(page: Page): Promise<number> {
+      73  |   await page.goto('/course/view.php?name=QA101');
+      74  |   return (await configMoodle(page)).courseId;
+      75  | }
+      76  | 
+      77  | // ---------------------------------------------------------------------------------------------------------
+      78  | // Examen
+      79  | 
+      80  | export async function abrirFormularioExamen(page
+[2026-11-02T03:53:44.479Z] [pruebas] DETENIDO: Las pruebas del spec no quedaron en verde tras 3 reintentos. Se detiene sin PR; la rama factory/spec-0-20261101-232314 queda para diagnóstico.

@@ -4,9 +4,9 @@
 // CA-3 y CA-4 comparten recorrido porque cada estudiante hace un solo intento por corrida (ver plan).
 import { test, expect } from '@playwright/test';
 import {
-  abrirQuiz, botonIntento, elegir, enviarIntento, filaResumen, login, paginaAnterior, prepararCaptura, siguientePagina,
+  abrirQuiz, botonIntento, elegir, enviarIntento, filaResumen, paginaAnterior, siguientePagina,
 } from '../../../factory/regresion/helpers';
-import { estadoEnResumen, irAlResumen, opcion } from './soporte';
+import { estadoEnResumen, irAlResumen, iniciarSesion as login, opcion, prepararCapturaLenta as prepararCaptura } from './soporte';
 
 test('[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada', async ({ page, isMobile }) => {
   test.setTimeout(180_000);

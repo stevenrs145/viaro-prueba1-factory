@@ -2,7 +2,7 @@
 // Selectores tomados del código de Moodle 5.3 en entorno/.moodle-src/. Las aserciones que deciden si un criterio se
 // cumple están en los .spec.ts; acá solo hay esperas y comprobaciones de que cada paso auxiliar terminó bien.
 import { expect, type Locator, type Page } from '@playwright/test';
-import { bloquePregunta } from '../../../factory/regresion/helpers';
+import { CLAVE, bloquePregunta, prepararCaptura } from '../../../factory/regresion/helpers';
 
 export type TipoPregunta = 'multichoice' | 'truefalse' | 'essay';
 export type Categoria = { id: string; contexto: string };
@@ -20,6 +20,54 @@ export const nombreUnico = (prefijo: string, proyecto: string) => `${prefijo} ${
  * de expect con el servidor bajo carga. Es una espera de carga: la aserción sobre el editor no cambia.
  */
 export const ESPERA_EDITOR = 30_000;
+
+/**
+ * Inicio de sesión de las pruebas de profesor de spec-0. Igual que login() de helpers.ts, pero espera 'domcontentloaded'
+ * en vez de 'load': la primera petición tras un arranque en frío de Moodle puede tardar más de 30 s en terminar de
+ * cargar todos los recursos de la portada de login aunque el formulario ya esté usable. Cada paso siguiente
+ * (fill, click, expect) sigue esperando por sí mismo a su elemento, y la aserción final es la misma.
+ */
+export async function iniciarSesion(page: Page, usuario: string) {
+  await page.context().clearCookies();
+  // net::ERR_ABORTED: una navegación anterior (o la recarga de una ventana emergente que se cerró) todavía estaba en curso
+  // y el navegador la cancela al empezar esta. No es un fallo de Moodle: se reintenta una vez la misma navegación.
+  for (let intento = 1; ; intento++) {
+    try {
+      await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      break;
+    } catch (error) {
+      if (intento >= 2 || !String(error).includes('ERR_ABORTED')) throw error;
+    }
+  }
+  // Con 'domcontentloaded' el formulario puede recargarse (navegación anterior que termina, scripts de la portada) entre el
+  // fill y el clic, y entonces se envía vacío: Moodle responde "Unable to log in" aunque las credenciales sean correctas.
+  // Se comprueba que los valores siguen en los campos justo antes de enviar y, si el envío fue rechazado, se repite
+  // el formulario una vez. La aserción final (ya no hay #loginbtn) es la misma de login() de helpers.ts.
+  for (let intento = 1; ; intento++) {
+    await page.fill('#username', usuario);
+    await page.fill('#password', CLAVE);
+    await expect(page.locator('#username')).toHaveValue(usuario);
+    await expect(page.locator('#password')).toHaveValue(CLAVE);
+    await page.click('#loginbtn');
+    try {
+      await expect(page.locator('#loginbtn')).toHaveCount(0);
+      return;
+    } catch (error) {
+      if (intento >= 2) throw error;
+      await page.goto('/login/index.php', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    }
+  }
+}
+
+/**
+ * prepararCaptura() espera 'networkidle' con el límite por defecto de 30 s, que no alcanza cuando Moodle carga en frío
+ * (TinyMCE, AMD, estilos). Se espera primero la misma condición con un límite mayor; luego prepararCaptura() la
+ * encuentra ya cumplida. Devuelve las mismas máscaras; no cambia qué se compara.
+ */
+export async function prepararCapturaLenta(page: Page): Promise<Locator[]> {
+  await page.waitForLoadState('networkidle', { timeout: 90_000 });
+  return prepararCaptura(page);
+}
 
 export async function idCursoQA101(page: Page): Promise<number> {
   await page.goto('/course/view.php?name=QA101');
@@ -92,7 +140,7 @@ export const filaPregunta = (page: Page, nombre: string): Locator =>
 export async function crearCategoria(page: Page, banco: number, nombre: string): Promise<Categoria> {
   await page.goto(urlCategorias(banco));
   // El botón recibe su evento cuando el componente reactivo termina de cargar el estado.
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('networkidle', { timeout: 90_000 });
   await page.locator('#qbank_managecategories-addcategory [data-action="addeditcategory"]').click();
   const modal = page.locator('[data-region="modal"]').filter({ has: page.locator('input[name="name"]') });
   await modal.locator('input[name="name"]').fill(nombre);
@@ -107,6 +155,11 @@ export async function crearCategoria(page: Page, banco: number, nombre: string):
 /** Escribe en un editor TinyMCE. `iframe` es el selector CSS de su iframe. */
 export async function escribirEditor(page: Page, iframe: string, texto: string) {
   await expect(page.locator(iframe)).toBeVisible({ timeout: ESPERA_EDITOR });
+  // El iframe ya es visible mientras TinyMCE sigue cargando: su "throbber" (aria-busy) tapa el editor e intercepta el
+  // click. Se espera a que desaparezca antes de interactuar.
+  await expect(page.locator('.tox-tinymce', { has: page.locator(iframe) }).locator('.tox-throbber')).toBeHidden({
+    timeout: ESPERA_EDITOR,
+  });
   const cuerpo = page.frameLocator(iframe).locator('body');
   await cuerpo.click();
   await cuerpo.fill(texto);
@@ -153,7 +206,7 @@ export async function crearPregunta(page: Page, banco: number, categoria: Catego
 /** Add > from question bank > Switch bank > filtro de categoría > Add selected questions to the quiz. */
 export async function agregarDesdeBanco(page: Page, examen: number, banco: number, categoria: string, preguntas: string[]) {
   await page.goto(`/mod/quiz/edit.php?cmid=${examen}`);
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('networkidle', { timeout: 90_000 });
   await page.locator('.last-add-menu a[data-bs-toggle="dropdown"]').click();
   await page.locator('.last-add-menu [data-action="questionbank"]').click();
 

@@ -3,10 +3,11 @@
 // comment.php solo funciona como ventana emergente: al guardar recarga window.opener y se cierra.
 import { test, expect } from '@playwright/test';
 import {
-  abrirQuiz, bloquePregunta, botonIntento, elegir, enviarIntento, escribirEnsayo, filaResumen, login, prepararCaptura,
-  siguientePagina,
+  abrirQuiz, bloquePregunta, botonIntento, elegir, enviarIntento, escribirEnsayo, filaResumen, siguientePagina,
 } from '../../../factory/regresion/helpers';
-import { celdasTiempoHistorial, ESPERA_EDITOR, escribirEditor, idIntento } from './soporte';
+import {
+  celdasTiempoHistorial, ESPERA_EDITOR, escribirEditor, idIntento, iniciarSesion as login, prepararCapturaLenta as prepararCaptura,
+} from './soporte';
 
 const COMENTARIO = 'Comentario de regresión: respuesta parcial.';
 const EDITOR_COMENTARIO = 'iframe[id$="_-comment_id_ifr"]';
