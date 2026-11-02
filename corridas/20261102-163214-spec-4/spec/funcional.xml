@@ -1,0 +1,46 @@
+<testsuites id="" name="" tests="20" failures="0" skipped="0" errors="0" time="1074.284159">
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T16:32:37.403Z" hostname="escritorio" tests="10" failures="0" skipped="0" time="588.81" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="64.799">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="63.071">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="64.659">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="54.001">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="59.981">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="77.827">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="63.073">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="47.268">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="53.095">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="41.036">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T16:32:37.403Z" hostname="movil" tests="10" failures="0" skipped="0" time="475.602" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="43.658">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="55.503">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="54.182">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="45.269">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="54.213">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="58.137">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="50.609">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="33.265">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="44.029">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="36.737">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,56 @@
+diff --git a/visual/lineas-base/APROBACIONES.json b/visual/lineas-base/APROBACIONES.json
+new file mode 100644
+index 0000000..07fa9ef
+--- /dev/null
++++ b/visual/lineas-base/APROBACIONES.json
+@@ -0,0 +1,50 @@
++{
++  "spec-4-quedan-intentos--escritorio.png": {
++    "sha256": "45998bca1d62fa5fdec1f3a7043e27478f7c7e7c4450e6f85a8338254de43dfd",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.691Z"
++  },
++  "spec-4-quedan-intentos--movil.png": {
++    "sha256": "c29b76a08b26ff46648c600a523078f77e1407d15c0095472bcb290f26e4b65a",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.691Z"
++  },
++  "spec-4-sin-intentos--escritorio.png": {
++    "sha256": "54799c1298742bd79df0fe9cadd25f90e50c3919d904ef9db2d1240acba104dd",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.692Z"
++  },
++  "spec-4-sin-intentos--movil.png": {
++    "sha256": "6cb02bf1149a3c467c27fc05799faac3982f71419124394b30b4ff4a8e655535",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.692Z"
++  },
++  "spec-4-sin-limite--escritorio.png": {
++    "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.693Z"
++  },
++  "spec-4-sin-limite--movil.png": {
++    "sha256": "95f817ecbcf0fd207ae4e17666894dba3817edb54bda1e1f49b713656574ea4d",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-4",
++    "razon": "Pantalla nueva introducida por spec-4",
++    "fecha": "2026-11-02T17:23:52.693Z"
++  }
++}

@@ -52,6 +52,8 @@ foreach ($cmbanco as $cmb) {
     }
 }
 
+// El estado de los cajones se guarda por usuario y sobrevive entre corridas: abierto o cerrado mueve toda la página.
+$DB->delete_records_select('user_preferences', "name LIKE 'drawer-open-%'");
 $DB->delete_records('notifications');
 $DB->delete_records('message_popup_notifications');
 $DB->set_field('tool_usertours_tours', 'enabled', 0);
