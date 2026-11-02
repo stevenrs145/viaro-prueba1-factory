@@ -11,8 +11,8 @@
 | CA-1 | Crear y configurar un examen (intentos permitidos, método de calificación) y que persista | Profesor | `salidas/spec-0/pruebas/01-profesor-examen.spec.ts` |
 | CA-2 | Crear en el banco preguntas de opción múltiple, V/F y ensayo y agregarlas a un examen | Profesor | `01-profesor-examen.spec.ts` |
 | CA-3 | Iniciar intento, responder, navegar adelante **y atrás** (respuestas persisten), enviar | Estudiante | `02-estudiante-sin-ensayo.spec.ts` |
-| CA-4 | Calificación automática con valores exactos (`4.00/6.00`, `6.67 out of 10.00`) — incluye una respuesta incorrecta a propósito para detectar notas fijas | Estudiante | `02-estudiante-sin-ensayo.spec.ts` |
-| CA-5 | Ver intentos, calificar manualmente el ensayo y que la nota del estudiante se actualice (`Not yet graded` → `9.17`) | Profesor + Estudiante | `03-calificacion-manual.spec.ts` |
+| CA-4 | Calificación automática con valores exactos (`4,00/6,00`, `6,67 de 10,00`) — incluye una respuesta incorrecta a propósito para detectar notas fijas | Estudiante | `02-estudiante-sin-ensayo.spec.ts` |
+| CA-5 | Ver intentos, calificar manualmente el ensayo y que la nota del estudiante se actualice (`Sin calificar aún` → `9,17`) | Profesor + Estudiante | `03-calificacion-manual.spec.ts` |
 | CA-6 | 7 pantallas completas × escritorio y móvil contra línea base aprobada | Ambos | los tres archivos |
 
 Cada prueba corre en **escritorio (1366×900)** y **móvil (Pixel 7)**, con estudiantes distintos por viewport
@@ -32,7 +32,7 @@ Moodle cambia, falla primero esta prueba y con un mensaje claro.
 |---|---|
 | `spec-0-intento` | **Obligatoria.** Donde el estudiante rinde: botones de navegación y de envío, bloque de navegación del quiz. En móvil es donde más se rompe. |
 | `spec-0-cierre` | **Obligatoria.** Revisión al terminar: nota, retroalimentación, revisión de respuestas. Es la pantalla que cambia el spec 3. |
-| `spec-0-resumen-envio` | Confirmación antes de enviar: un botón "Submit all and finish" fuera de pantalla aquí bloquea el examen. |
+| `spec-0-resumen-envio` | Confirmación antes de enviar: un botón "Enviar todo y terminar" fuera de pantalla aquí bloquea el examen. |
 | `spec-0-examen-estudiante` | Puerta de entrada del estudiante; es la pantalla donde el spec 1 intercala el reconocimiento. |
 | `spec-0-crear-examen` | Formulario de configuración del profesor: los specs que agregan opciones por quiz cambian esta pantalla. |
 | `spec-0-calificacion-manual` | Calificación del ensayo por el profesor. |
@@ -49,9 +49,10 @@ ruido. Su comportamiento sí se verifica funcionalmente.
 - **Determinismo antes que tolerancia:** pruebas dentro de la imagen oficial de Playwright (mismas fuentes en cualquier
   máquina), zona horaria fija, opciones de respuesta **sin mezclar** (la mezcla aleatoria de Moodle rompía cualquier
   comparación; se desactivó en el sembrado, no se enmascaró), tours de usuario desactivados, foco y hover retirados.
-- **Máscaras solo sobre el valor dinámico, nunca la fila:** fechas Started/Completed/Duration, columnas de tiempo de
+- **Máscaras solo sobre el valor dinámico, nunca la fila:** fechas Comenzado/Completado/Duración, columnas de tiempo de
   cualquier tabla (identificadas por el **texto del encabezado**, no por posición), temporizador, contador de
-  notificaciones. Si la fila desaparece, la captura lo detecta.
+  notificaciones. Si la fila desaparece, la captura lo detecta. La máscara se pinta en gris en la propia página: Playwright no admite
+  `maskColor` global y dejaría bloques magenta.
 - **Actualizar una línea base es una decisión explícita:** el pipeline nunca sobrescribe una existente; propone, y
   `aprobar-linea-base --razon` registra hash, autor, fecha y razón en `visual/lineas-base/APROBACIONES.json`.
 - **Reporte inspeccionable:** `corridas/<id>/visual/index.html` (esperada / obtenida / diferencia) y copia de las
@@ -70,7 +71,7 @@ el resultado es un bloqueo, nunca un "OK". `manifiesto.json` y `aprobaciones.log
 porque son datos que escribe `aprobar-pruebas` y el auditor los lee siempre de `main`.
 
 Cada regla se prueba con `node factory/sabotajes.mjs` (repetible, sin IA ni Moodle): altera de verdad un clon temporal,
-ejecuta el auditor y exige el bloqueo con esa regla. Resultado: **41/41** (37 sabotajes + 3 controles sin falso positivo
+ejecuta el auditor y exige el bloqueo con esa regla. Resultado: **44/44** (39 sabotajes + 4 controles sin falso positivo
 + auditor ausente en `main`). En la tabla, **✅** es sabotaje real sobre archivos; **✅ (sintético)** es que el auditor
 recibió resultados de ejecución sintéticos: prueba la regla, no una corrida real de Playwright.
 

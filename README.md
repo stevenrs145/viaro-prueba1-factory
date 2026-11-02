@@ -37,6 +37,8 @@ npm ci                     # Playwright 1.64.1 (las pruebas corren en su imagen 
 bash entorno/setup.sh      # Moodle 5.3 + Postgres 17 + cron + receptor + datos sintéticos (~6 min la primera vez)
 ```
 Moodle queda en <http://localhost:8090> — `admin` / `Viaro.2026`; `profesor`; `estudiante1..12` (misma clave).
+El sitio queda en español y con identidad propia, aplicados por `entorno/seed/identidad.php` como ajustes de Moodle, sin tocar el core.
+El setup descarga el paquete de idioma `es`: necesita conexión a internet.
 `bash entorno/setup.sh --fresh` borra todo y reinstala. El script es idempotente y **verifica** la instalación y el
 sembrado contra la base de datos (no confía en los códigos de salida de Moodle, que pueden ser 0 tras fallar).
 
@@ -47,12 +49,15 @@ sembrado contra la base de datos (no confía en los códigos de salida de Moodle
 | Retomar una corrida interrumpida (p. ej. límite de uso de la IA) | `node factory/cli.mjs run <spec> --reanudar <rama>` |
 | Suite completa funcional + visual + honestidad | `node factory/cli.mjs suite` |
 | Solo el control de verificación honesta | `node factory/cli.mjs honestidad` |
+| Probar el control con sabotajes reales, en un clon temporal | `node factory/sabotajes.mjs` |
+| Probar `estado.json` y la detención BLOQUEADO | `node factory/estados.mjs` |
 | Aprobar líneas base visuales (**humano**) | `node factory/cli.mjs aprobar-linea-base --pendientes --razon "..."` |
 | Aprobar el manifiesto de pruebas (**humano**) | `node factory/cli.mjs aprobar-pruebas --razon "..."` |
 
 Un spec nuevo es un `.md` con frontmatter `id:` y las secciones de intención, criterios (`CA-n`) y escenarios
 (ver `specs/`). **No hace falta tocar la fábrica.** Resultado de cada corrida: `corridas/<fecha-hora>-<spec>/`
-(`pipeline.log`, `funcional.xml`, `visual/index.html`, `honestidad.log`, prompts y transcripciones de IA en `ia/`).
+(`estado.json`, `pipeline.log`, `funcional.xml`, `visual/index.html`, `honestidad.log`, prompts y transcripciones de IA en `ia/`).
+Si el analista encuentra una decisión que solo producto puede tomar, la corrida termina en BLOQUEADO con `pregunta.md`, sin construir nada.
 
 ## Puntos de intervención humana (declarados)
 1. **Merge del PR**: el pipeline propone (rama + PR con razonamiento, diff, pruebas y evidencia); un humano decide.
@@ -60,12 +65,15 @@ Un spec nuevo es un `.md` con frontmatter `id:` y las secciones de intención, c
    declaró afectadas; ambas quedan pendientes hasta `aprobar-linea-base --razon`.
 3. **Manifiesto de pruebas**: la referencia contra la que se mide el debilitamiento cambia solo con
    `aprobar-pruebas --razon`, y cuenta cuando está en `main`.
+4. **Pruebas aprobadas**: un spec solo cambia una si producto lo autoriza en el spec. El plan declara el reemplazo exacto en
+   `pruebas_afectadas`, la fábrica lo aplica, el PR lo muestra y un humano lo aprueba.
+5. **Ambigüedades bloqueantes**: producto las resuelve en el spec y se vuelve a ejecutar.
 
 ## Ramas
 - `main`: fábrica, entorno, regresión aprobada y referencias del control de honestidad.
 - `factory/spec-N-<fecha>`: una por corrida de spec, con su PR **abierto**.
 - La regresión (spec-0) también salió de la fábrica; su PR se mergeó a `main` a propósito, después de aprobar
-  sus líneas base, porque es la línea base compartida contra la que se miden los demás specs. Los PR de los specs 1–3 quedan abiertos.
+  sus líneas base, porque es la línea base compartida contra la que se miden los demás specs. Los PR de los specs 1–4 quedan abiertos.
 
 ## Estructura
 ```
