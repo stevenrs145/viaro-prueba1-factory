@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-163823-spec-3",
+  "spec": "specs/spec-3-resumen-por-tema.md",
+  "rama": "factory/spec-3-20261102-163823",
+  "reanudada": false,
+  "estado": "BLOQUEADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T16:38:23.795Z"
+    },
+    "analisis": {
+      "estado": "BLOQUEADO",
+      "detalle": "1 ambigüedad(es) bloqueante(s). Ver corridas/20261102-163823-spec-3/pregunta.md.",
+      "actualizado": "2026-11-02T16:48:16.128Z"
+    },
+    "sondas": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "implementacion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "pruebas": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "mutacion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "regresion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "alcance": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "honestidad": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}
