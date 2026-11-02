@@ -1,6 +1,6 @@
 # Trazabilidad — spec-0: Regresión del camino feliz del módulo de exámenes
 
-Generado por la fábrica en la corrida `corridas/20261102-072917-spec-0`. Cruza lo que el plan declaró con lo que existe y corrió.
+Generado por la fábrica en la corrida `corridas/20261102-082324-spec-0`. Cruza lo que el plan declaró con lo que existe y corrió.
 
 **Capa:** `solo pruebas` → `—`
 

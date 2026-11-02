@@ -1,0 +1,114 @@
+{
+  "spec-0-calificacion-manual--escritorio.png": {
+    "sha256": "0c5f3559b6d31f4bf670eb08858de5543af38b66496421dc19f79c2e6c41461d",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.477Z"
+  },
+  "spec-0-calificacion-manual--movil.png": {
+    "sha256": "e7c70809e425de5f16eb76876c1f824f4e18cd0fc6034c880f22fb04444dee09",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.478Z"
+  },
+  "spec-0-cierre--escritorio.png": {
+    "sha256": "76a7fcb4ff49c3df7b4f22503764a27ac68d73df913de91bf4c48fc58c9729df",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.478Z"
+  },
+  "spec-0-cierre--movil.png": {
+    "sha256": "168869a3d8c0a9662bec26d4bfdb7864d5dd84669a0a282f290470d002feaaeb",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.479Z"
+  },
+  "spec-0-cierre-calificado--escritorio.png": {
+    "sha256": "36d0f61804754f48383551a459006166b97f84d6e33851e224bd213a5a7701e1",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.480Z"
+  },
+  "spec-0-cierre-calificado--movil.png": {
+    "sha256": "211046b3e1c69656c5e86edd9d6692c2118116242be4ee9c04f404ecc03ed240",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.481Z"
+  },
+  "spec-0-crear-examen--escritorio.png": {
+    "sha256": "a9cefbe2bb11964e489691693df2475c8c7fd62a0d2b88eef58c64a81f6e576d",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.483Z"
+  },
+  "spec-0-crear-examen--movil.png": {
+    "sha256": "e4cad6fe486c944a8f245d3a1b38d3a57f9c8f9c4112366fbc3cbf1b0d6c01c7",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.484Z"
+  },
+  "spec-0-examen-estudiante--escritorio.png": {
+    "sha256": "ae14743a38dfa624a95c9c8b661c4e9cedd6d64c8d94239f7a8bfe58632eac9e",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.484Z"
+  },
+  "spec-0-examen-estudiante--movil.png": {
+    "sha256": "ffc11659ef6bfa46dd54b6117560c3089116cf4741da8a88602742dabcbcab62",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.485Z"
+  },
+  "spec-0-intento--escritorio.png": {
+    "sha256": "ae60ce3988b83d0dec3be788bf0ae71c55826ff6ba728420dc035fe340f895bb",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.485Z"
+  },
+  "spec-0-intento--movil.png": {
+    "sha256": "923a37d5b61f05339b6726f917ecb9d7723df00b87fea7ea4a5637909efaa8ae",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.486Z"
+  },
+  "spec-0-resumen-envio--escritorio.png": {
+    "sha256": "9fddf2460884b1b93d86ea3d27a65057dfd6ce1c9495fc8d3994a67dd6aa27d0",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.486Z"
+  },
+  "spec-0-resumen-envio--movil.png": {
+    "sha256": "de3f195fc9b70f553e83c4a9bd3c6ae84975990e59036df10a8668b525b41447",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-0",
+    "razon": "Pantalla nueva introducida por spec-0",
+    "fecha": "2026-11-02T08:53:57.487Z"
+  }
+}

@@ -49,14 +49,15 @@ export async function abrirFormularioExamen(page: Page, curso: number) {
  * parte de la pantalla que se protege. En móvil no aplica: drawers.js:328 lo cierra al cargar sin mirar la preferencia.
  */
 export async function abrirIndiceCurso(page: Page) {
-  const abrir = page.getByRole('button', { name: 'Open course index' });
+  const abrir = page.getByRole('button', { name: 'Abrir índice del curso' });
   if (await abrir.isVisible()) await abrir.click();
-  await expect(page.getByRole('button', { name: 'Close course index' })).toBeVisible();
+  // El cajón abierto lleva la clase "show" (drawers.mustache:66); no depende del idioma del botón.
+  await expect(page.locator('#theme_boost-drawers-courseindex')).toHaveClass(/\bshow\b/);
 }
 
-/** Guarda con "Save and display" y devuelve el cmid del examen creado o editado. */
+/** Guarda con "Guardar cambios y mostrar" (#id_submitbutton) y devuelve el cmid del examen creado o editado. */
 export async function guardarExamen(page: Page): Promise<number> {
-  await page.getByRole('button', { name: 'Save and display' }).click();
+  await page.locator('#id_submitbutton').click();
   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
   return Number(new URL(page.url()).searchParams.get('id'));
 }
@@ -70,7 +71,7 @@ export async function crearExamen(page: Page, curso: number, nombre: string): Pr
 export async function eliminarExamen(page: Page, cmid: number) {
   const { sesskey } = await configMoodle(page);
   await page.goto(`/course/mod.php?delete=${cmid}&sesskey=${sesskey}`);
-  await page.getByRole('button', { name: 'Yes', exact: true }).click();
+  await page.getByRole('button', { name: 'Sí', exact: true }).click();
   await expect(page).toHaveURL(/course\/(view|section)\.php/);
 }
 
@@ -126,7 +127,7 @@ export async function escribirEditor(page: Page, iframe: string, texto: string) 
   await cuerpo.fill(texto);
 }
 
-/** Crea una pregunta desde el botón "Create a new question ..." del banco, dentro de la categoría indicada. */
+/** Crea una pregunta desde el botón "Crear una nueva pregunta..." del banco, dentro de la categoría indicada. */
 export async function crearPregunta(page: Page, banco: number, categoria: Categoria, tipo: TipoPregunta, nombre: string) {
   await page.goto(urlBanco(banco, categoria));
   // edit.php:73 corta la página sin pintar el banco mientras la migración de mod_qbank siga en la cola de tareas ad hoc.
@@ -138,7 +139,7 @@ export async function crearPregunta(page: Page, banco: number, categoria: Catego
   // en el flujo (h2, filtros) o bajo la barra fija, aunque nada lo tape en el DOM. El teclado no depende de coordenadas
   // y recorre el mismo botón, el mismo diálogo y el mismo envío. El botón nace deshabilitado hasta que carga chooser.js
   // y el diálogo solo habilita "Add" al elegir un tipo: se espera cada estado porque press() no lo hace.
-  const crear = page.getByRole('button', { name: /create a new question/i });
+  const crear = page.getByRole('button', { name: /crear una nueva pregunta/i });
   await expect(crear).toBeEnabled();
   await crear.press('Enter');
   const tipoPregunta = page.locator(`#item_qtype_${tipo}`);
@@ -154,10 +155,10 @@ export async function crearPregunta(page: Page, banco: number, categoria: Catego
   await escribirEditor(page, '#id_questiontext_ifr', `Enunciado de ${nombre}`);
   if (tipo === 'multichoice') {
     await escribirEditor(page, '#id_answer_0_ifr', 'Correcta');
-    await page.locator('#id_fraction_0').selectOption({ label: '100%' });
+    await page.locator('#id_fraction_0').selectOption('1.0'); // 100%
     await escribirEditor(page, '#id_answer_1_ifr', 'Incorrecta');
   } else if (tipo === 'truefalse') {
-    await page.locator('#id_correctanswer').selectOption({ label: 'True' });
+    await page.locator('#id_correctanswer').selectOption('1'); // 1 = Verdadero
   }
   await page.locator('#id_submitbutton').click();
   await expect(page).toHaveURL(/question\/edit\.php/);
@@ -206,7 +207,8 @@ export async function agregarDesdeBanco(page: Page, examen: number, banco: numbe
   for (const nombre of preguntas) {
     await filaPregunta(page, nombre).locator('input[type="checkbox"]').check();
   }
-  await page.getByRole('button', { name: 'Add selected questions to the quiz' }).click();
+  // custom_view.php:201 (type=submit name=add); el texto depende del idioma.
+  await page.locator('input[type="submit"][name="add"]').click();
   await expect(page).toHaveURL(/mod\/quiz\/edit\.php/);
 }
 
@@ -227,7 +229,7 @@ export async function eliminarPreguntas(page: Page, banco: number, categoria: Ca
   });
   ids.forEach((q) => parametros.set(q, '1'));
   await page.goto(`/question/bank/deletequestion/delete.php?${parametros}`);
-  await page.getByRole('button', { name: 'Delete', exact: true }).click();
+  await page.getByRole('button', { name: 'Borrar', exact: true }).click();
   await expect(page).toHaveURL(/question\/edit\.php/);
   await page.goto(urlBanco(banco, categoria));
   await expect(page.locator('#categoryquestions tbody tr')).toHaveCount(0);
@@ -244,29 +246,30 @@ export async function eliminarCategoria(page: Page, banco: number, categoria: Ca
 
 /** Radio de una opción, con el mismo criterio de nombre accesible que elegir() en helpers.ts. */
 export function opcion(page: Page, pregunta: number, texto: string): Locator {
-  return bloquePregunta(page, pregunta).getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${texto}$`, 'i') });
+  const esc = texto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return bloquePregunta(page, pregunta).getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${esc}$`, 'i') });
 }
 
-/** Celda de estado de una pregunta en la tabla de summary.php. */
-export const estadoEnResumen = (page: Page, pregunta: number): Locator =>
-  page.locator(`table.quizsummaryofattempt tr.quizsummary${pregunta} td.c1`);
+/**
+ * Fila de una pregunta en la tabla de summary.php. Lleva la clase del estado (renderer.php:825, states.php):
+ * "answersaved" o "notyetanswered", que no dependen del idioma.
+ */
+export const filaEnResumen = (page: Page, pregunta: number): Locator =>
+  page.locator(`table.quizsummaryofattempt tr.quizsummary${pregunta}`);
 
 /** Desde la última página del intento va a summary.php, sin enviar. */
 export async function irAlResumen(page: Page) {
-  await page.getByRole('button', { name: /finish attempt/i }).click();
+  await page.getByRole('button', { name: /terminar intento/i }).click();
   await expect(page).toHaveURL(/summary\.php/);
 }
 
 export const idIntento = (page: Page) => Number(new URL(page.url()).searchParams.get('attempt'));
 
 /**
- * Celdas de la columna Time del historial de respuestas de comment.php. prepararCaptura no las cubre y la fábrica
- * no puede editar helpers.ts desde este spec. Se ubican por el texto del encabezado, no por posición.
+ * Celdas de la columna de hora del historial de respuestas de comment.php. prepararCaptura no las cubre y la fábrica
+ * no puede editar helpers.ts desde este spec. El encabezado depende del idioma; la posición no: question/engine/
+ * renderer.php:442-447 siempre emite Paso, Hora, Acción, Estado, así que la hora es la segunda columna.
  */
-export async function celdasTiempoHistorial(page: Page): Promise<Locator> {
-  const tabla = page.locator('div.responsehistoryheader table');
-  const encabezados = await tabla.locator('thead th').allTextContents();
-  const columna = encabezados.findIndex((t) => t.trim() === 'Time');
-  expect(columna, `Encabezados del historial: ${encabezados.join(', ')}`).not.toEqual(-1);
-  return tabla.locator(`tbody tr > :nth-child(${columna + 1})`);
+export function celdasTiempoHistorial(page: Page): Locator {
+  return page.locator('div.responsehistoryheader table tbody tr > :nth-child(2)');
 }

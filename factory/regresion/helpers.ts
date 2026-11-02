@@ -24,7 +24,7 @@ export async function login(page: Page, usuario: string) {
   await page.goto('/login/index.php', { waitUntil: 'domcontentloaded' });
   // core/togglesensitive reemplaza el input de la clave (outerHTML) al cargar y se pierde lo ya escrito:
   // hay que esperar a su botón antes de rellenar, o Moodle rechaza el login con la clave vacía.
-  await expect(page.getByRole('button', { name: 'Toggle sensitive' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Alternar sensibilidad' })).toBeVisible();
   await page.fill('#username', usuario);
   await page.fill('#password', CLAVE);
   await expect(page.locator('#password')).toHaveValue(CLAVE);
@@ -40,9 +40,9 @@ export async function abrirQuiz(page: Page, nombre = QUIZ_REG): Promise<number> 
   return Number(new URL(page.url()).searchParams.get('id'));
 }
 
-/** Botón principal de la página del quiz (Attempt quiz / Continue your attempt / Re-attempt quiz). */
+/** Botón principal de la página del quiz (Intento de cuestionario / Continuar el último intento / Reintentar el cuestionario). */
 export function botonIntento(page: Page): Locator {
-  return page.getByRole('button', { name: /attempt quiz|continue your attempt|re-attempt quiz/i });
+  return page.getByRole('button', { name: /intento de cuestionario|continuar el último intento|reintentar el cuestionario/i });
 }
 
 /** Responde una pregunta de opción múltiple o V/F por el texto de la opción, dentro del bloque de la pregunta N (1-based, número visible). */
@@ -72,29 +72,29 @@ export function bloquePregunta(page: Page, numero: number): Locator {
 }
 
 export async function siguientePagina(page: Page) {
-  await page.getByRole('button', { name: 'Next page' }).click();
+  await page.getByRole('button', { name: 'Siguiente página' }).click();
   await page.waitForLoadState('domcontentloaded');
 }
 
 export async function paginaAnterior(page: Page) {
-  await page.getByRole('button', { name: 'Previous page' }).click();
+  await page.getByRole('button', { name: 'Página anterior' }).click();
   await page.waitForLoadState('domcontentloaded');
 }
 
-/** Desde cualquier página del intento: Finish attempt -> resumen -> Submit all and finish -> confirmar en el modal. */
+/** Desde cualquier página del intento: Terminar intento -> resumen -> Enviar todo y terminar -> confirmar en el modal. */
 export async function enviarIntento(page: Page) {
-  await page.getByRole('button', { name: /finish attempt/i }).click();
+  await page.getByRole('button', { name: /terminar intento/i }).click();
   await expect(page).toHaveURL(/summary\.php/);
   // Si se hace clic antes de que submission_confirmation.js enlace su manejador, se envía sin modal.
   await esperarJS(page);
-  await page.getByRole('button', { name: 'Submit all and finish' }).click();
-  const confirmar = page.locator('.modal-footer button', { hasText: 'Submit all and finish' });
+  await page.getByRole('button', { name: 'Enviar todo y terminar' }).click();
+  const confirmar = page.locator('.modal-footer button', { hasText: 'Enviar todo y terminar' });
   await expect(confirmar).toBeVisible({ timeout: 15_000 });
   await confirmar.click();
   await expect(page).toHaveURL(/review\.php/);
 }
 
-/** Tabla resumen de la pantalla de cierre/revisión del intento: valor de una fila por su encabezado (Status, Marks, Grade, Feedback...). */
+/** Tabla resumen de la pantalla de cierre/revisión del intento: valor de una fila por su encabezado (Estado, Puntos, Calificación, Retroalimentación...). */
 export function filaResumen(page: Page, encabezado: string): Locator {
   return page.locator('table.quizreviewsummary tr').filter({ has: page.locator('th', { hasText: new RegExp(`^${encabezado}$`) }) }).locator('td');
 }
@@ -131,11 +131,11 @@ export async function prepararCaptura(page: Page): Promise<Locator[]> {
         t.querySelectorAll('tbody tr').forEach((tr) => tr.children[i]?.setAttribute('data-qa-mascara', 'tiempo'));
       });
     });
-  }, '^(started|completed|duration|submitted|time taken|state)');
+  }, '^(comenzado|completado|duración|enviado|tiempo|estado)');
   return [
-    filaResumen(page, 'Started'),
-    filaResumen(page, 'Completed'),
-    filaResumen(page, 'Duration'),
+    filaResumen(page, 'Comenzado'),
+    filaResumen(page, 'Completado'),
+    filaResumen(page, 'Duración'),
     page.locator('[data-qa-mascara]'),
     page.locator('#quiz-timer-wrapper'),
     page.locator('.popover-region .count-container'),

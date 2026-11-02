@@ -8,6 +8,9 @@ import {
   type Categoria, type TipoPregunta,
 } from './soporte';
 
+// QUIZ_ATTEMPTFIRST (mod/quiz/lib.php:64): valor del método de calificación "Primer intento".
+const PRIMER_INTENTO = '3';
+
 test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page, isMobile }, testInfo) => {
   test.setTimeout(180_000);
   const nombre = nombreUnico('Spec0', testInfo.project.name);
@@ -24,18 +27,19 @@ test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', a
     await page.locator('#id_name').fill(nombre);
     await page.locator('a.collapseexpand').click();
     await page.locator('#id_attempts').selectOption('2');
-    await page.locator('#id_grademethod').selectOption({ label: 'First attempt' });
+    await page.locator('#id_grademethod').selectOption(PRIMER_INTENTO);
     cmid = await guardarExamen(page);
 
     await expect(page).toHaveTitle(new RegExp(nombre));
-    await expect(page.locator('.quizinfo')).toContainText('Attempts allowed: 2');
-    await expect(page.locator('.quizinfo')).toContainText('Grading method: First attempt');
+    await expect(page.locator('.quizinfo')).toContainText(/Intentos permitidos:\s*2/);
+    await expect(page.locator('.quizinfo')).toContainText(/Método de calificación:\s*Primer intento/);
 
     // La configuración se conserva al volver a abrir el formulario.
     await page.goto(`/course/modedit.php?update=${cmid}&return=1`);
     await expect(page.locator('#id_name')).toHaveValue(nombre);
     await expect(page.locator('#id_attempts')).toHaveValue('2');
-    await expect(page.locator('#id_grademethod option:checked')).toHaveText('First attempt');
+    await expect(page.locator('#id_grademethod')).toHaveValue(PRIMER_INTENTO);
+    await expect(page.locator('#id_grademethod option:checked')).toHaveText('Primer intento');
   } finally {
     if (cmid) await eliminarExamen(page, cmid);
   }
@@ -69,7 +73,7 @@ test('[CA-2] un profesor crea preguntas en el banco y las agrega a un examen', a
 
     await expect(page.locator('li.slot')).toHaveCount(3);
     for (const { nombre } of preguntas) await expect(page.locator('li.slot', { hasText: nombre })).toHaveCount(1);
-    await expect(page.locator('.mod_quiz_summarks')).toHaveText('3.00');
+    await expect(page.locator('.mod_quiz_summarks')).toHaveText('3,00'); // el sitio sembrado está en español: coma decimal
   } finally {
     // Primero el examen: mientras lo use, el banco solo ocultaría las preguntas y la categoría no quedaría vacía.
     if (cmid) await eliminarExamen(page, cmid);

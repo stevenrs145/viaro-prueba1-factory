@@ -46,6 +46,8 @@ fi
 
 log "Sembrando datos sintéticos"
 dc exec -T -u www-data web php /opt/seed/seed.php
+log "Aplicando idioma español y diseño"
+dc exec -T -u www-data web php /opt/seed/identidad.php
 # El manejador de excepciones de Moodle en CLI no garantiza código de salida != 0: se verifica el resultado.
 [[ "$(dc exec -T db psql -U moodle -d moodle -tAc "select count(*) from mdl_quiz_slots s join mdl_quiz q on q.id=s.quizid join mdl_course_modules cm on cm.instance=q.id where cm.idnumber='QUIZ-REG'")" == "6" ]] \
   || { echo "[setup] ERROR: el sembrado no dejó el examen QUIZ-REG con 6 preguntas" >&2; exit 1; }

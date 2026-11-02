@@ -18,20 +18,21 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   await login(page, estudiante);
   await abrirQuiz(page);
   await botonIntento(page).click();
-  await elegir(page, 1, 'One');
-  await elegir(page, 2, 'True');
+  // Contenido sembrado en español (entorno/seed/identidad.php): las cinco respuestas correctas.
+  await elegir(page, 1, '12');
+  await elegir(page, 2, 'Verdadero');
   await siguientePagina(page);
-  await elegir(page, 3, 'One');
-  await elegir(page, 4, 'True');
+  await elegir(page, 3, '6');
+  await elegir(page, 4, 'Verdadero');
   await siguientePagina(page);
-  await elegir(page, 5, 'True');
+  await elegir(page, 5, 'Verdadero');
   await escribirEnsayo(page, 6, 'Una rana saltó al estanque.');
   await enviarIntento(page);
   const intento = idIntento(page);
 
-  await expect(filaResumen(page, 'Status')).toHaveText('Finished');
-  await expect(filaResumen(page, 'Grade')).toHaveText('Not yet graded');
-  await expect(filaResumen(page, 'Marks')).toHaveCount(0);
+  await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
+  await expect(filaResumen(page, 'Calificación')).toHaveText('Sin calificar aún');
+  await expect(filaResumen(page, 'Puntos')).toHaveCount(0);
 
   await login(page, 'profesor');
   const cmid = await abrirQuiz(page);
@@ -39,19 +40,20 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   // La tabla es table#attempts (attempts_report.php:338). La fila tiene que ser la de este intento y seguir sin calificar.
   const filaInforme = page.locator('table#attempts tbody tr', { hasText: `Estudiante Número ${numero}` });
   await expect(filaInforme).toBeVisible();
-  await expect(filaInforme.getByRole('link', { name: 'Review attempt' })).toHaveAttribute('href', new RegExp(`review\\.php\\?attempt=${intento}$`));
-  await expect(filaInforme).toContainText('Not yet graded');
+  await expect(filaInforme.locator('a.reviewlink[href*="review.php?attempt="]')).toHaveAttribute('href', new RegExp(`review\\.php\\?attempt=${intento}(&|$)`));
+  await expect(filaInforme).toContainText('Sin calificar aún');
   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=grading`);
   await expect(page.getByRole('cell', { name: /HIS-2 Ensayo/ })).toBeVisible();
 
   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);
-  const enlace = bloquePregunta(page, 6).getByRole('link', { name: 'Make comment or override mark' });
+  // "Hacer un comentario o sobrescribir la calificación": div.commentlink (rendererbase.php:199), sin depender del idioma.
+  const enlace = bloquePregunta(page, 6).locator('.commentlink a');
   const [popup] = await Promise.all([page.waitForEvent('popup'), enlace.click()]);
   await expect(popup).toHaveURL(/mod\/quiz\/comment\.php/);
   await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible({ timeout: ESPERA_EDITOR });
   await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', {
     fullPage: true,
-    mask: [...(await prepararCaptura(popup)), await celdasTiempoHistorial(popup)],
+    mask: [...(await prepararCaptura(popup)), celdasTiempoHistorial(popup)],
   });
 
   await escribirEditor(popup, EDITOR_COMENTARIO, COMENTARIO);
@@ -61,17 +63,17 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   await cierre;
 
   // La ventana de origen se recarga sola con la nota guardada.
-  await expect(filaResumen(page, 'Marks')).toHaveText('5.50/6.00');
+  await expect(filaResumen(page, 'Puntos')).toHaveText('5,50/6,00');
 
   await login(page, estudiante);
   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);
-  await expect(filaResumen(page, 'Marks')).toHaveText('5.50/6.00');
-  await expect(filaResumen(page, 'Grade')).toHaveText('9.17 out of 10.00 (91.67%)');
-  await expect(filaResumen(page, 'Feedback')).toHaveText('Retro global: aprobado.');
+  await expect(filaResumen(page, 'Puntos')).toHaveText('5,50/6,00');
+  await expect(filaResumen(page, 'Calificación')).toHaveText('9,17 de 10,00 (91,67%)');
+  await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
   await expect(bloquePregunta(page, 6)).toContainText(COMENTARIO);
   await expect(page).toHaveScreenshot('spec-0-cierre-calificado.png', { fullPage: true, mask: await prepararCaptura(page) });
 
   await abrirQuiz(page);
-  await expect(filaResumen(page, 'Grade')).toHaveText('9.17 out of 10.00 (91.67%)');
-  await expect(page.locator('#feedback')).toContainText('9.17 / 10.00');
+  await expect(page.locator('li .card table')).toContainText('9,17');
+  await expect(page.locator('#feedback')).toContainText(/9,17\s*\/\s*10,00/);
 });
