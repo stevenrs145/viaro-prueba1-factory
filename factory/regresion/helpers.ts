@@ -134,7 +134,8 @@ export async function prepararCaptura(page: Page): Promise<Locator[]> {
   // no por posición (la posición cambia entre informes y vistas).
   await page.evaluate((patron) => {
     const re = new RegExp(patron, 'i');
-    document.querySelectorAll('table').forEach((t) => {
+    // La tabla de resumen va en vertical: sus filas dinámicas se marcan abajo, una por una, y sus etiquetas quedan visibles.
+    document.querySelectorAll('table:not(.quizreviewsummary)').forEach((t) => {
       const ths = Array.from(t.querySelectorAll('thead th, tr:first-child th'));
       ths.forEach((th, i) => {
         if (!re.test((th.textContent || '').trim())) return;
