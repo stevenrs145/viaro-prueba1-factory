@@ -16,12 +16,14 @@
     "fecha": "2026-11-02T15:06:34.405Z"
   },
   "spec-0-cierre--escritorio.png": {
-    "sha256": "33b0751052f07abeb23b9862916f5836cb58b964278e2ebba6a9fabcd74cb6cd",
-    "origen": "humano",
-    "estado": "aprobada",
+    "sha256": "6282860ed3ce3a6fb0768330c1051417c875b3a9fbca6a18d8e25b32574e36ed",
+    "origen": "pipeline",
+    "estado": "propuesta-cambio",
     "aprobado_por": "Steven",
-    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
-    "fecha": "2026-11-02T15:06:34.405Z"
+    "razon": "Cambio visual declarado por spec-3 (pantallas_afectadas)",
+    "fecha": "2026-11-02T19:59:30.150Z",
+    "spec": "spec-3",
+    "reemplaza": "33b0751052f07abeb23b9862916f5836cb58b964278e2ebba6a9fabcd74cb6cd"
   },
   "spec-0-cierre--movil.png": {
     "sha256": "40087444ceee5ea0c5a3eb5fd39de602b101aabbdf737fa6eeae6e5d72ecb005",

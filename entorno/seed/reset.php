@@ -53,7 +53,25 @@ foreach ($cmbanco as $cmb) {
 }
 
 // El estado de los cajones se guarda por usuario y sobrevive entre corridas: abierto o cerrado mueve toda la página.
+// Se fija explícitamente: sin la preferencia Moodle abre el índice del curso, y las líneas base lo tienen cerrado.
 $DB->delete_records_select('user_preferences', "name LIKE 'drawer-open-%'");
+foreach ($DB->get_fieldset_select('user', 'id', 'deleted = 0') as $idusuario) {
+    set_user_preference('drawer-open-index', 0, $idusuario);
+}
+// Guardar el formulario del examen (lo hacen las pruebas para activar opciones) reescribe sus opciones de revisión:
+// sin "durante el intento" desaparece la columna Puntos del resumen. Se vuelve a los valores por defecto del sitio.
+foreach (['attempt', 'correctness', 'maxmarks', 'marks', 'specificfeedback', 'generalfeedback', 'rightanswer', 'overallfeedback'] as $revision) {
+    $DB->set_field('quiz', "review{$revision}", get_config('quiz', "review{$revision}"), ['course' => $course->id, 'name' => 'Examen de regresión']);
+}
+
+// La retroalimentación global sembrada, tal como la dejó el sembrado: un plugin que la retira y la devuelve puede cambiar su formato.
+foreach ($DB->get_records_select('quiz_feedback', "quizid IN (SELECT id FROM {quiz} WHERE course = ?)", [$course->id]) as $retro) {
+    $texto = trim(strip_tags($retro->feedbacktext));
+    if ($retro->feedbacktext !== $texto) {
+        $DB->set_field('quiz_feedback', 'feedbacktext', $texto, ['id' => $retro->id]);
+    }
+}
+
 $DB->delete_records('notifications');
 $DB->delete_records('message_popup_notifications');
 $DB->set_field('tool_usertours_tours', 'enabled', 0);
