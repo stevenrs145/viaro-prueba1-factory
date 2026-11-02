@@ -1,0 +1,82 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="1" time="509.00631899999996">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="210.837" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="70.311">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="140.526">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="35.069" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="35.069">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="49.327" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="49.327">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="movil" tests="2" failures="0" skipped="0" time="112.102" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="27.163">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="84.939">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip]]
+]]>
+</system-out>
+<error message="locator.check: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [movil] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1 › [CA-2] un profesor crea preguntas en el banco y las agrega a un examen 
+
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793597211083' }).locator('input[type="checkbox"]')
+
+
+       at salidas/spec-0/pruebas/soporte.ts:189
+
+      187 |
+      188 |   for (const nombre of preguntas) {
+    > 189 |     await filaPregunta(page, nombre).locator('input[type="checkbox"]').check();
+          |                                                                        ^
+      190 |   }
+      191 |   await page.getByRole('button', { name: 'Add selected questions to the quiz' }).click();
+      192 |   await expect(page).toHaveURL(/mod\/quiz\/edit\.php/);
+        at agregarDesdeBanco (/work/salidas/spec-0/pruebas/soporte.ts:189:72)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:68:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-052003-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-052003-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-052003-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-052003-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="movil" tests="1" failures="0" skipped="0" time="31.398" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="31.398">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T05:21:24.232Z" hostname="movil" tests="1" failures="0" skipped="0" time="53.778" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="53.778">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre-calificado--movil.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre-calificado--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-cierre-calificado-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

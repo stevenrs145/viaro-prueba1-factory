@@ -1,0 +1,56 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="425.590398">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="138.43" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="43.195">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="95.235">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="35.918" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="35.918">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="53.153" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="53.153">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-calificacion-manual--escritorio.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre-calificado--escritorio.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-calificacion-manual--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre-calificado--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-cierre-calificado-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="movil" tests="2" failures="0" skipped="0" time="103.895" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="27.677">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="76.218">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="movil" tests="1" failures="0" skipped="0" time="34.621" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="34.621">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T08:39:15.450Z" hostname="movil" tests="1" failures="0" skipped="0" time="52.018" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="52.018">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-calificacion-manual--movil.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre-calificado--movil.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-calificacion-manual--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-calificacion-manual-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre-calificado--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-cierre-calificado-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
