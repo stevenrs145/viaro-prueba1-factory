@@ -13,7 +13,7 @@ export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
  */
 export async function esperarJS(page: Page) {
   await page.waitForLoadState('load');
-  await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0);
+  await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0, undefined, { timeout: 45_000 });
 }
 
 export async function login(page: Page, usuario: string) {
