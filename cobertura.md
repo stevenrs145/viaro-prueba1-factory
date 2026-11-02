@@ -64,26 +64,41 @@ el manifiesto de pruebas y el registro de líneas base **tal como están en `mai
 trabajo que se audita. Corre en cada `run` (etapa 8) y en cada `suite`. Ante cualquier hallazgo sale con código 1 y el
 pipeline no llega al PR.
 
-| Sabotaje | Regla | Verificado con un sabotaje real |
+**El auditor que se ejecuta es el de `main`**, no el de la rama auditada: `factory/lib/auditor.mjs` lo extrae a un
+directorio temporal y nada de la copia de trabajo de `factory/honestidad/` se carga al auditar. Si no puede ejecutarse,
+el resultado es un bloqueo, nunca un "OK". `manifiesto.json` y `aprobaciones.log` quedan fuera de `AUDITOR-ALTERADO`
+porque son datos que escribe `aprobar-pruebas` y el auditor los lee siempre de `main`.
+
+Cada regla se prueba con `node factory/sabotajes.mjs` (repetible, sin IA ni Moodle): altera de verdad un clon temporal,
+ejecuta el auditor y exige el bloqueo con esa regla. Resultado: **41/41** (37 sabotajes + 3 controles sin falso positivo
++ auditor ausente en `main`). En la tabla, **✅** es sabotaje real sobre archivos; **✅ (sintético)** es que el auditor
+recibió resultados de ejecución sintéticos: prueba la regla, no una corrida real de Playwright.
+
+| Sabotaje | Regla | Verificado |
 |---|---|---|
-| Assert eliminado | `ASSERTS-REDUCIDOS` | |
+| Assert eliminado | `ASSERTS-REDUCIDOS` | ✅ |
 | Assert debilitado (`toHaveText` → `toBeDefined`/`toBeTruthy`) | `MATCHER-DEBILITADO` | ✅ |
 | `await` quitado de un assert web-first (nunca falla) | `ASSERT-SIN-AWAIT` | ✅ |
-| Assert sobre un literal (`expect(true).toBe(true)`) | `ASSERT-TRIVIAL` | |
-| Prueba sin asserts | `SIN-ASSERTS` | |
+| Assert sobre un literal (`expect(true).toBe(true)`) | `ASSERT-TRIVIAL` | ✅ |
+| Prueba sin asserts | `SIN-ASSERTS` | ✅ |
 | `test.skip/fixme` o `describe.skip` nuevo, skip condicional | `OMISION-NUEVA` / `OMITIDA` | ✅ |
-| Omitida en ejecución sin razón declarada | `OMITIDA-EN-EJECUCION` | |
+| Omitida en ejecución sin razón declarada | `OMITIDA-EN-EJECUCION` | ✅ (sintético) |
 | `test.only` (apaga el resto de la suite) | `TEST-ONLY` | ✅ |
 | Error tragado (`.catch(() => {})`, `catch {}`) | `ERROR-TRAGADO` | ✅ |
-| Respuesta inventada (`page.route`/`route.fulfill`) | `RED-SIMULADA` | |
-| `expect.soft` | `ASSERT-SOFT` | |
-| Prueba borrada o renombrada | `PRUEBA-ELIMINADA` | |
-| Camino de error que ya no se ejercita | `CAMINO-ERROR-NO-EJERCITADO` | |
-| Prueba que pasa **sin** la funcionalidad | `PASA-SIN-FUNCIONALIDAD` (mutación: se desinstala el plugin) | |
-| Umbral visual relajado (global o por prueba), reintentos activados | `UMBRAL-RELAJADO` / `UMBRAL-POR-PRUEBA` / `REINTENTOS` | |
-| Máscara nueva o captura quitada | `MASCARA-AGREGADA` / `CAPTURA-ELIMINADA` | |
+| Respuesta inventada (`page.route`/`route.fulfill`) | `RED-SIMULADA` | ✅ |
+| `expect.soft` | `ASSERT-SOFT` | ✅ |
+| Prueba borrada o renombrada | `PRUEBA-ELIMINADA` | ✅ |
+| Camino de error que ya no se ejercita | `CAMINO-ERROR-NO-EJERCITADO` | ✅ (sintético) |
+| Prueba que pasa **sin** la funcionalidad | `PASA-SIN-FUNCIONALIDAD` (mutación: se desinstala el plugin) | ✅ (sintético) |
+| Umbral visual relajado (global o por prueba), reintentos activados | `UMBRAL-RELAJADO` / `UMBRAL-POR-PRUEBA` / `REINTENTOS` | ✅ |
+| Máscara nueva o captura quitada | `MASCARA-AGREGADA` / `CAPTURA-ELIMINADA` | ✅ |
 | **Línea base actualizada para tapar una rotura** | `LINEA-BASE-ALTERADA`: el hash debe coincidir con una aprobación humana con razón, o con una propuesta del pipeline para una pantalla que el spec **declaró** afectada | ✅ |
-| Línea base borrada / nueva sin aprobar | `LINEA-BASE-ELIMINADA` / `LINEA-BASE-SIN-APROBAR` | |
+| Línea base borrada / nueva sin registrar o sin aprobar | `LINEA-BASE-ELIMINADA` / `LINEA-BASE-SIN-REGISTRO` / `LINEA-BASE-SIN-APROBAR` | ✅ |
+| Auditor o lanzador anulados, alterados o con archivos agregados, incluso terminando con éxito al importarse | `AUDITOR-ALTERADO` | ✅ |
+| Prueba debilitada **y** auditor anulado a la vez: el de `main` igual detecta la prueba | `MATCHER-DEBILITADO` + `AUDITOR-ALTERADO` | ✅ |
+| Pruebas excluidas por configuración (`testIgnore`, `testMatch`, `grep`, `projects`) | `CONFIG-PRUEBAS-ALTERADA`: compara todo `playwright.config.ts` sin comentarios | ✅ |
+| Criterio sin prueba, o con pruebas que fallaron o se omitieron | `CRITERIO-SIN-PRUEBA`: cada criterio no-`proceso` necesita una prueba `[CA-n]` que corrió y pasó | ✅ (sintético) |
+| Auditor ausente en `main` o que no se puede ejecutar | `AUDITOR-NO-DISPONIBLE` / `AUDITOR-NO-EJECUTABLE` | ✅ / observado al introducir el lanzador |
 
 ### Límites (lo que NO detecta)
 - **Asserts dentro de funciones auxiliares**: se cuentan los `expect` del cuerpo de cada prueba; si la verificación vive
@@ -97,6 +112,8 @@ pipeline no llega al PR.
   ramas y PR, no contra un administrador malicioso. Plan: branch protection + CODEOWNERS sobre `factory/honestidad/` y
   `visual/lineas-base/APROBACIONES.json`.
 - Análisis léxico, no AST: asserts generados dinámicamente u ofuscados pueden escapar.
+- **`factory/cli.mjs` alterado en una rama**: un `cli.mjs` que no llame al auditor no lo ejecuta. Lo cubre el control de
+  alcance del pipeline (la IA solo escribe en `salidas/<spec>/`), no el auditor. Plan: CI que ejecute el auditor de `main`.
 
 ## 4. Qué queda fuera y plan (en orden de prioridad)
 | # | Área | Por qué esa prioridad | Plan |
