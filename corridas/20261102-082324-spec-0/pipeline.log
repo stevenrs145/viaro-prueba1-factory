@@ -1,0 +1,887 @@
+[2026-11-02T08:23:24.779Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-082324-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T08:23:27.852Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T08:23:27.856Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T08:23:30.879Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T08:27:43.873Z] [pruebas] Intento 1: 0 OK, 8 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: getByRole('button', { name: 'Close course index' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" getByRole('button', { name: 'Close course index' }) with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Close course index' })[22m
+    
+    
+    ### movil · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    TimeoutError: locator.selectOption: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#id_grademethod')[22m
+    [2m    - locator resolved to <select name="grademethod" id="id_grademethod" class="form-select↵                       ↵                       ">…</select>[22m
+    [2m  - attempting select option action[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible and enabled[22m
+    [2m      - did not find some options[22m
+    [2m    - retrying select option action[22m
+    [2m      - waiting 100ms[22m
+    [2m    29 × waiting for element to be visible and enabled[22m
+    [2m       - did not find some options[22m
+    [2m     - retrying select option action[22m
+    [2m       - waiting 500ms[22m
+    
+    
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
+    
+    Locator: getByRole('button', { name: /create a new question/i })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeEnabled" getByRole('button', { name: /create a new question/i }) with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: /create a new question/i })[22m
+    
+    
+    ### movil · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
+    
+    Locator: getByRole('button', { name: /create a new question/i })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeEnabled" getByRole('button', { name: /create a new question/i }) with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: /create a new question/i })[22m
+    
+    
+    ### escritorio · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeChecked[2m([22m[2m)[22m failed
+    
+    Locator: locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i })
+    Expected: not checked
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "not toBeChecked" locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i }) with timeout 5000ms[22m
+    [2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i })[22m
+    
+    
+    ### movil · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeChecked[2m([22m[2m)[22m failed
+    
+    Locator: locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i })
+    Expected: not checked
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "not toBeChecked" locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i }) with timeout 5000ms[22m
+    [2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^1$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?One$/i })[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeEnabled() failed
+    
+    Locator: getByRole('button', { name: /create a new question/i })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: /create a new question/i }) with timeout 5000ms
+      - waiting for getByRole('button', { name: /create a new question/i })
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio":
+      - link "Viaro":
+        - /url: http://localhost:8090/my/
+      - menubar:
+        - menuitem "Área personal"
+      - switch "Modo de edición"
+      - text: Modo de edición
+      - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+      - button "Mostrar/ocultar cajón de mensajería"
+      - button "Menú de usuario":
+        - img "Paula Profesora": PP
+        - text: 
+    - button "Abrir índice del curso"
+    - banner:
+      - navigation "Camino de migas":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "Bancos de preguntas":
+              - /url: http://localhost:8090/question/banks.php?courseid=2
+          - listitem: / System shared question bank
+      - heading "System shared question bank" [level=1]
+    - navigation "Menú de Actividad":
+      - menubar:
+        - menuitem "Banco de preguntas"
+        - menuitem "Configuración"
+        - menuitem "Más "
+    - main:
+      - navigation:
+        - text: Navegación terciaria del banco de preguntas
+        - combobox "Navegación terciaria del banco de preguntas":
+          - heading "Preguntas" [level=2]
+          - text: 
+      - heading "Banco de preguntas" [level=2]
+      - combobox "Cómo se deben combinar varios filtros" [disabled]:
+        - option "Todos" [selected]
+      - group "Filtro 1":
+        - text: Filtro 1 Coincidir Tipo de filtro
+        - combobox "Tipo de filtro" [disabled]:
+          - option "Seleccionar"
+          - option "Estado de la última versión"
+          - option "Categoría" [selected]
+          - option "Marca"
+          - option "Fecha de modificación"
+          - option "Creado por"
+          - option "Modificada por"
+          - option "Nombre de la pregunta"
+          - option "Número de ID de la pregunta"
+          - option "Texto de la pregunta y retroalimentación general"
+          - option "Tipo"
+        - text: Categoría
+        - combobox "Categoría":
+          - listbox "Ítems seleccioandos:":
+            - option "Spec0 categoria escritorio 1793607856965 " [selected]
+        - text: "▼ Ítems seleccioandos:"
+        - checkbox "Mostrar también preguntas de las subcategorías" [checked]
+        - text: Mostrar también preguntas de las subcategorías y
+      - group "Filtro 2":
+        - text: Filtro 2 Coincidir Tipo de filtro
+        - combobox "Tipo de filtro" [disabled]:
+          - option "Seleccionar"
+          - option "Mostrar preguntas ocultas" [selected]
+          - option "Estado de la última versión"
+          - option "Marca"
+          - option "Fecha de modificación"
+          - option "Creado por"
+          - option "Modificada por"
+          - option "Nombre de la pregunta"
+          - option "Número de ID de la pregunta"
+          - option "Texto de la pregunta y retroalimentación general"
+          - option "Tipo"
+        - text: Mostrar preguntas ocultas
+        - combobox "Mostrar preguntas ocultas":
+          - option "No" [selected]
+          - option "Sí"
+      - button "Añadir condición"
+      - button "Mostrar"
+      - button "Limpiar filtros"
+      - button "Aplicar filtros"
+      - button "Crear una nueva pregunta..."
+      - link "Resetear columnas":
+        - /url: http://localhost:8090/question/bank/columnsortorder/actions.php?action=reset&global&sesskey=E9aUK0ZK0m&returnurl=http%3A%2F%2Flocalhost%3A8090%2Fquestion%2Fedit.php%3Fcmid%3D1%26amp%3Bcat%3D153%252C20
+      - text: ¿Mostrar el enunciado de la pregunta en la lista de preguntas?
+      - combobox "¿Mostrar el enunciado de la pregunta en la lista de preguntas?":
+        - option "No" [selected]
+        - option "Sí, sólo texto"
+        - option "Sí, con imágenes, multimedia, etc."
+      - group:
+        - text: Con seleccionadas
+        - list:
+          - listitem:
+            - button "Mover a ..." [disabled]
+          - listitem:
+            - button "Borrar" [disabled]
+          - listitem:
+            - button "Exportar como Moodle XML" [disabled]
+    - contentinfo:
+      - button "Mostrar pie de página"
+    ```
+    
+    # Test source
+    
+    ```ts
+      42  |   await page.goto(`/course/modedit.php?add=quiz&course=${curso}&section=0`);
+      43  |   await expect(page.locator('#id_introeditor_ifr')).toBeVisible({ timeout: ESPERA_EDITOR });
+      44  | }
+      45  | 
+      46  | /**
+      47  |  * Deja abierto el índice del curso (solo escritorio) para capturar siempre el mismo estado. Abierto o cerrado es una
+      48  |  * preferencia guardada por usuario (drawer-open-index, boost/layout/drawers.php:34) que sobrevive entre corridas: no es
+      49  |  * parte de la pantalla que se protege. En móvil no aplica: drawers.js:328 lo cierra al cargar sin mirar la preferencia.
+      50  |  */
+      51  | export async function abrirIndiceCurso(page: Page) {
+      52  |   const abrir = page.getByRole('button', { name: 'Open course index' });
+      53  |   if (await abrir.isVisible()) await abrir.click();
+      54  |   await expect(page.getByRole('button', { name: 'Close course index' })).toBeVisible();
+      55  | }
+      56  | 
+      57  | /** Guarda con "Save and display" y devuelve el cmid del examen creado o editado. */
+      58  | export async function guardarExamen(page: Page): Promise<number> {
+      59  |   await page.getByRole('button', { name: 'Save and display' }).click();
+      60  |   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
+      61  |   return Number(new URL(page.url()).searchParams.get('id'));
+      62  | }
+      63  | 
+      64  | export async func
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeEnabled() failed
+    
+    Locator: getByRole('button', { name: /create a new question/i })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: /create a new question/i }) with timeout 5000ms
+      - waiting for getByRole('button', { name: /create a new question/i })
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio":
+      - button "Panel lateral"
+      - switch "Modo de edición"
+      - text: Modo de edición
+      - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+      - button "Mostrar/ocultar cajón de mensajería"
+      - button "Menú de usuario":
+        - img "Paula Profesora": PP
+        - text: 
+    - button "Abrir índice del curso"
+    - banner:
+      - navigation "Camino de migas":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "Bancos de preguntas":
+              - /url: http://localhost:8090/question/banks.php?courseid=2
+          - listitem: / System shared question bank
+      - heading "System shared question bank" [level=1]
+    - navigation "Menú de Actividad":
+      - menubar:
+        - menuitem "Banco de preguntas"
+        - menuitem "Configuración"
+        - menuitem "Más "
+    - main:
+      - navigation:
+        - text: Navegación terciaria del banco de preguntas
+        - combobox "Navegación terciaria del banco de preguntas":
+          - heading "Preguntas" [level=2]
+          - text: 
+      - heading "Banco de preguntas" [level=2]
+      - combobox "Cómo se deben combinar varios filtros" [disabled]:
+        - option "Todos" [selected]
+      - group "Filtro 1":
+        - text: Filtro 1 Coincidir Tipo de filtro
+        - combobox "Tipo de filtro" [disabled]:
+          - option "Seleccionar"
+          - option "Estado de la última versión"
+          - option "Categoría" [selected]
+          - option "Marca"
+          - option "Fecha de modificación"
+          - option "Creado por"
+          - option "Modificada por"
+          - option "Nombre de la pregunta"
+          - option "Número de ID de la pregunta"
+          - option "Texto de la pregunta y retroalimentación general"
+          - option "Tipo"
+        - text: Categoría
+        - combobox "Categoría":
+          - listbox "Ítems seleccioandos:":
+            - option "Spec0 categoria movil 1793607984585 " [selected]
+        - text: "▼ Ítems seleccioandos:"
+        - checkbox "Mostrar también preguntas de las subcategorías" [checked]
+        - text: Mostrar también preguntas de las subcategorías y
+      - group "Filtro 2":
+        - text: Filtro 2 Coincidir Tipo de filtro
+        - combobox "Tipo de filtro" [disabled]:
+          - option "Seleccionar"
+          - option "Mostrar preguntas ocultas" [selected]
+          - option "Estado de la última versión"
+          - option "Marca"
+          - option "Fecha de modificación"
+          - option "Creado por"
+          - option "Modificada por"
+          - option "Nombre de la pregunta"
+          - option "Número de ID de la pregunta"
+          - option "Texto de la pregunta y retroalimentación general"
+          - option "Tipo"
+        - text: Mostrar preguntas ocultas
+        - combobox "Mostrar preguntas ocultas":
+          - option "No" [selected]
+          - option "Sí"
+      - button "Añadir condición"
+      - button "Mostrar"
+      - button "Limpiar filtros"
+      - button "Aplicar filtros"
+      - button "Crear una nueva pregunta..."
+      - link "Resetear columnas":
+        - /url: http://localhost:8090/question/bank/columnsortorder/actions.php?action=reset&global&sesskey=S9n9JpcAzA&returnurl=http%3A%2F%2Flocalhost%3A8090%2Fquestion%2Fedit.php%3Fcmid%3D1%26amp%3Bcat%3D154%252C20
+      - text: ¿Mostrar el enunciado de la pregunta en la lista de preguntas?
+      - combobox "¿Mostrar el enunciado de la pregunta en la lista de preguntas?":
+        - option "No" [selected]
+        - option "Sí, sólo texto"
+        - option "Sí, con imágenes, multimedia, etc."
+      - group:
+        - text: Con seleccionadas
+        - list:
+          - listitem:
+            - button [disabled]
+          - listitem:
+            - button [disabled]
+          - listitem:
+            - button [disabled]
+    - contentinfo:
+      - link "Documentación para esta página":
+        - /url: https://docs.moodle.org/503/es/question/edit
+      - link "Contactar con el soporte del sitio":
+        - /url: http://localhost:8090/user/contactsitesupport.php
+      - text: Usted se ha identificado como
+      - link "Paula Profesora":
+        - /url: http://localhost:8090/user/profile.php?id=3
+      - text: (
+      - link "Cerrar sesión":
+        - /url: http://localhost:8090/login/logout.php?sesskey=S9n9JpcAzA
+      - text: )
+      - link "Resumen de retención de datos":
+        - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+      - link "Cambiar al tema estándar":
+        - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fquestion%2Fedit.php%3Fcmid%3D1%26amp%3Bcat%3D154%252C20&device=default&sesskey=S9n9JpcAzA
+      - text: Desarrollado por
+      - link "Moodle":
+        - /url: https://moodle.com
+    ```
+    
+    # Test source
+    
+    ```ts
+      42  |   await page.goto(`/course/modedit.php?add=quiz&course=${curso}&section=0`);
+      43  |   await expect(page.locator('#id_introeditor_ifr')).toBeVisible({ timeout: ESPERA_EDITOR });
+[2026-11-02T08:27:43.876Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/4).
+[2026-11-02T08:27:43.881Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-082324-spec-0/ia/01-corrector.prompt.md
+[2026-11-02T08:31:02.583Z] [uso-ia] Ventana de 5 h: 26 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T08:31:02.583Z] [ia:corrector] Fin llamada 01: OK en 199s, costo USD 0.96
+    respuesta final:
+    Causa raíz: las pruebas estaban escritas contra una interfaz en inglés, pero el sitio quedó en español. No pude ejecutar nada en esta sesión (Bash está deshabilitado), así que ninguno de estos cambios se ha corrido.
+    
+    `entorno/seed/identidad.php` instala el idioma `es` y traduce el contenido sembrado. Las opciones de las preguntas pasaron a ser "12", "6" y "Verdadero", y ya no existen "One" ni "True". Por eso fallaron los seis tests:
+    
+    - **Escritorio y móvil, CA-1:** el botón "Close course index" no existe. El botón en español es "Abrir índice del curso". En móvil, `selectOption({label:'First attempt'})` no encontraba la opción.
+    - **Escritorio y móvil, CA-2:** el botón "Create a new question" no existe. En español es "Crear una nueva pregunta...".
+    - **Escritorio y móvil, CA-3/4/6:** el radio "One" no existe porque la primera opción ahora es "12".
+    - **CA-5 no aparece en la lista de fallos.** El intento se detuvo antes de llegar a ese test, que tenía los mismos textos en inglés.
+    
+    No toqué `helpers.ts` ni los helpers de `login` y `prepararCaptura`. Eran correctos, ya estaban en español y no los envolví con esperas ni reintentos. No debilité ninguna aserción.
+    
+    **Qué cambié (solo en `salidas/spec-0/pruebas/`):**
+    - **`soporte.ts`:**
+      - Usé selectores que no dependen del idioma:
+        - el cajón del índice con la clase `show`;
+        - `#id_submitbutton`;
+        - `input[name="add"]` para añadir preguntas;
+        - valores de los `<select>`: `1` para Verdadero y `1.0` para 100%;
+        - las clases `answersaved` y `notyetanswered` en el resumen del intento.
+      - Pasé a español los textos que no tienen alternativa:
+        - "Abrir índice del curso";
+        - "Sí" (confirmar borrado de examen);
+        - "Borrar" (confirmar borrado de preguntas);
+        - "Crear una nueva pregunta";
+        - "Terminar intento".
+      - `celdasTiempoHistorial` ahora toma la 2.ª columna del historial, porque el encabezado "Time" depende del idioma.
+    - **`01-profesor-examen.spec.ts`:** el método de calificación se elige por valor (`3` = primer intento). Los textos esperados pasaron a español: "Intentos permitidos: 2", "Método de calificación: Primer intento".
+    - **`02-estudiante-sin-ensayo.spec.ts` y `03-calificacion-manual.spec.ts`:**
+      - Las respuestas pasaron a ser las del contenido sembrado: 12, Verdadero, 6/4, Verdadero, Verdadero.
+      - Sigue habiendo una respuesta incorrecta a propósito, la pregunta 3 del spec 02 con "4".
+      - Las etiquetas pasaron a Estado, Puntos, Calificación y Retroalimentación.
+      - Los valores esperados usan coma decimal: `4,00/6,00`, `6,67 de 10,00 (66,67%)`, `5,50/6,00` y `9,17 de 10,00 (91,67%)`.
+      - Reemplacé los enlaces "Return to attempt", "Review attempt" y "Make comment…" por selectores estructurales.
+      - Cambié la verificación en `view.php`: en vez de buscar la fila de resumen de la revisión, ahora mira `table.quizattemptsummary` y `#feedback`.
+    
+    **Sin verificar (no hay paquete de idioma `es` en el disco):**
+    - "Primer intento" y "Intentos permitidos" / "Método de calificación" e
+[2026-11-02T08:31:02.584Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T08:31:05.348Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T08:38:23.404Z] [pruebas] Intento 2: 2 OK, 6 fallidas, 0 omitidas.
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('.mod_quiz_summarks')
+    Expected: [32m"3[7m.[27m00"[39m
+    Received: [31m"3[7m,[27m00"[39m
+    Timeout:  5000ms
+    
+    Call log:
+    [2m  - Expect "toHaveText" locator('.mod_quiz_summarks') with timeout 5000ms[22m
+    [2m  - waiting for locator('.mod_quiz_summarks')[22m
+    [2m    14 × locator resolved to <span class="mod_quiz_summarks">3,00</span>[22m
+    [2m       - unexpected value "3,00"[22m
+    
+    
+    ### movil · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('.mod_quiz_summarks')
+    Expected: [32m"3[7m.[27m00"[39m
+    Received: [31m"3[7m,[27m00"[39m
+    Timeout:  5000ms
+    
+    Call log:
+    [2m  - Expect "toHaveText" locator('.mod_quiz_summarks') with timeout 5000ms[22m
+    [2m  - waiting for locator('.mod_quiz_summarks')[22m
+    [2m    14 × locator resolved to <span class="mod_quiz_summarks">3,00</span>[22m
+    [2m       - unexpected value "3,00"[22m
+    
+    
+    ### escritorio · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('table.quizattemptsummary')
+    Expected substring: [32m"6,67"[39m
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toContainText" locator('table.quizattemptsummary') with timeout 5000ms[22m
+    [2m  - waiting for locator('table.quizattemptsummary')[22m
+    
+    
+    ### movil · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('table.quizattemptsummary')
+    Expected substring: [32m"6,67"[39m
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toContainText" locator('table.quizattemptsummary') with timeout 5000ms[22m
+    [2m  - waiting for locator('table.quizattemptsummary')[22m
+    
+    
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 3' }).locator('a[href*="review.php?attempt="]')
+    Expected pattern: [32m/review\.php\?attempt=113(&|$)/[39m
+    Error: strict mode violation: locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 3' }).locator('a[href*="review.php?attempt="]') resolved to 2 elements:
+        1) <a class="reviewlink" href="http://localhost:8090/mod/quiz/review.php?attempt=113">Revisión del intento</a> aka locator('#mod-quiz-report-overview-report_r1_c2').getByRole('link', { name: 'Revisión del intento' })
+        2) <a title="Revisión del intento" href="http://localhost:8090/mod/quiz/review.php?attempt=113">Sin calificar aún</a> aka getByRole('link', { name: 'Sin calificar aún' })
+    
+    Call log:
+    [2m  - Expect "toHaveAttribute" locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 3' }).locator('a[href*="review.php?attempt="]') with timeout 5000ms[22m
+    [2m  - waiting for locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 3' }).locator('a[href*="review.php?attempt="]')[22m
+    
+    
+    ### movil · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator: locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 4' }).locator('a[href*="review.php?attempt="]')
+    Expected pattern: [32m/review\.php\?attempt=115(&|$)/[39m
+    Error: strict mode violation: locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 4' }).locator('a[href*="review.php?attempt="]') resolved to 2 elements:
+        1) <a class="reviewlink" href="http://localhost:8090/mod/quiz/review.php?attempt=115">Revisión del intento</a> aka locator('#mod-quiz-report-overview-report_r3_c2').getByRole('link', { name: 'Revisión del intento' })
+        2) <a title="Revisión del intento" href="http://localhost:8090/mod/quiz/review.php?attempt=115">Sin calificar aún</a> aka locator('#mod-quiz-report-overview-report_r3_c8').getByRole('link', { name: 'Sin calificar aún' })
+    
+    Call log:
+    [2m  - Expect "toHaveAttribute" locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 4' }).locator('a[href*="review.php?attempt="]') with timeout 5000ms[22m
+    [2m  - waiting for locator('table#attempts tbody tr').filter({ hasText: 'Estudiante Número 4' }).locator('a[href*="review.php?attempt="]')[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:51:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveText(expected) failed
+    
+    Locator:  locator('.mod_quiz_summarks')
+    Expected: "3.00"
+    Received: "3,00"
+    Timeout:  5000ms
+    
+    Call log:
+      - Expect "toHaveText" locator('.mod_quiz_summarks') with timeout 5000ms
+      - waiting for locator('.mod_quiz_summarks')
+        14 × locator resolved to <span class="mod_quiz_summarks">3,00</span>
+           - unexpected value "3,00"
+    
+    ```
+    
+    ```yaml
+    - text: 3,00
+    ```
+    
+    # Test source
+    
+    ```ts
+      1  | // CA-1, CA-2 y la captura del formulario de CA-6. Estas pruebas crean su propio examen porque no se puede "crear" uno
+      2  | // ya sembrado, y lo borran al terminar. QUIZ-REG no se toca: sus preguntas se bloquean en cuanto tiene intentos.
+      3  | import { test, expect } from '@playwright/test';
+      4  | import { login, prepararCaptura } from '../../../factory/regresion/helpers';
+      5  | import {
+      6  |   abrirFormularioExamen, abrirIndiceCurso, agregarDesdeBanco, cmidBanco, crearCategoria, crearExamen, crearPregunta, eliminarCategoria,
+      7  |   eliminarExamen, eliminarPreguntas, filaCategoria, guardarExamen, idCursoQA101, nombreUnico, urlCategorias,
+      8  |   type Categoria, type TipoPregunta,
+      9  | } from './soporte';
+      10 | 
+      11 | // QUIZ_ATTEMPTFIRST (mod/quiz/lib.php:64): valor del método de calificación "Primer intento".
+      12 | const PRIMER_INTENTO = '3';
+      13 | 
+      14 | test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page, isMobile }, testInfo) => {
+      15 |   test.setTimeout(180_000);
+      16 |   const nombre = nombreUnico('Spec0', testInfo.project.name);
+      17 |   await login(page, 'profesor');
+      18 |   const curso = await idCursoQA101(page);
+      19 | 
+      20 |   let cmid = 0;
+      21 |   try {
+      22 |     await abrirFormularioExamen(page, curso);
+      23 |     if (!isMobile) await abrirIndiceCurso(page);
+      24 |     await expect(page.locator('#id_name')).toHaveValue('');
+      25 |     await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });
+      26 | 
+      27 |     await page.locator('#id_name').fill(nombre);
+      28 |     await page.locator('a.collapseexpand').click();
+      29 |     await page.locator('#id_attempts').selectOption('2');
+      30 |     await page.locator('#id_grademethod').selectOption(PRIMER_INTENTO);
+      31 |     cmid = await guardarExamen(page);
+      32 | 
+      33 |     await expect(page).toHaveTitle(new RegExp(nombre));
+      34 |     await expect(page.locator('.quizinfo')).toContainText(/Intentos permitidos:\s*2/);
+      35 |     await expect(page.locator('.quizinfo')).toContainText(/Método de calificación:\s*Primer intento/);
+      36 | 
+      37 |     // La configuración se conserva al volver a abrir el formulario.
+      38 |     await page.goto(`/course/modedit.php?update=${cmid}&return=1`);
+      39 |     await expect(page.locator('#id_name')).toHaveValue(nombre);
+      40 |     await expect(page.locator('#id_attempts')).toHaveValue('2');
+      41 |     await expect(page.locator('#id_grademethod')).toHaveValue(PRIMER_INTENTO);
+      42 |     await expect(page.locator('#id_grademethod option:checked')).toHaveText('Primer intento');
+      43 |   } finally {
+      44 |     if (cmid) await eliminarExamen(page, cmid);
+      45 |   }
+      46 | 
+      47 |   await page.goto('/course/view.php?name=QA101');
+      48 |   await expect(page.locator('a.aalink', { hasText: nombre })).toHaveCount(0);
+      49 | });
+      50 | 
+      51 | test('[CA-2] un profesor crea preguntas en el banco y las agrega a un examen', async ({ page }, testInfo) => {
+      52 |   test.setTimeout(240_000);
+      53 |   const proyecto = testInfo.project.name;
+      54 |   const nombreExamen = nombreUnico('Spec0', proyecto);
+      55 |   const nombreCategoria = nombreUnico('Spec0 categoria', proyecto);
+      56 |   const preguntas: { tipo: TipoPregunta; nombre: string }[] = [
+      57 |     { tipo: 'multichoice', nombre: nombreUnico('Spec0 opcion multiple', proyecto) },
+      58 |     { tipo: 'truefalse', nombre: nombreUnico('Spec0 verdadero falso', proyecto) },
+      59 |     { tipo: 'essay', nombre: nombreUnico('Spec0 ensayo', proyecto) },
+      60 |   ];
+      61 |   await login(page, 'profesor');
+      62 |   const curso = await idCursoQA101(page);
+      63 |   const banco = await cmidBanco(page, curso);
+      64 | 
+      65 |   let cmid = 0;
+      66 |   let categoria: Categoria | null = null;
+      67 |   try {
+      68 |     categoria = await crearCategoria(page, banco, nombreCategoria);
+      69 |     for (const { tipo, nombre } of preguntas) await crearPregunta(page, banco, categoria, tipo, nombre);
+      70 | 
+      71 |     cmid = await crearExamen(page, curso, nombreExamen);
+      72 |     await agregarDesdeBanco(page, cmid, banco, nombreCategoria, preguntas.map((p) => p.nombre));
+      73 | 
+      74 |     await expect(page.locator('li.slot')).toHaveCount(3);
+      75 |     for (const { nombre } of preguntas) await expect(page.locator('li.slot', { hasText: nombre })).toHaveCount(1);
+    > 76 |     await expect(page.locator('.mod_quiz_summarks')).toHaveText('3.00');
+         |                                                      ^ Error: expect(locator).toHaveText(expected) failed
+      77 |   } finally {
+      78 |     // Primero el examen: mientras lo use, el banco solo ocultaría las preguntas y la categoría no quedaría vacía.
+      79 |     if (cmid) await eliminarExamen(page, cmid);
+      80 |     if (categoria) {
+      81 |       await eliminarPreguntas(page, banco, categoria);
+      82 |       await eliminarCategoria(page, banco, categoria);
+      83 |     }
+      84 |   }
+      85 | 
+      86 |   await page.goto('/course/view.php?name=QA101');
+      87 |   await expect(page.locator('a.aalink', { hasText: nombreExamen })).toHaveCount(0);
+      88 |   await page.goto(urlCategorias(banco));
+      89 |   await expect(fi
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:51:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveText(expected) failed
+    
+    Locator:  locator('.mod_quiz_summarks')
+    Expected: "3.00"
+    Received: "3,00"
+    Timeout:  5000ms
+    
+    Call log:
+      - Expect "toHaveText" locator('.mod_quiz_summarks') with timeout 5000ms
+      - waiting for locator('.mod_quiz_summarks')
+        14 × locator resolved to <span class="mod_quiz_summarks">3,00</span>
+           - unexpected value "3,00"
+    
+    ```
+    
+    ```yaml
+    - text: 3,00
+    ```
+    
+    # Test source
+    
+    ```ts
+      1  | // CA-1, CA-2 y la captura del formulario de CA-6. Estas pruebas crean su propio examen porque no se puede "crear" uno
+      2  | // ya sembrado, y lo borran al terminar. QUIZ-REG no se toca: sus preguntas se bloquean en cuanto tiene intentos.
+      3  | import { test, expect } from '@playwright/test';
+      4  | import { login, prepararCaptura } from '../../../factory/regresion/helpers';
+      5  | import {
+      6  |   abrirFormularioExamen, abrirIndiceCurso, agregarDesdeBanco, cmidBanco, crearCategoria, crearExamen, crearPregunta, eliminarCategoria,
+      7  |   eliminarExamen, eliminarPreguntas, filaCategoria, guardarExamen, idCursoQA101, nombreUnico, urlCategorias,
+      8  |   type Categoria, type TipoPregunta,
+      9  | } from './soporte';
+      10 | 
+      11 | // QUIZ_ATTEMPTFIRST (mod/quiz/lib.php:64): valor del método de calificación "Primer intento".
+      12 | const PRIMER_INTENTO = '3';
+      13 | 
+      14 | test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page, isMobile }, testInfo) => {
+      15 |   test.setTimeout(180_000);
+      16 |   const nombre = nombreUnico('Spec0', testInfo.project.name);
+      17 |   await login(page, 'profesor');
+      18 |   const curso = await idCursoQA101(page);
+      19 | 
+      20 |   let cmid = 0;
+      21 |   try {
+      22 |     await abrirFormularioExamen(page, curso);
+      23 |     if (!isMobile) await abrirIndiceCurso(page);
+      24 |     await expect(page.locator('#id_name')).toHaveValue('');
+      25 |     await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });
+      26 | 
+      27 |     await page.locator('#id_name').fill(nombre);
+      28 |     await page.locator('a.collapseexpand').click();
+      29 |     await page.locator('#id_attempts').selectOption('2');
+      30 |     await page.locator('#id_grademethod').selectOption(PRIMER_INTENTO);
+      31 |     cmid = await guardarExamen(page);
+      32 | 
+      33 |     await expect(page).toHaveTitle(new RegExp(nombre));
+      34 |     await expect(page.locator('.quizinfo')).toContainText(/Intentos permitidos:\s*2/);
+      35 |     await expect(page.locator('.quizinfo')).toContainText(/Método de calificación:\s*Primer intento/);
+      36 | 
+      37 |     // La configuración se conserva al volver a abrir el formulario.
+      38 |     await page.goto(`/course/modedit.php?update=${cmid}&return=1`);
+      39 |     await expect(page.locator('#id_name')).toHaveValue(nombre);
+      40 |     await expect(page.locator('#id_attempts')).toHaveValue('2');
+      41 |     await expect(page.locator('#id_grademethod')).toHaveValue(PRIMER_INTENTO);
+      42 |     await expect(page.locator('#id_grademethod option:checked')).toHaveText('Primer intento');
+      43 |   } finally {
+      44 |     if (cmid) await eliminarExamen(page, cmid);
+      45 |   }
+      46 | 
+      47 |   await page.goto('/course/view.php?name=QA101');
+      48 |   await expect(page.locator('a.aalink', { hasText: nombre })).toHaveCount(0);
+      49 | });
+      50 | 
+      51 | test('[CA-2] un profesor crea preguntas en el banco y las agrega a un examen', async ({ page }, testInfo) => {
+      52 |   test.setTimeout(240_000);
+      53 |   const proyecto = testInfo.project.name;
+      54 |   const nombreExamen = nombreUnico('Spec0', proyecto);
+      55 |   const nombreCategoria = nombreUnico('Spec0 categoria', proyecto);
+      56 |   const preguntas: { tipo: TipoPregunta; nombre: string }[] = [
+      57 |     { tipo: 'multichoice', nombre: nombreUnico('Spec0 opcion multiple', proyecto) },
+      58 |     { tipo: 'truefalse', nombre: nombreUnico('Spec0 verdadero falso', proyecto) },
+      59 |     { tipo: 'essay', nombre: nombreUnico('Spec0 ensayo', proyecto) },
+      60 |   ];
+      61 |   await login(page, 'profesor');
+      62 |   const curso = await idCursoQA101(page);
+      63 |   const banco = await cmidBanco(page, curso);
+      64 | 
+      65 |   let cmid = 0;
+      66 |   let categoria: Categoria | null = null;
+      67 |   try {
+      68 |     categoria = await crearCategoria(page, banco, nombreCategoria);
+      69 |     for (const { tipo, nombre } of preguntas) await crearPregunta(page, banco, categoria, tipo, nombre);
+      70 | 
+      71 |     cmid = await crearExamen(page, curso, nombreExamen);
+      72 |     await agregarDesdeBanco(page, cmid, banco, nombreCategoria, preguntas.map((p) => p.nombre));
+      73 | 
+      74 |     await expect(page.locator('li.slot')).toHaveCount(3);
+      75 |     for (const { nombre } of preguntas) await expect(page.locator('li.slot', { hasText: nombre })).toHaveCount(1);
+    > 76 |     await expect(page.locator('.mod_quiz_summarks')).toHaveText('3.00');
+         |                                                      ^ Error: expect(locator).toHaveText(expected) failed
+      77 |   } finally {
+      78 |     // Primero el examen: mientras lo use, el banco solo ocultaría las preguntas y la categoría no quedaría vacía.
+      79 |     if (cmid) await eliminarExamen(page, cmid);
+      80 |     if (categoria) {
+      81 |       await eliminarPreguntas(page, banco, categoria);
+      82 |       await eliminarCategoria(page, banco, categoria);
+      83 |     }
+      84 |   }
+      85 | 
+      86 |   await page.goto('/course/view.php?name=QA101');
+      87 |   await expect(page.locator('a.aalink', { hasText: nombreExamen })).toHaveCount(0);
+      88 |   await page.goto(urlCategorias(banco));
+      89 |   await expect(fi
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts >> [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    - Location: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toContainText(expected) failed
+    
+    Locator: locator('table.quizattemptsummary')
+    Expected substring: "6,67"
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toContainText" locator('table.quizattemptsummary') with timeout 5000ms
+      - waiting for locator('table.quizattemptsummary')
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - navigation "Navegación del sitio":
+      - link "Viaro":
+        - /url: http://localhost:8090/my/
+      - menubar:
+        - menuitem "Área personal"
+      - button "Mostrar la ventana de notificaciones cuando no hay ninguna"
+      - button "Mostrar/ocultar cajón de mensajería"
+      - button "Menú de usuario":
+        - img "Estudiante Número 1": EN
+        - text: 
+    - button "Abrir índice del curso"
+    - banner:
+      - navigation "Camino de migas":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "General":
+              - /url: http://localhost:8090/course/section.php?id=1
+          - listitem: / Examen de regresión
+      - heading "Examen de regresión" [level=1]
+    - text: Examen sembrado para la regresión del camino feliz.
+    - main:
+      - button "Reintentar el cuestionario"
+      - paragraph: "Método de calificación: Calificación más alta"
+      - 'heading "Calificación más alta: 6,67 / 10,00." [level=3]'
+      - heading "Retroalimentación global" [level=3]
+      - text: "Retro global: aprobado."
+[2026-11-02T08:38:23.405Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/4).
+[2026-11-02T08:38:23.406Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-082324-spec-0/ia/02-corrector.prompt.md
+[2026-11-02T08:38:56.247Z] [uso-ia] Ventana de 5 h: 29 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T08:38:56.248Z] [ia:corrector] Fin llamada 02: OK en 33s, costo USD 0.34
+    respuesta final:
+    Las tres causas estaban en las pruebas, no en el plugin ni en un helper. Corregí cuatro aserciones en tres archivos. No corrí las pruebas, así que ninguna corrección está verificada todavía.
+    
+    **Causas y cambios**
+    
+    1. **CA-2: `3.00` contra `3,00`** (`01-profesor-examen.spec.ts:76`).
+       - El sitio sembrado está en español, así que Moodle muestra la coma decimal.
+       - El resto de las pruebas ya usa la coma. Esta aserción había quedado con el formato inglés del plan.
+       - Ahora espera `'3,00'`. Sigue comparando el valor exacto, sin debilitar nada.
+    
+    2. **CA-3/CA-4 y CA-5: no existe `table.quizattemptsummary`** (`02-estudiante-sin-ensayo.spec.ts:59` y `03-calificacion-manual.spec.ts:77`).
+       - Esa clase es de otro render, `renderer.php:1122`. En Moodle 5.3 el estudiante ve `view.php` con `templates/list_of_attempts.mustache`, y ahí cada intento es `li > .card > table`.
+       - Los dos selectores ahora son `li .card table`. Siguen verificando `6,67` y `9,17` en el resumen del intento.
+    
+    3. **CA-5: violación de modo estricto en `03-calificacion-manual.spec.ts:43`.**
+       - La fila del informe tiene dos enlaces a `review.php?attempt=N`: "Revisión del intento" (`a.reviewlink`) y el de la celda "Sin calificar aún".
+       - Ambos apuntan al mismo intento. Acoté el selector a `a.reviewlink[href*="review.php?attempt="]`, así la aserción sobre el `href` sigue comprobando el id exacto del intento.
+    
+    No toqué `login()`, `prepararCaptura()` ni ningún helper de `factory/regresion/`.
+[2026-11-02T08:38:56.248Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T08:38:59.579Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T08:46:17.039Z] [pruebas] Intento 3: 8 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T08:53:57.471Z] [regresion] Suite completa: 9 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T08:53:57.487Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-0-calificacion-manual--escritorio.png, spec-0-calificacion-manual--movil.png, spec-0-cierre--escritorio.png, spec-0-cierre--movil.png, spec-0-cierre-calificado--escritorio.png, spec-0-cierre-calificado--movil.png, spec-0-crear-examen--escritorio.png, spec-0-crear-examen--movil.png, spec-0-examen-estudiante--escritorio.png, spec-0-examen-estudiante--movil.png, spec-0-intento--escritorio.png, spec-0-intento--movil.png, spec-0-resumen-envio--escritorio.png, spec-0-resumen-envio--movil.png
+[2026-11-02T08:53:58.339Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T08:53:58.506Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T08:54:04.137Z] [fin] PR propuesto: (no creado: Warning: 1 uncommitted change
+a pull request for branch "factory/spec-0-20261101-232314" into branch "main" already exists:
+https://github.com/stevenrs145/viaro-prueba1-factory/pull/1) corridas/20261102-082324-spec-0/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.

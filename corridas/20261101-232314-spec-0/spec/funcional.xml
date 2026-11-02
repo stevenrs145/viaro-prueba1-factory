@@ -1,0 +1,277 @@
+<testsuites id="" name="" tests="8" failures="2" skipped="0" errors="2" time="763.8773719999999">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="317.391" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="75.441">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--escritorio.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-crear-examen--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="241.95">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 240000ms exceeded." type="Error">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:46:1 › [CA-2] un profesor crea preguntas en el banco y las agrega a un examen 
+
+    Test timeout of 240000ms exceeded.
+
+    Error: page.goto: Target page, context or browser has been closed
+
+       at salidas/spec-0/pruebas/soporte.ts:149
+
+      147 | /** Borra todas las preguntas de la categoría con la confirmación del banco y comprueba que ya no se listan. */
+      148 | export async function eliminarPreguntas(page: Page, banco: number, categoria: Categoria) {
+    > 149 |   await page.goto(urlBanco(banco, categoria));
+          |              ^
+      150 |   const nombres = await page.locator('#categoryquestions tbody input[type="checkbox"]')
+      151 |     .evaluateAll((casillas) => casillas.map((c) => (c as HTMLInputElement).name));
+      152 |   const ids = nombres.filter((n) => /^q\d+$/.test(n));
+        at eliminarPreguntas (/work/salidas/spec-0/pruebas/soporte.ts:149:14)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:76:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="40.504" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="40.504">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-examen-estudiante--escritorio.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-intento--escritorio.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-resumen-envio--escritorio.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre--escritorio.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-examen-estudiante--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-intento--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-intento-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-resumen-envio--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-resumen-envio-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-cierre-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="escritorio" tests="1" failures="1" skipped="0" time="37.988" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="37.988">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:14:1 › [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms
+      - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })
+
+
+      38 |   const cmid = await abrirQuiz(page);
+      39 |   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=overview`);
+    > 40 |   await expect(page.locator('#mod-quiz-report-overview-report').getByRole('link', { name: `Estudiante Número ${numero}`, exact: true })).toBeVisible();
+         |                                                                                                                                          ^
+      41 |   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=grading`);
+      42 |   await expect(page.getByRole('cell', { name: /HIS-2 Ensayo/ })).toBeVisible();
+      43 |
+        at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:40:138
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="movil" tests="2" failures="0" skipped="0" time="271.45" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="29.241">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--movil.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-crear-examen--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/spec-0-crear-examen-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="242.209">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip]]
+]]>
+</system-out>
+<error message="Test timeout of 240000ms exceeded." type="Error">
+<![CDATA[  [movil] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:46:1 › [CA-2] un profesor crea preguntas en el banco y las agrega a un examen 
+
+    Test timeout of 240000ms exceeded.
+
+    Error: page.goto: Target page, context or browser has been closed
+
+       at salidas/spec-0/pruebas/soporte.ts:149
+
+      147 | /** Borra todas las preguntas de la categoría con la confirmación del banco y comprueba que ya no se listan. */
+      148 | export async function eliminarPreguntas(page: Page, banco: number, categoria: Categoria) {
+    > 149 |   await page.goto(urlBanco(banco, categoria));
+          |              ^
+      150 |   const nombres = await page.locator('#categoryquestions tbody input[type="checkbox"]')
+      151 |     .evaluateAll((casillas) => casillas.map((c) => (c as HTMLInputElement).name));
+      152 |   const ids = nombres.filter((n) => /^q\d+$/.test(n));
+        at eliminarPreguntas (/work/salidas/spec-0/pruebas/soporte.ts:149:14)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:76:13
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="movil" tests="1" failures="0" skipped="0" time="45.228" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="45.228">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-examen-estudiante--movil.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-intento--movil.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-resumen-envio--movil.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre--movil.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-examen-estudiante--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-examen-estudiante-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-intento--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-intento-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-resumen-envio--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-cierre-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-01T23:42:38.614Z" hostname="movil" tests="1" failures="1" skipped="0" time="37.539" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="37.539">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [movil] › salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:14:1 › [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.modal-footer button').filter({ hasText: 'Submit all and finish' }) with timeout 15000ms
+      - waiting for locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })
+
+
+       at factory/regresion/helpers.ts:74
+
+      72 |   await page.getByRole('button', { name: 'Submit all and finish' }).click();
+      73 |   const confirmar = page.locator('.modal-footer button', { hasText: 'Submit all and finish' });
+    > 74 |   await expect(confirmar).toBeVisible({ timeout: 15_000 });
+         |                           ^
+      75 |   await confirmar.click();
+      76 |   await expect(page).toHaveURL(/review\.php/);
+      77 | }
+        at enviarIntento (/work/factory/regresion/helpers.ts:74:27)
+        at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:30:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

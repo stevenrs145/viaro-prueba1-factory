@@ -1,0 +1,177 @@
+[2026-11-02T05:20:03.738Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-052003-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T05:20:05.954Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T05:20:05.960Z] [validacion] 2 problema(s) estáticos.
+    salidas/spec-0/pruebas/soporte.ts: 'networkidle': en Moodle nunca se cumple (peticiones periódicas). Usar prepararCaptura() de factory/regresion/helpers.ts.
+    salidas/spec-0/pruebas/soporte.ts: login propio: usar login() de factory/regresion/helpers.ts.
+[2026-11-02T05:20:05.961Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/2).
+[2026-11-02T05:20:05.963Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-052003-spec-0/ia/01-corrector.prompt.md
+[2026-11-02T05:20:56.116Z] [uso-ia] Ventana de 5 h: 99 % usado (se reinicia 2026-11-02T07:10:00.000Z).
+[2026-11-02T05:20:56.118Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T05:20:56.118Z] [ia:corrector] Fin llamada 01: OK en 50s, costo USD 0.37
+    respuesta final:
+    **Causa raíz:** el problema estaba en las pruebas, no en Moodle. `salidas/spec-0/pruebas/soporte.ts` tenía copias propias de dos helpers de la fábrica, y esas copias son lo que marcó el pipeline:
+    - `iniciarSesion` reimplementaba `login()` con sus propios reintentos.
+    - `prepararCapturaLenta` esperaba `networkidle` y luego llamaba a `prepararCaptura()`. En Moodle `networkidle` nunca se cumple, porque el índice del curso hace peticiones periódicas.
+    - `crearCategoria` y `agregarDesdeBanco` también esperaban `networkidle`, aunque eso no figuraba en la salida del pipeline.
+    
+    **Qué cambié:**
+    - **`soporte.ts`:**
+      - Borré `iniciarSesion` y `prepararCapturaLenta`, y la importación de `CLAVE` y `prepararCaptura` que quedó sin uso.
+      - Agregué `esperarModulos()`. Espera `load` y que `M.util.pending_js` quede vacío, la misma señal que ya usa `enviarIntento()`.
+      - La usé en lugar de los dos `networkidle` restantes.
+    - **`01-profesor-examen.spec.ts`, `02-estudiante-sin-ensayo.spec.ts` y `03-calificacion-manual.spec.ts`:** ahora importan `login` y `prepararCaptura` directo de `factory/regresion/helpers`, sin envoltorios ni alias.
+    
+    **Sobre los helpers:** ninguno es la causa. El `login()` actual de la fábrica ya espera `domcontentloaded` y el botón "Toggle sensitive". Eso cubre el problema por el que se había hecho la copia, que era el timeout de `load` en frío. Por eso no hace falta ningún cambio de la fábrica.
+    
+    **Qué no toqué:** las aserciones. No debilité, borré ni salté ninguna, y los `expect` siguen en el cuerpo de cada test.
+    
+    **Qué no verifiqué:** no corrí la suite. Quedan dos riesgos para la próxima corrida:
+    - **`prepararCaptura` en frío:** ya no hay `networkidle` con 90 s de margen. Si en una carga en frío falla por timeout, el problema sería del helper y lo tendría que ajustar la fábrica.
+    - **Reintento de `ERR_ABORTED`:** el reintento que tenía mi `iniciarSesion` ya no existe, y `login()` de la fábrica no lo tiene. La ventana emergente de `03-calificacion-manual.spec.ts` recarga la página de origen al cerrarse, y una navegación anterior aún en curso podría abortarse. Si pasa, hay que reportarlo como fallo de `login()` y no parchearlo en la prueba.
+[2026-11-02T05:20:56.126Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T05:21:00.749Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T05:29:46.266Z] [pruebas] Intento 2: 7 OK, 1 fallidas, 0 omitidas.
+    ### movil · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793597211083' }).locator('input[type="checkbox"]')[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793597211083' }).locator('input[type="checkbox"]')
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f55e1]:
+      - status
+      - generic [ref=f55e2]:
+        - link "Skip to main content" [ref=f55e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f55e4]:
+          - generic [ref=f55e5]:
+            - button "Side panel" [ref=f55e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f55e9]:
+              - generic [ref=f55e12]:
+                - switch "Edit mode" [ref=f55e13] [cursor=pointer]
+                - generic [ref=f55e14] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f55e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e25]: 
+              - button "Toggle messaging drawer" [ref=f55e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e28]: 
+              - button "User menu" [ref=f55e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f55e38]: PP
+                - text: 
+        - generic [ref=f55e39]:
+          - generic [ref=f55e40]:
+            - button "Open course index" [ref=f55e42] [cursor=pointer]
+            - banner [ref=f55e46]:
+              - generic [ref=f55e47]:
+                - navigation "Breadcrumb" [ref=f55e50]:
+                  - list [ref=f55e51]:
+                    - listitem [ref=f55e52]:
+                      - link "QA101" [ref=f55e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f55e54]:
+                      - text: /
+                      - generic [ref=f55e55]: System shared question bank
+                - heading "System shared question bank" [level=1] [ref=f55e64]
+            - navigation "Activity menu" [ref=f55e67]:
+              - menubar [ref=f55e68]:
+                - menuitem "Question bank" [ref=f55e69] [cursor=pointer]
+                - menuitem "Settings" [ref=f55e71] [cursor=pointer]
+                - menuitem "More " [ref=f55e73] [cursor=pointer]:
+                  - generic [ref=f55e74]: More
+                  - text: 
+            - main [ref=f55e79]:
+              - navigation [ref=f55e83]:
+                - generic [ref=f55e84]:
+                  - generic [ref=f55e85]: Question bank tertiary navigation
+                  - combobox "Question bank tertiary navigation" [ref=f55e86] [cursor=pointer]:
+                    - heading "Categories" [level=2] [ref=f55e87]
+                    - text: 
+                  - text: 
+              - heading [level=2] [ref=f55e90]:
+                - text: Edit categories
+                - button "Help" [ref=f55e91] [cursor=pointer]:
+                  - img "Help with Edit categories" [ref=f55e92]: 
+              - generic [ref=f55e93]:
+                - button "Add category" [ref=f55e95] [cursor=pointer]
+                - generic [ref=f55e97]:
+                  - checkbox "Show descriptions" [ref=f55e98]
+                  - generic [ref=f55e99]: Show descriptions
+              - generic [ref=f55e100]:
+                - 'heading "Question categories for ''Question bank: System shared question bank''" [level=3] [ref=f55e101]'
+                - list [ref=f55e103]:
+                  - listitem [ref=f55e104]:
+                    - generic [ref=f55e106]:
+                      - generic [ref=f55e107]: 
+                      - generic [ref=f55e111]:
+                        - button "Collapse Álgebra" [expanded] [ref=f55e112] [cursor=pointer]:
+                          - generic "Collapse" [ref=f55e113]:
+                            - generic [aria-hidden] [ref=f55e114]: 
+                          - text:  
+                        - strong [ref=f55e117]:
+                          - generic [ref=f55e118]:
+                            - button "Álgebra (2)" [ref=f55e119] [cursor=pointer]
+                            - link [ref=f55e120] [cursor=pointer]:
+                              - /url: "#"
+                              - img "Edit category name" [ref=f55e122]: 
+                          - generic [ref=f55e123]:
+                            - generic [ref=f55e124]: ID number
+                            - text: TEMA-ALG
+                        - generic [ref=f55e126]:
+                          - button "Actions" [ref=f55e127] [cursor=pointer]:
+                            - generic [aria-hidden] [ref=f55e128]: 
+                          - text:    
+                  - listitem [ref=f55e130]:
+                    - generic [ref=f55e132]:
+                      - generic [ref=f55e133]: 
+                      - generic [ref=f55e137]:
+                        - button "Collapse Geometría" [expanded] [ref=f55e138] [cursor=pointer]:
+                          - generic "Collapse" [ref=f55e139]:
+                            - generic [aria-hidden] [ref=f55e140]: 
+                          - text:  
+                        - strong [ref=f55e143]:
+                          - generic [ref=f55e144]:
+                            - button "Geometría (2)" [ref=f55e145] [cursor=pointer]
+                            - link [ref=f55e146] [cursor=pointer]:
+                              - /url: "#"
+                              - img "Edit category name" [ref=f55e148]: 
+                          - generic [ref=f55e149]:
+                            - generic [ref=f55e150]: ID number
+                            - text: TEMA-GEO
+                        - generic [ref=f55e152]:
+                          - button "Actions" [ref=f55e153] [cursor=pointer]:
+                            - generic [aria-hidden] [ref=f55e154]: 
+                          - text:    
+                  - listitem [ref=f55e156]:
+                    - generic [ref=f55e158]:
+                      - generic [ref=f55e159]: 
+        
+[2026-11-02T05:29:46.268Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/2).
+[2026-11-02T05:29:46.273Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-052003-spec-0/ia/02-corrector.prompt.md
+[2026-11-02T05:29:53.988Z] [uso-ia] Ventana de 5 h: 100 % usado (se reinicia 2026-11-02T07:10:00.000Z).
+[2026-11-02T05:29:53.988Z] [uso-ia] ⚠️ ALERTA: se superó el 70 % de la cuota de uso de la IA.
+[2026-11-02T05:29:53.988Z] [ia:corrector] LÍMITE DE USO DE LA IA en llamada 02: límite de uso (429)

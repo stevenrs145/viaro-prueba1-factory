@@ -16,6 +16,119 @@
       "tags": [
         "[HUMO]"
       ]
+    },
+    "salidas/spec-0/pruebas/01-profesor-examen.spec.ts::[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso": {
+      "asserts": 10,
+      "fuertes": 10,
+      "soft": 0,
+      "matchers": [
+        "toContainText",
+        "toContainText",
+        "toHaveCount",
+        "toHaveScreenshot",
+        "toHaveText",
+        "toHaveTitle",
+        "toHaveValue",
+        "toHaveValue",
+        "toHaveValue",
+        "toHaveValue"
+      ],
+      "capturas": 1,
+      "mascaras": 1,
+      "opcionesCaptura": [],
+      "modificador": null,
+      "tags": [
+        "[CA-1]",
+        "[CA-6]"
+      ]
+    },
+    "salidas/spec-0/pruebas/01-profesor-examen.spec.ts::[CA-2] un profesor crea preguntas en el banco y las agrega a un examen": {
+      "asserts": 6,
+      "fuertes": 6,
+      "soft": 0,
+      "matchers": [
+        "toHaveCount",
+        "toHaveCount",
+        "toHaveCount",
+        "toHaveCount",
+        "toHaveCount",
+        "toHaveText"
+      ],
+      "capturas": 0,
+      "mascaras": 0,
+      "opcionesCaptura": [],
+      "modificador": null,
+      "tags": [
+        "[CA-2]"
+      ]
+    },
+    "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts::[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada": {
+      "asserts": 19,
+      "fuertes": 19,
+      "soft": 0,
+      "matchers": [
+        "not.toBeChecked",
+        "toBeChecked",
+        "toBeChecked",
+        "toBeChecked",
+        "toBeChecked",
+        "toContainText",
+        "toContainText",
+        "toHaveClass",
+        "toHaveClass",
+        "toHaveScreenshot",
+        "toHaveScreenshot",
+        "toHaveScreenshot",
+        "toHaveScreenshot",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveURL",
+        "toHaveURL"
+      ],
+      "capturas": 4,
+      "mascaras": 4,
+      "opcionesCaptura": [],
+      "modificador": null,
+      "tags": [
+        "[CA-3]",
+        "[CA-4]",
+        "[CA-6]"
+      ]
+    },
+    "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts::[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza": {
+      "asserts": 18,
+      "fuertes": 18,
+      "soft": 0,
+      "matchers": [
+        "toBeVisible",
+        "toBeVisible",
+        "toBeVisible",
+        "toContainText",
+        "toContainText",
+        "toContainText",
+        "toContainText",
+        "toHaveAttribute",
+        "toHaveCount",
+        "toHaveScreenshot",
+        "toHaveScreenshot",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveText",
+        "toHaveURL"
+      ],
+      "capturas": 2,
+      "mascaras": 2,
+      "opcionesCaptura": [],
+      "modificador": null,
+      "tags": [
+        "[CA-5]",
+        "[CA-6]"
+      ]
     }
   },
   "omisiones": {

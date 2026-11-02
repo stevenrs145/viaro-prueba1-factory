@@ -67,3 +67,4 @@ NUNCA se modifica nada fuera del directorio del plugin generado. El pipeline lo 
 - El login se hace SIEMPRE con `login()`: `core/togglesensitive` reemplaza el input de la clave y borra lo escrito, y una
   petición de la página anterior puede invalidar el `logintoken`. Por eso Moodle responde "Unable to log in" con la clave correcta.
 - Una página tiene su JS listo cuando `M.util.pending_js` está vacío: usar `esperarJS()` de los helpers al cargar y tras acciones con JS (filtros, autocompletar, modales). Hacer clic antes puede saltarse el manejador.
+- Los cajones (índice del curso, bloques) guardan su estado por usuario en `drawer-open-*`. `reset` los borra; dentro de una corrida, cerrar uno afecta a las pruebas siguientes de ese usuario.

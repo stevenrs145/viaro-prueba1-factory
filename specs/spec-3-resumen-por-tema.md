@@ -28,5 +28,8 @@ La retroalimentación por pregunta, que es otra cosa y se queda como está. Repo
 ## Bordes
 Hay decisiones acá que el spec no resuelve a propósito. Resolvelas con criterio explícito o preguntá.
 
+## Decisión de producto
+Autorizado por producto el 2 de noviembre de 2026: las dos aserciones de spec-0 que exigen la fila "Retroalimentación" con el texto "Retro global: aprobado." (`02-estudiante-sin-ensayo.spec.ts` y `03-calificacion-manual.spec.ts`) pasan a exigir que la fila ya no exista, sin bajar la cantidad de asserts. Se declaran en `pruebas_afectadas` y quedan pendientes de aprobación humana en el PR.
+
 ## Restricciones
 Reemplazo, no adición. Que las dos cosas convivan detrás de una opción de configuración **no cumple** el CA-2.

@@ -98,14 +98,13 @@ recibió resultados de ejecución sintéticos: prueba la regla, no una corrida r
 | Prueba debilitada **y** auditor anulado a la vez: el de `main` igual detecta la prueba | `MATCHER-DEBILITADO` + `AUDITOR-ALTERADO` | ✅ |
 | Pruebas excluidas por configuración (`testIgnore`, `testMatch`, `grep`, `projects`) | `CONFIG-PRUEBAS-ALTERADA`: compara todo `playwright.config.ts` sin comentarios | ✅ |
 | Criterio sin prueba, o con pruebas que fallaron o se omitieron | `CRITERIO-SIN-PRUEBA`: cada criterio no-`proceso` necesita una prueba `[CA-n]` que corrió y pasó | ✅ (sintético) |
+| Valor esperado cambiado por otro igual de fuerte, o cualquier otro cambio a una prueba aprobada que no coincida con `pruebas_afectadas` del plan | `PRUEBA-APROBADA-MODIFICADA` | ✅ |
 | Auditor ausente en `main` o que no se puede ejecutar | `AUDITOR-NO-DISPONIBLE` / `AUDITOR-NO-EJECUTABLE` | ✅ / observado al introducir el lanzador |
 
 ### Límites (lo que NO detecta)
 - **Asserts dentro de funciones auxiliares**: se cuentan los `expect` del cuerpo de cada prueba; si la verificación vive
   en un helper y se debilita ahí, el conteo no cambia (la mutación sí lo atrapa si la prueba es `@requiere-feature`).
   _Este límite lo señaló la propia IA analista al planificar spec-0._
-- **Valor esperado cambiado por otro igual de fuerte** (`toHaveText('9.17')` → `toHaveText('6.67')`). Plan: firmar los
-  literales esperados en el manifiesto.
 - **Datos fijados de forma coherente**: si alguien cambia el sembrado y la expectativa a la vez, no se detecta. El
   pipeline bloquea cambios fuera de `salidas/<spec>/`, pero quien escribe en `main` podría hacerlo.
 - **Quien escribe en `main` puede cambiar las referencias.** El control protege contra debilitamiento silencioso en

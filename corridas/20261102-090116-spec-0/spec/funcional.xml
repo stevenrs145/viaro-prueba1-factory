@@ -1,0 +1,38 @@
+<testsuites id="" name="" tests="8" failures="0" skipped="0" errors="0" time="305.627717">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="94.661" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="34.217">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--escritorio.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-crear-examen--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="60.444">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="26.39" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="26.39">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="36.803" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="36.803">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="movil" tests="2" failures="0" skipped="0" time="75.449" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="20.037">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="55.412">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="movil" tests="1" failures="0" skipped="0" time="27.167" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="27.167">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T09:10:03.239Z" hostname="movil" tests="1" failures="0" skipped="0" time="39.728" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="39.728">
+</testcase>
+</testsuite>
+</testsuites>

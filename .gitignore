@@ -9,3 +9,5 @@ corridas/*/artefactos/
 corridas/*/*/artefactos/
 *.log.tmp
 .DS_Store
+# Trazas del reporte HTML: pesan cientos de MB y solo sirven para diagnóstico local
+corridas/**/visual/data/

@@ -1,0 +1,88 @@
+<testsuites id="" name="" tests="10" failures="0" skipped="1" errors="1" time="453.56632299999995">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="36.403" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="36.403">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="135.436" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="34.361">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="101.075">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.check: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1 › [CA-2] un profesor crea preguntas en el banco y las agrega a un examen 
+
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple escritorio 1793604014404' }).locator('input[type="checkbox"]')
+
+
+       at salidas/spec-0/pruebas/soporte.ts:189
+
+      187 |
+      188 |   for (const nombre of preguntas) {
+    > 189 |     await filaPregunta(page, nombre).locator('input[type="checkbox"]').check();
+          |                                                                        ^
+      190 |   }
+      191 |   await page.getByRole('button', { name: 'Add selected questions to the quiz' }).click();
+      192 |   await expect(page).toHaveURL(/mod\/quiz\/edit\.php/);
+        at agregarDesdeBanco (/work/salidas/spec-0/pruebas/soporte.ts:189:72)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:68:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-071139-spec-0/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-071139-spec-0/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-071139-spec-0/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-071139-spec-0/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="35.065" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="35.065">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="50.237" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="50.237">
+</testcase>
+</testsuite>
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.006" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="movil" tests="2" failures="0" skipped="0" time="102.641" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="26.337">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="76.304">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="movil" tests="1" failures="0" skipped="0" time="32.869" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="32.869">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T07:19:02.188Z" hostname="movil" tests="1" failures="0" skipped="0" time="48.691" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="48.691">
+</testcase>
+</testsuite>
+</testsuites>

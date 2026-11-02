@@ -62,7 +62,7 @@ async function run() {
   if (reanudar) {
     shOk(`git checkout -q ${reanudar}`);
     // La fábrica de main (con sus correcciones) es la que verifica; la rama solo aporta plan, código y pruebas.
-    shOk('git checkout -q main -- factory entorno playwright.config.ts package.json');
+    shOk('git checkout -q main -- factory entorno playwright.config.ts package.json .gitignore');
     if (!existe(`${specDir}/plan.json`)) return falla(c, 'reanudar', `La rama ${reanudar} no tiene ${specDir}/plan.json.`);
   } else {
     shOk(`git checkout -q -b ${rama}`);
@@ -101,7 +101,16 @@ async function run() {
   // 3. Implementación (código + pruebas)
   const varsImpl = { spec: specTxt, spec_id: specId, plan, sondas, conocimiento: leer('factory/conocimiento/moodle-5.3.md'), helpers: leer('factory/regresion/helpers.ts'), spec_dir: specDir };
   if (!reanudar) llamarIA(c, { rol: 'implementador', plantilla: 'implementador', vars: varsImpl, escritura: specDir });
+  const noAplicados = aplicarPruebasAfectadas(c, plan);
+  if (noAplicados.length) return falla(c, 'implementacion', 'Una prueba declarada en pruebas_afectadas no se pudo actualizar.', noAplicados.join('\n'));
   c.etapa('implementacion', 'EJECUTADO', reanudar ? 'Código y pruebas reutilizados de la rama.' : 'Código y pruebas generados.');
+  // Adelanta las llamadas caras sin usar Moodle: las pruebas se hacen después con --reanudar.
+  if (process.env.FACTORY_SOLO_GENERAR) {
+    shOk(`git add -A ${specDir} ${c.dir} ia/transcripciones`);
+    shOk(`git commit -q -m "feat(${specId}): plan e implementación generados" -m "Corrida ${c.dir}. Pendiente de pruebas: --reanudar."`);
+    shOk('git checkout -q main');
+    return 0;
+  }
 
   // 4. Bucle validar -> desplegar -> probar -> corregir
   let verde = false;
@@ -158,13 +167,17 @@ async function run() {
     moodle.reset();
     total = correrPruebas([], c.dir, { crearLineasBaseFaltantes: false });
   }
-  // Una prueba del propio spec que pasó sola y falla en la suite es inestable: va al corrector igual que en la etapa 4.
-  // Los fallos de pruebas de otros specs no se corrigen aquí: son regresiones y detienen la corrida.
+  // Lo que falla en la suite va al corrector: una prueba propia inestable, o una regresión que causó el plugin.
+  // El corrector solo escribe en salidas/<spec>/: una prueba de otro spec no se puede tocar, solo arreglar el plugin.
   for (let i = 1; i <= MAX_REINTENTOS; i++) {
-    const propias = total.resultados.filter((r) => ['failed', 'timedOut', 'interrupted'].includes(r.estado) && (r.archivo || '').includes(specDir));
-    if (!propias.length) break;
-    c.log('reintento', `${propias.length} prueba(s) del spec fallaron en la suite completa. Se le pide a la IA que corrija (${i}/${MAX_REINTENTOS}).`);
-    const problemas = `Estas pruebas pasaron ejecutadas solas y fallaron en la suite completa: son inestables. Buscá una carrera entre una acción y el JS de Moodle (usá esperarJS de los helpers).\nEl estado ARIA puede ser posterior a la limpieza de la prueba; guiate por la línea del error.\n\n${contextoFallos(c.dir, total.resultados)}`;
+    const fallidas = total.resultados.filter((r) => ['failed', 'timedOut', 'interrupted'].includes(r.estado));
+    if (!fallidas.length) break;
+    const ajenas = fallidas.filter((r) => !(r.archivo || '').includes(specDir));
+    c.log('reintento', `${fallidas.length} prueba(s) fallaron en la suite completa (${ajenas.length} de otros specs). Se le pide a la IA que corrija (${i}/${MAX_REINTENTOS}).`);
+    const problemas = (ajenas.length
+      ? 'Estas pruebas de OTROS specs pasaban antes y ahora fallan con tu plugin: es una regresión, y lo que se rompió debe seguir igual. Arreglá el PLUGIN; esas pruebas no se tocan. Comparar expected y actual en los artefactos muestra qué cambió.\n'
+      : 'Estas pruebas pasaron ejecutadas solas y fallaron en la suite completa: son inestables. Buscá una carrera entre una acción y el JS de Moodle (usá esperarJS de los helpers).\n')
+      + `El estado ARIA puede ser posterior a la limpieza de la prueba; guiate por la línea del error.\n\n${contextoFallos(c.dir, total.resultados)}`;
     llamarIA(c, { rol: 'corrector', plantilla: 'corrector', vars: { ...varsImpl, problemas, intento: `regresion-${i}` }, escritura: specDir });
     const estaticos = validacionesEstaticas(c, specDir, plan);
     if (estaticos.length) return falla(c, 'regresion', 'La corrección de la regresión no pasa las validaciones estáticas.', estaticos.join('\n'));
@@ -181,6 +194,7 @@ async function run() {
 
   // 7. Alcance: la IA solo pudo cambiar salidas/<spec>/ y líneas base nuevas; el core de Moodle intacto
   const fuera = sh('git status --porcelain').out.split('\n').filter(Boolean).map((l) => l.slice(3))
+    .filter((f) => !(plan.pruebas_afectadas || []).some((d) => d.archivo === f))
     .filter((f) => !f.startsWith(specDir) && !f.startsWith('corridas/') && !f.startsWith('ia/transcripciones/') && !f.startsWith('visual/') && !f.startsWith('test-results'))
     // al reanudar, la fábrica se toma de main (no de la rama): esas diferencias no son obra de la IA
     .filter((f) => !(reanudar && sh(`git diff --quiet main -- '${f}'`).code === 0));
@@ -249,12 +263,28 @@ function bloquear(c, rama, specDir, specPath, bordes) {
   escribir(c.ruta('pregunta.md'), md);
   c.etapa('analisis', 'BLOQUEADO', `${bordes.length} ambigüedad(es) bloqueante(s). Ver ${c.ruta('pregunta.md')}.`);
   c.log('analisis', `BLOQUEADO: ${bordes.length} ambigüedad(es) bloqueante(s). No se construye nada.`, md);
-  shOk(`git add -A ${specDir} ${c.dir}`);
+  shOk(`git add -A ${specDir} ${c.dir}${existe('ia/transcripciones') ? ' ia/transcripciones' : ''}`);
   shOk(`git commit -q -m "chore(${c.estado.corrida}): corrida bloqueada por ambigüedad" -m "Preguntas en ${c.ruta('pregunta.md')}."`);
   const p = sh(`git push -q origin ${rama}`);
   if (p.code !== 0) console.error(`Aviso: no se pudo subir la rama ${rama}; queda solo en local.`);
   shOk('git checkout -q main');
   return 4;
+}
+
+/**
+ * Pruebas de regresión aprobadas que el spec cambia a propósito (como pantallas_afectadas, pero para aserciones).
+ * La fábrica aplica el reemplazo exacto del plan; la IA no edita esos archivos. El PR lo muestra y lo aprueba un humano.
+ */
+function aplicarPruebasAfectadas(c, plan) {
+  const problemas = [];
+  for (const d of plan.pruebas_afectadas || []) {
+    const texto = leer(d.archivo);
+    if (texto.includes(d.despues) && !texto.includes(d.antes)) continue; // ya aplicado en una corrida reanudada
+    if (texto.split(d.antes).length !== 2) { problemas.push(`${d.archivo}: el texto a reemplazar debe aparecer exactamente una vez: ${d.antes}`); continue; }
+    escribir(d.archivo, texto.replace(d.antes, d.despues));
+    c.log('implementacion', `Prueba aprobada actualizada, pendiente de aprobación humana: ${d.archivo}`, `- ${d.antes}\n+ ${d.despues}\nMotivo: ${d.motivo}`);
+  }
+  return problemas;
 }
 
 function validarPlan(p, specId) {
@@ -263,6 +293,11 @@ function validarPlan(p, specId) {
   for (const b of p.bordes) {
     if (b.bloqueante !== undefined && typeof b.bloqueante !== 'boolean') throw new Error(`bloqueante debe ser true o false: ${b.descripcion}`);
     if (b.bloqueante && !b.preguntaria) throw new Error(`borde bloqueante sin pregunta: ${b.descripcion}`);
+  }
+  for (const d of p.pruebas_afectadas || []) {
+    if (!d.archivo || !d.antes || !d.despues || !d.motivo) throw new Error(`pruebas_afectadas incompleta: ${JSON.stringify(d)}`);
+    if (!/^(salidas\/[^/]+\/pruebas|factory\/regresion)\//.test(d.archivo)) throw new Error(`pruebas_afectadas fuera de las pruebas: ${d.archivo}`);
+    if (d.archivo.startsWith(`salidas/${specId}/`)) throw new Error(`pruebas_afectadas es para pruebas de otros specs: ${d.archivo}`);
   }
   if (p.spec_id !== specId) throw new Error(`spec_id debe ser "${specId}"`);
   if (!Array.isArray(p.criterios) || !p.criterios.length) throw new Error('criterios vacío');
@@ -318,6 +353,7 @@ function abrirPR(c, rama, plan, specDir, st, txtH, nuevas) {
     + `### Evidencia\n- Trazabilidad: \`${specDir}/trazabilidad.md\`\n- Diff: \`${specDir}/cambios.diff\`\n- Corrida: \`${c.dir}/\` (pipeline.log, funcional.xml, visual/, honestidad.log)\n`
     + `- Suite completa: ${st.passed} OK, ${st.failed} fallidas, ${st.skipped} omitidas\n\n`
     + (nuevas.length ? `### ⚠️ Líneas base visuales NUEVAS — revisar y aprobar\n${nuevas.map((n) => `- \`visual/lineas-base/${n}\``).join('\n')}\nAprobar con: \`node factory/cli.mjs aprobar-linea-base --pendientes --razon "..."\`\n\n` : '')
+    + ((plan.pruebas_afectadas || []).length ? `### ⚠️ Pruebas aprobadas modificadas — revisar y aprobar\n${plan.pruebas_afectadas.map((d) => `- \`${d.archivo}\`: ${d.motivo}\n\n  \`\`\`diff\n  - ${d.antes}\n  + ${d.despues}\n  \`\`\``).join('\n')}\n\n` : '')
     + `### Control de verificación honesta\n\`\`\`\n${txtH}\`\`\`\n`;
   escribir(c.ruta('pr.md'), cuerpo);
   const push = sh(`git push -q -u origin ${rama}`);
