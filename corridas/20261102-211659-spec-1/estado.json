@@ -3,7 +3,7 @@
   "spec": "specs/spec-1-reconocimiento.md",
   "rama": "factory/spec-1-20261102-094736",
   "reanudada": true,
-  "estado": "EJECUTADO",
+  "estado": "VALIDADO",
   "etapas": {
     "precondicion": {
       "estado": "VALIDADO",
@@ -51,9 +51,9 @@
       "actualizado": "2026-11-02T22:09:50.562Z"
     },
     "pr": {
-      "estado": "PENDIENTE",
-      "detalle": null,
-      "actualizado": null
+      "estado": "EJECUTADO",
+      "detalle": "PR propuesto: (no creado: Warning: 7 uncommitted changes\na pull request for branch \"factory/spec-1-20261102-094736\" into branch \"main\" already exists:\nhttps://github.com/stevenrs145/viaro-prueba1-factory/pull/2) corridas/20261102-211659-spec-1/pr.md. Pendiente de aprobación humana.",
+      "actualizado": "2026-11-02T22:11:25.355Z"
     }
   }
 }
