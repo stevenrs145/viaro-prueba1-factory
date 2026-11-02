@@ -11,6 +11,7 @@ export function copiasDeHelpers(fuentes) {
   const REGLAS = [
     [/['"`]networkidle['"`]/, `'networkidle': en Moodle nunca se cumple (peticiones periódicas). Usar prepararCaptura() de factory/regresion/helpers.ts.`],
     [/#loginbtn|\/login\/index\.php/, 'login propio: usar login() de factory/regresion/helpers.ts.'],
+    [/mask\s*:\s*\[/, 'máscara propia: prepararCaptura() ya tapa fechas, horas y contadores. Usar `mask: await prepararCaptura(page)`.'],
   ];
   const problemas = [];
   for (const { archivo, texto } of fuentes) {

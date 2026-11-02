@@ -1,0 +1,195 @@
+[2026-11-02T09:01:16.359Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-090116-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T09:01:19.669Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T09:01:19.679Z] [validacion] 1 problema(s) estáticos.
+    salidas/spec-0/pruebas/03-calificacion-manual.spec.ts: máscara propia: prepararCaptura() ya tapa fechas, horas y contadores. Usar `mask: await prepararCaptura(page)`.
+[2026-11-02T09:01:19.680Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T09:01:19.681Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-090116-spec-0/ia/01-corrector.prompt.md
+[2026-11-02T09:02:09.690Z] [uso-ia] Ventana de 5 h: 36 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T09:02:09.691Z] [ia:corrector] Fin llamada 01: OK en 50s, costo USD 0.29
+    respuesta final:
+    Estoy cerrando la corrección: ya edité el spec y limpié `soporte.ts`. No corrí la suite, así que no sé si el screenshot pasa.
+    
+    **Causa raíz:** la prueba `03-calificacion-manual.spec.ts` armaba una máscara propia, `[...(await prepararCaptura(popup)), celdasTiempoHistorial(popup)]`. El control de la fábrica exige `mask: await prepararCaptura(page)` tal cual. El fallo era de forma, no de comportamiento de Moodle.
+    
+    **Qué cambié:**
+    - **`03-calificacion-manual.spec.ts`:** la captura `spec-0-calificacion-manual` ahora usa `mask: await prepararCaptura(popup)`. Quité el import de `celdasTiempoHistorial`. Las aserciones de notas, popup y comentario quedaron igual.
+    - **`soporte.ts`:** borré `celdasTiempoHistorial`, que ya no se usa. El import de `Locator` sigue en uso.
+    
+    **Por qué la máscara propia ya no hace falta:** el plan suponía que `prepararCaptura` no tapaba la columna Time del historial. Sí la tapa. Marca por el texto del encabezado cualquier tabla (salvo `quizreviewsummary`) cuyo `th` coincida con `^(comenzado|completado|duración|enviado|tiempo|hora|estado)` (`helpers.ts:145`). El historial de `question/engine/renderer.php:442` usa `$table->head`, que genera `thead`. Su encabezado en español es "Hora" o "Tiempo", y ambos coinciden. Esto lo deduje leyendo el código; no lo vi en una captura real.
+    
+    **Efecto lateral:** el patrón también incluye `estado`, así que se enmascara la columna Estado del historial. Es más de lo que yo había planeado, y es comportamiento del helper.
+    
+    **Sobre el helper:** `helpers.ts` no es la causa y no hace falta tocarlo. Si en la próxima corrida la columna de hora aparece sin tapar, el helper habría que ajustarlo en la fábrica, no en la prueba.
+[2026-11-02T09:02:09.693Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T09:02:13.046Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T09:08:17.816Z] [pruebas] Intento 2: 7 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Salta al contenido principal" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - link "Viaro" [ref=f3e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f3e9]:
+              - menuitem "Área personal" [ref=f3e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f3e12]:
+              - generic [ref=f3e15]:
+                - switch "Modo de edición" [ref=f3e16] [cursor=pointer]
+                - generic [ref=f3e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f3e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f3e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e31]: 
+              - button "Menú de usuario" [ref=f3e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f3e41]: PP
+                - generic [aria-hidden] [ref=f3e42]: Paula
+                - text: 
+        - generic [ref=f3e43]:
+          - generic [ref=f3e44]:
+            - generic [ref=f3e45]:
+              - link "Curso QA de Exámenes" [ref=f3e48] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Cerrar el índice del curso" [ref=f3e50] [cursor=pointer]
+            - generic [ref=f3e54]:
+              - separator [ref=f3e55]
+              - button [expanded] [ref=f3e56] [cursor=pointer]:
+                - generic [ref=f3e57]:
+                  - generic [aria-hidden] [ref=f3e58]: 
+                  - text: Colapsar todo
+                - text: 
+          - navigation [ref=f3e60]:
+            - tree [ref=f3e62]:
+              - treeitem [expanded] [selected] [ref=f3e63]:
+                - generic [ref=f3e64]:
+                  - link "Colapsar" [expanded] [ref=f3e65] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e66]:
+                      - generic [aria-hidden] [ref=f3e67]: 
+                  - link "General" [ref=f3e69] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f3e70]:
+                  - group [ref=f3e71]:
+                    - treeitem [ref=f3e72]:
+                      - link "Examen de regresión" [ref=f3e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f3e74]:
+                - generic [ref=f3e75]:
+                  - link "Colapsar" [expanded] [ref=f3e76] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e77]:
+                      - generic [aria-hidden] [ref=f3e78]: 
+                  - link "Nueva sección" [ref=f3e80] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e81]:
+                - generic [ref=f3e82]:
+                  - link "Colapsar" [expanded] [ref=f3e83] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e84]:
+                      - generic [aria-hidden] [ref=f3e85]: 
+                  - link "Nueva sección" [ref=f3e87] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e88]:
+                - generic [ref=f3e89]:
+                  - link "Colapsar" [expanded] [ref=f3e90] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e91]:
+                      - generic [aria-hidden] [ref=f3e92]: 
+                  - link "Nueva sección" [ref=f3e94] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e95]:
+                - generic [ref=f3e96]:
+                  - link "Colapsar" [expanded] [ref=f3e97] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e98]:
+                      - generic [aria-hidden] [ref=f3e99]: 
+                  - link "Nueva sección" [ref=f3e101] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "Nueva sección":
+                  - group
+              - treeitem [expanded] [ref=f3e102]:
+                - generic [ref=f3e103]:
+                  - link "Colapsar" [expanded] [ref=f3e104] [cursor=pointer]:
+                    - /url: "#courseindexcollapse5"
+                    - text:  
+                    - generic "Colapsar" [ref=f3e105]:
+                      - generic [aria-hidden] [ref=f3e106]: 
+                  - link "Nueva sección" [ref=f3e108] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=6
+                  - text: 
+                - group "Nueva sección":
+                  - group
+        - generic [ref=f3e109]:
+          - generic [ref=f3e110]:
+            - banner [ref=f3e111]:
+              - heading "Curso QA de Exámenes" [level
+[2026-11-02T09:08:17.817Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/3).
+[2026-11-02T09:08:17.819Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-090116-spec-0/ia/02-corrector.prompt.md
+[2026-11-02T09:09:50.802Z] [uso-ia] Ventana de 5 h: 39 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T09:09:50.803Z] [ia:corrector] Fin llamada 02: OK en 93s, costo USD 0.46
+    respuesta final:
+    **Causa raíz (con una parte sin confirmar):** el fallo se produce en `esperarJS` (`helpers.ts:16`), llamado desde `prepararCaptura` (`01-profesor-examen.spec.ts:25`). `M.util.pending_js` no llegó a vaciarse en 15 s. Solo falla en escritorio, que es el único viewport donde la prueba abre el índice del curso con `abrirIndiceCurso`. Móvil pasó en la misma corrida sin abrirlo.
+    
+    No pude ejecutar nada en esta sesión y no tengo trace legible. No sé qué operación queda pendiente con el cajón abierto. Revisé `drawers.js`: su pendiente se resuelve a los 300 ms. El del índice (`placeholder.js`) también se resuelve, y el índice aparece renderizado en el snapshot. El cambio es una hipótesis razonada: reproduce el camino de móvil, que sí pasa.
+    
+    **Qué cambié:**
+    - **`soporte.ts`:** reemplacé `abrirIndiceCurso` por `cerrarIndiceCurso`. Si el cajón del índice está abierto (clase `show`), lo cierra con su botón `closedrawer`. Verifica que quedó cerrado y espera `esperarModulos`. Sigue siendo determinista, porque la preferencia `drawer-open-index` queda siempre en cerrado, como en móvil.
+    - **`01-profesor-examen.spec.ts`:** actualicé el import y la llamada. Las aserciones y el `toHaveScreenshot` quedan iguales, y sigo usando `prepararCaptura` del helper sin envolverlo.
+    
+    **Nota sobre la línea base:** `visual/lineas-base/spec-0-crear-examen--escritorio.png` no existe todavía, así que no hay línea base desktop que se rompa. Esa captura será nueva y quedará pendiente de aprobación humana.
+    
+    **Si vuelve a fallar:** el problema estaría en cómo `esperarJS` trata un `pending_js` que no se vacía en esa página, y habría que revisarlo en la fábrica, no en la prueba. En ese caso conviene mirar `trace.zip` para ver qué clave queda en `M.util.pending_js`.
+[2026-11-02T09:09:50.805Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T09:09:52.697Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T09:15:05.834Z] [pruebas] Intento 3: 8 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T09:20:52.852Z] [regresion] Suite completa: 9 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T09:20:52.865Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-0-calificacion-manual--escritorio.png, spec-0-calificacion-manual--movil.png, spec-0-cierre--escritorio.png, spec-0-cierre--movil.png, spec-0-cierre-calificado--escritorio.png, spec-0-cierre-calificado--movil.png, spec-0-crear-examen--escritorio.png, spec-0-crear-examen--movil.png, spec-0-examen-estudiante--escritorio.png, spec-0-examen-estudiante--movil.png, spec-0-intento--escritorio.png, spec-0-intento--movil.png, spec-0-resumen-envio--escritorio.png, spec-0-resumen-envio--movil.png
+[2026-11-02T09:20:53.289Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T09:20:53.426Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    

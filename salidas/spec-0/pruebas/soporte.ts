@@ -44,15 +44,19 @@ export async function abrirFormularioExamen(page: Page, curso: number) {
 }
 
 /**
- * Deja abierto el índice del curso (solo escritorio) para capturar siempre el mismo estado. Abierto o cerrado es una
- * preferencia guardada por usuario (drawer-open-index, boost/layout/drawers.php:34) que sobrevive entre corridas: no es
- * parte de la pantalla que se protege. En móvil no aplica: drawers.js:328 lo cierra al cargar sin mirar la preferencia.
+ * Deja cerrado el índice del curso (solo escritorio) para capturar siempre el mismo estado, el que ya tiene móvil
+ * (drawers.js:328 lo cierra al cargar). Abierto o cerrado es una preferencia guardada por usuario (drawer-open-index,
+ * boost/layout/drawers.php:34) que sobrevive entre corridas: no es parte de la pantalla que se protege. Se elige cerrado
+ * porque con el cajón abierto M.util.pending_js no llegaba a vaciarse y prepararCaptura() (esperarJS) agotaba su tiempo.
  */
-export async function abrirIndiceCurso(page: Page) {
-  const abrir = page.getByRole('button', { name: 'Abrir índice del curso' });
-  if (await abrir.isVisible()) await abrir.click();
+export async function cerrarIndiceCurso(page: Page) {
+  const drawer = page.locator('#theme_boost-drawers-courseindex');
+  if (await drawer.evaluate((el) => el.classList.contains('show'))) {
+    await drawer.locator('[data-toggler="drawers"][data-action="closedrawer"]').click();
+  }
   // El cajón abierto lleva la clase "show" (drawers.mustache:66); no depende del idioma del botón.
-  await expect(page.locator('#theme_boost-drawers-courseindex')).toHaveClass(/\bshow\b/);
+  await expect(drawer).not.toHaveClass(/\bshow\b/);
+  await esperarModulos(page);
 }
 
 /** Guarda con "Guardar cambios y mostrar" (#id_submitbutton) y devuelve el cmid del examen creado o editado. */
@@ -264,12 +268,3 @@ export async function irAlResumen(page: Page) {
 }
 
 export const idIntento = (page: Page) => Number(new URL(page.url()).searchParams.get('attempt'));
-
-/**
- * Celdas de la columna de hora del historial de respuestas de comment.php. prepararCaptura no las cubre y la fábrica
- * no puede editar helpers.ts desde este spec. El encabezado depende del idioma; la posición no: question/engine/
- * renderer.php:442-447 siempre emite Paso, Hora, Acción, Estado, así que la hora es la segunda columna.
- */
-export function celdasTiempoHistorial(page: Page): Locator {
-  return page.locator('div.responsehistoryheader table tbody tr > :nth-child(2)');
-}

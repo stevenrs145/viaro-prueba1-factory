@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test';
 import {
   abrirQuiz, bloquePregunta, botonIntento, elegir, enviarIntento, escribirEnsayo, filaResumen, login, prepararCaptura, siguientePagina,
 } from '../../../factory/regresion/helpers';
-import { celdasTiempoHistorial, ESPERA_EDITOR, escribirEditor, idIntento } from './soporte';
+import { ESPERA_EDITOR, escribirEditor, idIntento } from './soporte';
 
 const COMENTARIO = 'Comentario de regresión: respuesta parcial.';
 const EDITOR_COMENTARIO = 'iframe[id$="_-comment_id_ifr"]';
@@ -51,10 +51,8 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   const [popup] = await Promise.all([page.waitForEvent('popup'), enlace.click()]);
   await expect(popup).toHaveURL(/mod\/quiz\/comment\.php/);
   await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible({ timeout: ESPERA_EDITOR });
-  await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', {
-    fullPage: true,
-    mask: [...(await prepararCaptura(popup)), celdasTiempoHistorial(popup)],
-  });
+  // prepararCaptura ya tapa la columna de tiempo del historial (encabezado "Tiempo"/"Hora") además de fechas y contadores.
+  await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', { fullPage: true, mask: await prepararCaptura(popup) });
 
   await escribirEditor(popup, EDITOR_COMENTARIO, COMENTARIO);
   await popup.locator('input[name$="_-mark"]').fill('0.5');

@@ -1,176 +1,176 @@
 diff --git a/visual/lineas-base/APROBACIONES.json b/visual/lineas-base/APROBACIONES.json
 new file mode 100644
-index 0000000..53fc2eb
+index 0000000..0d7e01c
 --- /dev/null
 +++ b/visual/lineas-base/APROBACIONES.json
 @@ -0,0 +1,114 @@
 +{
 +  "spec-0-calificacion-manual--escritorio.png": {
-+    "sha256": "0c5f3559b6d31f4bf670eb08858de5543af38b66496421dc19f79c2e6c41461d",
++    "sha256": "9166ed1b0c0e7843ad8c40b96c1bff0757b38c684bef70dfde36a7421a526c55",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.477Z"
++    "fecha": "2026-11-02T09:20:52.859Z"
 +  },
 +  "spec-0-calificacion-manual--movil.png": {
-+    "sha256": "e7c70809e425de5f16eb76876c1f824f4e18cd0fc6034c880f22fb04444dee09",
++    "sha256": "17de30aa76a2c8d810c3538af9b7ff3c8820b563b7e685271866deae92531615",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.478Z"
++    "fecha": "2026-11-02T09:20:52.860Z"
 +  },
 +  "spec-0-cierre--escritorio.png": {
-+    "sha256": "76a7fcb4ff49c3df7b4f22503764a27ac68d73df913de91bf4c48fc58c9729df",
++    "sha256": "33b0751052f07abeb23b9862916f5836cb58b964278e2ebba6a9fabcd74cb6cd",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.478Z"
++    "fecha": "2026-11-02T09:20:52.860Z"
 +  },
 +  "spec-0-cierre--movil.png": {
-+    "sha256": "168869a3d8c0a9662bec26d4bfdb7864d5dd84669a0a282f290470d002feaaeb",
++    "sha256": "40087444ceee5ea0c5a3eb5fd39de602b101aabbdf737fa6eeae6e5d72ecb005",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.479Z"
++    "fecha": "2026-11-02T09:20:52.861Z"
 +  },
 +  "spec-0-cierre-calificado--escritorio.png": {
-+    "sha256": "36d0f61804754f48383551a459006166b97f84d6e33851e224bd213a5a7701e1",
++    "sha256": "ee749ec33b007c144413c8d5ba667c928393ae2e9388d42c97f0e5653bd87d10",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.480Z"
++    "fecha": "2026-11-02T09:20:52.861Z"
 +  },
 +  "spec-0-cierre-calificado--movil.png": {
-+    "sha256": "211046b3e1c69656c5e86edd9d6692c2118116242be4ee9c04f404ecc03ed240",
++    "sha256": "01ecef3d7733a550d7a311b618d1e1f209adc3dae55001aa65286b6eb1edec59",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.481Z"
++    "fecha": "2026-11-02T09:20:52.862Z"
 +  },
 +  "spec-0-crear-examen--escritorio.png": {
-+    "sha256": "a9cefbe2bb11964e489691693df2475c8c7fd62a0d2b88eef58c64a81f6e576d",
++    "sha256": "f3eb12f4c7b98fd936d79e2ea7959564f5e2643aeee2a83382e830bf0f0e1fff",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.483Z"
++    "fecha": "2026-11-02T09:20:52.862Z"
 +  },
 +  "spec-0-crear-examen--movil.png": {
-+    "sha256": "e4cad6fe486c944a8f245d3a1b38d3a57f9c8f9c4112366fbc3cbf1b0d6c01c7",
++    "sha256": "6bb6825c882c87d98594adafa8d278c67514a80ef9740c79b8d819cebea72bf9",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.484Z"
++    "fecha": "2026-11-02T09:20:52.863Z"
 +  },
 +  "spec-0-examen-estudiante--escritorio.png": {
-+    "sha256": "ae14743a38dfa624a95c9c8b661c4e9cedd6d64c8d94239f7a8bfe58632eac9e",
++    "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.484Z"
++    "fecha": "2026-11-02T09:20:52.863Z"
 +  },
 +  "spec-0-examen-estudiante--movil.png": {
-+    "sha256": "ffc11659ef6bfa46dd54b6117560c3089116cf4741da8a88602742dabcbcab62",
++    "sha256": "818ecfe726909272aecc8fb11aeffd275c299c838856b78277056fa9d4c34a67",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.485Z"
++    "fecha": "2026-11-02T09:20:52.863Z"
 +  },
 +  "spec-0-intento--escritorio.png": {
-+    "sha256": "ae60ce3988b83d0dec3be788bf0ae71c55826ff6ba728420dc035fe340f895bb",
++    "sha256": "374aa9114927f8c57885b9e43683698f3a42e362ffeca869e4b18107d7e957e7",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.485Z"
++    "fecha": "2026-11-02T09:20:52.864Z"
 +  },
 +  "spec-0-intento--movil.png": {
-+    "sha256": "923a37d5b61f05339b6726f917ecb9d7723df00b87fea7ea4a5637909efaa8ae",
++    "sha256": "3526b57fd0f658a8eeba34d6b58bc1e524559a90215b4385788bd19d5cebe4c5",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.486Z"
++    "fecha": "2026-11-02T09:20:52.864Z"
 +  },
 +  "spec-0-resumen-envio--escritorio.png": {
-+    "sha256": "9fddf2460884b1b93d86ea3d27a65057dfd6ce1c9495fc8d3994a67dd6aa27d0",
++    "sha256": "53de464cb7f0eb26720df8b6eb454f72583e27e8bde3bcdf6c64c50056ff13e9",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.486Z"
++    "fecha": "2026-11-02T09:20:52.864Z"
 +  },
 +  "spec-0-resumen-envio--movil.png": {
-+    "sha256": "de3f195fc9b70f553e83c4a9bd3c6ae84975990e59036df10a8668b525b41447",
++    "sha256": "27cc8ea1b4a7e3fbdc731c442bd6bb2b8558e5544ea0b0b079295f9d4d1e8c37",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-0",
 +    "razon": "Pantalla nueva introducida por spec-0",
-+    "fecha": "2026-11-02T08:53:57.487Z"
++    "fecha": "2026-11-02T09:20:52.864Z"
 +  }
 +}
 diff --git a/visual/lineas-base/spec-0-calificacion-manual--escritorio.png b/visual/lineas-base/spec-0-calificacion-manual--escritorio.png
 new file mode 100644
-index 0000000..a0853b1
+index 0000000..07cfae5
 Binary files /dev/null and b/visual/lineas-base/spec-0-calificacion-manual--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-calificacion-manual--movil.png b/visual/lineas-base/spec-0-calificacion-manual--movil.png
 new file mode 100644
-index 0000000..d63802c
+index 0000000..36fa08f
 Binary files /dev/null and b/visual/lineas-base/spec-0-calificacion-manual--movil.png differ
 diff --git a/visual/lineas-base/spec-0-cierre--escritorio.png b/visual/lineas-base/spec-0-cierre--escritorio.png
 new file mode 100644
-index 0000000..0e24a25
+index 0000000..16135b8
 Binary files /dev/null and b/visual/lineas-base/spec-0-cierre--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-cierre--movil.png b/visual/lineas-base/spec-0-cierre--movil.png
 new file mode 100644
-index 0000000..dff36a4
+index 0000000..10c672d
 Binary files /dev/null and b/visual/lineas-base/spec-0-cierre--movil.png differ
 diff --git a/visual/lineas-base/spec-0-cierre-calificado--escritorio.png b/visual/lineas-base/spec-0-cierre-calificado--escritorio.png
 new file mode 100644
-index 0000000..1bbbd30
+index 0000000..0879e13
 Binary files /dev/null and b/visual/lineas-base/spec-0-cierre-calificado--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-cierre-calificado--movil.png b/visual/lineas-base/spec-0-cierre-calificado--movil.png
 new file mode 100644
-index 0000000..2de8fa3
+index 0000000..80e316b
 Binary files /dev/null and b/visual/lineas-base/spec-0-cierre-calificado--movil.png differ
 diff --git a/visual/lineas-base/spec-0-crear-examen--escritorio.png b/visual/lineas-base/spec-0-crear-examen--escritorio.png
 new file mode 100644
-index 0000000..53f7f1e
+index 0000000..b954082
 Binary files /dev/null and b/visual/lineas-base/spec-0-crear-examen--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-crear-examen--movil.png b/visual/lineas-base/spec-0-crear-examen--movil.png
 new file mode 100644
-index 0000000..2302e4c
+index 0000000..25ecc2d
 Binary files /dev/null and b/visual/lineas-base/spec-0-crear-examen--movil.png differ
 diff --git a/visual/lineas-base/spec-0-examen-estudiante--escritorio.png b/visual/lineas-base/spec-0-examen-estudiante--escritorio.png
 new file mode 100644
-index 0000000..29feb5f
+index 0000000..60e8cd7
 Binary files /dev/null and b/visual/lineas-base/spec-0-examen-estudiante--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-examen-estudiante--movil.png b/visual/lineas-base/spec-0-examen-estudiante--movil.png
 new file mode 100644
-index 0000000..7f08168
+index 0000000..aa12827
 Binary files /dev/null and b/visual/lineas-base/spec-0-examen-estudiante--movil.png differ
 diff --git a/visual/lineas-base/spec-0-intento--escritorio.png b/visual/lineas-base/spec-0-intento--escritorio.png
 new file mode 100644
-index 0000000..f8b8275
+index 0000000..7131d18
 Binary files /dev/null and b/visual/lineas-base/spec-0-intento--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-intento--movil.png b/visual/lineas-base/spec-0-intento--movil.png
 new file mode 100644
-index 0000000..95350b0
+index 0000000..ad26699
 Binary files /dev/null and b/visual/lineas-base/spec-0-intento--movil.png differ
 diff --git a/visual/lineas-base/spec-0-resumen-envio--escritorio.png b/visual/lineas-base/spec-0-resumen-envio--escritorio.png
 new file mode 100644
-index 0000000..b36eebf
+index 0000000..1ac8dc5
 Binary files /dev/null and b/visual/lineas-base/spec-0-resumen-envio--escritorio.png differ
 diff --git a/visual/lineas-base/spec-0-resumen-envio--movil.png b/visual/lineas-base/spec-0-resumen-envio--movil.png
 new file mode 100644
-index 0000000..2816b4d
+index 0000000..b23c438
 Binary files /dev/null and b/visual/lineas-base/spec-0-resumen-envio--movil.png differ
