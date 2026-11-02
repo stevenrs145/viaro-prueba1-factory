@@ -12,7 +12,7 @@ mucha cuota por mensaje. Se continúa en una sesión local de Claude Code dentro
 | Fábrica (`factory/cli.mjs`: análisis → sondas → implementación → reintentos → mutación → regresión → alcance → honestidad → PR) | IMPLEMENTADO y EJECUTADO | `corridas/*-spec-0/` |
 | Auditor de honestidad | VALIDADO con 6 sabotajes | `cobertura.md §3` |
 | Docs (README, cobertura, documentacion, ia/) | IMPLEMENTADO (falta cerrar números) | raíz del repo |
-| spec-0 regresión | **6/8 en verde**, rama `factory/spec-0-20261101-232314` (sin PR aún). Las 2 fallas vienen de `soporte.ts`, que duplica login y `networkidle`; la validación estática ya lo rechaza. Falta una corrida con corrector (gasta IA) | `corridas/20261102-050228-spec-0/pipeline.log` en la rama |
+| spec-0 regresión | **7/8 en verde**, rama `factory/spec-0-20261101-232314` (sin PR aún). El corrector quitó las copias de los helpers. Falla `[CA-2]` en móvil (`locator.check`, 15 s) | `corridas/20261102-052003-spec-0/pipeline.log` en la rama |
 | spec-1, spec-2, spec-3 | PENDIENTE | — |
 | Spec desconocido de ensayo (spec-4) | PENDIENTE | — |
 | Instalación limpia desde cero | PENDIENTE | — |
