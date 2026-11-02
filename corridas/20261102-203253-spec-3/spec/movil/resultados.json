@@ -1,0 +1,539 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "salidas/spec-3/pruebas/03-cierre-intacto.spec.ts",
+      "--project=movil",
+      "--update-snapshots=missing"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-203253-spec-3/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-203253-spec-3/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-203253-spec-3/spec/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-203253-spec-3/spec/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-203253-spec-3/spec/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-203253-spec-3/spec/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17047,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:38:21.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-c2f6e51ce8d68e5e5c7d",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30166,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:38:38.383Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-9c9b03f05889eef8bad3",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16788,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:39:08.564Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-0cb2e9b8d634e7dbb919",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] si el profesor oculta las notas la sección no las filtra",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34830,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:39:25.377Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-80e7d29da32810f5ef1b",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 70,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20311,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:40:00.257Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-958d085975412e025d16",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18580,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:40:20.585Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-4aa928813f631ce999e0",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11616,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:40:39.179Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-428d575f7da18d5f44d3",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18284,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:40:50.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-77f85f868f97d7370b31",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6380,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:41:09.116Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-5eca05b2986290172167",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 73,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-3/pruebas/03-cierre-intacto.spec.ts",
+      "file": "salidas/spec-3/pruebas/03-cierre-intacto.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18779,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:41:15.524Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b8bea5f0e06e2ab0e42c-c1d1490cd121b4f7c114",
+          "file": "salidas/spec-3/pruebas/03-cierre-intacto.spec.ts",
+          "line": 8,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T20:38:00.827Z",
+    "duration": 213706.19,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

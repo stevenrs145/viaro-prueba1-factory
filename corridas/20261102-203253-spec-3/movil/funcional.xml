@@ -1,0 +1,52 @@
+<testsuites id="" name="" tests="15" failures="0" skipped="1" errors="0" time="345.337208">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.005" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="2" failures="0" skipped="0" time="75.778" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="19.884">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="55.894">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="1" failures="0" skipped="0" time="25.375" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="25.375">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="1" failures="0" skipped="0" time="35.769" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="35.769">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="4" failures="0" skipped="0" time="96.636" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="16.174">
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="31.216">
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="17.337">
+</testcase>
+<testcase name="[CA-1] si el profesor oculta las notas la sección no las filtra" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="31.909">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="5" failures="0" skipped="0" time="72.246" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="18.522">
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="18.223">
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="11.403">
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="17.605">
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="6.493">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" timestamp="2026-11-02T21:09:04.749Z" hostname="movil" tests="1" failures="0" skipped="0" time="16.831" errors="0">
+<testcase name="[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando" classname="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" time="16.831">
+</testcase>
+</testsuite>
+</testsuites>

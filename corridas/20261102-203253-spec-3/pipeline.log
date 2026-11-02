@@ -1,0 +1,15 @@
+[2026-11-02T20:32:53.956Z] [inicio] Spec specs/spec-3-resumen-por-tema.md (spec-3). Corrida corridas/20261102-203253-spec-3. Rama factory/spec-3-20261102-171629 (REANUDADA).
+[2026-11-02T20:32:54.638Z] [reanudar] Se reutiliza salidas/spec-3/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T20:32:59.586Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T20:33:39.969Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T20:41:34.803Z] [pruebas] Intento 1: 20 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T20:41:37.218Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T20:48:40.905Z] [mutacion] Sin la funcionalidad: 16 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T21:02:11.858Z] [visual] Cambios visuales declarados por el plan (spec-0-cierre, spec-0-crear-examen): se proponen 1 líneas base, pendientes de aprobación humana.
+    visual/lineas-base/spec-0-cierre--movil.png
+[2026-11-02T21:02:11.862Z] [visual] Imágenes esperada/obtenida/diferencia copiadas a visual/diferencias/20261102-203253-spec-3/
+[2026-11-02T21:14:28.943Z] [regresion] Suite completa: 29 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T21:14:29.599Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T21:14:29.761Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    

@@ -6,6 +6,7 @@ const OUT = process.env.QA_OUT || 'test-results/ultima';
 
 export default defineConfig({
   testDir: '.',
+  globalSetup: './factory/regresion/calentar.ts',
   testMatch: ['factory/regresion/**/*.spec.ts', 'salidas/*/pruebas/**/*.spec.ts'],
   // Estado compartido (un solo Moodle): secuencial y determinista.
   workers: 1,
