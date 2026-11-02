@@ -216,12 +216,33 @@ function proponerCambiosVisuales(c, plan, resultados) {
 
 function falla(c, etapa, msg, detalle) {
   c.log(etapa, `DETENIDO: ${msg}`, detalle);
+  c.etapa(etapa === 'reanudar' ? 'precondicion' : etapa, 'FALLIDO', msg);
   return 1;
+}
+
+/** Detiene la corrida en BLOQUEADO: deja pregunta.md y el plan en la rama, y vuelve a main sin construir nada. */
+function bloquear(c, rama, specDir, specPath, bordes) {
+  const preguntas = bordes.map((b, i) => `## ${i + 1}. ${b.descripcion}\n\n**Pregunta:** ${b.preguntaria}\n\n**Por qué bloquea:** ${b.criterio || '(sin criterio declarado)'}\n`).join('\n');
+  const md = `# Corrida BLOQUEADA: ${specPath}\n\nLa fábrica no construyó nada: estas decisiones son de producto y no se pueden asumir.\n\n${preguntas}\n`
+    + `## Cómo continuar\n\nResolver cada punto EN EL SPEC (\`${specPath}\`) y volver a ejecutar:\n\n    node factory/cli.mjs run ${specPath}\n`;
+  escribir(c.ruta('pregunta.md'), md);
+  c.etapa('analisis', 'BLOQUEADO', `${bordes.length} ambigüedad(es) bloqueante(s). Ver ${c.ruta('pregunta.md')}.`);
+  c.log('analisis', `BLOQUEADO: ${bordes.length} ambigüedad(es) bloqueante(s). No se construye nada.`, md);
+  shOk(`git add -A ${specDir} ${c.dir}`);
+  shOk(`git commit -q -m "chore(${c.estado.corrida}): corrida bloqueada por ambigüedad" -m "Preguntas en ${c.ruta('pregunta.md')}."`);
+  const p = sh(`git push -q origin ${rama}`);
+  if (p.code !== 0) console.error(`Aviso: no se pudo subir la rama ${rama}; queda solo en local.`);
+  shOk('git checkout -q main');
+  return 4;
 }
 
 function validarPlan(p, specId) {
   const req = ['spec_id', 'titulo', 'naturaleza', 'capa_justificacion', 'criterios', 'bordes'];
   for (const k of req) if (p[k] === undefined) throw new Error(`falta "${k}"`);
+  for (const b of p.bordes) {
+    if (b.bloqueante !== undefined && typeof b.bloqueante !== 'boolean') throw new Error(`bloqueante debe ser true o false: ${b.descripcion}`);
+    if (b.bloqueante && !b.preguntaria) throw new Error(`borde bloqueante sin pregunta: ${b.descripcion}`);
+  }
   if (p.spec_id !== specId) throw new Error(`spec_id debe ser "${specId}"`);
   if (!Array.isArray(p.criterios) || !p.criterios.length) throw new Error('criterios vacío');
   for (const ca of p.criterios) if (!ca.id || !ca.texto || !ca.verificacion) throw new Error(`criterio incompleto: ${JSON.stringify(ca)}`);
