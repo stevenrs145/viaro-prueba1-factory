@@ -1,0 +1,120 @@
+diff --git a/visual/lineas-base/APROBACIONES.json b/visual/lineas-base/APROBACIONES.json
+new file mode 100644
+index 0000000..c7ad7d7
+--- /dev/null
++++ b/visual/lineas-base/APROBACIONES.json
+@@ -0,0 +1,114 @@
++{
++  "spec-0-calificacion-manual--escritorio.png": {
++    "sha256": "1197021c80c6263cfb53d3c79bf4443a71438db79ecb82e13bf0349320a3f58e",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.493Z"
++  },
++  "spec-0-calificacion-manual--movil.png": {
++    "sha256": "ea7a77eaac43a92a5c6c89e4da7e773dcf823818130be6dc3d9e4269228e6fb6",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.493Z"
++  },
++  "spec-0-cierre--escritorio.png": {
++    "sha256": "e1981b31a46ba508a3416f27f85138560d6ca0419e4b392b531408516d188f35",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.494Z"
++  },
++  "spec-0-cierre--movil.png": {
++    "sha256": "bdc046ba2f1020c058c5f680907c22955466019fc583bcde5d45971b7dff2ec7",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.496Z"
++  },
++  "spec-0-cierre-calificado--escritorio.png": {
++    "sha256": "cbc5eb25c76e264b91890c23d9c1f2dabd7784ab5e31cf98bd80a1b8489b782a",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.497Z"
++  },
++  "spec-0-cierre-calificado--movil.png": {
++    "sha256": "d56f650fbd47a64ebdb539685e1a0b00495057b4a55f0667026562f3200a7fd4",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.498Z"
++  },
++  "spec-0-crear-examen--escritorio.png": {
++    "sha256": "6f77d14ec7f61e5b7a141c574a8349673d2f4fce1c670ca706287901a1acbaac",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.499Z"
++  },
++  "spec-0-crear-examen--movil.png": {
++    "sha256": "cebc256cc99ae04b07f95aeabfe649963133c5df82b971a11ded43de9b96a58d",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.499Z"
++  },
++  "spec-0-examen-estudiante--escritorio.png": {
++    "sha256": "914b87b7b47299bd38f25dddab5c8078563cd8aa855031aee37b59ed854b39ae",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.500Z"
++  },
++  "spec-0-examen-estudiante--movil.png": {
++    "sha256": "87c28646756b6750236b9c13a669b75f49b4383ca410d4f4784eb25caa3a30b7",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.500Z"
++  },
++  "spec-0-intento--escritorio.png": {
++    "sha256": "37f45fc35869dc1049e92068a6125c5025eaebf63d988acb03145978eb1e05bb",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.500Z"
++  },
++  "spec-0-intento--movil.png": {
++    "sha256": "fdcbd53244aeed4cd3000af5bf7f8ceeaaad72bfa63f5e91d360e0061a95af07",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.501Z"
++  },
++  "spec-0-resumen-envio--escritorio.png": {
++    "sha256": "d9e3028348f173fe4d933b125b8d747fe3686011acd07094984bc87f26e0c2ab",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.502Z"
++  },
++  "spec-0-resumen-envio--movil.png": {
++    "sha256": "0445c96769e65b3413404bb5e721d1e6eb6fc1b61961f6274e13ca4fa35e063f",
++    "origen": "pipeline",
++    "estado": "pendiente-aprobacion-humana",
++    "spec": "spec-0",
++    "razon": "Pantalla nueva introducida por spec-0",
++    "fecha": "2026-11-02T08:01:51.502Z"
++  }
++}

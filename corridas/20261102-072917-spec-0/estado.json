@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-072917-spec-0",
+  "spec": "specs/spec-0-regresion.md",
+  "rama": "factory/spec-0-20261101-232314",
+  "reanudada": true,
+  "estado": "EJECUTADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T07:29:19.657Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan reutilizado de la rama: 7 criterios, 16 bordes.",
+      "actualizado": "2026-11-02T07:29:19.659Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "0 sonda(s).",
+      "actualizado": "2026-11-02T07:29:19.660Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas reutilizados de la rama.",
+      "actualizado": "2026-11-02T07:29:19.660Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "Pruebas del spec en verde.",
+      "actualizado": "2026-11-02T07:54:29.524Z"
+    },
+    "mutacion": {
+      "estado": "EJECUTADO",
+      "detalle": "No aplica: el spec no trae plugin.",
+      "actualizado": "2026-11-02T07:54:29.524Z"
+    },
+    "regresion": {
+      "estado": "VALIDADO",
+      "detalle": "9 OK, 0 fallidas, 1 omitidas.",
+      "actualizado": "2026-11-02T08:01:51.485Z"
+    },
+    "alcance": {
+      "estado": "VALIDADO",
+      "detalle": "Solo cambió salidas/ del spec; core de Moodle intacto.",
+      "actualizado": "2026-11-02T08:01:52.062Z"
+    },
+    "honestidad": {
+      "estado": "VALIDADO",
+      "detalle": "Sin hallazgos.",
+      "actualizado": "2026-11-02T08:01:52.167Z"
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}

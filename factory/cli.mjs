@@ -130,7 +130,8 @@ async function run() {
 
   // 5. Mutación "sin la funcionalidad": las pruebas @requiere-feature deben fallar sin el plugin
   let sinFeature = null;
-  if (moodle.pluginsDe(specDir).length) {
+  const probarSinFuncionalidad = () => {
+    if (!moodle.pluginsDe(specDir).length) { c.etapa('mutacion', 'EJECUTADO', 'No aplica: el spec no trae plugin.'); return; }
     const r = moodle.retirar(specDir);
     c.log('mutacion', `Plugin retirado para probar que las pruebas detectan su ausencia (${r.ok ? 'OK' : 'con avisos'}).`);
     moodle.reset();
@@ -140,7 +141,8 @@ async function run() {
     c.log('mutacion', `Sin la funcionalidad: ${s.failed} fallan (esperado), ${s.passed} pasan (cada una es un hallazgo).`);
     moodle.desplegar(specDir);
     c.etapa('mutacion', s.passed ? 'EJECUTADO' : 'VALIDADO', `Sin la funcionalidad: ${s.failed} fallan, ${s.passed} pasan.`);
-  } else c.etapa('mutacion', 'EJECUTADO', 'No aplica: el spec no trae plugin.');
+  };
+  probarSinFuncionalidad();
 
   // 6. Regresión completa (nada de lo existente se rompió) + líneas base nuevas
   moodle.reset();
@@ -151,6 +153,21 @@ async function run() {
   if (propuestas.length) {
     c.log('visual', `Cambios visuales declarados por el plan (${plan.pantallas_afectadas.join(', ')}): se proponen ${propuestas.length} líneas base, pendientes de aprobación humana.`, propuestas.join('\n'));
     copiarDiferencias(c);
+    moodle.reset();
+    total = correrPruebas([], c.dir, { crearLineasBaseFaltantes: false });
+  }
+  // Una prueba del propio spec que pasó sola y falla en la suite es inestable: va al corrector igual que en la etapa 4.
+  // Los fallos de pruebas de otros specs no se corrigen aquí: son regresiones y detienen la corrida.
+  for (let i = 1; i <= MAX_REINTENTOS; i++) {
+    const propias = total.resultados.filter((r) => ['failed', 'timedOut', 'interrupted'].includes(r.estado) && (r.archivo || '').includes(specDir));
+    if (!propias.length) break;
+    c.log('reintento', `${propias.length} prueba(s) del spec fallaron en la suite completa. Se le pide a la IA que corrija (${i}/${MAX_REINTENTOS}).`);
+    const problemas = `Estas pruebas pasaron ejecutadas solas y fallaron en la suite completa: son inestables. Buscá una carrera entre una acción y el JS de Moodle (usá esperarJS de los helpers).\nEl estado ARIA puede ser posterior a la limpieza de la prueba; guiate por la línea del error.\n\n${contextoFallos(c.dir, total.resultados)}`;
+    llamarIA(c, { rol: 'corrector', plantilla: 'corrector', vars: { ...varsImpl, problemas, intento: `regresion-${i}` }, escritura: specDir });
+    const estaticos = validacionesEstaticas(c, specDir, plan);
+    if (estaticos.length) return falla(c, 'regresion', 'La corrección de la regresión no pasa las validaciones estáticas.', estaticos.join('\n'));
+    moodle.desplegar(specDir);
+    probarSinFuncionalidad(); // las pruebas cambiaron: el resultado anterior ya no vale
     moodle.reset();
     total = correrPruebas([], c.dir, { crearLineasBaseFaltantes: false });
   }

@@ -7,6 +7,15 @@ export const CLAVE = 'Viaro.2026';
 export const QUIZ_REG = 'Examen de regresión';
 export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
 
+/**
+ * Espera a que el JS de Moodle termine: M.util.pending_js vacío es la señal que usa Behat. Usar tras cargar una página y
+ * tras una acción que dispara JS (filtros, autocompletar, modales) antes de la siguiente acción: Playwright es más rápido.
+ */
+export async function esperarJS(page: Page) {
+  await page.waitForLoadState('load');
+  await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0);
+}
+
 export async function login(page: Page, usuario: string) {
   // Salir de la página ANTES de borrar cookies: al descargarse, Moodle lanza un POST a service.php
   // (core_message_get_unsent_message). Sin cookie, su respuesta fija otra MoodleSession e invalida el logintoken.
@@ -77,9 +86,7 @@ export async function enviarIntento(page: Page) {
   await page.getByRole('button', { name: /finish attempt/i }).click();
   await expect(page).toHaveURL(/summary\.php/);
   // Si se hace clic antes de que submission_confirmation.js enlace su manejador, se envía sin modal.
-  // M.util.pending_js es la señal que usa Behat: vacío significa que los módulos AMD ya se inicializaron.
-  await page.waitForLoadState('load');
-  await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0);
+  await esperarJS(page);
   await page.getByRole('button', { name: 'Submit all and finish' }).click();
   const confirmar = page.locator('.modal-footer button', { hasText: 'Submit all and finish' });
   await expect(confirmar).toBeVisible({ timeout: 15_000 });

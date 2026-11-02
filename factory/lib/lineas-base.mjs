@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { RAIZ, sh } from './util.mjs';
+import { RAIZ } from './util.mjs';
 
 const DIR = 'visual/lineas-base';
 const REG = `${DIR}/APROBACIONES.json`;
@@ -13,10 +13,10 @@ const sha = (f) => crypto.createHash('sha256').update(fs.readFileSync(path.join(
 const leerReg = () => (fs.existsSync(path.join(RAIZ, REG)) ? JSON.parse(fs.readFileSync(path.join(RAIZ, REG), 'utf8')) : {});
 const guardar = (r) => fs.writeFileSync(path.join(RAIZ, REG), JSON.stringify(Object.fromEntries(Object.entries(r).sort()), null, 2) + '\n');
 
-/** PNG en visual/lineas-base que git no conoce todavía (creados en esta corrida). */
+/** PNG en visual/lineas-base sin entrada en el registro: una corrida reanudada puede traerlos ya versionados en su rama. */
 export function lineasBaseNuevas() {
-  return sh(`git status --porcelain --untracked-files=all -- ${DIR}`).out.split('\n')
-    .filter((l) => l.startsWith('??') && l.endsWith('.png')).map((l) => path.basename(l.slice(3)));
+  const r = leerReg();
+  return fs.readdirSync(path.join(RAIZ, DIR)).filter((f) => f.endsWith('.png') && !r[f]);
 }
 
 export function registrarPendientes(pngs, specId) {

@@ -1,0 +1,357 @@
+[2026-11-02T07:29:17.227Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-072917-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T07:29:19.658Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T07:29:19.663Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T07:29:22.343Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T07:37:01.660Z] [pruebas] Intento 1: 7 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple escritorio 1793604616303' }).locator('input[type="checkbox"]')[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple escritorio 1793604616303' }).locator('input[type="checkbox"]')
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f55e1]:
+      - status
+      - generic [ref=f55e2]:
+        - link "Skip to main content" [ref=f55e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f55e4]:
+          - generic [ref=f55e5]:
+            - link "viaroqa" [ref=f55e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f55e9]:
+              - menuitem "Dashboard" [ref=f55e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f55e12]:
+              - generic [ref=f55e15]:
+                - switch "Edit mode" [ref=f55e16] [cursor=pointer]
+                - generic [ref=f55e17] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f55e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e28]: 
+              - button "Toggle messaging drawer" [ref=f55e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e31]: 
+              - button "User menu" [ref=f55e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f55e41]: PP
+                - generic [aria-hidden] [ref=f55e42]: Paula
+                - text: 
+        - generic [ref=f55e43]:
+          - generic [ref=f55e44]:
+            - generic [ref=f55e45]:
+              - link "Curso QA de Exámenes" [ref=f55e48] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Close course index" [ref=f55e50] [cursor=pointer]
+            - generic [ref=f55e54]:
+              - separator [ref=f55e55]
+              - button [expanded] [ref=f55e56] [cursor=pointer]:
+                - generic [ref=f55e57]:
+                  - generic [aria-hidden] [ref=f55e58]: 
+                  - text: Collapse all
+                - text: 
+          - navigation [ref=f55e60]:
+            - tree [ref=f55e62]:
+              - treeitem [expanded] [selected] [ref=f55e63]:
+                - generic [ref=f55e64]:
+                  - link "Collapse" [expanded] [ref=f55e65] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Collapse" [ref=f55e66]:
+                      - generic [aria-hidden] [ref=f55e67]: 
+                  - link "General" [ref=f55e69] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f55e70]:
+                  - group [ref=f55e71]:
+                    - treeitem [ref=f55e72]:
+                      - link "Examen de regresión" [ref=f55e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f55e74]:
+                - generic [ref=f55e75]:
+                  - link "Collapse" [expanded] [ref=f55e76] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Collapse" [ref=f55e77]:
+                      - generic [aria-hidden] [ref=f55e78]: 
+                  - link "New section" [ref=f55e80] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e81]:
+                - generic [ref=f55e82]:
+                  - link "Collapse" [expanded] [ref=f55e83] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Collapse" [ref=f55e84]:
+                      - generic [aria-hidden] [ref=f55e85]: 
+                  - link "New section" [ref=f55e87] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e88]:
+                - generic [ref=f55e89]:
+                  - link "Collapse" [expanded] [ref=f55e90] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Collapse" [ref=f55e91]:
+                      - generic [aria-hidden] [ref=f55e92]: 
+                  - link "New section" [ref=f55e94] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e95]:
+                - generic [ref=f55e96]:
+                  - link "Collapse" [expanded] [ref=f55e97] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Collapse" [ref=f55e98]:
+                      - generic [aria-hidden] [ref=f55e99]: 
+                  - link "New section" [ref=f55e101] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e102]:
+                - generic [ref=f55e103]:
+                  - link "Collapse" [expanded] [ref=f55e104] [cursor=pointer]:
+                    - /url: "#courseindexcollapse5"
+                    - text:  
+                    - generic "Collapse" [ref=f55e105]:
+                      - generic [aria-hidden] [ref=f55e106]: 
+                  - link "New section" [ref=f55e108] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=6
+                  - text: 
+                - group "New section":
+            
+[2026-11-02T07:37:01.661Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/2).
+[2026-11-02T07:37:01.664Z] [ia:corrector] Llamada 01 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-072917-spec-0/ia/01-corrector.prompt.md
+[2026-11-02T07:38:21.759Z] [uso-ia] Ventana de 5 h: 10 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T07:38:21.760Z] [ia:corrector] Fin llamada 01: OK en 80s, costo USD 0.46
+    respuesta final:
+    Corregí una causa probable en `salidas/spec-0/pruebas/soporte.ts`, pero no pude confirmarla y no corrí la prueba. No tengo Bash en esta sesión, así que no pude abrir el `trace.zip` ni ejecutar nada.
+    
+    **Causa raíz (sospecha)**
+    - La falla está en `agregarDesdeBanco`, en el `.check()` de la casilla de la primera pregunta.
+    - El filtro del modal no mostró esa pregunta en 15 s. El timeout dice que la fila no apareció, pero no por qué.
+    - Que fallara en esa fila indica que el click en la sugerencia de categoría sí ocurrió.
+    - El screenshot y el ARIA corresponden a la página de categorías del banco, tomada después del `finally`. Por eso no muestran el estado del modal al fallar.
+    - Mi sospecha es una condición de carrera entre `filter.js` y la prueba. En `question/amd/src/filter.js`, `init` espera cadenas de idioma (`await Promise.all(getString…)`). Al terminar, carga la categoría por defecto (Álgebra).
+    - Si el filtro se aplica antes de que ese init termine, la carga tardía lo pisa y la tabla queda con las preguntas sembradas.
+    - Es el mismo tipo de problema que ya se resolvió en `crearCategoria` con `esperarModulos`. No es un fallo del plugin ni del comportamiento de Moodle, y no hay plugin que arreglar en este spec.
+    
+    **Qué cambié**
+    - Antes de usar el filtro, la prueba espera a que se pinte la primera fila de `#categoryquestions` (la categoría por defecto) y a que terminen los módulos AMD con `esperarModulos`.
+    - Después de "Apply", espera explícitamente la fila de la primera pregunta con `toHaveCount(1)` y un timeout de 30 s. Luego vuelve a esperar los módulos.
+    - No toqué ninguna aserción de los `.spec.ts`. Las dos esperas agregadas son de carga, no de resultado.
+    - No usé `networkidle` ni copié `login` o `prepararCaptura`.
+    - Dejé fuera a propósito dos comprobaciones que había considerado. Eran suposiciones sobre el HTML del autocompletado que no pude verificar sin ejecutar.
+    
+    **Pendiente**
+    Hay que volver a correr CA-2 en escritorio y en móvil. Si vuelve a fallar en la misma casilla, el siguiente paso es abrir el `trace.zip` para ver qué tabla tenía el modal en ese momento.
+[2026-11-02T07:38:21.761Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T07:38:24.900Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T07:46:23.714Z] [pruebas] Intento 2: 7 OK, 1 fallidas, 0 omitidas.
+    ### movil · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+    
+    Locator:  locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+    Timeout:  30000ms
+    
+    Call log:
+    [2m  - Expect "toHaveCount" locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' }) with timeout 30000ms[22m
+    [2m  - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' })[22m
+    [2m    63 × locator resolved to 0 elements[22m
+    [2m       - unexpected value "0"[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toHaveCount(expected) failed
+    
+    Locator:  locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' })
+    Expected: 1
+    Received: 0
+    Timeout:  30000ms
+    
+    Call log:
+      - Expect "toHaveCount" locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' }) with timeout 30000ms
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple movil 1793605390927' })
+        63 × locator resolved to 0 elements
+           - unexpected value "0"
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f55e1]:
+      - status
+      - generic [ref=f55e2]:
+        - link "Skip to main content" [ref=f55e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f55e4]:
+          - generic [ref=f55e5]:
+            - button "Side panel" [ref=f55e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f55e9]:
+              - generic [ref=f55e12]:
+                - switch "Edit mode" [ref=f55e13] [cursor=pointer]
+                - generic [ref=f55e14] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f55e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e25]: 
+              - button "Toggle messaging drawer" [ref=f55e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e28]: 
+              - button "User menu" [ref=f55e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f55e38]: PP
+                - text: 
+        - generic [ref=f55e39]:
+          - generic [ref=f55e40]:
+            - button "Open course index" [ref=f55e42] [cursor=pointer]
+            - banner [ref=f55e46]:
+              - generic [ref=f55e47]:
+                - navigation "Breadcrumb" [ref=f55e50]:
+                  - list [ref=f55e51]:
+                    - listitem [ref=f55e52]:
+                      - link "QA101" [ref=f55e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f55e54]:
+                      - text: /
+                      - generic [ref=f55e55]: System shared question bank
+                - heading "System shared question bank" [level=1] [ref=f55e64]
+            - navigation "Activity menu" [ref=f55e67]:
+              - menubar [ref=f55e68]:
+                - menuitem "Question bank" [ref=f55e69] [cursor=pointer]
+                - menuitem "Settings" [ref=f55e71] [cursor=pointer]
+                - menuitem "More " [ref=f55e73] [cursor=pointer]:
+                  - generic [ref=f55e74]: More
+                  - text: 
+            - main [ref=f55e79]:
+              - navigation [ref=f55e83]:
+                - generic [ref=f55e84]:
+                  - generic [ref=f55e85]: Question bank tertiary navigation
+                  - combobox "Question bank tertiary navigation" [ref=f55e86] [cursor=pointer]:
+                    - heading "Categories" [level=2] [ref=f55e87]
+                    - text: 
+                  - text: 
+              - heading [level=2] [ref=f55e90]:
+                - text: Edit categories
+                - button "Help" [ref=f55e91] [cursor=pointer]:
+                  - img "Help with Edit categories" [ref=f55e92]: 
+              - generic [ref=f55e93]:
+                - button "Add category" [ref=f55e95] [cursor=pointer]
+                - generic [ref=f55e97]:
+                  - checkbox "Show descriptions" [ref=f55e98]
+                  - generic [ref=f55e99]: Show descriptions
+              - generic [ref=f55e100]:
+                - 'heading "Question categories for ''Question bank: System shared question bank''" [level=3] [ref=f55e101]'
+                - list [ref=f55e103]:
+                  - listitem [ref=f55e104]:
+                    - generic [ref=f55e106]:
+                      - generic [ref=f55e107]: 
+                      - generic [ref=f55e111]:
+                        - button "Collapse Álgebra" [expanded] [ref=f55e112] [cursor=pointer]:
+                          - generic "Collapse" [ref=f55e113]:
+                            - generic [aria-hidden] [ref=f55e114]: 
+                          - text:  
+                        - strong [ref=f55e117]:
+                          - generic [ref=f55e118]:
+                            - button "Álgebra (2)" [ref=f55e119] [cursor=pointer]
+                            - link [ref=f55e120] [cursor=pointer]:
+                              - /url: "#"
+                              - img "Edit category name" [ref=f55e122]: 
+                          - generic [ref=f55e123]:
+                            - generic [ref=f55e124]: ID number
+                            - text: TEMA-ALG
+                        - generic [ref=f55e126]:
+                          - button "Actions" [ref=f55e127] [cursor=pointer]:
+                            - generic [aria-hidden] [ref=f55e128]: 
+                          - text:    
+                  - listitem [ref=f55e130]:
+                    - generic [ref=f55e132]:
+                      - generic [ref=f55e133]: 
+                      - generic [ref=f55e137]:
+                        - button "Collapse Geometría" [expanded] [ref=f55e138] [cursor=pointer]:
+                          - generic "Collapse" [ref=f55e139]:
+                            - generic [aria-hidden] [ref=f55e140]: 
+                          - text:  
+                        - strong [ref=f55e143]:
+                          - generic [ref=f55e144]:
+                            - button "Geometría (2)" [ref=f55e145] [cursor=pointer]
+                            - link [ref=f55e146] [cursor=pointer]:
+                              - /url: "#"
+                              - img "Edit category name" [ref=f55e148]: 
+                          - generic [ref=f55e149]:
+                            - generic [ref=f55e150]: ID number
+                            - text: TEMA-GEO
+              
+[2026-11-02T07:46:23.715Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/2).
+[2026-11-02T07:46:23.716Z] [ia:corrector] Llamada 02 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261102-072917-spec-0/ia/02-corrector.prompt.md
+[2026-11-02T07:47:36.386Z] [uso-ia] Ventana de 5 h: 13 % usado (se reinicia 2026-11-02T12:10:00.000Z).
+[2026-11-02T07:47:36.386Z] [ia:corrector] Fin llamada 02: OK en 73s, costo USD 0.45
+    respuesta final:
+    Ya apliqué un cambio en `soporte.ts`, pero no pude confirmar la causa porque no tengo cómo abrir el trace de la corrida.
+    
+    **Causa raíz (hipótesis, no verificada):**
+    - El fallo está en `soporte.ts:194`, dentro de `agregarDesdeBanco`, y solo ocurre en el proyecto móvil. La pregunta existe: `crearPregunta` ya comprobó su fila en el banco.
+    - El filtro de categoría del modal depende de que la sugerencia del autocompletado quede seleccionada. Si el click no se registra (por ejemplo, la lista se cierra por blur en móvil), "Apply" falla la validación sin avisar (`datafilter.js:438`).
+    - Entonces la tabla sigue en la categoría por defecto y la fila nunca aparece, aunque el click en la sugerencia no haya dado error.
+    - La captura final (`test-failed-1.png`) no sirve para confirmarlo: muestra la página de categorías después de la limpieza del `finally`.
+    
+    **Qué cambié:**
+    - En `agregarDesdeBanco`, la selección de categoría ahora se repite con `toPass` hasta que el filtro muestre la categoría elegida, y solo entonces se pulsa "Apply".
+    - No toqué ninguna aserción. Siguen la espera de 30 s y el `toHaveCount(1)` sobre la fila de la pregunta, además de las verificaciones de `edit.php` en el spec.
+    - No usé `networkidle` ni reimplementé `login` o `prepararCaptura`.
+    - Ningún helper de la fábrica es la causa.
+    
+    **Sin verificar:** no corrí la prueba. Si vuelve a fallar en móvil con el filtro ya confirmado, la causa probable es que `filter.js` recarga la categoría por defecto después de "Apply". Habría que abrir `trace.zip` para ver ese orden de eventos.
+[2026-11-02T07:47:36.389Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T07:47:39.163Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T07:54:29.523Z] [pruebas] Intento 3: 8 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T08:01:51.485Z] [regresion] Suite completa: 9 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T08:01:51.503Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-0-calificacion-manual--escritorio.png, spec-0-calificacion-manual--movil.png, spec-0-cierre--escritorio.png, spec-0-cierre--movil.png, spec-0-cierre-calificado--escritorio.png, spec-0-cierre-calificado--movil.png, spec-0-crear-examen--escritorio.png, spec-0-crear-examen--movil.png, spec-0-examen-estudiante--escritorio.png, spec-0-examen-estudiante--movil.png, spec-0-intento--escritorio.png, spec-0-intento--movil.png, spec-0-resumen-envio--escritorio.png, spec-0-resumen-envio--movil.png
+[2026-11-02T08:01:52.062Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T08:01:52.167Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    

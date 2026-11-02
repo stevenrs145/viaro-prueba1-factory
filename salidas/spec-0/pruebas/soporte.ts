@@ -178,12 +178,30 @@ export async function agregarDesdeBanco(page: Page, examen: number, banco: numbe
   // Tras visitarlo, el banco también aparece en "recientes" con el mismo data-newmodid; "banks in course" siempre lo lista.
   await page.locator(`.course-shared-banks a[data-newmodid="${banco}"]`).click();
 
+  // filter.js se inicia de forma asíncrona (espera cadenas de idioma) y al terminar carga la categoría por defecto, lo que
+  // pisa un filtro aplicado antes. La primera tabla (categoría por defecto, con preguntas sembradas) marca que ya terminó.
+  await expect(page.locator('#categoryquestions tbody tr').first()).toBeVisible({ timeout: ESPERA_EDITOR });
+  await esperarModulos(page);
+
   const filtro = page.locator('[data-filter-type="category"]');
   const entrada = filtro.locator('div.form-autocomplete-input input');
-  await entrada.click();
-  await entrada.fill(categoria);
-  await filtro.locator('.form-autocomplete-suggestions li', { hasText: categoria }).click();
+  // Elegir la sugerencia puede no registrarse (en móvil la lista se cierra por blur antes del click). Si el filtro queda
+  // sin la categoría, "Apply" falla la validación en silencio (datafilter.js:438) y la tabla no cambia. Se confirma que la
+  // categoría quedó seleccionada antes de aplicar y se repite la selección hasta que sea así.
+  await expect(async () => {
+    await entrada.click();
+    await entrada.fill(categoria);
+    await filtro.locator('.form-autocomplete-suggestions li', { hasText: categoria }).click({ timeout: 5_000 });
+    await expect(filtro.locator('.form-autocomplete-selection'), 'La categoría no quedó seleccionada en el filtro').toContainText(
+      categoria,
+      { timeout: 3_000 },
+    );
+  }).toPass({ timeout: ESPERA_EDITOR });
   await page.locator('[data-filteraction="apply"]').click();
+
+  // La tabla se vacía y se recarga por fragmento: se espera a que aparezca la pregunta de la categoría filtrada.
+  await expect(filaPregunta(page, preguntas[0])).toHaveCount(1, { timeout: ESPERA_EDITOR });
+  await esperarModulos(page);
 
   for (const nombre of preguntas) {
     await filaPregunta(page, nombre).locator('input[type="checkbox"]').check();
