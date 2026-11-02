@@ -1,0 +1,185 @@
+[2026-11-02T07:11:39.250Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261102-071139-spec-0. Rama factory/spec-0-20261101-232314 (REANUDADA).
+[2026-11-02T07:11:42.389Z] [reanudar] Se reutiliza salidas/spec-0/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T07:11:42.395Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T07:11:45.731Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-02T07:18:49.628Z] [pruebas] Intento 1: 8 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T07:26:33.113Z] [regresion] Suite completa: 8 OK, 1 fallidas, 1 omitidas.
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple escritorio 1793604014404' }).locator('input[type="checkbox"]')[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.check: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#categoryquestions tbody tr').filter({ hasText: 'Spec0 opcion multiple escritorio 1793604014404' }).locator('input[type="checkbox"]')
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f55e1]:
+      - status
+      - generic [ref=f55e2]:
+        - link "Skip to main content" [ref=f55e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f55e4]:
+          - generic [ref=f55e5]:
+            - link "viaroqa" [ref=f55e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f55e9]:
+              - menuitem "Dashboard" [ref=f55e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f55e12]:
+              - generic [ref=f55e15]:
+                - switch "Edit mode" [ref=f55e16] [cursor=pointer]
+                - generic [ref=f55e17] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f55e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e28]: 
+              - button "Toggle messaging drawer" [ref=f55e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f55e31]: 
+              - button "User menu" [ref=f55e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f55e41]: PP
+                - generic [aria-hidden] [ref=f55e42]: Paula
+                - text: 
+        - generic [ref=f55e43]:
+          - generic [ref=f55e44]:
+            - generic [ref=f55e45]:
+              - link "Curso QA de Exámenes" [ref=f55e48] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Close course index" [ref=f55e50] [cursor=pointer]
+            - generic [ref=f55e54]:
+              - separator [ref=f55e55]
+              - button [expanded] [ref=f55e56] [cursor=pointer]:
+                - generic [ref=f55e57]:
+                  - generic [aria-hidden] [ref=f55e58]: 
+                  - text: Collapse all
+                - text: 
+          - navigation [ref=f55e60]:
+            - tree [ref=f55e62]:
+              - treeitem [expanded] [selected] [ref=f55e63]:
+                - generic [ref=f55e64]:
+                  - link "Collapse" [expanded] [ref=f55e65] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Collapse" [ref=f55e66]:
+                      - generic [aria-hidden] [ref=f55e67]: 
+                  - link "General" [ref=f55e69] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f55e70]:
+                  - group [ref=f55e71]:
+                    - treeitem [ref=f55e72]:
+                      - link "Examen de regresión" [ref=f55e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f55e74]:
+                - generic [ref=f55e75]:
+                  - link "Collapse" [expanded] [ref=f55e76] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Collapse" [ref=f55e77]:
+                      - generic [aria-hidden] [ref=f55e78]: 
+                  - link "New section" [ref=f55e80] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e81]:
+                - generic [ref=f55e82]:
+                  - link "Collapse" [expanded] [ref=f55e83] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Collapse" [ref=f55e84]:
+                      - generic [aria-hidden] [ref=f55e85]: 
+                  - link "New section" [ref=f55e87] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e88]:
+                - generic [ref=f55e89]:
+                  - link "Collapse" [expanded] [ref=f55e90] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Collapse" [ref=f55e91]:
+                      - generic [aria-hidden] [ref=f55e92]: 
+                  - link "New section" [ref=f55e94] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e95]:
+                - generic [ref=f55e96]:
+                  - link "Collapse" [expanded] [ref=f55e97] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Collapse" [ref=f55e98]:
+                      - generic [aria-hidden] [ref=f55e99]: 
+                  - link "New section" [ref=f55e101] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f55e102]:
+                - generic [ref=f55e103]:
+                  - link "Collapse" [expanded] [ref=f55e104] [cursor=pointer]:
+                    - /url: "#courseindexcollapse5"
+                    - text:  
+                    - generic "Collapse" [ref=f55e105]:
+                      - generic [aria-hidden] [ref=f55e106]: 
+                  - link "New section" [ref=f55e108] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=6
+                  - text: 
+                - group "New section":
+            
+[2026-11-02T07:26:34.109Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T07:26:34.246Z] [honestidad] BLOQUEADO con 14 hallazgo(s).
+    HONESTIDAD: BLOQUEADO — 14 hallazgo(s). El pipeline no puede llegar al pull request.
+    
+    1. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-calificacion-manual--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    2. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-calificacion-manual--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    3. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-cierre--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    4. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-cierre--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    5. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-cierre-calificado--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    6. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-cierre-calificado--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    7. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-crear-examen--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    8. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-crear-examen--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    9. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-examen-estudiante--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    10. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-examen-estudiante--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    11. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-intento--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    12. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-intento--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    13. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-resumen-envio--escritorio.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    14. [LINEA-BASE-SIN-REGISTRO] visual/lineas-base/spec-0-resumen-envio--movil.png
+       Imagen nueva sin entrada en APROBACIONES.json.
+    
+[2026-11-02T07:26:34.246Z] [honestidad] DETENIDO: El control de verificación honesta bloqueó la corrida. No se abre PR.

@@ -1,0 +1,479 @@
+[2026-11-01T23:23:14.711Z] [inicio] Spec specs/spec-0-regresion.md (spec-0). Corrida corridas/20261101-232314-spec-0. Rama factory/spec-0-20261101-232314.
+[2026-11-01T23:23:14.955Z] [ia:analista] Llamada 01 con plantilla analista.md (herramientas: Read, Glob, Grep)
+    prompt: corridas/20261101-232314-spec-0/ia/01-analista.prompt.md
+[2026-11-01T23:29:09.097Z] [ia:analista] Fin llamada 01: OK en 354s, costo USD 1.78
+    respuesta final:
+    ```json
+    {
+      "spec_id": "spec-0",
+      "titulo": "Regresión del camino feliz del módulo de exámenes",
+      "naturaleza": "solo-pruebas",
+      "componente": null,
+      "ruta_moodle": null,
+      "capa_justificacion": "No se necesita plugin: el spec prohíbe modificar Moodle y pide proteger comportamiento nativo, así que la capa más específica son pruebas E2E de Playwright en salidas/spec-0/pruebas/. No hay punto de extensión; se verificó que existen las superficies que se van a ejercitar: creación por public/course/modedit.php:34 y :70 (add, course) con section obligatorio si no hay sectionid (:72-74); banco en public/question/banks.php:35 (courseid); composición en public/mod/quiz/edit.php:53; intento, resumen y revisión en public/mod/quiz/attempt.php:142, summary.php:99 y review.php:116; calificación manual en public/mod/quiz/comment.php:81-102 e informe public/mod/quiz/report/grading/report.php:78-92. Lógica de notas verificada: public/question/engine/questionusage.php:387-395 y public/question/behaviour/manualgraded/behaviour.php:112-116. Filas de la revisión: public/mod/quiz/classes/output/attempt_summary_information.php:305-329. Las pruebas son compatibles con el control de honestidad si cada test conserva sus expect en el cuerpo del test (factory/honestidad/analisis.mjs:59 no cuenta los que estén en funciones auxiliares). Con componente null, la mutación sin funcionalidad no aplica (factory/cli.mjs:99).",
+      "bordes": [
+        {
+          "descripcion": "La restricción dice 'usa el examen sembrado', pero CA-1 y CA-2 piden crear un examen y agregarle preguntas.",
+          "decision": "CA-1 y CA-2 crean y luego eliminan un examen propio llamado 'Spec0 <proyecto> <timestamp>', que no contiene el texto 'Examen de regresión'. CA-3, CA-4, CA-5 y las capturas de estudiante usan QUIZ-REG.",
+          "criterio": "No se puede crear un examen ya sembrado. Cambiar QUIZ-REG afectaría a todos los specs y sus preguntas se bloquean en cuanto tiene intentos. El nombre evita que abrirQuiz, que filtra con hasText y first(), tome el examen equivocado.",
+          "preguntaria": "¿La restricción de usar datos sembrados excluye a CA-1 y CA-2, o esperan otro mecanismo?"
+        },
+        {
+          "descripcion": "El escenario 'responde completo sin ensayo' no se puede cumplir con otro examen, porque QUIZ-REG incluye un ensayo en la pregunta 6.",
+          "decision": "El estudiante responde las preguntas 1 a 5 y deja el ensayo vacío.",
+          "criterio": "Un ensayo vacío queda en estado gaveup, no needsgrading (behaviour.php:112-113), y get_total_mark solo devuelve null ante needsgrading (questionusage.php:390). La nota se calcula sin calificación manual y el ensayo vale 0.",
+          "preguntaria": "¿'Sin ensayo' significa dejarlo en blanco o se necesita un examen sembrado sin ensayo?"
+        },
+        {
+          "descripcion": "El spec no fija qué nota debe verse.",
+          "decision": "Se comparan valores exactos. Sin ensayo se responde One, True, Two (incorrecta), True, True: Marks '4.00/6.00', Grade '6.67 out of 10.00 (6
+[2026-11-01T23:29:09.103Z] [analisis] Plan válido en intento 1: capa (solo pruebas) — 7 criterios, 16 bordes.
+[2026-11-01T23:29:09.115Z] [ia:implementador] Llamada 02 con plantilla implementador.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261101-232314-spec-0/ia/02-implementador.prompt.md
+[2026-11-01T23:42:24.258Z] [ia:implementador] Fin llamada 02: OK en 795s, costo USD 5.03
+    respuesta final:
+    Las pruebas de spec-0 y el reporte de cobertura están escritos, pero **ninguna prueba se ejecutó todavía**. Esta sesión no tiene shell, así que los selectores salen del código de Moodle 5.3 y de sus pruebas Behat. Tampoco corrí Playwright, TypeScript ni el control de honestidad; solo revisé las reglas de `analisis.mjs` a mano. El primer resultado real saldrá de la corrida de la fábrica.
+    
+    ## Archivos creados en `salidas/spec-0/`
+    - `pruebas/soporte.ts`: helpers propios de este spec.
+    - `pruebas/01-profesor-examen.spec.ts`
+    - `pruebas/02-estudiante-sin-ensayo.spec.ts`
+    - `pruebas/03-calificacion-manual.spec.ts`
+    - `cobertura.md`
+    
+    ## Qué cubre cada prueba
+    
+    | Prueba | Criterios | Capturas |
+    |---|---|---|
+    | Un profesor crea y configura un examen | CA-1, CA-6 | `crear-examen` |
+    | Un profesor crea preguntas en el banco y las agrega | CA-2 | ninguna |
+    | Un estudiante responde, navega, envía y ve su nota | CA-3, CA-4, CA-6 | `examen-estudiante`, `intento`, `resumen-envio`, `cierre` |
+    | Un profesor califica un ensayo y la nota se actualiza | CA-5, CA-6 | `calificacion-manual`, `cierre-calificado` |
+    
+    Son 7 pantallas por 2 viewports, o sea 14 imágenes. PROC-1 queda cubierto por `cobertura.md`, con las 6 exclusiones del spec y los huecos del plan.
+    
+    ## Decisiones fuera del plan
+    - **Categoría temporal en CA-2:** el banco sembrado no tiene categoría por defecto, así que abre en Álgebra. Por eso la prueba crea una categoría `Spec0 categoria …`, filtra por ella en el modal del examen y la borra al final. Así las preguntas no terminan en Álgebra, como pide el plan.
+    - **Más aserciones sobre la limpieza en CA-2:** también se verifica que la categoría temporal ya no existe y que Álgebra sigue en su lugar.
+    - **Tiempo de CA-2:** usa `test.setTimeout(240_000)` en lugar de 180 s, porque ese recorrido carga varios formularios con TinyMCE.
+    - **`view.php` sin tabla:** Moodle 5.3 muestra los intentos en tarjetas. La prueba compara la fila Grade con el valor exacto y también `#feedback` (por ejemplo, `6.67 / 10.00`), no una celda con la nota.
+    - **Ventana de calificación:** antes de cambiar de usuario, la prueba espera `5.50/6.00` en la página de origen, para confirmar que se recargó y evitar una carrera con el cierre del popup.
+    
+    ## Riesgos a mirar en la primera corrida
+    - **Puntos más frágiles:** es lo más probable que falle:
+      - el modal de "Add category";
+      - el filtro de categoría dentro del modal del examen;
+      - el recorrido completo en móvil.
+    - **Residuos entre pruebas:** el plan da por hecho que un residuo no provoca falsos fallos, pero un examen `Spec0` que quede de una prueba cortada podría aparecer en el índice del curso y alterar capturas de escritorio. No lo confirmé y quedó declarado en `cobertura.md`.
+    - **Conocimiento de plataforma:** `factory/conocimiento/moodle-5.3.md` no dice que el banco sembrado carece de categoría por defecto. Conviene agregarlo, pero este spec no puede editar ese archivo.
+[2026-11-01T23:42:24.261Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-01T23:42:27.376Z] [despliegue] Plugins: (ninguno) — upgrade OK
+[2026-11-01T23:55:20.398Z] [pruebas] Intento 1: 4 OK, 4 fallidas, 0 omitidas.
+    ### escritorio · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    [31mTest timeout of 240000ms exceeded.[39m
+    
+    ### movil · [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    [31mTest timeout of 240000ms exceeded.[39m
+    
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms[22m
+    [2m  - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })[22m
+    
+    
+    ### movil · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })
+    Expected: visible
+    Timeout: 15000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" locator('.modal-footer button').filter({ hasText: 'Submit all and finish' }) with timeout 15000ms[22m
+    [2m  - waiting for locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:46:1
+    
+    # Error details
+    
+    ```
+    Test timeout of 240000ms exceeded.
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f6e1]:
+      - status
+      - generic [ref=f6e2]:
+        - link "Skip to main content" [ref=f6e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f6e4]:
+          - generic [ref=f6e5]:
+            - link "viaroqa" [ref=f6e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f6e9]:
+              - menuitem "Dashboard" [ref=f6e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f6e12]:
+              - generic [ref=f6e15]:
+                - switch "Edit mode" [ref=f6e16] [cursor=pointer]
+                - generic [ref=f6e17] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f6e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f6e28]: 
+              - button "Toggle messaging drawer" [ref=f6e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f6e31]: 
+              - button "User menu" [ref=f6e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f6e41]: PP
+                - generic [aria-hidden] [ref=f6e42]: Paula
+                - text: 
+        - generic [ref=f6e43]:
+          - generic [ref=f6e44]:
+            - generic [ref=f6e45]:
+              - link "Curso QA de Exámenes" [ref=f6e48] [cursor=pointer]:
+                - /url: http://localhost:8090/course/view.php?id=2
+              - button "Close course index" [ref=f6e50] [cursor=pointer]
+            - generic [ref=f6e54]:
+              - separator [ref=f6e55]
+              - button [expanded] [ref=f6e56] [cursor=pointer]:
+                - generic [ref=f6e57]:
+                  - generic [aria-hidden] [ref=f6e58]: 
+                  - text: Collapse all
+                - text: 
+          - navigation [ref=f6e60]:
+            - tree [ref=f6e62]:
+              - treeitem [expanded] [selected] [ref=f6e63]:
+                - generic [ref=f6e64]:
+                  - link "Collapse" [expanded] [ref=f6e65] [cursor=pointer]:
+                    - /url: "#courseindexcollapse0"
+                    - text:  
+                    - generic "Collapse" [ref=f6e66]:
+                      - generic [aria-hidden] [ref=f6e67]: 
+                  - link "General" [ref=f6e69] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=1
+                  - text: 
+                - group "General" [ref=f6e70]:
+                  - group [ref=f6e71]:
+                    - treeitem [ref=f6e72]:
+                      - link "Examen de regresión" [ref=f6e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                      - text: 
+              - treeitem [expanded] [ref=f6e74]:
+                - generic [ref=f6e75]:
+                  - link "Collapse" [expanded] [ref=f6e76] [cursor=pointer]:
+                    - /url: "#courseindexcollapse1"
+                    - text:  
+                    - generic "Collapse" [ref=f6e77]:
+                      - generic [aria-hidden] [ref=f6e78]: 
+                  - link "New section" [ref=f6e80] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=2
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f6e81]:
+                - generic [ref=f6e82]:
+                  - link "Collapse" [expanded] [ref=f6e83] [cursor=pointer]:
+                    - /url: "#courseindexcollapse2"
+                    - text:  
+                    - generic "Collapse" [ref=f6e84]:
+                      - generic [aria-hidden] [ref=f6e85]: 
+                  - link "New section" [ref=f6e87] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=3
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f6e88]:
+                - generic [ref=f6e89]:
+                  - link "Collapse" [expanded] [ref=f6e90] [cursor=pointer]:
+                    - /url: "#courseindexcollapse3"
+                    - text:  
+                    - generic "Collapse" [ref=f6e91]:
+                      - generic [aria-hidden] [ref=f6e92]: 
+                  - link "New section" [ref=f6e94] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=4
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f6e95]:
+                - generic [ref=f6e96]:
+                  - link "Collapse" [expanded] [ref=f6e97] [cursor=pointer]:
+                    - /url: "#courseindexcollapse4"
+                    - text:  
+                    - generic "Collapse" [ref=f6e98]:
+                      - generic [aria-hidden] [ref=f6e99]: 
+                  - link "New section" [ref=f6e101] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=5
+                  - text: 
+                - group "New section":
+                  - group
+              - treeitem [expanded] [ref=f6e102]:
+                - generic [ref=f6e103]:
+                  - link "Collapse" [expanded] [ref=f6e104] [cursor=pointer]:
+                    - /url: "#courseindexcollapse5"
+                    - text:  
+                    - generic "Collapse" [ref=f6e105]:
+                      - generic [aria-hidden] [ref=f6e106]: 
+                  - link "New section" [ref=f6e108] [cursor=pointer]:
+                    - /url: http://localhost:8090/course/section.php?id=6
+                  - text: 
+                - group "New section":
+                  - group
+        - generic [ref=f6e109]:
+          - generic [ref=f6e110]:
+            - banner [ref=f6e111]:
+              - generic [ref=f6e112]:
+                - navigation "Breadcrumb" [ref=f6e115]:
+                  - list [ref=f6e116]:
+                    - listitem [ref=f6e11
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-2] un profesor crea preguntas en el banco y las agrega a un examen
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:46:1
+    
+    # Error details
+    
+    ```
+    Test timeout of 240000ms exceeded.
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f6e1]:
+      - status
+      - generic [ref=f6e2]:
+        - link "Skip to main content" [ref=f6e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Site navigation" [ref=f6e4]:
+          - generic [ref=f6e5]:
+            - button "Side panel" [ref=f6e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f6e9]:
+              - generic [ref=f6e12]:
+                - switch "Edit mode" [ref=f6e13] [cursor=pointer]
+                - generic [ref=f6e14] [cursor=pointer]: Edit mode
+              - button "Show notification window with no new notifications" [ref=f6e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f6e25]: 
+              - button "Toggle messaging drawer" [ref=f6e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f6e28]: 
+              - button "User menu" [ref=f6e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f6e38]: PP
+                - text: 
+        - generic [ref=f6e39]:
+          - generic [ref=f6e40]:
+            - button "Open course index" [ref=f6e42] [cursor=pointer]
+            - banner [ref=f6e46]:
+              - generic [ref=f6e47]:
+                - navigation "Breadcrumb" [ref=f6e50]:
+                  - list [ref=f6e51]:
+                    - listitem [ref=f6e52]:
+                      - link "QA101" [ref=f6e53] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f6e54]:
+                      - text: /
+                      - link "Question banks" [ref=f6e55] [cursor=pointer]:
+                        - /url: http://localhost:8090/question/banks.php?courseid=2
+                    - listitem [ref=f6e56]:
+                      - text: /
+                      - generic [ref=f6e57]: System shared question bank
+                - heading "System shared question bank" [level=1] [ref=f6e66]
+            - navigation "Activity menu" [ref=f6e69]:
+              - menubar [ref=f6e70]:
+                - menuitem "Question bank" [ref=f6e71] [cursor=pointer]
+                - menuitem "Settings" [ref=f6e73] [cursor=pointer]
+                - menuitem "More " [ref=f6e75] [cursor=pointer]:
+                  - generic [ref=f6e76]: More
+                  - text: 
+            - main [ref=f6e81]:
+              - alert [ref=f6e82]: The adhoc tasks \mod_qbank\task\transfer_question_categories and \mod_qbank\task\transfer_questions are not yet complete or have failed. Questions previously created in different contexts may not be transferred to course shared question banks yet. Questions can't be managed or shared until these tasks are complete.
+          - contentinfo [ref=f6e83]:
+            - generic: "?"
+            - generic [ref=f6e84]:
+              - generic [ref=f6e85]:
+                - link "Documentation for this page" [ref=f6e87] [cursor=pointer]:
+                  - /url: https://docs.moodle.org/503/en/question/edit
+                  - generic [aria-hidden] [ref=f6e88]: 
+                  - text: Documentation for this page
+                - link "Contact site support" [ref=f6e90] [cursor=pointer]:
+                  - /url: http://localhost:8090/user/contactsitesupport.php
+                  - generic [aria-hidden] [ref=f6e91]: 
+                  - text: Contact site support
+              - generic [ref=f6e92]:
+                - generic [ref=f6e94]:
+                  - text: You are logged in as
+                  - link "Paula Profesora" [ref=f6e95] [cursor=pointer]:
+                    - /url: http://localhost:8090/user/profile.php?id=3
+                  - text: (
+                  - link "Log out" [ref=f6e96] [cursor=pointer]:
+                    - /url: http://localhost:8090/login/logout.php?sesskey=FGMG63XsHb
+                  - text: )
+                - link "Data retention summary" [ref=f6e99] [cursor=pointer]:
+                  - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+                - link "Switch to the standard theme" [ref=f6e101] [cursor=pointer]:
+                  - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Fquestion%2Fedit.php%3Fcmid%3D1%26amp%3Bcat%3D12%252C20&device=default&sesskey=FGMG63XsHb
+              - generic [ref=f6e103]:
+                - text: Powered by
+                - link "Moodle" [ref=f6e104] [cursor=pointer]:
+                  - /url: https://moodle.com
+    ```
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts >> [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    - Location: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeVisible() failed
+    
+    Locator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeVisible" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms
+      - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Skip to main content":
+      - /url: "#maincontent"
+    - navigation "Site navigation":
+      - link "viaroqa":
+        - /url: http://localhost:8090/my/
+      - menubar:
+        - menuitem "Dashboard"
+      - switch "Edit mode"
+      - text: Edit mode
+      - button "Show notification window with no new notifications"
+      - button "Toggle messaging drawer"
+      - button "User menu":
+        - img "Paula Profesora": PP
+        - text: 
+    - link "Curso QA de Exámenes":
+      - /url: http://localhost:8090/course/view.php?id=2
+    - button "Close course index"
+    - separator
+    - button "Collapse all" [expanded]
+    - navigation:
+      - tree:
+        - treeitem "General" [expanded] [selected]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse0"
+          - link "General":
+            - /url: http://localhost:8090/course/section.php?id=1
+          - group "General":
+            - group:
+              - treeitem "Examen de regresión":
+                - link "Examen de regresión":
+                  - /url: http://localhost:8090/mod/quiz/view.php?id=2
+        - treeitem "New section" [expanded]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse1"
+          - link "New section":
+            - /url: http://localhost:8090/course/section.php?id=2
+          - group "New section":
+            - group
+        - treeitem "New section" [expanded]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse2"
+          - link "New section":
+            - /url: http://localhost:8090/course/section.php?id=3
+          - group "New section":
+            - group
+        - treeitem "New section" [expanded]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse3"
+          - link "New section":
+            - /url: http://localhost:8090/course/section.php?id=4
+          - group "New section":
+            - group
+        - treeitem "New section" [expanded]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse4"
+          - link "New section":
+            - /url: http://localhost:8090/course/section.php?id=5
+          - group "New section":
+            - group
+        - treeitem "New section" [expanded]:
+          - link "Collapse" [expanded]:
+            - /url: "#courseindexcollapse5"
+          - link "New section":
+            - /url: http://localhost:8090/course/section.php?id=6
+          - group "New section":
+            - group
+    - banner:
+      - navigation "Breadcrumb":
+        - list:
+          - listitem:
+            - link "QA101":
+              - /url: http://localhost:8090/course/view.php?id=2
+          - listitem:
+            - text: /
+            - link "General":
+              - /url: http://localhost:8090/course/section.php?id=1
+          - listitem:
+            - text: /
+            - link "Examen de regresión":
+              - /url: http://localhost:8090/mod/quiz/view.php?id=2
+          - listitem:
+            - text: /
+            - link "Results":
+              - /url: http://localhost:8090/mod/quiz/report.php?id=2&mode=overview
+          - listitem: / Grades
+      - heading "Examen de regresión" [level=1]
+    - navigation "Activity menu":
+      - menubar:
+        - menuitem "Quiz"
+        - menuitem "Settings"
+        - menuitem "Questions"
+        - menuitem "Results"
+        - menuitem "Question bank"
+        - menuitem "More "
+    - main:
+      - navigation:
+        - text: Browse settings with this index.
+[2026-11-01T23:55:20.408Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-01T23:55:20.411Z] [ia:corrector] Llamada 03 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-0/**), Edit(salidas/spec-0/**))
+    prompt: corridas/20261101-232314-spec-0/ia/03-corrector.prompt.md
+[2026-11-01T23:58:43.550Z] [ia:corrector] Fin llamada 03: ERROR en 203s, costo USD 2.09
+    stderr:
+    
+[2026-11-01T23:58:43.551Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-01T23:58:47.824Z] [despliegue] Plugins: (ninguno) — upgrade OK
