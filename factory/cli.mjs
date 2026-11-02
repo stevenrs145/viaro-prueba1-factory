@@ -19,6 +19,8 @@ const MAX_REINTENTOS = Number(process.env.FACTORY_REINTENTOS || 3);
 const [, , comando, ...resto] = process.argv;
 const opt = (n) => { const i = resto.indexOf(n); return i >= 0 ? resto[i + 1] : null; };
 const ETAPAS_RUN = ['precondicion', 'analisis', 'sondas', 'implementacion', 'pruebas', 'mutacion', 'regresion', 'alcance', 'honestidad', 'pr'];
+// Reglas del auditor que se ven sin ejecutar nada: mejor corregirlas antes de gastar una corrida de pruebas.
+const REGLAS_ESTATICAS = new Set(['SIN-ASSERTS', 'ASSERT-TRIVIAL', 'ASSERT-SIN-AWAIT', 'ERROR-TRAGADO', 'RED-SIMULADA', 'TEST-ONLY', 'OMISION-NUEVA', 'OMITIDA']);
 const ETAPAS_SUITE = ['precondicion', 'pruebas', 'honestidad'];
 let corridaActiva = null;
 
@@ -293,6 +295,8 @@ function validacionesEstaticas(c, specDir, plan) {
   if (!pruebas.length) p.push(`No hay pruebas en ${specDir}/pruebas/*.spec.ts`);
   const textoPruebas = pruebas.map((f) => leer(f)).join('\n');
   p.push(...copiasDeHelpers(archivos(`${specDir}/pruebas`, (f) => f.endsWith('.ts')).map((f) => ({ archivo: f, texto: leer(f) }))));
+  // El corrector puede resolverlas; si llegaran a la etapa 8 detendrían la corrida sin PR.
+  p.push(...auditar({}).hallazgos.filter((h) => REGLAS_ESTATICAS.has(h.regla)).map((h) => `[${h.regla}] ${h.donde}: ${h.detalle}`));
   for (const ca of plan.criterios) {
     if (ca.verificacion === 'proceso') continue;
     if (!textoPruebas.includes(`[${ca.id}]`)) p.push(`Ninguna prueba cubre ${ca.id} (el título debe incluir "[${ca.id}]").`);

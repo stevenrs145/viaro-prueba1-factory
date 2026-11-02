@@ -31,6 +31,7 @@ Podés leer `entorno/.moodle-src/` (Moodle real) y `factory/regresion/` (helpers
 - Infraestructura: usá `login()`, `prepararCaptura()` y `enviarIntento()` de los helpers. No escribas tu propia versión ni un
   envoltorio con reintentos, y no uses `'networkidle'`, que en Moodle nunca se cumple. Si un helper falla, es un defecto de la
   fábrica: reportalo en tu respuesta. La validación estática rechaza `'networkidle'`, `#loginbtn` y `/login/index.php`.
+- Cada `test(...)` debe tener al menos un `expect(` en su propio cuerpo: el auditor no cuenta los que están dentro de funciones auxiliares.
 - Comportamiento real: nada de `page.route`/`route.fulfill`, nada de `expect(true)`, nada de `.catch(() => {})`,
   nada de `test.skip/fixme/only`, nada de `expect.soft`. Matchers concretos (`toHaveText`, `toHaveCount`, `toBeVisible`, `toHaveURL`, `toEqual`), no `toBeTruthy`.
 - Datos: usá el curso QA101, el examen "Examen de regresión" y los usuarios sembrados. Si necesitás configurar algo
