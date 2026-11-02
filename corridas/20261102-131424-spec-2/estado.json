@@ -3,7 +3,7 @@
   "spec": "specs/spec-2-notificacion-externa.md",
   "rama": "factory/spec-2-20261102-110616",
   "reanudada": true,
-  "estado": "EJECUTADO",
+  "estado": "VALIDADO",
   "etapas": {
     "precondicion": {
       "estado": "VALIDADO",
@@ -51,9 +51,9 @@
       "actualizado": "2026-11-02T14:47:37.695Z"
     },
     "pr": {
-      "estado": "PENDIENTE",
-      "detalle": null,
-      "actualizado": null
+      "estado": "EJECUTADO",
+      "detalle": "PR propuesto: (local) corridas/20261102-131424-spec-2/pr.md. Pendiente de aprobación humana.",
+      "actualizado": "2026-11-02T15:02:40.261Z"
     }
   }
 }

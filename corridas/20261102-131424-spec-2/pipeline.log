@@ -35,3 +35,6 @@
 [2026-11-02T14:47:37.694Z] [honestidad] OK.
     HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
     
+[2026-11-02T15:02:40.261Z] [pr] No se pudo hacer push (¿sin remoto/credenciales?). El PR queda descrito en pr.md.
+    Error: spawnSync bash ETIMEDOUT
+[2026-11-02T15:02:40.262Z] [fin] PR propuesto: (local) corridas/20261102-131424-spec-2/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.
