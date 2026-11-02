@@ -1,0 +1,209 @@
+<testsuites id="" name="" tests="30" failures="1" skipped="1" errors="1" time="906.008411">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="35.781" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="35.781">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="108.108" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="31.999">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="page.waitForFunction: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1 › [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso 
+
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+
+       at salidas/spec-0/pruebas/soporte.ts:30
+
+      28 | export async function esperarModulos(page: Page) {
+      29 |   await page.waitForLoadState('load');
+    > 30 |   await page.waitForFunction(() => (window as unknown as { M?: { util?: { pending_js?: unknown[] } } }).M?.util?.pending_js?.length === 0);
+         |              ^
+      31 | }
+      32 |
+      33 | export async function idCursoQA101(page: Page): Promise<number> {
+        at esperarModulos (/work/salidas/spec-0/pruebas/soporte.ts:30:14)
+        at cerrarIndiceCurso (/work/salidas/spec-0/pruebas/soporte.ts:59:3)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:23:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="76.109">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="35.071" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="35.071">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="45.898" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="45.898">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="4" failures="0" skipped="0" time="129.022" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="22.989">
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="40.626">
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="21.22">
+</testcase>
+<testcase name="[CA-1] si el profesor oculta las notas la sección no las filtra" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="44.187">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="5" failures="0" skipped="0" time="97.496" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="24.713">
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="23.847">
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="15.967">
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="24.177">
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="8.792">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="22.023" errors="0">
+<testcase name="[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando" classname="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" time="22.023">
+</testcase>
+</testsuite>
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.003" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="2" failures="0" skipped="0" time="101.903" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="26.128">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="75.775">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="1" failures="1" skipped="0" time="25.676" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="25.676">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../visual/lineas-base/spec-0-resumen-envio--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-diff.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [movil] › salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1 › [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      4920 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: spec-0-resumen-envio.png
+
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-resumen-envio.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      43 |   for (const pregunta of [1, 2, 3, 4, 5]) await expect(filaEnResumen(page, pregunta)).toHaveClass(/\banswersaved\b/);
+      44 |   await expect(filaEnResumen(page, 6)).toHaveClass(/\bnotyetanswered\b/);
+    > 45 |   await expect(page).toHaveScreenshot('spec-0-resumen-envio.png', { fullPage: true, mask: await prepararCaptura(page) });
+         |                      ^
+      46 |
+      47 |   // "Volver al intento" es el primer botón de la página (renderer.php:842-848).
+      48 |   await page.locator('div.submitbtns').first().getByRole('button').click();
+        at /work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:45:22
+
+    attachment #1: spec-0-resumen-envio (image/png) ────────────────────────────────────────────────
+    Expected: visual/lineas-base/spec-0-resumen-envio--movil.png
+    Received: corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-actual.png
+    Diff:     corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="1" failures="0" skipped="0" time="48.852" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="48.852">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="4" failures="0" skipped="0" time="124.395" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="21.768">
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="39.32">
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="21.369">
+</testcase>
+<testcase name="[CA-1] si el profesor oculta las notas la sección no las filtra" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="41.938">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="5" failures="0" skipped="0" time="98.27" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="23.53">
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="24.217">
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="16.161">
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="25.851">
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="8.511">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" timestamp="2026-11-02T19:59:42.461Z" hostname="movil" tests="1" failures="0" skipped="0" time="22.69" errors="0">
+<testcase name="[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando" classname="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" time="22.69">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,54 @@
+<testsuites id="" name="" tests="20" failures="0" skipped="0" errors="0" time="511.781475">
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="escritorio" tests="4" failures="0" skipped="0" time="133.033" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="23.392">
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="42.624">
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="25.616">
+</testcase>
+<testcase name="[CA-1] si el profesor oculta las notas la sección no las filtra" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="41.401">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="escritorio" tests="5" failures="0" skipped="0" time="99.968" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="25.552">
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="23.838">
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="16.615">
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="25.346">
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="8.617">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="21.94" errors="0">
+<testcase name="[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando" classname="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" time="21.94">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="movil" tests="4" failures="0" skipped="0" time="131.219" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="22.002">
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="40.671">
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="22.61">
+</testcase>
+<testcase name="[CA-1] si el profesor oculta las notas la sección no las filtra" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="45.936">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="movil" tests="5" failures="0" skipped="0" time="98.593" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="25.645">
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="22.669">
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="15.975">
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="25.072">
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="9.232">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" timestamp="2026-11-02T19:26:01.571Z" hostname="movil" tests="1" failures="0" skipped="0" time="20.836" errors="0">
+<testcase name="[CA-4] la nota, la revisión de respuestas y la navegación siguen funcionando" classname="salidas/spec-3/pruebas/03-cierre-intacto.spec.ts" time="20.836">
+</testcase>
+</testsuite>
+</testsuites>

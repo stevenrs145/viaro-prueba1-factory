@@ -1,0 +1,296 @@
+[2026-11-02T19:24:25.599Z] [inicio] Spec specs/spec-3-resumen-por-tema.md (spec-3). Corrida corridas/20261102-192425-spec-3. Rama factory/spec-3-20261102-171629 (REANUDADA).
+[2026-11-02T19:24:26.130Z] [reanudar] Se reutiliza salidas/spec-3/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T19:24:32.603Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T19:25:13.439Z] [despliegue] Plugins: local_resumentema — upgrade OK
+[2026-11-02T19:34:30.297Z] [pruebas] Intento 1: 20 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T19:34:33.372Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T19:42:38.557Z] [mutacion] Sin la funcionalidad: 16 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T19:59:30.150Z] [visual] Cambios visuales declarados por el plan (spec-0-cierre, spec-0-crear-examen): se proponen 1 líneas base, pendientes de aprobación humana.
+    visual/lineas-base/spec-0-cierre--escritorio.png
+[2026-11-02T19:59:30.156Z] [visual] Imágenes esperada/obtenida/diferencia copiadas a visual/diferencias/20261102-192425-spec-3/
+[2026-11-02T20:14:44.725Z] [regresion] Suite completa: 27 OK, 2 fallidas, 1 omitidas.
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+    
+    ### movil · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-resumen-envio.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-resumen-envio.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 4920 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 4920 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: page.waitForFunction: Timeout 15000ms exceeded.
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Salta al contenido principal" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - link "Viaro" [ref=f3e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f3e9]:
+              - menuitem "Área personal" [ref=f3e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f3e12]:
+              - generic [ref=f3e15]:
+                - switch "Modo de edición" [ref=f3e16] [cursor=pointer]
+                - generic [ref=f3e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f3e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f3e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e31]: 
+              - button "Menú de usuario" [ref=f3e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f3e41]: PP
+                - generic [aria-hidden] [ref=f3e42]: Paula
+                - text: 
+        - generic [ref=f3e43]:
+          - generic [ref=f3e44]:
+            - button "Abrir índice del curso" [ref=f3e46] [cursor=pointer]
+            - banner [ref=f3e50]:
+              - heading "Curso QA de Exámenes" [level=1] [ref=f3e57]
+            - navigation "Menú de Curso" [ref=f3e60]:
+              - menubar [ref=f3e61]:
+                - menuitem "Curso" [ref=f3e62] [cursor=pointer]
+                - menuitem "Configuración" [ref=f3e65] [cursor=pointer]
+                - menuitem "Participantes" [ref=f3e67] [cursor=pointer]
+                - menuitem "Calificaciones" [ref=f3e69] [cursor=pointer]
+                - menuitem "Actividades" [ref=f3e71] [cursor=pointer]
+                - menuitem "Más " [ref=f3e73] [cursor=pointer]:
+                  - generic [ref=f3e74]: Más
+                  - text: 
+            - main [ref=f3e78]:
+              - heading "Nuevo Cuestionario" [level=2] [ref=f3e80]
+              - generic [ref=f3e81]:
+                - button "Expandir todo" [ref=f3e83] [cursor=pointer]
+                - group "General" [ref=f3e85]:
+                  - generic [ref=f3e88]:
+                    - button "General" [expanded] [ref=f3e89] [cursor=pointer]:
+                      - generic "Colapsar" [ref=f3e90]:
+                        - generic [aria-hidden] [ref=f3e91]: 
+                      - text:  
+                    - heading [level=3] [aria-hidden] [ref=f3e93]: General
+                  - generic [ref=f3e94]:
+                    - generic [ref=f3e95]:
+                      - generic [ref=f3e96]:
+                        - generic [ref=f3e97]: Nombre
+                        - generic [aria-hidden] [ref=f3e100]: 
+                      - textbox "Nombre" [ref=f3e102]
+                    - generic [ref=f3e103]:
+                      - generic [ref=f3e104]: Descripción
+                      - application [ref=f3e109]:
+                        - generic [ref=f3e110]:
+                          - generic [ref=f3e111]:
+                            - menubar [ref=f3e113]:
+                              - menuitem "Editar" [ref=f3e114] [cursor=pointer]
+                              - menuitem "Ver" [ref=f3e116] [cursor=pointer]
+                              - menuitem "Insertar" [ref=f3e118] [cursor=pointer]
+                              - menuitem "Formato" [ref=f3e120] [cursor=pointer]
+                              - menuitem "Herramientas" [ref=f3e122] [cursor=pointer]
+                              - menuitem "Tabla" [ref=f3e124] [cursor=pointer]
+                              - menuitem "Ayuda" [ref=f3e126] [cursor=pointer]
+                            - group [ref=f3e128]:
+                              - toolbar [ref=f3e129]:
+                                - group "historial" [ref=f3e130]:
+                                  - button "Deshacer" [disabled] [ref=f3e131]
+                                  - button "Rehacer" [disabled] [ref=f3e132]
+                                - group "formato" [ref=f3e133]:
+                                  - button "Negrita" [ref=f3e134] [cursor=pointer]
+                                  - button "Cursiva" [ref=f3e135] [cursor=pointer]
+                                - group "content" [ref=f3e136]:
+                                  - button "Imagen" [ref=f3e137] [cursor=pointer]
+                                  - button "Multimedios" [ref=f3e138] [cursor=pointer]
+                                  - button "Grabar audio" [ref=f3e139] [cursor=pointer]
+                                  - button "Grabar video" [ref=f3e140] [cursor=pointer]
+                                  - button "Configurar contenido H5P" [ref=f3e141] [cursor=pointer]
+                                  - button "Enlace" [ref=f3e142] [cursor=pointer]
+                                  - button "Desenlanzar" [ref=f3e143] [cursor=pointer]
+                                - group "Ver" [ref=f3e144]:
+                                  - button "Pantalla completa" [ref=f3e145] [cursor=pointer]
+                                - group [ref=f3e146]:
+                                  - button "Mostrar u ocultar elementos adicionales de la barra de herramientas" [ref=f3e147] [cursor=pointer]
+                          - iframe [ref=f3e150]:
+                            - generic "Descripción. Rich text area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help." [ref=f4e1]:
+                              - paragraph [ref=f4e2]
+                        - generic [ref=f3e151]:
+                          - generic [ref=f3e152]:
+                            - group "Element Path" [ref=f3e153]:
+                              - button "p" [ref
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts >> [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    - Location: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-resumen-envio.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-resumen-envio.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 4920 pixels (ratio 0.01 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f9e1]:
+      - status
+      - generic [ref=f9e2]:
+        - link "Salta al contenido principal" [ref=f9e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f9e4]:
+          - generic [ref=f9e5]:
+            - button "Panel lateral" [ref=f9e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f9e9]:
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f9e11] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f9e12]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f9e14] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f9e15]: 
+              - button "Menú de usuario" [ref=f9e21] [cursor=pointer]:
+                - img "Estudiante Número 2" [ref=f9e25]: EN
+                - text: 
+        - generic [ref=f9e26]:
+          - generic [ref=f9e27]:
+            - banner [ref=f9e28]:
+              - generic [ref=f9e29]:
+                - navigation "Camino de migas" [ref=f9e32]:
+                  - list [ref=f9e33]:
+                    - listitem [ref=f9e34]:
+                      - link "QA101" [ref=f9e35] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f9e36]:
+                      - text: /
+                      - link "General" [ref=f9e37] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f9e38]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f9e39] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f9e40]:
+                      - text: /
+                      - generic [ref=f9e41]: Resumen del intento
+                - heading "Examen de regresión" [level=1] [ref=f9e50]
+            - main [ref=f9e55]:
+              - link "Atrás" [ref=f9e59] [cursor=pointer]:
+                - /url: http://localhost:8090/mod/quiz/view.php?id=2
+              - heading "Examen de regresión" [level=2] [ref=f9e60]
+              - heading "Resumen del intento" [level=3] [ref=f9e61]
+              - table [ref=f9e63]:
+                - rowgroup [ref=f9e64]:
+                  - row [ref=f9e65]:
+                    - columnheader "Pregunta" [ref=f9e66]
+                    - columnheader "Estatus" [ref=f9e67]
+                - rowgroup [ref=f9e68]:
+                  - row [ref=f9e69]:
+                    - rowheader [ref=f9e70]
+                  - row [ref=f9e71]:
+                    - cell [ref=f9e72]:
+                      - link "1" [ref=f9e73] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2#
+                    - cell "Respuesta guardada" [ref=f9e74]
+                  - row [ref=f9e75]:
+                    - cell [ref=f9e76]:
+                      - link "2" [ref=f9e77] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2#question-502-2
+                    - cell "Respuesta guardada" [ref=f9e78]
+                  - row [ref=f9e79]:
+                    - cell [ref=f9e80]:
+                      - link "3" [ref=f9e81] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2&page=1#
+                    - cell "Respuesta guardada" [ref=f9e82]
+                  - row [ref=f9e83]:
+                    - cell [ref=f9e84]:
+                      - link "4" [ref=f9e85] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2&page=1#question-502-4
+                    - cell "Respuesta guardada" [ref=f9e86]
+                  - row [ref=f9e87]:
+                    - cell [ref=f9e88]:
+                      - link "5" [ref=f9e89] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2&page=2#
+                    - cell "Respuesta guardada" [ref=f9e90]
+                  - row [ref=f9e91]:
+                    - cell [ref=f9e92]:
+                      - link "6" [ref=f9e93] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/attempt.php?attempt=502&cmid=2&page=2#question-502-6
+                    - cell "Sin responder aún" [ref=f9e94]
+              - button "Volver al intento" [ref=f9e99] [cursor=pointer]
+              - button "Enviar todo y terminar" [ref=f9e104] [cursor=pointer]
+          - contentinfo [ref=f9e105]:
+            - generic [ref=f9e106]:
+              - link "Contactar con el soporte del sitio" [ref=f9e109] [cursor=pointer]:
+                - /url: http://localhost:8090/user/contactsitesupport.php
+                - generic [aria-hidden] [ref=f9e110]: 
+                - text: Contactar con el soporte del sitio
+              - generic [ref=f9e111]:
+                - generic [ref=f9e113]:
+                  - text: Usted se ha identificado como
+                  - link "Estudiante Número 2" [ref=f9e114] [cursor=pointer]:
+                    - /url: http://localhost:8090/user
+[2026-11-02T20:14:45.302Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T20:14:45.461Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T20:14:45.461Z] [regresion] DETENIDO: La regresión completa tiene fallos. No se abre PR.

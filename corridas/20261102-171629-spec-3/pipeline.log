@@ -1,0 +1,65 @@
+[2026-11-02T17:16:29.647Z] [inicio] Spec specs/spec-3-resumen-por-tema.md (spec-3). Corrida corridas/20261102-171629-spec-3. Rama factory/spec-3-20261102-171629.
+[2026-11-02T17:16:29.946Z] [ia:analista] Llamada 01 con plantilla analista.md (herramientas: Read, Glob, Grep)
+    prompt: corridas/20261102-171629-spec-3/ia/01-analista.prompt.md
+[2026-11-02T17:24:47.676Z] [uso-ia] Ventana de 5 h: 19 % usado (se reinicia 2026-11-02T22:10:00.000Z).
+[2026-11-02T17:24:47.676Z] [ia:analista] Fin llamada 01: OK en 498s, costo USD 2.60
+    respuesta final:
+    ```json
+    {
+      "spec_id": "spec-3",
+      "titulo": "Reemplazo de la retroalimentación global por un resumen por tema",
+      "naturaleza": "reemplaza",
+      "componente": "local_resumentema",
+      "ruta_moodle": "public/local/resumentema",
+      "capa_justificacion": "Plugin local: el cambio cruza revisión, view.php, formulario del quiz, ajustes de admin y datos, y ninguna capa más específica lo cubre. Se descartan: (a) quizaccess_*: setup_attempt_page (classes/local/access_rule_base.php:248) solo permitiría alterar $quiz en memoria y no alcanza a profesores, porque locallib.php:1220 fuerza overallfeedback=VISIBLE; (b) tema hijo con renderer: cambiaría el tema sembrado y lo que miden todas las líneas base; (c) CSS: ocultaría sin eliminar, lo que incumple CA-2 y CA-3. El core no ofrece hook para quitar la fila: classes/hook/ de mod_quiz solo trae attempt_state_changed y structure_modified, y attempt_summary_information::create_for_attempt no es extensible (review.php:119). La supresión real es por datos: la fila exige texto de quiz_feedback (attempt_summary_information.php:271-274); view.php:190 y attempts_report.php:285 dependen de quiz_has_feedback (locallib.php:683); el servicio externo depende de lo mismo (classes/external.php:1759). Puntos de extensión verificados: (1) formulario: callback <plugin>_coursemodule_standard_elements en lib.php (course/moodleform_mod.php:669 y :829), invocado desde mod/quiz/mod_form.php:391, cuando ya existen la sección (:333-388) y los grupos de revisión (:241-247). CORRECCIÓN A LA PLATAFORMA: factory/conocimiento/moodle-5.3.md atribuye esto a core_course\\hook\\after_form_definition, pero ese hook solo se dispara en course/edit_form.php:435, no en formularios de actividad; hay que corregirlo ahí y en documentacion.md B3. (2) Ajustes de admin: settings.php del plugin; los locales cargan al final (admin/settings/plugins.php:848-860), así que $ADMIN->locate('modsettingquiz') ya existe; admin_settingpage::$settings es público (admin/classes/setting/settingpage/settingpage.php:42) y sus claves son plugin+nombre (:193-198): 'quizreviewoverallfeedback' y 'quizinitialnumfeedbacks' (mod/quiz/settings.php:87 y :226). (3) Bloque nuevo: \\core\\hook\\output\\after_standard_main_region_html_generation (lib/classes/hook/output/after_standard_main_region_html_generation.php:30, add_html :52), filtrando $PAGE->pagetype === 'mod-quiz-review'; se pinta en drawers.mustache:179, fuera de #region-main, así que un script mínimo lo mueve a continuación de la tabla resumen. (4) Datos: db/install.php y db/uninstall.php; el uninstall corre antes de borrar las tablas (lib/adminlib.php:169 y :226). (5) Reingreso de datos: eventos \\core\\event\\course_restored (backup/util/plan/restore_plan.class.php:216, solo TYPE_1COURSE), course_module_created (course/modlib.php:211 y duplicado en course/format/classes/local/cmactions.php:560), course_module_updated (course/modlib.php:820) y \\mod_quiz\\event\\attempt_started. (6) Cálculo: quiz_attempt::get_slots (:838), g
+[2026-11-02T17:24:47.678Z] [analisis] Plan válido en intento 1: capa local_resumentema — 5 criterios, 13 bordes.
+[2026-11-02T17:24:47.679Z] [ia:implementador] Llamada 02 con plantilla implementador.md (herramientas: Read, Glob, Grep, Write(salidas/spec-3/**), Edit(salidas/spec-3/**))
+    prompt: corridas/20261102-171629-spec-3/ia/02-implementador.prompt.md
+[2026-11-02T17:38:46.266Z] [uso-ia] Ventana de 5 h: 57 % usado (se reinicia 2026-11-02T22:10:00.000Z).
+[2026-11-02T17:38:46.266Z] [ia:implementador] Fin llamada 02: OK en 839s, costo USD 4.55
+    respuesta final:
+    El plugin `local_resumentema` y sus pruebas están escritos, pero **no ejecuté nada**: ni `php -l`, ni la instalación, ni Playwright, porque en esta etapa no tengo cómo correrlos. Todo lo verifiqué leyendo el core; las pruebas, la mutación y el auditor quedan para la fábrica.
+    
+    ## Archivos creados
+    **Plugin**, en `salidas/spec-3/codigo/public/local/resumentema/`:
+    - **Raíz:** `version.php`, `lib.php` (formulario), `settings.php` (retira los ajustes de admin).
+    - **`db/`:** `hooks.php`, `events.php`, `install.xml`, `install.php`, `uninstall.php`.
+    - **`classes/`:** `resumen.php`, `hook_callbacks.php`, `retro_global.php`, `observer.php`, `privacy/provider.php`.
+    - **`lang/`:** `en` y `es`.
+    
+    **Pruebas**, en `salidas/spec-3/pruebas/`:
+    
+    | Archivo | Criterio | Qué verifica |
+    |---|---|---|
+    | `01-resumen-por-tema.spec.ts` | CA-1, CA-2 | Tres temas y posición, sin el bloque anterior |
+    | | CA-1 | Ensayo pendiente y luego calificado |
+    | | CA-1 | `showall` y páginas siguientes |
+    | | CA-1 (sin `@requiere-feature`) | Notas ocultas |
+    | `02-retro-eliminada.spec.ts` | CA-2 | Revisión del profesor y `view.php` |
+    | | CA-3 | Formulario, examen nuevo guardado y reabierto, ajustes de admin |
+    | `03-cierre-intacto.spec.ts` | CA-4 (sin `@requiere-feature`) | Nota, respuestas y navegación |
+    | `soporte.ts` | — | Helpers propios de spec-3 |
+    
+    CA-5 es de proceso y lo cubre la corrida. Las dos pruebas de spec-0 no las toqué: el cambio lo aplica la fábrica desde `pruebas_afectadas`.
+    
+    ## Decisiones fuera del plan
+    1. **Script con `domready`:** el JS final se imprime en `footer.mustache:88`, antes de la sección (`drawers.mustache:179`). Un script inline no la encontraría.
+    2. **`attempt_started` sin `quizid`:** ese evento solo lo trae en la vista previa, así que el observer lo busca en `quiz_attempts`.
+    3. **Restauración:** `restaurar_todo` borra primero las filas actuales del examen. Guardar el formulario deja una fila vacía que cubre todas las notas, y al restaurar habría dos filas para una misma nota.
+    4. **Dos tablas de archivo:** `local_resumentema_retro` y `local_resumentema_revision`, porque un examen puede tener la opción activa sin texto de retroalimentación.
+    5. **Si reingresa retroalimentación a un examen ya archivado:** el archivo nuevo reemplaza al anterior, para no solapar rangos de nota.
+    6. **`quiz/initialnumfeedbacks`:** se crea si falta. Con el plugin ya presente en una instalación limpia, Moodle no le aplicaría el valor por defecto y `mod_form.php:365` lo lee sin comprobar.
+    7. **Soporte de spec-0:** las pruebas importan `salidas/spec-0/pruebas/soporte.ts` para no duplicar los flujos de examen, así que spec-3 depende de ese archivo.
+    8. **Aviso de pendiente:** va en la columna Porcentaje, para que un porcentaje parcial no se lea como definitivo.
+    
+    ## Riesgos y pendientes
+    - **Modo seguro:** `secure.mustache` no incluye el punto de extensión. En exámenes con `browsersecurity=securewindow`, la revisión no muestra el resumen y tampoco la retroalimentación vieja.
+    - **Prueba de nota
+[2026-11-02T17:38:46.266Z] [implementacion] Prueba aprobada actualizada, pendiente de aprobación humana: salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts
+    - await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+    + await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+    Motivo: Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR.
+[2026-11-02T17:38:46.266Z] [implementacion] Prueba aprobada actualizada, pendiente de aprobación humana: salidas/spec-0/pruebas/03-calificacion-manual.spec.ts
+    - await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+    + await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+    Motivo: Autorizado por producto el 2 de noviembre de 2026 (spec-3, Decisión de producto): la fila ya no debe existir. Se mantiene la cantidad de asserts y toHaveCount es un matcher fuerte. Pendiente de aprobación humana en el PR.

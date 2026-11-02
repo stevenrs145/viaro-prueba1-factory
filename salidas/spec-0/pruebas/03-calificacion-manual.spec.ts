@@ -67,7 +67,7 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);
   await expect(filaResumen(page, 'Puntos')).toHaveText('5,50/6,00');
   await expect(filaResumen(page, 'Calificación')).toHaveText('9,17 de 10,00 (91,67%)');
-  await expect(filaResumen(page, 'Retroalimentación')).toHaveText('Retro global: aprobado.');
+  await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
   await expect(bloquePregunta(page, 6)).toContainText(COMENTARIO);
   await expect(page).toHaveScreenshot('spec-0-cierre-calificado.png', { fullPage: true, mask: await prepararCaptura(page) });
 

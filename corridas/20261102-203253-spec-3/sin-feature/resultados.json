@@ -1,0 +1,785 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "salidas/spec-3/pruebas/03-cierre-intacto.spec.ts",
+      "--project=escritorio",
+      "--update-snapshots=none",
+      "--grep",
+      "@requiere-feature"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "escritorio",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "escritorio"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-203253-spec-3/sin-feature/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-203253-spec-3/sin-feature/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-203253-spec-3/sin-feature/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22224,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:14:87",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                      "column": 87,
+                      "line": 14
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m   \u001b[36mawait\u001b[39m hacerIntento(page\u001b[33m,\u001b[39m \u001b[32m'4'\u001b[39m)\u001b[33m;\u001b[39m \u001b[90m// la correcta es '6'; el ensayo queda vacío (gaveup vale 0 y no es pendiente)\u001b[39m\n \u001b[90m 13 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m   \u001b[36mawait\u001b[39m expect(seccionTemas(page)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Resumen por tema'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   \u001b[36mawait\u001b[39m expect(seccionTemas(page)\u001b[33m.\u001b[39mlocator(\u001b[32m'thead th'\u001b[39m))\u001b[33m.\u001b[39mtoHaveText([\u001b[32m'Tema'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'Puntos'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'Porcentaje'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 16 |\u001b[39m   \u001b[36mawait\u001b[39m expect(filasTemas(page))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m expect(celdasTema(page\u001b[33m,\u001b[39m \u001b[35m0\u001b[39m))\u001b[33m.\u001b[39mtoHaveText([\u001b[32m'Álgebra'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'2,00/2,00'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'100,00%'\u001b[39m])\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                        "column": 87,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })\u001b[22m\n\n\n  12 |   await hacerIntento(page, '4'); // la correcta es '6'; el ensayo queda vacío (gaveup vale 0 y no es pendiente)\n  13 |\n> 14 |   await expect(seccionTemas(page).getByRole('heading', { name: 'Resumen por tema' })).toBeVisible();\n     |                                                                                       ^\n  15 |   await expect(seccionTemas(page).locator('thead th')).toHaveText(['Tema', 'Puntos', 'Porcentaje']);\n  16 |   await expect(filasTemas(page)).toHaveCount(3);\n  17 |   await expect(celdasTema(page, 0)).toHaveText(['Álgebra', '2,00/2,00', '100,00%']);\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:14:87"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:42:08.458Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                    "column": 87,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-ecedf63c941e9f5859ab",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 21530,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Historia\",\u001b[39m\n\u001b[32m-   \"1,00/2,00\",\u001b[39m\n\u001b[32m-   \"1 pregunta sin calificar\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('#local-resumentema').locator('tbody tr').nth(2).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Historia\",\u001b[39m\n\u001b[32m-   \"1,00/2,00\",\u001b[39m\n\u001b[32m-   \"1 pregunta sin calificar\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('#local-resumentema').locator('tbody tr').nth(2).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:37:37",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                      "column": 37,
+                      "line": 37
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 35 |\u001b[39m   \u001b[36mconst\u001b[39m intento \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m hacerIntento(page\u001b[33m,\u001b[39m \u001b[32m'6'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'Una rana saltó al estanque.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m   \u001b[36mawait\u001b[39m expect(celdasTema(page\u001b[33m,\u001b[39m \u001b[35m2\u001b[39m))\u001b[33m.\u001b[39mtoHaveText([\u001b[32m'Historia'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'1,00/2,00'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'1 pregunta sin calificar'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-3-cierre-pendiente.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(page) })\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m\n \u001b[90m 40 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m \u001b[32m'profesor'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                        "column": 37,
+                        "line": 37
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\nTimeout: 5000ms\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   \"Historia\",\u001b[39m\n\u001b[32m-   \"1,00/2,00\",\u001b[39m\n\u001b[32m-   \"1 pregunta sin calificar\",\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('#local-resumentema').locator('tbody tr').nth(2).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')\u001b[22m\n\u001b[2m    13 × locator resolved to 0 elements\u001b[22m\n\n\n  35 |   const intento = await hacerIntento(page, '6', 'Una rana saltó al estanque.');\n  36 |\n> 37 |   await expect(celdasTema(page, 2)).toHaveText(['Historia', '1,00/2,00', '1 pregunta sin calificar']);\n     |                                     ^\n  38 |   await expect(page).toHaveScreenshot('spec-3-cierre-pendiente.png', { fullPage: true, mask: await prepararCaptura(page) });\n  39 |\n  40 |   await login(page, 'profesor');\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:37:37"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:42:32.123Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                    "column": 37,
+                    "line": 37
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-4e69ac64e80870d4e467",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 22469,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#local-resumentema')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#local-resumentema') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#local-resumentema')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#local-resumentema') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:63:36",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                      "column": 36,
+                      "line": 63
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/mod/quiz/review.php?attempt=${intento}&showall=1`\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m   \u001b[36mawait\u001b[39m expect(seccionTemas(page))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m\n \u001b[90m 65 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/mod/quiz/review.php?attempt=${intento}&page=1&showall=0`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 66 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.que'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m2\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                        "column": 36,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#local-resumentema')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#local-resumentema') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#local-resumentema')\u001b[22m\n\u001b[2m    14 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  61 |\n  62 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&showall=1`);\n> 63 |   await expect(seccionTemas(page)).toHaveCount(1);\n     |                                    ^\n  64 |\n  65 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&page=1&showall=0`);\n  66 |   await expect(page.locator('.que')).toHaveCount(2);\n    at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:63:36"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:42:55.086Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+                    "column": 36,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3894407f626455ffc49a-c2e9e2a21a740403a4f4",
+          "file": "salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts",
+          "line": 57,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25720,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:18:56",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                      "column": 56,
+                      "line": 18
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 16 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/mod/quiz/review.php?attempt=${intento}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m expect(filaResumen(page\u001b[33m,\u001b[39m \u001b[32m'Estado'\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Finalizado'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 18 |\u001b[39m   \u001b[36mawait\u001b[39m expect(filaResumen(page\u001b[33m,\u001b[39m \u001b[32m'Retroalimentación'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Retro global'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m expect(filasTemas(page))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 21 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                        "column": 56,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  16 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);\n  17 |   await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');\n> 18 |   await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);\n     |                                                        ^\n  19 |   await expect(page.getByText('Retro global')).toHaveCount(0);\n  20 |   await expect(filasTemas(page)).toHaveCount(3);\n  21 | });\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:18:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:43:19.036Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                    "column": 56,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-72a19748544f3e153f1e",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 24098,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Retro global')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m5\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByText('Retro global') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Retro global')\u001b[22m\n\u001b[2m    14 × locator resolved to 5 elements\u001b[22m\n\u001b[2m       - unexpected value \"5\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Retro global')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m5\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByText('Retro global') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Retro global')\u001b[22m\n\u001b[2m    14 × locator resolved to 5 elements\u001b[22m\n\u001b[2m       - unexpected value \"5\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:32:48",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                      "column": 48,
+                      "line": 32
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'li .card table'\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Finalizado'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'li .card table thead th'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m \u001b[32m'Retroalimentación'\u001b[39m }))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 32 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByText(\u001b[32m'Retro global'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 33 |\u001b[39m   \u001b[90m// La nota depende de los intentos previos del estudiante: se comprueba que sigue ahí, no su valor.\u001b[39m\n \u001b[90m 34 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#feedback'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[35m/\\d+,\\d+\\s*\\/\\s*10,00/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 35 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                        "column": 48,
+                        "line": 32
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByText('Retro global')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m5\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" getByText('Retro global') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Retro global')\u001b[22m\n\u001b[2m    14 × locator resolved to 5 elements\u001b[22m\n\u001b[2m       - unexpected value \"5\"\u001b[22m\n\n\n  30 |   await expect(page.locator('li .card table').first()).toContainText('Finalizado');\n  31 |   await expect(page.locator('li .card table thead th', { hasText: 'Retroalimentación' })).toHaveCount(0);\n> 32 |   await expect(page.getByText('Retro global')).toHaveCount(0);\n     |                                                ^\n  33 |   // La nota depende de los intentos previos del estudiante: se comprueba que sigue ahí, no su valor.\n  34 |   await expect(page.locator('#feedback')).toContainText(/\\d+,\\d+\\s*\\/\\s*10,00/);\n  35 |\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:32:48"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:43:46.340Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                    "column": 48,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-9c92b82169d2e48b7452",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16561,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:46:83",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                      "column": 83,
+                      "line": 46
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 44 |\u001b[39m   \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39misMobile) \u001b[36mawait\u001b[39m cerrarIndiceCurso(page)\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m   \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m selector \u001b[36mof\u001b[39m \u001b[33mOPCIONES_RETIRADAS\u001b[39m) \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(selector))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[90m// La retroalimentación por pregunta y el resto de la revisión quedan fuera de alcance: siguen.\u001b[39m\n \u001b[90m 48 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_marksimmediately'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_generalfeedbackimmediately'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                        "column": 83,
+                        "line": 46
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  44 |   if (!isMobile) await cerrarIndiceCurso(page);\n  45 |\n> 46 |   for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);\n     |                                                                                   ^\n  47 |   // La retroalimentación por pregunta y el resto de la revisión quedan fuera de alcance: siguen.\n  48 |   await expect(page.locator('#id_marksimmediately')).toHaveCount(1);\n  49 |   await expect(page.locator('#id_generalfeedbackimmediately')).toHaveCount(1);\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:46:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:44:11.969Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                    "column": 83,
+                    "line": 46
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-5566338752a77f08c31f",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 25944,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:67:85",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                      "column": 85,
+                      "line": 67
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 65 |\u001b[39m     \u001b[36mawait\u001b[39m abrirEdicion(page\u001b[33m,\u001b[39m cmid)\u001b[33m;\u001b[39m\n \u001b[90m 66 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_name'\u001b[39m))\u001b[33m.\u001b[39mtoHaveValue(nombre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 67 |\u001b[39m     \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m selector \u001b[36mof\u001b[39m \u001b[33mOPCIONES_RETIRADAS\u001b[39m) \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(selector))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 68 |\u001b[39m   } \u001b[36mfinally\u001b[39m {\n \u001b[90m 69 |\u001b[39m     \u001b[36mif\u001b[39m (cmid) \u001b[36mawait\u001b[39m eliminarExamen(page\u001b[33m,\u001b[39m cmid)\u001b[33m;\u001b[39m\n \u001b[90m 70 |\u001b[39m   }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                        "column": 85,
+                        "line": 67
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_overallfeedbackhdr')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_overallfeedbackhdr') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_overallfeedbackhdr')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  65 |     await abrirEdicion(page, cmid);\n  66 |     await expect(page.locator('#id_name')).toHaveValue(nombre);\n> 67 |     for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);\n     |                                                                                     ^\n  68 |   } finally {\n  69 |     if (cmid) await eliminarExamen(page, cmid);\n  70 |   }\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:67:85"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:44:29.668Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                    "column": 85,
+                    "line": 67
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-9d3daed236f51cd376a4",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13414,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_s_quiz_initialnumfeedbacks')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_s_quiz_initialnumfeedbacks') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_s_quiz_initialnumfeedbacks')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_s_quiz_initialnumfeedbacks')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_s_quiz_initialnumfeedbacks') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_s_quiz_initialnumfeedbacks')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:77:64",
+                    "location": {
+                      "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                      "column": 64,
+                      "line": 77
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 75 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/settings.php?section=modsettingquiz'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m\"[id^='id_s_quiz_reviewmarks']\"\u001b[39m)\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 77 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_s_quiz_initialnumfeedbacks'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 78 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m\"[id^='id_s_quiz_reviewoverallfeedback']\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 80 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                        "column": 64,
+                        "line": 77
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('#id_s_quiz_initialnumfeedbacks')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('#id_s_quiz_initialnumfeedbacks') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#id_s_quiz_initialnumfeedbacks')\u001b[22m\n\u001b[2m    14 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  75 |   await page.goto('/admin/settings.php?section=modsettingquiz');\n  76 |   await expect(page.locator(\"[id^='id_s_quiz_reviewmarks']\").first()).toBeVisible();\n> 77 |   await expect(page.locator('#id_s_quiz_initialnumfeedbacks')).toHaveCount(0);\n     |                                                                ^\n  78 |   await expect(page.locator(\"[id^='id_s_quiz_reviewoverallfeedback']\")).toHaveCount(0);\n  79 | });\n  80 |\n    at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:77:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T20:44:57.147Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-203253-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+                    "column": 64,
+                    "line": 77
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "750ca2d026df4b9b081c-b3f06c08c5c438ec57f2",
+          "file": "salidas/spec-3/pruebas/02-retro-eliminada.spec.ts",
+          "line": 73,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T20:41:45.501Z",
+    "duration": 205544.856,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

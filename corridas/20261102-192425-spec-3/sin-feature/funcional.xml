@@ -1,0 +1,850 @@
+<testsuites id="" name="" tests="16" failures="16" skipped="0" errors="0" time="476.150855">
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:34:44.407Z" hostname="escritorio" tests="3" failures="3" skipped="0" time="88.187" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="31.986">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:9:1 › [CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' }) with timeout 5000ms
+      - waiting for locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })
+
+
+      12 |   await hacerIntento(page, '4'); // la correcta es '6'; el ensayo queda vacío (gaveup vale 0 y no es pendiente)
+      13 |
+    > 14 |   await expect(seccionTemas(page).getByRole('heading', { name: 'Resumen por tema' })).toBeVisible();
+         |                                                                                       ^
+      15 |   await expect(seccionTemas(page).locator('thead th')).toHaveText(['Tema', 'Puntos', 'Porcentaje']);
+      16 |   await expect(filasTemas(page)).toHaveCount(3);
+      17 |   await expect(celdasTema(page, 0)).toHaveText(['Álgebra', '2,00/2,00', '100,00%']);
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:14:87
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="28.542">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:31:1 › [CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')
+    Timeout: 5000ms
+    - Expected  - 5
+    + Received  + 1
+
+    - Array [
+    -   "Historia",
+    -   "1,00/2,00",
+    -   "1 pregunta sin calificar",
+    - ]
+    + Array []
+
+    Call log:
+      - Expect "toHaveText" locator('#local-resumentema').locator('tbody tr').nth(2).locator('td') with timeout 5000ms
+      - waiting for locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')
+        13 × locator resolved to 0 elements
+
+
+      35 |   const intento = await hacerIntento(page, '6', 'Una rana saltó al estanque.');
+      36 |
+    > 37 |   await expect(celdasTema(page, 2)).toHaveText(['Historia', '1,00/2,00', '1 pregunta sin calificar']);
+         |                                     ^
+      38 |   await expect(page).toHaveScreenshot('spec-3-cierre-pendiente.png', { fullPage: true, mask: await prepararCaptura(page) });
+      39 |
+      40 |   await login(page, 'profesor');
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:37:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="27.659">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:57:1 › [CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#local-resumentema')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#local-resumentema') with timeout 5000ms
+      - waiting for locator('#local-resumentema')
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      61 |
+      62 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&showall=1`);
+    > 63 |   await expect(seccionTemas(page)).toHaveCount(1);
+         |                                    ^
+      64 |
+      65 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&page=1&showall=0`);
+      66 |   await expect(page.locator('.que')).toHaveCount(2);
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:63:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:34:44.407Z" hostname="escritorio" tests="5" failures="5" skipped="0" time="144.861" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="33.568">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:10:1 › [CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td') with timeout 5000ms
+      - waiting for locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      16 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);
+      17 |   await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
+    > 18 |   await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+         |                                                        ^
+      19 |   await expect(page.getByText('Retro global')).toHaveCount(0);
+      20 |   await expect(filasTemas(page)).toHaveCount(3);
+      21 | });
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:18:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="28.681">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:23:1 › [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByText('Retro global')
+    Expected: 0
+    Received: 5
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByText('Retro global') with timeout 5000ms
+      - waiting for getByText('Retro global')
+        14 × locator resolved to 5 elements
+           - unexpected value "5"
+
+
+      30 |   await expect(page.locator('li .card table').first()).toContainText('Finalizado');
+      31 |   await expect(page.locator('li .card table thead th', { hasText: 'Retroalimentación' })).toHaveCount(0);
+    > 32 |   await expect(page.getByText('Retro global')).toHaveCount(0);
+         |                                                ^
+      33 |   // La nota depende de los intentos previos del estudiante: se comprueba que sigue ahí, no su valor.
+      34 |   await expect(page.locator('#feedback')).toContainText(/\d+,\d+\s*\/\s*10,00/);
+      35 |
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:32:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="35.079">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:40:1 › [CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_overallfeedbackhdr')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_overallfeedbackhdr') with timeout 5000ms
+      - waiting for locator('#id_overallfeedbackhdr')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      44 |   if (!isMobile) await cerrarIndiceCurso(page);
+      45 |
+    > 46 |   for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);
+         |                                                                                   ^
+      47 |   // La retroalimentación por pregunta y el resto de la revisión quedan fuera de alcance: siguen.
+      48 |   await expect(page.locator('#id_marksimmediately')).toHaveCount(1);
+      49 |   await expect(page.locator('#id_generalfeedbackimmediately')).toHaveCount(1);
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:46:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="31.569">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:54:1 › [CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_overallfeedbackhdr')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_overallfeedbackhdr') with timeout 5000ms
+      - waiting for locator('#id_overallfeedbackhdr')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      65 |     await abrirEdicion(page, cmid);
+      66 |     await expect(page.locator('#id_name')).toHaveValue(nombre);
+    > 67 |     for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);
+         |                                                                                     ^
+      68 |   } finally {
+      69 |     if (cmid) await eliminarExamen(page, cmid);
+      70 |   }
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:67:85
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="15.964">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:73:1 › [CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_s_quiz_initialnumfeedbacks')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_s_quiz_initialnumfeedbacks') with timeout 5000ms
+      - waiting for locator('#id_s_quiz_initialnumfeedbacks')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      75 |   await page.goto('/admin/settings.php?section=modsettingquiz');
+      76 |   await expect(page.locator("[id^='id_s_quiz_reviewmarks']").first()).toBeVisible();
+    > 77 |   await expect(page.locator('#id_s_quiz_initialnumfeedbacks')).toHaveCount(0);
+         |                                                                ^
+      78 |   await expect(page.locator("[id^='id_s_quiz_reviewoverallfeedback']")).toHaveCount(0);
+      79 | });
+      80 |
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:77:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" timestamp="2026-11-02T19:34:44.407Z" hostname="movil" tests="3" failures="3" skipped="0" time="82.093" errors="0">
+<testcase name="[CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="26.315">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:9:1 › [CA-1] [CA-2] al terminar ve su desempeño por los tres temas y no el bloque anterior @requiere-feature 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' }) with timeout 5000ms
+      - waiting for locator('#local-resumentema').getByRole('heading', { name: 'Resumen por tema' })
+
+
+      12 |   await hacerIntento(page, '4'); // la correcta es '6'; el ensayo queda vacío (gaveup vale 0 y no es pendiente)
+      13 |
+    > 14 |   await expect(seccionTemas(page).getByRole('heading', { name: 'Resumen por tema' })).toBeVisible();
+         |                                                                                       ^
+      15 |   await expect(seccionTemas(page).locator('thead th')).toHaveText(['Tema', 'Puntos', 'Porcentaje']);
+      16 |   await expect(filasTemas(page)).toHaveCount(3);
+      17 |   await expect(celdasTema(page, 0)).toHaveText(['Álgebra', '2,00/2,00', '100,00%']);
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:14:87
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--bc47d-e-anterior-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="28.302">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:31:1 › [CA-1] un ensayo pendiente se avisa por tema y al calificarlo el resumen se actualiza @requiere-feature 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')
+    Timeout: 5000ms
+    - Expected  - 5
+    + Received  + 1
+
+    - Array [
+    -   "Historia",
+    -   "1,00/2,00",
+    -   "1 pregunta sin calificar",
+    - ]
+    + Array []
+
+    Call log:
+      - Expect "toHaveText" locator('#local-resumentema').locator('tbody tr').nth(2).locator('td') with timeout 5000ms
+      - waiting for locator('#local-resumentema').locator('tbody tr').nth(2).locator('td')
+        14 × locator resolved to 0 elements
+
+
+      35 |   const intento = await hacerIntento(page, '6', 'Una rana saltó al estanque.');
+      36 |
+    > 37 |   await expect(celdasTema(page, 2)).toHaveText(['Historia', '1,00/2,00', '1 pregunta sin calificar']);
+         |                                     ^
+      38 |   await expect(page).toHaveScreenshot('spec-3-cierre-pendiente.png', { fullPage: true, mask: await prepararCaptura(page) });
+      39 |
+      40 |   await login(page, 'profesor');
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:37:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--8a691--actualiza-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature" classname="salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts" time="27.476">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:57:1 › [CA-1] la sección aparece una sola vez con showall y no en las páginas siguientes @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#local-resumentema')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#local-resumentema') with timeout 5000ms
+      - waiting for locator('#local-resumentema')
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      61 |
+      62 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&showall=1`);
+    > 63 |   await expect(seccionTemas(page)).toHaveCount(1);
+         |                                    ^
+      64 |
+      65 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}&page=1&showall=0`);
+      66 |   await expect(page.locator('.que')).toHaveCount(2);
+        at /work/salidas/spec-3/pruebas/01-resumen-por-tema.spec.ts:63:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-01--eac5a-siguientes-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" timestamp="2026-11-02T19:34:44.407Z" hostname="movil" tests="5" failures="5" skipped="0" time="129.215" errors="0">
+<testcase name="[CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="31.785">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:10:1 › [CA-2] el profesor tampoco ve el bloque anterior en la revisión de un estudiante @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td') with timeout 5000ms
+      - waiting for locator('table.quizreviewsummary tr').filter({ has: locator('th').filter({ hasText: /^Retroalimentación$/ }) }).locator('td')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      16 |   await page.goto(`/mod/quiz/review.php?attempt=${intento}`);
+      17 |   await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
+    > 18 |   await expect(filaResumen(page, 'Retroalimentación')).toHaveCount(0);
+         |                                                        ^
+      19 |   await expect(page.getByText('Retro global')).toHaveCount(0);
+      20 |   await expect(filasTemas(page)).toHaveCount(3);
+      21 | });
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:18:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--6925e-estudiante-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="28.439">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:23:1 › [CA-2] la página del examen ya no muestra el bloque anterior y conserva la nota @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByText('Retro global')
+    Expected: 0
+    Received: 5
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByText('Retro global') with timeout 5000ms
+      - waiting for getByText('Retro global')
+        14 × locator resolved to 5 elements
+           - unexpected value "5"
+
+
+      30 |   await expect(page.locator('li .card table').first()).toContainText('Finalizado');
+      31 |   await expect(page.locator('li .card table thead th', { hasText: 'Retroalimentación' })).toHaveCount(0);
+    > 32 |   await expect(page.getByText('Retro global')).toHaveCount(0);
+         |                                                ^
+      33 |   // La nota depende de los intentos previos del estudiante: se comprueba que sigue ahí, no su valor.
+      34 |   await expect(page.locator('#feedback')).toContainText(/\d+,\d+\s*\/\s*10,00/);
+      35 |
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:32:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--38e0e-va-la-nota-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="20.072">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:40:1 › [CA-3] el formulario del examen ya no ofrece nada de la retroalimentación global @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_overallfeedbackhdr')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_overallfeedbackhdr') with timeout 5000ms
+      - waiting for locator('#id_overallfeedbackhdr')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      44 |   if (!isMobile) await cerrarIndiceCurso(page);
+      45 |
+    > 46 |   for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);
+         |                                                                                   ^
+      47 |   // La retroalimentación por pregunta y el resto de la revisión quedan fuera de alcance: siguen.
+      48 |   await expect(page.locator('#id_marksimmediately')).toHaveCount(1);
+      49 |   await expect(page.locator('#id_generalfeedbackimmediately')).toHaveCount(1);
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:46:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cf76c-ión-global-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="32.457">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:54:1 › [CA-3] un examen nuevo se guarda sin error con ese formulario y sigue sin esas opciones @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_overallfeedbackhdr')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_overallfeedbackhdr') with timeout 5000ms
+      - waiting for locator('#id_overallfeedbackhdr')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      65 |     await abrirEdicion(page, cmid);
+      66 |     await expect(page.locator('#id_name')).toHaveValue(nombre);
+    > 67 |     for (const selector of OPCIONES_RETIRADAS) await expect(page.locator(selector)).toHaveCount(0);
+         |                                                                                     ^
+      68 |   } finally {
+      69 |     if (cmid) await eliminarExamen(page, cmid);
+      70 |   }
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:67:85
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--cb7a5-s-opciones-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature" classname="salidas/spec-3/pruebas/02-retro-eliminada.spec.ts" time="16.462">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:73:1 › [CA-3] los ajustes del administrador ya no ofrecen la retroalimentación global @requiere-feature 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#id_s_quiz_initialnumfeedbacks')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#id_s_quiz_initialnumfeedbacks') with timeout 5000ms
+      - waiting for locator('#id_s_quiz_initialnumfeedbacks')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      75 |   await page.goto('/admin/settings.php?section=modsettingquiz');
+      76 |   await expect(page.locator("[id^='id_s_quiz_reviewmarks']").first()).toBeVisible();
+    > 77 |   await expect(page.locator('#id_s_quiz_initialnumfeedbacks')).toHaveCount(0);
+         |                                                                ^
+      78 |   await expect(page.locator("[id^='id_s_quiz_reviewoverallfeedback']")).toHaveCount(0);
+      79 | });
+      80 |
+        at /work/salidas/spec-3/pruebas/02-retro-eliminada.spec.ts:77:64
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-192425-spec-3/sin-feature/artefactos/salidas-spec-3-pruebas-02--4df93-ión-global-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
