@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-094736-spec-1",
+  "spec": "specs/spec-1-reconocimiento.md",
+  "rama": "factory/spec-1-20261102-094736",
+  "reanudada": false,
+  "estado": "FALLIDO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T09:47:36.871Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan válido: 4 criterios, 14 bordes.",
+      "actualizado": "2026-11-02T09:50:58.909Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "0 sonda(s).",
+      "actualizado": "2026-11-02T09:50:58.909Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas generados.",
+      "actualizado": "2026-11-02T09:58:35.775Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "Pruebas del spec en verde.",
+      "actualizado": "2026-11-02T10:33:20.731Z"
+    },
+    "mutacion": {
+      "estado": "VALIDADO",
+      "detalle": "Sin la funcionalidad: 24 fallan, 0 pasan.",
+      "actualizado": "2026-11-02T10:47:22.080Z"
+    },
+    "regresion": {
+      "estado": "VALIDADO",
+      "detalle": "27 OK, 0 fallidas, 1 omitidas.",
+      "actualizado": "2026-11-02T11:05:07.710Z"
+    },
+    "alcance": {
+      "estado": "VALIDADO",
+      "detalle": "Solo cambió salidas/ del spec; core de Moodle intacto.",
+      "actualizado": "2026-11-02T11:05:08.392Z"
+    },
+    "honestidad": {
+      "estado": "FALLIDO",
+      "detalle": "El control de verificación honesta bloqueó la corrida. No se abre PR.",
+      "actualizado": "2026-11-02T11:05:08.518Z"
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}

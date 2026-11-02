@@ -1,0 +1,34 @@
+{
+  "spec-1-ajustes--escritorio.png": {
+    "sha256": "86449f6d353f6fd4157fb926e00068d6d84890f8b6a24ec85a7660709731cc19",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-1",
+    "razon": "Pantalla nueva introducida por spec-1",
+    "fecha": "2026-11-02T11:05:07.726Z"
+  },
+  "spec-1-ajustes--movil.png": {
+    "sha256": "fe49b17498783c5fdf82f9fab51d6e2868578c7ea0f06f5cd60049c19b708588",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-1",
+    "razon": "Pantalla nueva introducida por spec-1",
+    "fecha": "2026-11-02T11:05:07.727Z"
+  },
+  "spec-1-prechequeo--escritorio.png": {
+    "sha256": "9e73c873c0939c5dc26124638ae63827eb4a1dc1e3490a7a0a9072c3df07cdb4",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-1",
+    "razon": "Pantalla nueva introducida por spec-1",
+    "fecha": "2026-11-02T11:05:07.729Z"
+  },
+  "spec-1-prechequeo--movil.png": {
+    "sha256": "acec639eb513d6a8eb00e05591961d1897eef5ccd59593c8996791244b634a50",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-1",
+    "razon": "Pantalla nueva introducida por spec-1",
+    "fecha": "2026-11-02T11:05:07.729Z"
+  }
+}
