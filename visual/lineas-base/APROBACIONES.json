@@ -47,22 +47,6 @@
     "razon": "Pantalla nueva introducida por spec-0",
     "fecha": "2026-11-02T09:20:52.862Z"
   },
-  "spec-0-crear-examen--escritorio.png": {
-    "sha256": "f3eb12f4c7b98fd936d79e2ea7959564f5e2643aeee2a83382e830bf0f0e1fff",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-0",
-    "razon": "Pantalla nueva introducida por spec-0",
-    "fecha": "2026-11-02T09:32:43.563Z"
-  },
-  "spec-0-crear-examen--movil.png": {
-    "sha256": "2bf1d01b4972d8d190ab33611625783b4ec98b783c43c83dcfa3b696202eb383",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-0",
-    "razon": "Pantalla nueva introducida por spec-0",
-    "fecha": "2026-11-02T09:32:43.564Z"
-  },
   "spec-0-examen-estudiante--escritorio.png": {
     "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
     "origen": "pipeline",
