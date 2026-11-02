@@ -1,16 +1,17 @@
 // CA-1, CA-2 y la captura del formulario de CA-6. Estas pruebas crean su propio examen porque no se puede "crear" uno
 // ya sembrado, y lo borran al terminar. QUIZ-REG no se toca: sus preguntas se bloquean en cuanto tiene intentos.
 import { test, expect } from '@playwright/test';
+import { login, prepararCaptura } from '../../../factory/regresion/helpers';
 import {
   abrirFormularioExamen, abrirIndiceCurso, agregarDesdeBanco, cmidBanco, crearCategoria, crearExamen, crearPregunta, eliminarCategoria,
-  eliminarExamen, iniciarSesion, eliminarPreguntas, filaCategoria, guardarExamen, idCursoQA101, nombreUnico, prepararCapturaLenta, urlCategorias,
+  eliminarExamen, eliminarPreguntas, filaCategoria, guardarExamen, idCursoQA101, nombreUnico, urlCategorias,
   type Categoria, type TipoPregunta,
 } from './soporte';
 
 test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page, isMobile }, testInfo) => {
   test.setTimeout(180_000);
   const nombre = nombreUnico('Spec0', testInfo.project.name);
-  await iniciarSesion(page, 'profesor');
+  await login(page, 'profesor');
   const curso = await idCursoQA101(page);
 
   let cmid = 0;
@@ -18,7 +19,7 @@ test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', a
     await abrirFormularioExamen(page, curso);
     if (!isMobile) await abrirIndiceCurso(page);
     await expect(page.locator('#id_name')).toHaveValue('');
-    await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCapturaLenta(page) });
+    await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });
 
     await page.locator('#id_name').fill(nombre);
     await page.locator('a.collapseexpand').click();
@@ -53,7 +54,7 @@ test('[CA-2] un profesor crea preguntas en el banco y las agrega a un examen', a
     { tipo: 'truefalse', nombre: nombreUnico('Spec0 verdadero falso', proyecto) },
     { tipo: 'essay', nombre: nombreUnico('Spec0 ensayo', proyecto) },
   ];
-  await iniciarSesion(page, 'profesor');
+  await login(page, 'profesor');
   const curso = await idCursoQA101(page);
   const banco = await cmidBanco(page, curso);
 

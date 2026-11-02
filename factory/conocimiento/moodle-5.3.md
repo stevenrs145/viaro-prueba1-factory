@@ -60,3 +60,9 @@ NUNCA se modifica nada fuera del directorio del plugin generado. El pipeline lo 
 - Receptor externo de pruebas: desde Moodle `http://receptor/`, desde el host `http://localhost:8091/`.
   `POST /_control {"mode": "...", "times": N}` fuerza fallos; `GET /_recibidos` muestra lo recibido.
 - Ejecutar PHP dentro de Moodle: `docker compose -f entorno/docker-compose.yml exec -T -u www-data web php <script>`.
+
+## Pruebas en Moodle 5.3 (verificado)
+- Nunca esperar `'networkidle'`: el índice del curso hace peticiones periódicas y no se cumple.
+- El login se hace SIEMPRE con `login()`: `core/togglesensitive` reemplaza el input de la clave y borra lo escrito, y una
+  petición de la página anterior puede invalidar el `logintoken`. Por eso Moodle responde "Unable to log in" con la clave correcta.
+- Una página tiene su JS listo cuando `M.util.pending_js` está vacío: es la señal que usa Behat. Hacer clic antes puede saltarse el manejador.
