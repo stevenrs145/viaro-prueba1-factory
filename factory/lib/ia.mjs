@@ -55,11 +55,20 @@ export function llamarIA(corrida, { rol, plantilla, vars, escritura }) {
 
   let texto = '';
   let costo = null;
+  let limite = null;
   for (const linea of r.out.split('\n')) {
     try {
       const ev = JSON.parse(linea);
       if (ev.type === 'result') { texto = ev.result || ''; costo = ev.total_cost_usd; }
+      if (ev.api_error_status === 429 || ev.api_error === 'usage_limit_reached') limite = ev.message?.content?.[0]?.text || 'límite de uso (429)';
     } catch { /* línea no JSON */ }
+  }
+  if (limite) {
+    // No es un fallo de la implementación: la IA no está disponible. No se consume un reintento.
+    corrida.log(`ia:${rol}`, `LÍMITE DE USO DE LA IA en llamada ${n}: ${limite}`);
+    const e = new Error(`Límite de uso de la IA: ${limite}`);
+    e.limiteIA = true;
+    throw e;
   }
   const ok = r.code === 0 && texto !== '';
   corrida.log(`ia:${rol}`, `Fin llamada ${n}: ${ok ? 'OK' : 'ERROR'} en ${segs}s${costo != null ? `, costo USD ${costo.toFixed(2)}` : ''}`,

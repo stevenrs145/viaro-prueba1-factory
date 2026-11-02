@@ -6,7 +6,7 @@ import {
   abrirQuiz, bloquePregunta, botonIntento, elegir, enviarIntento, escribirEnsayo, filaResumen, login, prepararCaptura,
   siguientePagina,
 } from '../../../factory/regresion/helpers';
-import { celdasTiempoHistorial, escribirEditor, idIntento } from './soporte';
+import { celdasTiempoHistorial, ESPERA_EDITOR, escribirEditor, idIntento } from './soporte';
 
 const COMENTARIO = 'Comentario de regresión: respuesta parcial.';
 const EDITOR_COMENTARIO = 'iframe[id$="_-comment_id_ifr"]';
@@ -37,7 +37,11 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   await login(page, 'profesor');
   const cmid = await abrirQuiz(page);
   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=overview`);
-  await expect(page.locator('#mod-quiz-report-overview-report').getByRole('link', { name: `Estudiante Número ${numero}`, exact: true })).toBeVisible();
+  // La tabla es table#attempts (attempts_report.php:338). La fila tiene que ser la de este intento y seguir sin calificar.
+  const filaInforme = page.locator('table#attempts tbody tr', { hasText: `Estudiante Número ${numero}` });
+  await expect(filaInforme).toBeVisible();
+  await expect(filaInforme.getByRole('link', { name: 'Review attempt' })).toHaveAttribute('href', new RegExp(`review\\.php\\?attempt=${intento}$`));
+  await expect(filaInforme).toContainText('Not yet graded');
   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=grading`);
   await expect(page.getByRole('cell', { name: /HIS-2 Ensayo/ })).toBeVisible();
 
@@ -45,7 +49,7 @@ test('[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se a
   const enlace = bloquePregunta(page, 6).getByRole('link', { name: 'Make comment or override mark' });
   const [popup] = await Promise.all([page.waitForEvent('popup'), enlace.click()]);
   await expect(popup).toHaveURL(/mod\/quiz\/comment\.php/);
-  await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible();
+  await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible({ timeout: ESPERA_EDITOR });
   await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', {
     fullPage: true,
     mask: [...(await prepararCaptura(popup)), await celdasTiempoHistorial(popup)],

@@ -1,0 +1,189 @@
+<testsuites id="" name="" tests="8" failures="1" skipped="0" errors="2" time="608.343317">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="124.474" errors="2">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="41.523">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="page.goto: Timeout 30000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:11:1 › [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso 
+
+    TimeoutError: page.goto: Timeout 30000ms exceeded.
+    Call log:
+      - navigating to "http://localhost:8090/login/index.php", waiting until "load"
+
+
+       at factory/regresion/helpers.ts:12
+
+      10 | export async function login(page: Page, usuario: string) {
+      11 |   await page.context().clearCookies();
+    > 12 |   await page.goto('/login/index.php');
+         |              ^
+      13 |   await page.fill('#username', usuario);
+      14 |   await page.fill('#password', CLAVE);
+      15 |   await page.click('#loginbtn');
+        at login (/work/factory/regresion/helpers.ts:12:14)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:3
+
+    Error Context: corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="82.951">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.click: Timeout 15000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:47:1 › [CA-2] un profesor crea preguntas en el banco y las agrega a un examen 
+
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('#id_questiontext_ifr').contentFrame().locator('body')
+        - locator resolved to <body id="tinymce" contenteditable="true" class="mce-content-body " data-id="id_questiontext" aria-label="Question text. Rich text area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help.">…</body>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        14 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div tabindex="0" aria-label="Loading…" class="tox-throbber__busy-spinner">…</div> from <div aria-busy="true" class="tox-throbber">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+
+
+       at salidas/spec-0/pruebas/soporte.ts:111
+
+      109 |   await expect(page.locator(iframe)).toBeVisible({ timeout: ESPERA_EDITOR });
+      110 |   const cuerpo = page.frameLocator(iframe).locator('body');
+    > 111 |   await cuerpo.click();
+          |                ^
+      112 |   await cuerpo.fill(texto);
+      113 | }
+      114 |
+        at escribirEditor (/work/salidas/spec-0/pruebas/soporte.ts:111:16)
+        at crearPregunta (/work/salidas/spec-0/pruebas/soporte.ts:140:3)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:65:47
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="69.687" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="69.687">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="escritorio" tests="1" failures="1" skipped="0" time="79.246" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="79.246">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:14:1 › [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#loginbtn')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms
+      - waiting for locator('#loginbtn')
+        11 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+       at factory/regresion/helpers.ts:16
+
+      14 |   await page.fill('#password', CLAVE);
+      15 |   await page.click('#loginbtn');
+    > 16 |   await expect(page.locator('#loginbtn')).toHaveCount(0);
+         |                                           ^
+      17 | }
+      18 |
+      19 | /** Abre la página de un quiz del curso QA101 por su nombre visible. Devuelve el cmid. */
+        at login (/work/factory/regresion/helpers.ts:16:43)
+        at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:67:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-021152-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="movil" tests="2" failures="0" skipped="0" time="158.694" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="47.097">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="111.597">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="movil" tests="1" failures="0" skipped="0" time="63.415" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="63.415">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T02:50:51.305Z" hostname="movil" tests="1" failures="0" skipped="0" time="82.206" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="82.206">
+</testcase>
+</testsuite>
+</testsuites>

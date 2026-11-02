@@ -16,7 +16,8 @@ export function correrPruebas(archivos, out, { crearLineasBaseFaltantes = false,
     crearLineasBaseFaltantes ? '--update-snapshots=missing' : '--update-snapshots=none',
     grep ? `--grep '${grep}'` : '',
   ].join(' ');
-  const cmd = `${DC} --profile qa run --rm -T -e QA_OUT=${out} qa npx playwright test ${archivos.join(' ')} ${flags}`;
+  // Con el UID/GID del usuario: si no, los artefactos quedan como root y el siguiente intento no puede limpiarlos.
+  const cmd = `${DC} --profile qa run --rm -T --user "$(id -u):$(id -g)" -e HOME=/tmp -e QA_OUT=${out} qa npx playwright test ${archivos.join(' ')} ${flags}`;
   const r = sh(cmd, { timeout: 60 * 60_000 });
   const resultados = leerResultados(path.join(RAIZ, out, 'resultados.json'));
   return { code: r.code, salida: (r.out + r.err).replace(/^.*Container .*$/gm, '').trim(), resultados };

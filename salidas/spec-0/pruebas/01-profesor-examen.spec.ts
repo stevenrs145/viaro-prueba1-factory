@@ -3,12 +3,12 @@
 import { test, expect } from '@playwright/test';
 import { login, prepararCaptura } from '../../../factory/regresion/helpers';
 import {
-  abrirFormularioExamen, agregarDesdeBanco, cmidBanco, crearCategoria, crearExamen, crearPregunta, eliminarCategoria,
+  abrirFormularioExamen, abrirIndiceCurso, agregarDesdeBanco, cmidBanco, crearCategoria, crearExamen, crearPregunta, eliminarCategoria,
   eliminarExamen, eliminarPreguntas, filaCategoria, guardarExamen, idCursoQA101, nombreUnico, urlCategorias,
   type Categoria, type TipoPregunta,
 } from './soporte';
 
-test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page }, testInfo) => {
+test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', async ({ page, isMobile }, testInfo) => {
   test.setTimeout(180_000);
   const nombre = nombreUnico('Spec0', testInfo.project.name);
   await login(page, 'profesor');
@@ -17,6 +17,7 @@ test('[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso', a
   let cmid = 0;
   try {
     await abrirFormularioExamen(page, curso);
+    if (!isMobile) await abrirIndiceCurso(page);
     await expect(page.locator('#id_name')).toHaveValue('');
     await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });
 

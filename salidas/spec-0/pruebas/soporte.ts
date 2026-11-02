@@ -15,6 +15,12 @@ const configMoodle = (page: Page): Promise<ConfigMoodle> =>
 /** Nombre único que no contiene "Examen de regresión", para que abrirQuiz nunca tome este examen por QUIZ-REG. */
 export const nombreUnico = (prefijo: string, proyecto: string) => `${prefijo} ${proyecto} ${Date.now()}`;
 
+/**
+ * TinyMCE crea su iframe oculto y lo muestra al terminar de cargar sus módulos, lo que puede superar los 5 s por defecto
+ * de expect con el servidor bajo carga. Es una espera de carga: la aserción sobre el editor no cambia.
+ */
+export const ESPERA_EDITOR = 30_000;
+
 export async function idCursoQA101(page: Page): Promise<number> {
   await page.goto('/course/view.php?name=QA101');
   return (await configMoodle(page)).courseId;
@@ -25,7 +31,18 @@ export async function idCursoQA101(page: Page): Promise<number> {
 
 export async function abrirFormularioExamen(page: Page, curso: number) {
   await page.goto(`/course/modedit.php?add=quiz&course=${curso}&section=0`);
-  await expect(page.locator('#id_introeditor_ifr')).toBeVisible();
+  await expect(page.locator('#id_introeditor_ifr')).toBeVisible({ timeout: ESPERA_EDITOR });
+}
+
+/**
+ * Deja abierto el índice del curso (solo escritorio) para capturar siempre el mismo estado. Abierto o cerrado es una
+ * preferencia guardada por usuario (drawer-open-index, boost/layout/drawers.php:34) que sobrevive entre corridas: no es
+ * parte de la pantalla que se protege. En móvil no aplica: drawers.js:328 lo cierra al cargar sin mirar la preferencia.
+ */
+export async function abrirIndiceCurso(page: Page) {
+  const abrir = page.getByRole('button', { name: 'Open course index' });
+  if (await abrir.isVisible()) await abrir.click();
+  await expect(page.getByRole('button', { name: 'Close course index' })).toBeVisible();
 }
 
 /** Guarda con "Save and display" y devuelve el cmid del examen creado o editado. */
@@ -89,7 +106,7 @@ export async function crearCategoria(page: Page, banco: number, nombre: string):
 
 /** Escribe en un editor TinyMCE. `iframe` es el selector CSS de su iframe. */
 export async function escribirEditor(page: Page, iframe: string, texto: string) {
-  await expect(page.locator(iframe)).toBeVisible();
+  await expect(page.locator(iframe)).toBeVisible({ timeout: ESPERA_EDITOR });
   const cuerpo = page.frameLocator(iframe).locator('body');
   await cuerpo.click();
   await cuerpo.fill(texto);
@@ -98,9 +115,25 @@ export async function escribirEditor(page: Page, iframe: string, texto: string) 
 /** Crea una pregunta desde el botón "Create a new question ..." del banco, dentro de la categoría indicada. */
 export async function crearPregunta(page: Page, banco: number, categoria: Categoria, tipo: TipoPregunta, nombre: string) {
   await page.goto(urlBanco(banco, categoria));
-  await page.getByRole('button', { name: /create a new question/i }).click();
-  await page.locator(`#item_qtype_${tipo}`).check();
-  await page.locator('#chooserform input.submitbutton').click();
+  // edit.php:73 corta la página sin pintar el banco mientras la migración de mod_qbank siga en la cola de tareas ad hoc.
+  await expect(
+    page.getByRole('alert').filter({ hasText: 'transfer_question_categories' }),
+    'Entorno: las tareas ad hoc de mod_qbank no terminaron; revisar el cron o ejecutarlas antes de esta prueba',
+  ).toHaveCount(0);
+  // Con teclado, no con click: en móvil, el punto de click de Playwright cae sobre elementos que están ANTES del botón
+  // en el flujo (h2, filtros) o bajo la barra fija, aunque nada lo tape en el DOM. El teclado no depende de coordenadas
+  // y recorre el mismo botón, el mismo diálogo y el mismo envío. El botón nace deshabilitado hasta que carga chooser.js
+  // y el diálogo solo habilita "Add" al elegir un tipo: se espera cada estado porque press() no lo hace.
+  const crear = page.getByRole('button', { name: /create a new question/i });
+  await expect(crear).toBeEnabled();
+  await crear.press('Enter');
+  const tipoPregunta = page.locator(`#item_qtype_${tipo}`);
+  await expect(tipoPregunta).toBeVisible();
+  await tipoPregunta.press('Space');
+  await expect(tipoPregunta).toBeChecked();
+  const agregar = page.locator('#chooserform input.submitbutton');
+  await expect(agregar).toBeEnabled();
+  await agregar.press('Enter');
   await expect(page).toHaveURL(/question\/bank\/editquestion\/question\.php/);
 
   await page.locator('#id_name').fill(nombre);
@@ -128,7 +161,8 @@ export async function agregarDesdeBanco(page: Page, examen: number, banco: numbe
   await page.locator('#switch-question-bank').click();
   // bank_switcher.js oculta esta selección justo antes de registrar el clic de los enlaces.
   await expect(page.locator('.search-banks .form-autocomplete-selection.d-none')).toHaveCount(1);
-  await page.locator(`a[data-newmodid="${banco}"]`).click();
+  // Tras visitarlo, el banco también aparece en "recientes" con el mismo data-newmodid; "banks in course" siempre lo lista.
+  await page.locator(`.course-shared-banks a[data-newmodid="${banco}"]`).click();
 
   const filtro = page.locator('[data-filter-type="category"]');
   const entrada = filtro.locator('div.form-autocomplete-input input');
