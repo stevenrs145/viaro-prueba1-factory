@@ -64,6 +64,14 @@ foreach (['attempt', 'correctness', 'maxmarks', 'marks', 'specificfeedback', 'ge
     $DB->set_field('quiz', "review{$revision}", get_config('quiz', "review{$revision}"), ['course' => $course->id, 'name' => 'Examen de regresión']);
 }
 
+// La retroalimentación global sembrada, tal como la dejó el sembrado: un plugin que la retira y la devuelve puede cambiar su formato.
+foreach ($DB->get_records_select('quiz_feedback', "quizid IN (SELECT id FROM {quiz} WHERE course = ?)", [$course->id]) as $retro) {
+    $texto = trim(strip_tags($retro->feedbacktext));
+    if ($retro->feedbacktext !== $texto) {
+        $DB->set_field('quiz_feedback', 'feedbacktext', $texto, ['id' => $retro->id]);
+    }
+}
+
 $DB->delete_records('notifications');
 $DB->delete_records('message_popup_notifications');
 $DB->set_field('tool_usertours_tours', 'enabled', 0);
