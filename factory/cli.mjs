@@ -259,7 +259,7 @@ function bloquear(c, rama, specDir, specPath, bordes) {
   escribir(c.ruta('pregunta.md'), md);
   c.etapa('analisis', 'BLOQUEADO', `${bordes.length} ambigüedad(es) bloqueante(s). Ver ${c.ruta('pregunta.md')}.`);
   c.log('analisis', `BLOQUEADO: ${bordes.length} ambigüedad(es) bloqueante(s). No se construye nada.`, md);
-  shOk(`git add -A ${specDir} ${c.dir}`);
+  shOk(`git add -A ${specDir} ${c.dir}${existe('ia/transcripciones') ? ' ia/transcripciones' : ''}`);
   shOk(`git commit -q -m "chore(${c.estado.corrida}): corrida bloqueada por ambigüedad" -m "Preguntas en ${c.ruta('pregunta.md')}."`);
   const p = sh(`git push -q origin ${rama}`);
   if (p.code !== 0) console.error(`Aviso: no se pudo subir la rama ${rama}; queda solo en local.`);
@@ -349,6 +349,7 @@ function abrirPR(c, rama, plan, specDir, st, txtH, nuevas) {
     + `### Evidencia\n- Trazabilidad: \`${specDir}/trazabilidad.md\`\n- Diff: \`${specDir}/cambios.diff\`\n- Corrida: \`${c.dir}/\` (pipeline.log, funcional.xml, visual/, honestidad.log)\n`
     + `- Suite completa: ${st.passed} OK, ${st.failed} fallidas, ${st.skipped} omitidas\n\n`
     + (nuevas.length ? `### ⚠️ Líneas base visuales NUEVAS — revisar y aprobar\n${nuevas.map((n) => `- \`visual/lineas-base/${n}\``).join('\n')}\nAprobar con: \`node factory/cli.mjs aprobar-linea-base --pendientes --razon "..."\`\n\n` : '')
+    + ((plan.pruebas_afectadas || []).length ? `### ⚠️ Pruebas aprobadas modificadas — revisar y aprobar\n${plan.pruebas_afectadas.map((d) => `- \`${d.archivo}\`: ${d.motivo}\n\n  \`\`\`diff\n  - ${d.antes}\n  + ${d.despues}\n  \`\`\``).join('\n')}\n\n` : '')
     + `### Control de verificación honesta\n\`\`\`\n${txtH}\`\`\`\n`;
   escribir(c.ruta('pr.md'), cuerpo);
   const push = sh(`git push -q -u origin ${rama}`);

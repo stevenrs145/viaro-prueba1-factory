@@ -38,7 +38,8 @@ test('${TITULO}', async ({ page }) => {
 `);
   fs.writeFileSync(ruta(`${LB}/sab--escritorio.png`), 'imagen-aprobada');
   const sha256 = crypto.createHash('sha256').update('imagen-aprobada').digest('hex');
-  json(APROB, { 'sab--escritorio.png': { sha256, razon: 'referencia de sabotajes', origen: 'humano' } });
+  const registradas = fs.existsSync(ruta(APROB)) ? JSON.parse(fs.readFileSync(ruta(APROB), 'utf8')) : {};
+  json(APROB, { ...registradas, 'sab--escritorio.png': { sha256, razon: 'referencia de sabotajes', origen: 'humano' } });
   const r = bash(`git config user.email a@example.invalid && git config user.name sabotaje && node factory/cli.mjs aprobar-pruebas --razon "referencia para los sabotajes" && git add -A && git commit -qm referencia`);
   if (r.status !== 0) throw new Error(r.stderr || r.stdout);
 }
