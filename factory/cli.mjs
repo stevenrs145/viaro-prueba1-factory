@@ -11,7 +11,8 @@ import { RAIZ, Corrida, sh, shOk, escribir, leer, existe, archivos } from './lib
 import { llamarIA, extraerJSON } from './lib/ia.mjs';
 import * as moodle from './lib/moodle.mjs';
 import { correrPruebas, resumen, contextoFallos } from './lib/pruebas.mjs';
-import { verificar, informe, construirManifiesto } from './honestidad/verificar.mjs';
+import { construirManifiesto } from './honestidad/verificar.mjs';
+import { auditar } from './lib/auditor.mjs';
 import { generarTrazabilidad } from './lib/trazabilidad.mjs';
 import { lineasBaseNuevas, registrarPendientes, proponerLineasBase, aprobarLineaBase } from './lib/lineas-base.mjs';
 
@@ -150,8 +151,7 @@ async function run() {
   c.log('alcance', 'Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).');
 
   // 8. Control de verificación honesta (independiente). Bloquea.
-  const H = verificar({ resultados: total.resultados, sinFeature, plan });
-  const txtH = informe(H);
+  const { hallazgos: H, texto: txtH } = auditar({ resultados: total.resultados, sinFeature, plan });
   escribir(c.ruta('honestidad.log'), txtH);
   c.log('honestidad', H.length ? `BLOQUEADO con ${H.length} hallazgo(s).` : 'OK.', txtH);
   if (H.length) return falla(c, 'honestidad', 'El control de verificación honesta bloqueó la corrida. No se abre PR.');
@@ -272,9 +272,9 @@ async function suite() {
   const s = resumen(r.resultados);
   c.log('suite', `Funcional + visual: ${s.passed} OK, ${s.failed} fallidas, ${s.skipped} omitidas. Reporte: ${c.dir}/visual/index.html`, s.failed ? contextoFallos(c.dir, r.resultados) : null);
   if (s.failed) copiarDiferencias(c);
-  const H = verificar({ resultados: r.resultados });
-  escribir(c.ruta('honestidad.log'), informe(H));
-  c.log('honestidad', H.length ? `BLOQUEADO con ${H.length} hallazgo(s).` : 'OK.', informe(H));
+  const { hallazgos: H, texto: txtH } = auditar({ resultados: r.resultados });
+  escribir(c.ruta('honestidad.log'), txtH);
+  c.log('honestidad', H.length ? `BLOQUEADO con ${H.length} hallazgo(s).` : 'OK.', txtH);
   return s.failed || H.length ? 1 : 0;
 }
 
@@ -290,8 +290,9 @@ function copiarDiferencias(c) {
 }
 
 async function honestidad() {
-  const H = verificar({});
-  process.stdout.write(informe(H));
+  const cargar = (bandera) => { const p = opt(bandera); return p ? JSON.parse(leer(p)) : undefined; };
+  const { hallazgos: H, texto } = auditar({ resultados: cargar('--resultados'), sinFeature: cargar('--sin-feature'), plan: cargar('--plan') });
+  process.stdout.write(texto);
   return H.length ? 1 : 0;
 }
 
