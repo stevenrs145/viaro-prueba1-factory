@@ -1,0 +1,46 @@
+<testsuites id="" name="" tests="13" failures="0" skipped="0" errors="0" time="854.0044399999999">
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-02T22:28:15.318Z" hostname="movil" tests="13" failures="0" skipped="0" time="832.398" errors="0">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="34.797">
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="60.54">
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="25.521">
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="17.245">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-2-ajustes--movil.png, writing actual.
+
+[[ATTACHMENT|../../../../visual/lineas-base/spec-2-ajustes--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-movil/spec-2-ajustes-actual.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="104.37">
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="36.565">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="101.567">
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="103.241">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="93.617">
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="95.967">
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="123.496">
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="18.875">
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="16.597">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-2-registro-vacio--movil.png, writing actual.
+
+[[ATTACHMENT|../../../../visual/lineas-base/spec-2-registro-vacio--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-movil/spec-2-registro-vacio-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

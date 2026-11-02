@@ -1,0 +1,106 @@
+<testsuites id="" name="" tests="18" failures="1" skipped="1" errors="0" time="1179.1810500000001">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T23:27:03.368Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.009" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T23:27:03.368Z" hostname="movil" tests="2" failures="0" skipped="0" time="103.671" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="28.164">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="75.507">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T23:27:03.368Z" hostname="movil" tests="1" failures="0" skipped="0" time="31.874" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="31.874">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T23:27:03.368Z" hostname="movil" tests="1" failures="0" skipped="0" time="47.516" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="47.516">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-02T23:27:03.368Z" hostname="movil" tests="13" failures="1" skipped="0" time="963.595" errors="0">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="41.378">
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="75.377">
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="24.864">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
+<![CDATA[  [movil] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:80:1 › [CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: 'Alternar sensibilidad' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar sensibilidad' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar sensibilidad' })
+
+
+       at factory/regresion/helpers.ts:27
+
+      25 |   // core/togglesensitive reemplaza el input de la clave (outerHTML) al cargar y se pierde lo ya escrito:
+      26 |   // hay que esperar a su botón antes de rellenar, o Moodle rechaza el login con la clave vacía.
+    > 27 |   await expect(page.getByRole('button', { name: 'Alternar sensibilidad' })).toBeVisible();
+         |                                                                             ^
+      28 |   await page.fill('#username', usuario);
+      29 |   await page.fill('#password', CLAVE);
+      30 |   await expect(page.locator('#password')).toHaveValue(CLAVE);
+        at login (/work/factory/regresion/helpers.ts:27:77)
+        at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:25:3)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-221132-spec-2/movil/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-221132-spec-2/movil/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-221132-spec-2/movil/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-221132-spec-2/movil/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="25.109">
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="118.764">
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="46.941">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="120.26">
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="112.381">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="117.996">
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="107.952">
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="124.816">
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="25.16">
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="22.597">
+</testcase>
+</testsuite>
+</testsuites>

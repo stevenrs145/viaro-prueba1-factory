@@ -1,0 +1,312 @@
+[2026-11-02T22:11:32.316Z] [inicio] Spec specs/spec-2-notificacion-externa.md (spec-2). Corrida corridas/20261102-221132-spec-2. Rama factory/spec-2-20261102-110616 (REANUDADA).
+[2026-11-02T22:11:33.276Z] [reanudar] Se reutiliza salidas/spec-2/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T22:11:33.301Z] [sonda] POST http://localhost:8091/resultados -> HTTP 422
+    Cuerpo vacío: qué campos exige el receptor y con qué forma informa el rechazo.
+    {"status":"error","errors":["missing_field: idempotency_key","missing_field: student","missing_field: quiz","missing_field: attempt","missing_field: timestamp"]}
+[2026-11-02T22:11:33.319Z] [sonda] POST http://localhost:8091/resultados -> HTTP 201
+    Envío completo con la forma prevista: código y cuerpo de una aceptación, y si admite objetos y notas numéricas.
+    {"status":"accepted","id":"c494e073-66fb-4522-8604-85538738fcf4","duplicate":false}
+[2026-11-02T22:11:33.337Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Misma idempotency_key: cómo responde a un reintento de algo ya aceptado.
+    {"status":"accepted","id":"c494e073-66fb-4522-8604-85538738fcf4","duplicate":true}
+[2026-11-02T22:11:33.351Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta 200 con error en el cuerpo.
+    {"mode":"ok_with_error_body","times":1}
+[2026-11-02T22:11:33.366Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Respuesta real de un 200 que no guardó el dato.
+    {"status":"error","message":"queue full, not stored"}
+[2026-11-02T22:11:33.379Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta HTML de proxy.
+    {"mode":"html_proxy","times":1}
+[2026-11-02T22:11:33.391Z] [sonda] POST http://localhost:8091/resultados -> HTTP 502
+    Respuesta real no JSON: el código no debe romperse al interpretarla.
+    <html><body><h1>502 Bad Gateway</h1>nginx</body></html>
+[2026-11-02T22:11:33.405Z] [sonda] POST http://localhost:8091/_reset -> HTTP 200
+    Deja el receptor limpio: sin estado de las sondas para las pruebas.
+    {"ok":true}
+[2026-11-02T22:11:37.343Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T22:12:35.465Z] [despliegue] Plugins: local_resultadoext — upgrade OK
+[2026-11-02T22:42:09.133Z] [pruebas] Intento 1: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T22:42:11.458Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T23:05:03.473Z] [mutacion] Sin la funcionalidad: 26 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T23:46:14.657Z] [regresion] Suite completa: 33 OK, 2 fallidas, 1 omitidas.
+    ### escritorio · [CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+    [2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?Verdadero$/i })[22m
+    [2m    - locator resolved to <input value="1" type="radio" name="q626:2_answer" id="q626:2_answertrue"/>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - performing click action[22m
+    [2m    - click action done[22m
+    [2m    - waiting for scheduled navigations to finish[22m
+    [2m    - navigations have finished[22m
+    
+    
+    ### movil · [CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+    
+    Locator: getByRole('button', { name: 'Alternar sensibilidad' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+    [2m  - Expect "toBeVisible" getByRole('button', { name: 'Alternar sensibilidad' }) with timeout 5000ms[22m
+    [2m  - waiting for getByRole('button', { name: 'Alternar sensibilidad' })[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-2/pruebas/spec-2-notificacion.spec.ts >> [CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature
+    - Location: salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:51:1
+    
+    # Error details
+    
+    ```
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?Verdadero$/i })
+        - locator resolved to <input value="1" type="radio" name="q626:2_answer" id="q626:2_answertrue"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f14e1]:
+      - status
+      - generic [ref=f14e2]:
+        - link "Salta al contenido principal" [ref=f14e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f14e4]:
+          - generic [ref=f14e5]:
+            - link "Viaro" [ref=f14e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f14e9]:
+              - menuitem "Área personal" [ref=f14e10] [cursor=pointer]
+              - menuitem "Administración del sitio" [ref=f14e12] [cursor=pointer]
+              - text: 
+            - generic [ref=f14e15]:
+              - generic [ref=f14e18]:
+                - switch "Modo de edición" [ref=f14e19] [cursor=pointer]
+                - generic [ref=f14e20] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f14e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f14e31]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f14e33] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f14e34]: 
+              - button "Menú de usuario" [ref=f14e40] [cursor=pointer]:
+                - img "Admin User" [ref=f14e44]: AU
+                - generic [aria-hidden] [ref=f14e45]: Admin
+                - text: 
+        - generic [ref=f14e46]:
+          - generic [ref=f14e47]:
+            - button "Abrir cajón de bloques" [ref=f14e49] [cursor=pointer]
+            - banner [ref=f14e53]:
+              - generic [ref=f14e54]:
+                - navigation "Camino de migas" [ref=f14e57]:
+                  - list [ref=f14e58]:
+                    - listitem [ref=f14e59]:
+                      - link "Extensiones locales" [ref=f14e60] [cursor=pointer]:
+                        - /url: http://localhost:8090/admin/category.php?category=localplugins
+                    - listitem [ref=f14e61]:
+                      - text: /
+                      - generic [ref=f14e62]: Notificación de resultados a un sistema externo
+                - generic [ref=f14e63]:
+                  - heading "Viaro Exámenes" [level=1] [ref=f14e68]
+                  - generic [ref=f14e73]:
+                    - textbox "Buscar" [ref=f14e74]
+                    - generic: Buscar
+                    - button "Buscar" [ref=f14e76] [cursor=pointer]:
+                      - generic [aria-hidden] [ref=f14e77]: 
+            - navigation "Site administration menu" [ref=f14e81]:
+              - menubar [ref=f14e82]:
+                - menuitem "General" [ref=f14e83] [cursor=pointer]
+                - menuitem "Usuarios" [ref=f14e85] [cursor=pointer]
+                - menuitem "Cursos" [ref=f14e87] [cursor=pointer]
+                - menuitem "Calificaciones" [ref=f14e89] [cursor=pointer]
+                - menuitem "Extensiones" [ref=f14e91] [cursor=pointer]
+                - menuitem "Apariencia" [ref=f14e94] [cursor=pointer]
+                - menuitem "Servidor" [ref=f14e96] [cursor=pointer]
+                - menuitem "Informes" [ref=f14e98] [cursor=pointer]
+                - menuitem "Desarrollo" [ref=f14e100] [cursor=pointer]
+                - text: 
+            - main [ref=f14e105]:
+              - generic [ref=f14e108]:
+                - heading "Notificación de resultados a un sistema externo" [level=2] [ref=f14e109]
+                - group [ref=f14e110]:
+                  - generic [ref=f14e112]:
+                    - generic [ref=f14e113]:
+                      - generic [ref=f14e114]: URL de destino
+                      - generic [ref=f14e115]: local_resultadoext | destino
+                    - generic [ref=f14e116]:
+                      - textbox "URL de destino" [ref=f14e118]
+                      - generic [ref=f14e119]: "Valor por defecto: Vacío"
+                      - paragraph [ref=f14e121]: Sistema externo que recibe los resultados. Si queda vacía, no se envía nada y cada intento queda registrado como omitido.
+                  - generic [ref=f14e122]:
+                    - generic [ref=f14e123]:
+                      - generic [ref=f14e124]: Máximo de ejecuciones por envío
+                      - generic [ref=f14e125]: local_resultadoext | maxintentos
+                    - generic [ref=f14e126]:
+                      - combobox "Máximo de ejecuciones por envío" [ref=f14e128]:
+                        - option "1"
+                        - option "2"
+                        - option "3"
+                        - option "4"
+                        - option "5"
+                        - option "6"
+                        - option "7"
+                        - option "8"
+                        - option "9"
+                        - option "10"
+                        - option "11"
+                        - option "12" [selected]
+                      - generic [ref=f14e129]: "Valor por defecto: 12"
+                      - paragraph [ref=f14e131]: Ejecuciones de la tarea para cada envío, contando la primera. Moodle espera 60 segundos tras el primer fallo y duplica la espera en cada uno, así que 12 ejecuciones duran unas 34 horas. Aplica a los envíos nuevos.
+                - button "Guardar cambios" [ref=f14e134] [cursor=pointer]
+          - contentinfo [ref=f14e
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-2/pruebas/spec-2-notificacion.spec.ts >> [CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature
+    - Location: salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:80:1
+    
+    # Error details
+    
+    ```
+    Error: expect(locator).toBeVisible() failed
+    
+    Locator: getByRole('button', { name: 'Alternar sensibilidad' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+    
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: 'Alternar sensibilidad' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Alternar sensibilidad' })
+    
+    ```
+    
+    ```yaml
+    - status
+    - link "Salta al contenido principal":
+      - /url: "#maincontent"
+    - main:
+      - heading "Le damos la bienvenida de nuevo" [level=1]
+      - paragraph: Entrar a Viaro Exámenes
+      - text: Nombre de usuario o correo electrónico
+      - textbox "Nombre de usuario o correo electrónico":
+        - /placeholder: Introduzca su nombre de usuario o correo electrónico
+      - text: Contraseña
+      - textbox "Contraseña":
+        - /placeholder: Introduzca su contraseña
+      - link "¿Olvidó su contraseña?":
+        - /url: http://localhost:8090/login/forgot_password.php
+      - button "Acceder"
+      - button "Aviso de Cookies"
+    - contentinfo:
+      - text: Usted no se ha identificado.
+      - link "Resumen de retención de datos":
+        - /url: http://localhost:8090/admin/tool/dataprivacy/summary.php
+      - link "Cambiar al tema estándar":
+        - /url: http://localhost:8090/theme/switchdevice.php?url=http%3A%2F%2Flocalhost%3A8090%2Flogin%2Findex.php&device=default&sesskey=piwtwnsVKH
+      - text: Desarrollado por
+      - link "Moodle":
+        - /url: https://moodle.com
+    ```
+    
+    # Test source
+    
+    ```ts
+      1   | // Helpers compartidos por TODAS las pruebas (regresión y las generadas por la fábrica).
+      2   | // Selectores verificados contra Moodle 5.3 en la instancia (ver ia/bitacora.md). La IA de la fábrica
+      3   | // debe usar estos helpers en vez de reinventar selectores.
+      4   | import { expect, type Locator, type Page } from '@playwright/test';
+      5   | 
+      6   | export const CLAVE = 'Viaro.2026';
+      7   | export const QUIZ_REG = 'Examen de regresión';
+      8   | export const RECEPTOR = process.env.RECEPTOR_URL || 'http://localhost:8091';
+      9   | 
+      10  | /**
+      11  |  * Espera a que el JS de Moodle termine: M.util.pending_js vacío es la señal que usa Behat. Usar tras cargar una página y
+      12  |  * tras una acción que dispara JS (filtros, autocompletar, modales) antes de la siguiente acción: Playwright es más rápido.
+      13  |  */
+      14  | export async function esperarJS(page: Page) {
+      15  |   await page.waitForLoadState('load');
+      16  |   await page.waitForFunction(() => (window as any).M?.util?.pending_js?.length === 0, undefined, { timeout: 45_000 });
+      17  | }
+      18  | 
+      19  | export async function login(page: Page, usuario: string) {
+      20  |   // Salir de la página ANTES de borrar cookies: al descargarse, Moodle lanza un POST a service.php
+      21  |   // (core_message_get_unsent_message). Sin cookie, su respuesta fija otra MoodleSession e invalida el logintoken.
+      22  |   await page.goto('about:blank');
+      23  |   await page.context().clearCookies();
+      24  |   await page.goto('/login/index.php', { waitUntil: 'domcontentloaded' });
+      25  |   // core/togglesensitive reemplaza el input de la clave (outerHTML) al cargar y se pierde lo ya escrito:
+      26  |   // hay que esperar a su botón antes de rellenar, o Moodle rechaza el login con la clave vacía.
+    > 27  |   await expect(page.getByRole('button', { name: 'Alternar sensibilidad' })).toBeVisible();
+          |                                                                             ^ Error: expect(locator).toBeVisible() failed
+      28  |   await page.fill('#username', usuario);
+      29  |   await page.fill('#password', CLAVE);
+      30  |   await expect(page.locator('#password')).toHaveValue(CLAVE);
+      31  |   await page.click('#loginbtn');
+      32  |   await expect(page.locator('#loginbtn')).toHaveCount(0);
+      33  | }
+      34  | 
+      35  | /** Abre la página de un quiz del curso QA101 por su nombre visible. Devuelve el cmid. */
+      36  | export async function abrirQuiz(page: Page, nombre = QUIZ_REG): Promise<number> {
+      37  |   await page.goto('/course/view.php?name=QA101');
+      38  |   await page.locator('a.aalink', { hasText: nombre }).first().click();
+      39  |   await expect(page).toHaveURL(/mod\/quiz\/view\.php\?id=\d+/);
+      40  |   return Number(new URL(page.url()).searchParams.get('id'));
+      41  | }
+      42  | 
+      43  | /** Botón principal de la página del quiz (Intento de cuestionario / Continuar el último intento / Reintentar el cuestionario). */
+      44  | export function botonIntento(page: Page): Locator {
+      45  |   return page.getByRole('button', { name: /intento de cuestionario|continuar el último intento|reintentar el cuestionario/i });
+      46  | }
+      47  | 
+      48  | /** Responde una pregunta de opción múltiple o V/F por el texto de la opción, dentro del bloque de la pregunta N (1-based, número visible). */
+      49  | export async function elegir(page: Page, pregunta: number, opcion: string) {
+      50  |   const q = bloquePregunta(page, pregunta);
+      51  |   // Opción múltiple: el nombre accesible incluye la numeración ("1. One"); V/F no ("True").
+      52  |   const esc = opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      53  |   await q.getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${esc}$`, 'i') }).check();
+      54  | }
+      55  | 
+      56  | /** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es "<id del textarea>_ifr" (p. ej. q2:6_answer_id_ifr). */
+      57  | export async function escribirEnsayo(page: Page, pregunta: number, texto: string) {
+      58  |   const q = bloquePregunta(page, pregunta);
+      59  |   const iframe = q.locator('iframe[id$="_answer_id_ifr"]');
+      60  |   await expect(iframe.or(q.locator('textarea[name$="_answer"]:visible'))).toBeVisi
+[2026-11-02T23:46:14.676Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-2-ajustes--escritorio.png, spec-2-ajustes--movil.png, spec-2-registro-vacio--escritorio.png, spec-2-registro-vacio--movil.png
+[2026-11-02T23:46:15.511Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T23:46:15.675Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T23:46:15.675Z] [regresion] DETENIDO: La regresión completa tiene fallos. No se abre PR.

@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-221132-spec-2",
+  "spec": "specs/spec-2-notificacion-externa.md",
+  "rama": "factory/spec-2-20261102-110616",
+  "reanudada": true,
+  "estado": "FALLIDO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T22:11:33.274Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan reutilizado de la rama: 5 criterios, 14 bordes.",
+      "actualizado": "2026-11-02T22:11:33.276Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "8 sonda(s).",
+      "actualizado": "2026-11-02T22:11:33.405Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas reutilizados de la rama.",
+      "actualizado": "2026-11-02T22:11:33.406Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "Pruebas del spec en verde.",
+      "actualizado": "2026-11-02T22:42:09.133Z"
+    },
+    "mutacion": {
+      "estado": "VALIDADO",
+      "detalle": "Sin la funcionalidad: 26 fallan, 0 pasan.",
+      "actualizado": "2026-11-02T23:05:59.234Z"
+    },
+    "regresion": {
+      "estado": "FALLIDO",
+      "detalle": "La regresión completa tiene fallos. No se abre PR.",
+      "actualizado": "2026-11-02T23:46:15.676Z"
+    },
+    "alcance": {
+      "estado": "VALIDADO",
+      "detalle": "Solo cambió salidas/ del spec; core de Moodle intacto.",
+      "actualizado": "2026-11-02T23:46:15.512Z"
+    },
+    "honestidad": {
+      "estado": "VALIDADO",
+      "detalle": "Sin hallazgos.",
+      "actualizado": "2026-11-02T23:46:15.675Z"
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}

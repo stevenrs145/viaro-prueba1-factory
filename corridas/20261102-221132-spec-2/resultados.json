@@ -1,0 +1,889 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "--project=escritorio",
+      "--update-snapshots=none"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-221132-spec-2/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-221132-spec-2/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-221132-spec-2/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "escritorio",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "escritorio"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-221132-spec-2/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-221132-spec-2/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-221132-spec-2/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "factory/regresion/humo-helpers.spec.ts",
+      "file": "factory/regresion/humo-helpers.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[HUMO] helpers de prueba",
+          "file": "factory/regresion/humo-helpers.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "escritorio",
+                  "projectName": "escritorio",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 23927,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-02T23:06:52.831Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cce5222644551a905f9e-a27269bf9f58a18530ed",
+              "file": "factory/regresion/humo-helpers.spec.ts",
+              "line": 9,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22309,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:07:16.920Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-65bda176cac9d075efd7",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] un profesor crea preguntas en el banco y las agrega a un examen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 82327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:07:39.245Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-357d70a0935211817564",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 41523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:09:01.612Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a2efd32d1040fb4097eb-1cc1b507495c3159f0d9",
+          "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 52908,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:09:43.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c568a1b773f06a27f6f0-6b2f1e38fd08509120e9",
+          "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+      "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 58137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:10:36.153Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-a473503d96d30738d75a",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 31095,
+                  "error": {
+                    "message": "Error: locator.check: Clicking the checkbox did not change its state\nCall log:\n\u001b[2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\\. )?Verdadero$/i })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"1\" type=\"radio\" name=\"q626:2_answer\" id=\"q626:2_answertrue\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n\u001b[2m    - navigations have finished\u001b[22m\n",
+                    "stack": "Error: locator.check: Clicking the checkbox did not change its state\nCall log:\n\u001b[2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\\. )?Verdadero$/i })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"1\" type=\"radio\" name=\"q626:2_answer\" id=\"q626:2_answertrue\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n\u001b[2m    - navigations have finished\u001b[22m\n\n    at elegir (/work/factory/regresion/helpers.ts:53:85)\n    at responderExamen (/work/salidas/spec-2/pruebas/apoyo.ts:47:9)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:54:16",
+                    "location": {
+                      "file": "/work/factory/regresion/helpers.ts",
+                      "column": 85,
+                      "line": 53
+                    },
+                    "snippet": "   at factory/regresion/helpers.ts:53\n\n\u001b[0m \u001b[90m 51 |\u001b[39m   \u001b[90m// Opción múltiple: el nombre accesible incluye la numeración (\"1. One\"); V/F no (\"True\").\u001b[39m\n \u001b[90m 52 |\u001b[39m   \u001b[36mconst\u001b[39m esc \u001b[33m=\u001b[39m opcion\u001b[33m.\u001b[39mreplace(\u001b[35m/[.*+?^${}()|[\\]\\\\]/g\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'\\\\$&'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m   \u001b[36mawait\u001b[39m q\u001b[33m.\u001b[39mgetByRole(\u001b[32m'radio'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mRegExp\u001b[39m(\u001b[32m`^([a-z0-9]+\\\\. )?${esc}$`\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'i'\u001b[39m) })\u001b[33m.\u001b[39mcheck()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m }\n \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m \u001b[90m/** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es \"<id del textarea>_ifr\" (p. ej. q2:6_answer_id_ifr). */\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/factory/regresion/helpers.ts",
+                        "column": 85,
+                        "line": 53
+                      },
+                      "message": "Error: locator.check: Clicking the checkbox did not change its state\nCall log:\n\u001b[2m  - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\\. )?Verdadero$/i })\u001b[22m\n\u001b[2m    - locator resolved to <input value=\"1\" type=\"radio\" name=\"q626:2_answer\" id=\"q626:2_answertrue\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n\u001b[2m    - navigations have finished\u001b[22m\n\n\n   at factory/regresion/helpers.ts:53\n\n  51 |   // Opción múltiple: el nombre accesible incluye la numeración (\"1. One\"); V/F no (\"True\").\n  52 |   const esc = opcion.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');\n> 53 |   await q.getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\\\. )?${esc}$`, 'i') }).check();\n     |                                                                                     ^\n  54 | }\n  55 |\n  56 | /** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es \"<id del textarea>_ifr\" (p. ej. q2:6_answer_id_ifr). */\n    at elegir (/work/factory/regresion/helpers.ts:53:85)\n    at responderExamen (/work/salidas/spec-2/pruebas/apoyo.ts:47:9)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:54:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:11:34.332Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/factory/regresion/helpers.ts",
+                    "column": 85,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-d5c4151bb89919301437",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:12:07.398Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-beb678d41d0cc9c606a8",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] pantalla de ajustes del plugin @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21659,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:12:43.337Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-15d48a0ab5421a3f0127",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 120914,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:13:05.019Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-eeb9905453c9bb9d63a7",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 48291,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:15:05.956Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-0cf6a927b3ac61ebc6d3",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 112114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:15:54.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-f772366064b55fe920fb",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 120807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:17:46.367Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-2c0a53283794c9f74999",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 116151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:19:47.172Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-40e8a96c7c9ab3489855",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 175,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 107020,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:21:43.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-3cbf0c754947d6fed93c",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error",
+          "ok": true,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 126086,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:23:30.417Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-5d0dc1ef381df9460f7b",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:25:36.530Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-71a4fb4711ad83e7b49a",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 226,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] pantalla del registro sin envíos @requiere-feature",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21287,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T23:26:03.597Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-6667649e22603a5dbd79",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 236,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T23:06:33.775Z",
+    "duration": 1191840.823,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
