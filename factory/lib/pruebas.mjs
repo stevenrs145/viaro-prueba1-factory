@@ -4,6 +4,23 @@ import path from 'node:path';
 import { RAIZ, DC, sh } from './util.mjs';
 
 /**
+ * Infraestructura que una prueba generada no debe reimplementar: las copias no reciben los arreglos de los helpers
+ * (así falló spec-0). Recibe [{archivo, texto}] y devuelve los problemas, sin contar los comentarios.
+ */
+export function copiasDeHelpers(fuentes) {
+  const REGLAS = [
+    [/['"`]networkidle['"`]/, `'networkidle': en Moodle nunca se cumple (peticiones periódicas). Usar prepararCaptura() de factory/regresion/helpers.ts.`],
+    [/#loginbtn|\/login\/index\.php/, 'login propio: usar login() de factory/regresion/helpers.ts.'],
+  ];
+  const problemas = [];
+  for (const { archivo, texto } of fuentes) {
+    const codigo = texto.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+    for (const [re, msg] of REGLAS) if (re.test(codigo)) problemas.push(`${archivo}: ${msg}`);
+  }
+  return problemas;
+}
+
+/**
  * @param archivos  rutas de .spec.ts (relativas a la raíz) o [] para toda la suite
  * @param out       carpeta de salida relativa a la raíz (allí quedan funcional.xml, resultados.json, visual/)
  * @param opciones  { crearLineasBaseFaltantes, grep }

@@ -10,7 +10,7 @@ import path from 'node:path';
 import { RAIZ, Corrida, sh, shOk, escribir, leer, existe, archivos } from './lib/util.mjs';
 import { llamarIA, extraerJSON } from './lib/ia.mjs';
 import * as moodle from './lib/moodle.mjs';
-import { correrPruebas, resumen, contextoFallos } from './lib/pruebas.mjs';
+import { correrPruebas, resumen, contextoFallos, copiasDeHelpers } from './lib/pruebas.mjs';
 import { auditar } from './lib/auditor.mjs';
 import { generarTrazabilidad } from './lib/trazabilidad.mjs';
 import { lineasBaseNuevas, registrarPendientes, proponerLineasBase, aprobarLineaBase } from './lib/lineas-base.mjs';
@@ -275,6 +275,7 @@ function validacionesEstaticas(c, specDir, plan) {
   const pruebas = archivos(`${specDir}/pruebas`, (f) => f.endsWith('.spec.ts'));
   if (!pruebas.length) p.push(`No hay pruebas en ${specDir}/pruebas/*.spec.ts`);
   const textoPruebas = pruebas.map((f) => leer(f)).join('\n');
+  p.push(...copiasDeHelpers(archivos(`${specDir}/pruebas`, (f) => f.endsWith('.ts')).map((f) => ({ archivo: f, texto: leer(f) }))));
   for (const ca of plan.criterios) {
     if (ca.verificacion === 'proceso') continue;
     if (!textoPruebas.includes(`[${ca.id}]`)) p.push(`Ninguna prueba cubre ${ca.id} (el título debe incluir "[${ca.id}]").`);
