@@ -1,34 +1,114 @@
 {
-  "spec-2-ajustes--escritorio.png": {
-    "sha256": "c43ea9e1aef198ea18fa8527caa316978e82b066fc720ddc37a367a1c1cc2e95",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-2",
-    "razon": "Pantalla nueva introducida por spec-2",
-    "fecha": "2026-11-02T14:47:36.661Z"
+  "spec-0-calificacion-manual--escritorio.png": {
+    "sha256": "9166ed1b0c0e7843ad8c40b96c1bff0757b38c684bef70dfde36a7421a526c55",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.404Z"
   },
-  "spec-2-ajustes--movil.png": {
-    "sha256": "f52afcaf920f7360a2a20fd0125adea902a5965709c4dc362808a8542c34dfaa",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-2",
-    "razon": "Pantalla nueva introducida por spec-2",
-    "fecha": "2026-11-02T14:47:36.663Z"
+  "spec-0-calificacion-manual--movil.png": {
+    "sha256": "17de30aa76a2c8d810c3538af9b7ff3c8820b563b7e685271866deae92531615",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.405Z"
   },
-  "spec-2-registro-vacio--escritorio.png": {
-    "sha256": "062a2959c71bdeb5f430f01f249b06357d2608ec013393c37e479ac69cb1c92f",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-2",
-    "razon": "Pantalla nueva introducida por spec-2",
-    "fecha": "2026-11-02T14:47:36.664Z"
+  "spec-0-cierre--escritorio.png": {
+    "sha256": "33b0751052f07abeb23b9862916f5836cb58b964278e2ebba6a9fabcd74cb6cd",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.405Z"
   },
-  "spec-2-registro-vacio--movil.png": {
-    "sha256": "c9ab65f297350e011a1242c7aab722cd7d9e770783b48c7bc16390e66dc953e3",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-2",
-    "razon": "Pantalla nueva introducida por spec-2",
-    "fecha": "2026-11-02T14:47:36.665Z"
+  "spec-0-cierre--movil.png": {
+    "sha256": "40087444ceee5ea0c5a3eb5fd39de602b101aabbdf737fa6eeae6e5d72ecb005",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.406Z"
+  },
+  "spec-0-cierre-calificado--escritorio.png": {
+    "sha256": "ee749ec33b007c144413c8d5ba667c928393ae2e9388d42c97f0e5653bd87d10",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.407Z"
+  },
+  "spec-0-cierre-calificado--movil.png": {
+    "sha256": "01ecef3d7733a550d7a311b618d1e1f209adc3dae55001aa65286b6eb1edec59",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.407Z"
+  },
+  "spec-0-crear-examen--escritorio.png": {
+    "sha256": "763da10aa08f2b10ed3fecf79dc126fca945fce2d2a956b4f47862f3e723d602",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.408Z"
+  },
+  "spec-0-crear-examen--movil.png": {
+    "sha256": "2bf1d01b4972d8d190ab33611625783b4ec98b783c43c83dcfa3b696202eb383",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.408Z"
+  },
+  "spec-0-examen-estudiante--escritorio.png": {
+    "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.409Z"
+  },
+  "spec-0-examen-estudiante--movil.png": {
+    "sha256": "818ecfe726909272aecc8fb11aeffd275c299c838856b78277056fa9d4c34a67",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.409Z"
+  },
+  "spec-0-intento--escritorio.png": {
+    "sha256": "374aa9114927f8c57885b9e43683698f3a42e362ffeca869e4b18107d7e957e7",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.409Z"
+  },
+  "spec-0-intento--movil.png": {
+    "sha256": "3526b57fd0f658a8eeba34d6b58bc1e524559a90215b4385788bd19d5cebe4c5",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.409Z"
+  },
+  "spec-0-resumen-envio--escritorio.png": {
+    "sha256": "53de464cb7f0eb26720df8b6eb454f72583e27e8bde3bcdf6c64c50056ff13e9",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.409Z"
+  },
+  "spec-0-resumen-envio--movil.png": {
+    "sha256": "27cc8ea1b4a7e3fbdc731c442bd6bb2b8558e5544ea0b0b079295f9d4d1e8c37",
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+    "fecha": "2026-11-02T15:06:34.410Z"
   }
 }

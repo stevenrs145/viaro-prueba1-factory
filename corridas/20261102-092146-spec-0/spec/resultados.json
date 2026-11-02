@@ -1,0 +1,484 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "--update-snapshots=missing"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-092146-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-092146-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-092146-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "escritorio",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "escritorio"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-092146-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-092146-spec-0/spec/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-092146-spec-0/spec/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-092146-spec-0/spec/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37542,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--escritorio.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:22:01.218Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-crear-examen-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-crear-examen--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-092146-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21324,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--movil.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:24:47.463Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-crear-examen-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-crear-examen--movil.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-092146-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/spec-0-crear-examen-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-65bda176cac9d075efd7",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] un profesor crea preguntas en el banco y las agrega a un examen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 60989,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:22:39.042Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 56650,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:25:08.932Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-357d70a0935211817564",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26808,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:23:40.059Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 27494,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:26:05.606Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a2efd32d1040fb4097eb-1cc1b507495c3159f0d9",
+          "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 39729,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:24:06.911Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 36924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T09:26:33.142Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c568a1b773f06a27f6f0-6b2f1e38fd08509120e9",
+          "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T09:21:57.288Z",
+    "duration": 313036.78900000005,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

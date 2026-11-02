@@ -73,9 +73,13 @@ export function reset() {
   // no a mitad de una prueba: el estado inicial de cada corrida es siempre el mismo.
   const t = sh(`${DC} exec -T -u www-data web php admin/cli/adhoc_task.php --execute`);
   const b = sh(`${DC} exec -T web curl -s -X POST http://receptor/_reset`);
-  // reset.php purga cachés y cambia la revisión del tema: sin calentar, la primera carga en el navegador
-  // se queda ~30 s en styles.php (bloquea domcontentloaded) y agota el timeout de page.goto.
-  sh(`u=$(curl -s -m 60 http://localhost:8090/login/index.php | grep -oE 'http://[^"]*theme/styles\\.php/[^"]*' | head -1); [ -n "$u" ] && curl -s -o /dev/null -m 120 "$u"`);
+  // reset.php purga cachés y cambia las revisiones: sin calentar, la primera carga en el navegador tarda ~30 s en
+  // styles.php y el JS tarda más que los 15 s de las esperas de las pruebas.
+  const html = sh('curl -s -m 60 http://localhost:8090/login/index.php').out;
+  const recursos = new Set([...html.matchAll(/(?:src|href)="(http:\/\/localhost:8090\/(?:theme|lib|r\.php)[^"]+)"/g)].map((m) => m[1].replace(/&amp;/g, '&')));
+  const revision = (html.match(/lib\/javascript\.php\/(\d+)\//) || [])[1];
+  if (revision) recursos.add(`http://localhost:8090/lib/requirejs.php/${revision}/core/first.js`);
+  for (const url of recursos) sh(`curl -s -o /dev/null -m 120 '${url}'`);
   return { ok: a.code === 0 && b.code === 0, salida: a.out + a.err + b.out + (t.code ? t.err : '') };
 }
 

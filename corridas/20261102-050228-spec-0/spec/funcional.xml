@@ -1,0 +1,147 @@
+<testsuites id="" name="" tests="8" failures="1" skipped="0" errors="1" time="720.310378">
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="250.687" errors="1">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="121.78">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="page.waitForLoadState: Timeout 90000ms exceeded." type="TimeoutError">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:10:1 › [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso 
+
+    TimeoutError: page.waitForLoadState: Timeout 90000ms exceeded.
+
+       at salidas/spec-0/pruebas/soporte.ts:68
+
+      66 |  */
+      67 | export async function prepararCapturaLenta(page: Page): Promise<Locator[]> {
+    > 68 |   await page.waitForLoadState('networkidle', { timeout: 90_000 });
+         |              ^
+      69 |   return prepararCaptura(page);
+      70 | }
+      71 |
+        at prepararCapturaLenta (/work/salidas/spec-0/pruebas/soporte.ts:68:14)
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:21:98
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="128.907">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="53.743" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="53.743">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="79.2" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="79.2">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-calificacion-manual--escritorio.png, writing actual.
+A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre-calificado--escritorio.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-calificacion-manual--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-actual.png]]
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-cierre-calificado--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-cierre-calificado-actual.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="movil" tests="2" failures="0" skipped="0" time="179.729" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="53.386">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="126.343">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="movil" tests="1" failures="0" skipped="0" time="49.329" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="49.329">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T05:02:56.196Z" hostname="movil" tests="1" failures="1" skipped="0" time="85.588" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="85.588">
+<system-out>
+<![CDATA[A snapshot doesn't exist at /work/visual/lineas-base/spec-0-calificacion-manual--movil.png, writing actual.
+
+[[ATTACHMENT|../../../visual/lineas-base/spec-0-calificacion-manual--movil.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-calificacion-manual-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveCount(expected) failed" type="expect.toHaveCount">
+<![CDATA[  [movil] › salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:15:1 › [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#loginbtn')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#loginbtn') with timeout 5000ms
+      - waiting for locator('#loginbtn')
+        13 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+       at salidas/spec-0/pruebas/soporte.ts:53
+
+      51 |     await page.click('#loginbtn');
+      52 |     try {
+    > 53 |       await expect(page.locator('#loginbtn')).toHaveCount(0);
+         |                                               ^
+      54 |       return;
+      55 |     } catch (error) {
+      56 |       if (intento >= 2) throw error;
+        at iniciarSesion (/work/salidas/spec-0/pruebas/soporte.ts:53:47)
+        at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:68:3
+
+    attachment #1: spec-0-calificacion-manual (image/png) ──────────────────────────────────────────
+    Expected: visual/lineas-base/spec-0-calificacion-manual--movil.png
+    Received: corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-calificacion-manual-actual.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-050228-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

@@ -2,6 +2,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { RAIZ, DC, sh } from './util.mjs';
+import { reset } from './moodle.mjs';
+
+const TAMANOS = ['escritorio', 'movil'];
 
 /**
  * Infraestructura que una prueba generada no debe reimplementar: las copias no reciben los arreglos de los helpers
@@ -34,11 +37,25 @@ export function correrPruebas(archivos, out, { crearLineasBaseFaltantes = false,
     crearLineasBaseFaltantes ? '--update-snapshots=missing' : '--update-snapshots=none',
     grep ? `--grep '${grep}'` : '',
   ].join(' ');
-  // Con el UID/GID del usuario: si no, los artefactos quedan como root y el siguiente intento no puede limpiarlos.
-  const cmd = `${DC} --profile qa run --rm -T --user "$(id -u):$(id -g)" -e HOME=/tmp -e QA_OUT=${out} qa npx playwright test ${archivos.join(' ')} ${flags}`;
-  const r = sh(cmd, { timeout: 60 * 60_000 });
-  const resultados = leerResultados(path.join(RAIZ, out, 'resultados.json'));
-  return { code: r.code, salida: (r.out + r.err).replace(/^.*Container .*$/gm, '').trim(), resultados };
+  // Cada tamaño corre con Moodle restablecido: una prueba de escritorio que guarda el formulario del examen cambia
+  // opciones que la interfaz no permite restaurar, y móvil heredaría ese estado.
+  let resultados = [];
+  let salida = '';
+  let code = 0;
+  for (const [i, tamano] of TAMANOS.entries()) {
+    if (i > 0) reset();
+    const destino = i === 0 ? out : `${out}/${tamano}`;
+    // Con el UID/GID del usuario: si no, los artefactos quedan como root y el siguiente intento no puede limpiarlos.
+    const cmd = `${DC} --profile qa run --rm -T --user "$(id -u):$(id -g)" -e HOME=/tmp -e QA_OUT=${destino} qa npx playwright test ${archivos.join(' ')} --project=${tamano} ${flags}`;
+    const r = sh(cmd, { timeout: 60 * 60_000 });
+    code = code || r.code;
+    salida += r.out + r.err;
+    resultados = resultados.concat(leerResultados(path.join(RAIZ, destino, 'resultados.json')));
+    if (i > 0 && fs.existsSync(path.join(RAIZ, destino, 'artefactos'))) {
+      fs.cpSync(path.join(RAIZ, destino, 'artefactos'), path.join(RAIZ, out, 'artefactos'), { recursive: true });
+    }
+  }
+  return { code, salida: salida.replace(/^.*Container .*$/gm, '').trim(), resultados };
 }
 
 /** Aplana el reporte JSON de Playwright: [{titulo, archivo, proyecto, estado, error, tags, anotaciones}] */
