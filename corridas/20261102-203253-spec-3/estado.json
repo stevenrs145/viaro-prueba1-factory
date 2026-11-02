@@ -3,7 +3,7 @@
   "spec": "specs/spec-3-resumen-por-tema.md",
   "rama": "factory/spec-3-20261102-171629",
   "reanudada": true,
-  "estado": "EJECUTADO",
+  "estado": "VALIDADO",
   "etapas": {
     "precondicion": {
       "estado": "VALIDADO",
@@ -51,9 +51,9 @@
       "actualizado": "2026-11-02T21:14:29.761Z"
     },
     "pr": {
-      "estado": "PENDIENTE",
-      "detalle": null,
-      "actualizado": null
+      "estado": "EJECUTADO",
+      "detalle": "PR propuesto: https://github.com/stevenrs145/viaro-prueba1-factory/pull/5. Pendiente de aprobación humana.",
+      "actualizado": "2026-11-02T21:16:01.812Z"
     }
   }
 }
