@@ -128,7 +128,7 @@ export async function prepararCaptura(page: Page): Promise<Locator[]> {
     [data-qa-mascara], [data-qa-mascara] * { color: transparent !important; background: #c9d3d7 !important; border-color: #c9d3d7 !important; }
     /* En una captura de página completa, lo fijo a la pantalla aparecería en medio del contenido. */
     #sticky-footer, .stickyfooter { position: static !important; }
-    .drawer-toggles, .btn-footer-popover { visibility: hidden !important; }
+    .drawer-toggles, .btn-footer-popover, .tooltip { visibility: hidden !important; }
   ` });
   // Columnas de tablas cuyo encabezado indica un valor temporal: se marcan por el TEXTO del encabezado,
   // no por posición (la posición cambia entre informes y vistas).
