@@ -1,0 +1,40 @@
+[2026-11-02T13:14:24.497Z] [inicio] Spec specs/spec-2-notificacion-externa.md (spec-2). Corrida corridas/20261102-131424-spec-2. Rama factory/spec-2-20261102-110616 (REANUDADA).
+[2026-11-02T13:14:24.811Z] [reanudar] Se reutiliza salidas/spec-2/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T13:14:24.829Z] [sonda] POST http://localhost:8091/resultados -> HTTP 422
+    Cuerpo vacío: qué campos exige el receptor y con qué forma informa el rechazo.
+    {"status":"error","errors":["missing_field: idempotency_key","missing_field: student","missing_field: quiz","missing_field: attempt","missing_field: timestamp"]}
+[2026-11-02T13:14:24.844Z] [sonda] POST http://localhost:8091/resultados -> HTTP 201
+    Envío completo con la forma prevista: código y cuerpo de una aceptación, y si admite objetos y notas numéricas.
+    {"status":"accepted","id":"b21fca74-6131-40d0-b765-0f94590c04b9","duplicate":false}
+[2026-11-02T13:14:24.858Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Misma idempotency_key: cómo responde a un reintento de algo ya aceptado.
+    {"status":"accepted","id":"b21fca74-6131-40d0-b765-0f94590c04b9","duplicate":true}
+[2026-11-02T13:14:24.877Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta 200 con error en el cuerpo.
+    {"mode":"ok_with_error_body","times":1}
+[2026-11-02T13:14:24.892Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Respuesta real de un 200 que no guardó el dato.
+    {"status":"error","message":"queue full, not stored"}
+[2026-11-02T13:14:24.907Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta HTML de proxy.
+    {"mode":"html_proxy","times":1}
+[2026-11-02T13:14:24.917Z] [sonda] POST http://localhost:8091/resultados -> HTTP 502
+    Respuesta real no JSON: el código no debe romperse al interpretarla.
+    <html><body><h1>502 Bad Gateway</h1>nginx</body></html>
+[2026-11-02T13:14:24.929Z] [sonda] POST http://localhost:8091/_reset -> HTTP 200
+    Deja el receptor limpio: sin estado de las sondas para las pruebas.
+    {"ok":true}
+[2026-11-02T13:14:30.517Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T13:15:37.167Z] [despliegue] Plugins: local_resultadoext — upgrade OK
+[2026-11-02T13:49:06.260Z] [pruebas] Intento 1: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-02T13:49:09.066Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-02T14:12:37.186Z] [mutacion] Sin la funcionalidad: 26 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-02T14:47:36.646Z] [regresion] Suite completa: 27 OK, 0 fallidas, 1 omitidas.
+[2026-11-02T14:47:36.666Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-2-ajustes--escritorio.png, spec-2-ajustes--movil.png, spec-2-registro-vacio--escritorio.png, spec-2-registro-vacio--movil.png
+[2026-11-02T14:47:37.550Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-02T14:47:37.694Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-02T15:02:40.261Z] [pr] No se pudo hacer push (¿sin remoto/credenciales?). El PR queda descrito en pr.md.
+    Error: spawnSync bash ETIMEDOUT
+[2026-11-02T15:02:40.262Z] [fin] PR propuesto: (local) corridas/20261102-131424-spec-2/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.

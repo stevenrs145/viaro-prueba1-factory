@@ -1,0 +1,39 @@
+[2026-11-02T23:47:22.278Z] [inicio] Spec specs/spec-2-notificacion-externa.md (spec-2). Corrida corridas/20261102-234722-spec-2. Rama factory/spec-2-20261102-110616 (REANUDADA).
+[2026-11-02T23:47:24.454Z] [reanudar] Se reutiliza salidas/spec-2/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-02T23:47:24.470Z] [sonda] POST http://localhost:8091/resultados -> HTTP 422
+    Cuerpo vacío: qué campos exige el receptor y con qué forma informa el rechazo.
+    {"status":"error","errors":["missing_field: idempotency_key","missing_field: student","missing_field: quiz","missing_field: attempt","missing_field: timestamp"]}
+[2026-11-02T23:47:24.483Z] [sonda] POST http://localhost:8091/resultados -> HTTP 201
+    Envío completo con la forma prevista: código y cuerpo de una aceptación, y si admite objetos y notas numéricas.
+    {"status":"accepted","id":"d839405c-0f8d-422d-a3d0-dfe1d73bd609","duplicate":false}
+[2026-11-02T23:47:24.496Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Misma idempotency_key: cómo responde a un reintento de algo ya aceptado.
+    {"status":"accepted","id":"d839405c-0f8d-422d-a3d0-dfe1d73bd609","duplicate":true}
+[2026-11-02T23:47:24.509Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta 200 con error en el cuerpo.
+    {"mode":"ok_with_error_body","times":1}
+[2026-11-02T23:47:24.522Z] [sonda] POST http://localhost:8091/resultados -> HTTP 200
+    Respuesta real de un 200 que no guardó el dato.
+    {"status":"error","message":"queue full, not stored"}
+[2026-11-02T23:47:24.535Z] [sonda] POST http://localhost:8091/_control -> HTTP 200
+    Prepara una respuesta HTML de proxy.
+    {"mode":"html_proxy","times":1}
+[2026-11-02T23:47:24.549Z] [sonda] POST http://localhost:8091/resultados -> HTTP 502
+    Respuesta real no JSON: el código no debe romperse al interpretarla.
+    <html><body><h1>502 Bad Gateway</h1>nginx</body></html>
+[2026-11-02T23:47:24.565Z] [sonda] POST http://localhost:8091/_reset -> HTTP 200
+    Deja el receptor limpio: sin estado de las sondas para las pruebas.
+    {"ok":true}
+[2026-11-02T23:47:30.452Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T23:48:52.368Z] [despliegue] Plugins: local_resultadoext — upgrade OK
+[2026-11-03T00:24:11.344Z] [pruebas] Intento 1: 26 OK, 0 fallidas, 0 omitidas.
+[2026-11-03T00:24:15.040Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-03T00:50:21.448Z] [mutacion] Sin la funcionalidad: 26 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-03T01:28:56.955Z] [regresion] Suite completa: 35 OK, 0 fallidas, 1 omitidas.
+[2026-11-03T01:28:57.646Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-03T01:28:57.815Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    
+[2026-11-03T01:29:31.536Z] [fin] PR propuesto: (no creado: Warning: 7 uncommitted changes
+a pull request for branch "factory/spec-2-20261102-110616" into branch "main" already exists:
+https://github.com/stevenrs145/viaro-prueba1-factory/pull/3) corridas/20261102-234722-spec-2/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.

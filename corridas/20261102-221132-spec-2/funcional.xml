@@ -1,0 +1,103 @@
+<testsuites id="" name="" tests="18" failures="0" skipped="0" errors="1" time="1191.840823">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T23:06:52.165Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="23.927" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="23.927">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-02T23:06:52.165Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="104.636" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="22.309">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="82.327">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-02T23:06:52.165Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="41.523" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="41.523">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-02T23:06:52.165Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="52.908" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="52.908">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-02T23:06:52.165Z" hostname="escritorio" tests="13" failures="0" skipped="0" time="946.345" errors="1">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="58.137">
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="31.095">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip]]
+]]>
+</system-out>
+<error message="locator.check: Clicking the checkbox did not change its state" type="Error">
+<![CDATA[  [escritorio] › salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:51:1 › [CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature 
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for locator('.que').filter({ has: locator('.qno').filter({ hasText: /^2$/ }) }).getByRole('radio', { name: /^([a-z0-9]+\. )?Verdadero$/i })
+        - locator resolved to <input value="1" type="radio" name="q626:2_answer" id="q626:2_answertrue"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+       at factory/regresion/helpers.ts:53
+
+      51 |   // Opción múltiple: el nombre accesible incluye la numeración ("1. One"); V/F no ("True").
+      52 |   const esc = opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    > 53 |   await q.getByRole('radio', { name: new RegExp(`^([a-z0-9]+\\. )?${esc}$`, 'i') }).check();
+         |                                                                                     ^
+      54 | }
+      55 |
+      56 | /** Escribe en una pregunta de ensayo. Con TinyMCE el iframe es "<id del textarea>_ifr" (p. ej. q2:6_answer_id_ifr). */
+        at elegir (/work/factory/regresion/helpers.ts:53:85)
+        at responderExamen (/work/salidas/spec-2/pruebas/apoyo.ts:47:9)
+        at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:54:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-221132-spec-2/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="35.725">
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="21.659">
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="120.914">
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="48.291">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="112.114">
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="120.807">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="116.151">
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="107.02">
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="126.086">
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="27.059">
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="21.287">
+</testcase>
+</testsuite>
+</testsuites>

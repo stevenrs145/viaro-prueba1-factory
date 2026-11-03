@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-110616-spec-2",
+  "spec": "specs/spec-2-notificacion-externa.md",
+  "rama": "factory/spec-2-20261102-110616",
+  "reanudada": false,
+  "estado": "BLOQUEADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T11:06:17.077Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan válido: 5 criterios, 14 bordes.",
+      "actualizado": "2026-11-02T11:10:27.278Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "8 sonda(s).",
+      "actualizado": "2026-11-02T11:10:27.429Z"
+    },
+    "implementacion": {
+      "estado": "BLOQUEADO",
+      "detalle": "Límite de uso de la IA: Límite de uso de la IA: límite de uso (429)",
+      "actualizado": "2026-11-02T11:21:45.853Z"
+    },
+    "pruebas": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "mutacion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "regresion": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "alcance": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "honestidad": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}
