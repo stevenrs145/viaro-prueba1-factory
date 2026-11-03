@@ -136,6 +136,12 @@
       "test.skip(({ isMobile }) => isMobile, 'La infraestructura se valida una vez, en escritorio');"
     ]
   },
+  "archivos": {
+    "factory/regresion/humo-helpers.spec.ts": "453711d00ac07d39291dea5bc3b5efb84edcaae7505622100840dc80a8efaa5c",
+    "salidas/spec-0/pruebas/01-profesor-examen.spec.ts": "3517e8c3f22fc8416c0ed88b929a5a38d5fccf016508513b9ef8dae83bbfd444",
+    "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts": "ea178b29f075418384869b8bce3ff4459976e0c889f1b6e380a0377c6d610346",
+    "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts": "dd46b23290e073a7f2870d96247b53f344e22865258dd58d787ba9915ad8d329"
+  },
   "umbralVisual": {
     "threshold": 0.2,
     "maxDiffPixelRatio": 0.002,
