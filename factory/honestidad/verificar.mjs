@@ -50,13 +50,15 @@ function listarPruebas() {
 export function construirManifiesto() {
   const pruebas = {};
   const omisiones = {};
+  const archivos = {};
   for (const f of listarPruebas()) {
+    archivos[f] = sha(path.join(RAIZ, f));
     const a = analizarArchivo(f, fs.readFileSync(path.join(RAIZ, f), 'utf8'));
     for (const p of a.pruebas) pruebas[idPrueba(p)] = { asserts: p.asserts, fuertes: p.fuertes, soft: p.soft, matchers: p.matchers, capturas: p.capturas, mascaras: p.mascaras, opcionesCaptura: p.opcionesCaptura, modificador: p.modificador, tags: p.tags };
     if (a.omisiones.length) omisiones[f] = a.omisiones.map((o) => o.texto);
   }
   const cfg = fs.readFileSync(path.join(RAIZ, CONFIG), 'utf8');
-  return { pruebas, omisiones, umbralVisual: umbral(cfg) };
+  return { pruebas, omisiones, archivos, umbralVisual: umbral(cfg) };
 }
 
 const umbral = (cfg) => ({
@@ -116,6 +118,13 @@ export function verificar({ resultados, sinFeature, plan } = {}) {
     if (aprobado === null) continue;
     const esperado = declarados.filter((d) => d.archivo === f).reduce((t, d) => t.replace(d.antes, d.despues), aprobado);
     if (fs.readFileSync(path.join(RAIZ, f), 'utf8') !== esperado) hallazgo('PRUEBA-APROBADA-MODIFICADA', f, 'Difiere de la versión aprobada en main y no coincide con los cambios declarados en pruebas_afectadas.');
+  }
+
+  // 1c) Una prueba cambiada con commit directo en main: main deja de coincidir con el hash que se aprobó.
+  for (const [f, hash] of Object.entries(base.archivos || {})) {
+    const enMain = enRef(f);
+    if (enMain === null) continue; // si se borró, ya lo reporta PRUEBA-ELIMINADA
+    if (crypto.createHash('sha256').update(enMain).digest('hex') !== hash) hallazgo('PRUEBA-APROBADA-MODIFICADA', f, `La versión en ${REF} no es la que se aprobó (hash distinto del manifiesto). Cambiar una prueba aprobada exige aprobar-pruebas.`);
   }
 
   // 2) Reglas que aplican a TODAS las pruebas (también a las nuevas que trae un spec).

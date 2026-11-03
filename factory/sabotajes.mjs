@@ -135,6 +135,13 @@ try {
     limpiar();
   }
 
+  // Sabotaje con commit directo en main: el auditor de main y la prueba de main coinciden, pero no con lo aprobado.
+  editar(PRUEBA, (s) => s.replace(`toHaveText('Hola')`, `toHaveText('Adiós')`));
+  bash('git commit -qam "sabotaje en main"');
+  const enMain = auditar();
+  fila(enMain.status === 1 && enMain.stdout.includes('[PRUEBA-APROBADA-MODIFICADA]'), 'Valor esperado cambiado con commit directo en main', 'PRUEBA-APROBADA-MODIFICADA');
+  bash('git reset -q --hard HEAD~1');
+
   // Sin auditor en main no hay "OK": falla cerrado.
   bash(`git rm -q factory/honestidad/verificar.mjs && git commit -qm x`);
   const sin = auditar();
@@ -142,5 +149,5 @@ try {
 } finally {
   fs.rmSync(CLON, { recursive: true, force: true });
 }
-console.log(`\n${CASOS.length + 5 - fallos}/${CASOS.length + 5} casos correctos.`);
+console.log(`\n${CASOS.length + 6 - fallos}/${CASOS.length + 6} casos correctos.`);
 process.exitCode = fallos ? 1 : 0;
