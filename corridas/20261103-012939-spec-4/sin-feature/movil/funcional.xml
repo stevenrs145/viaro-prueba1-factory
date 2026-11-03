@@ -1,0 +1,354 @@
+<testsuites id="" name="" tests="7" failures="7" skipped="0" errors="0" time="345.086528">
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-03T01:49:59.834Z" hostname="movil" tests="7" failures="7" skipped="0" time="303.959" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="36.623">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:98:1 › [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "Te quedan 3 intentos."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      100 |   await login(page, ESTUDIANTE);
+      101 |   await abrirQuiz(page);
+    > 102 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 3 intentos.');
+          |                                       ^
+      103 |   await expect(page).toHaveScreenshot('spec-4-quedan-intentos.png', { fullPage: true, mask: await prepararCaptura(page) });
+      104 | });
+      105 |
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:102:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="48.248">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:106:1 › [CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "Te quedan 2 intentos."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      110 |   await hacerIntento(page);
+      111 |   await abrirQuiz(page);
+    > 112 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos.');
+          |                                       ^
+      113 | });
+      114 |
+      115 | test('[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular', async ({ page }) => {
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:112:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="48.944">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:115:1 › [CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "Te queda 1 intento."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      119 |   await hacerIntento(page);
+      120 |   await abrirQuiz(page);
+    > 121 |   await expect(mensajeIntentos(page)).toHaveText('Te queda 1 intento.');
+          |                                       ^
+      122 | });
+      123 |
+      124 | test('[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar', async ({ page }) => {
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:121:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="42.263">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:124:1 › [CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "Te quedan 2 intentos además del que está en curso."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      128 |   await iniciarIntento(page);
+      129 |   await abrirQuiz(page);
+    > 130 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos además del que está en curso.');
+          |                                       ^
+      131 |   await expect(page.getByRole('button', { name: 'Continuar el último intento' })).toBeVisible();
+      132 | });
+      133 |
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:130:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="37.01">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:134:1 › [CA-2] @requiere-feature el número baja después de enviar un intento 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "Te quedan 3 intentos."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      136 |   await login(page, ESTUDIANTE);
+      137 |   await abrirQuiz(page);
+    > 138 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 3 intentos.');
+          |                                       ^
+      139 |   await hacerIntento(page);
+      140 |   await abrirQuiz(page);
+      141 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos.');
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:138:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="48.829">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:145:1 › [CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "No te quedan intentos."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      149 |   await hacerIntento(page);
+      150 |   await abrirQuiz(page);
+    > 151 |   await expect(mensajeIntentos(page)).toHaveText('No te quedan intentos.');
+          |                                       ^
+      152 |   await expect(botonIntento(page)).toHaveCount(0);
+      153 |   await expect(page).toHaveScreenshot('spec-4-sin-intentos.png', { fullPage: true, mask: await prepararCaptura(page) });
+      154 | });
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:151:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="42.042">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [movil] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:156:1 › [CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+    Expected: "No te quedan intentos después del que está en curso."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i }) with timeout 5000ms
+      - waiting for locator('.quizinfo p').filter({ hasText: /\bte quedan?\s/i })
+
+
+      160 |   await iniciarIntento(page);
+      161 |   await abrirQuiz(page);
+    > 162 |   await expect(mensajeIntentos(page)).toHaveText('No te quedan intentos después del que está en curso.');
+          |                                       ^
+      163 |   await page.getByRole('button', { name: 'Continuar el último intento' }).click();
+      164 |   await expect(page).toHaveURL(/attempt\.php/);
+      165 | });
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:162:39
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

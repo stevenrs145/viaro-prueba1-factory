@@ -1,0 +1,59 @@
+{
+  "corrida": "20261102-163214-spec-4",
+  "spec": "specs/spec-4-intentos-restantes.md",
+  "rama": "factory/spec-4-20261102-151215",
+  "reanudada": true,
+  "estado": "VALIDADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-02T16:32:15.188Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan reutilizado de la rama: 5 criterios, 10 bordes.",
+      "actualizado": "2026-11-02T16:32:15.191Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "0 sonda(s).",
+      "actualizado": "2026-11-02T16:32:15.191Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas reutilizados de la rama.",
+      "actualizado": "2026-11-02T16:32:15.192Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "Pruebas del spec en verde.",
+      "actualizado": "2026-11-02T16:50:26.078Z"
+    },
+    "mutacion": {
+      "estado": "VALIDADO",
+      "detalle": "Sin la funcionalidad: 14 fallan, 0 pasan.",
+      "actualizado": "2026-11-02T17:05:17.958Z"
+    },
+    "regresion": {
+      "estado": "VALIDADO",
+      "detalle": "21 OK, 0 fallidas, 1 omitidas.",
+      "actualizado": "2026-11-02T17:23:52.685Z"
+    },
+    "alcance": {
+      "estado": "VALIDADO",
+      "detalle": "Solo cambió salidas/ del spec; core de Moodle intacto.",
+      "actualizado": "2026-11-02T17:23:53.116Z"
+    },
+    "honestidad": {
+      "estado": "VALIDADO",
+      "detalle": "Sin hallazgos.",
+      "actualizado": "2026-11-02T17:23:53.225Z"
+    },
+    "pr": {
+      "estado": "EJECUTADO",
+      "detalle": "PR propuesto: https://github.com/stevenrs145/viaro-prueba1-factory/pull/4. Pendiente de aprobación humana.",
+      "actualizado": "2026-11-02T17:24:02.004Z"
+    }
+  }
+}

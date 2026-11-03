@@ -1,0 +1,749 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "--project=movil",
+      "--update-snapshots=none"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261103-012939-spec-4/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261103-012939-spec-4/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261103-012939-spec-4/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261103-012939-spec-4/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261103-012939-spec-4/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261103-012939-spec-4/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "factory/regresion/humo-helpers.spec.ts",
+      "file": "factory/regresion/humo-helpers.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[HUMO] helpers de prueba",
+          "file": "factory/regresion/humo-helpers.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "La infraestructura se valida una vez, en escritorio",
+                      "location": {
+                        "file": "/work/factory/regresion/humo-helpers.spec.ts",
+                        "line": 7,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T02:06:22.726Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "La infraestructura se valida una vez, en escritorio",
+                          "location": {
+                            "file": "/work/factory/regresion/humo-helpers.spec.ts",
+                            "line": 7,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cce5222644551a905f9e-866aaa190a46a6dde08f",
+              "file": "factory/regresion/humo-helpers.spec.ts",
+              "line": 9,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20781,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:06:22.788Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-184ca25cc7acdea2695d",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] un profesor crea preguntas en el banco y las agrega a un examen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 57213,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:06:43.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-7c07824f10cb31023381",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28199,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:07:40.902Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a2efd32d1040fb4097eb-bb6755c4d1dc098e7271",
+          "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 36500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:08:09.137Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c568a1b773f06a27f6f0-78251fa2d0b1db273db6",
+          "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+      "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:08:45.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-49175f6f91e7db516bb0",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 41568,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:09:16.796Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-2a98899fc3721064a48b",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 106,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 42282,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:09:58.382Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-489299fc9ed2ff9e8f4b",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35279,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:10:40.682Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-ca6467efd0e0a9765beb",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 124,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] @requiere-feature el número baja después de enviar un intento",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 41906,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:11:15.968Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-f3f265654702e25d1f77",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 43791,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:11:57.889Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-cb0a7b843a05a6f054ae",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar",
+          "ok": true,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37180,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:12:41.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-69ea16e7007df0183785",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 156,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25871,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:13:18.885Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-d26919b00938368b9bc0",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 167,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35250,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:13:44.770Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-760fafa084229ae6ed26",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 178,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30018,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:14:20.033Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-8928078b62156daac216",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 188,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T02:06:01.267Z",
+    "duration": 529279.253,
+    "expected": 14,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

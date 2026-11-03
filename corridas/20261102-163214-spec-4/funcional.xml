@@ -1,0 +1,60 @@
+<testsuites id="" name="" tests="22" failures="0" skipped="1" errors="0" time="1068.798893">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T17:06:06.064Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="30.185" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="30.185">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T17:06:06.064Z" hostname="escritorio" tests="10" failures="0" skipped="0" time="514.434" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="50.855">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="57.674">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="52.781">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="48.3">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="55.355">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="56.765">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="50.582">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="32.61">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="49.768">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="59.744">
+</testcase>
+</testsuite>
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-02T17:06:06.064Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.007" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T17:06:06.064Z" hostname="movil" tests="10" failures="0" skipped="0" time="517.361" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="53.777">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="63.623">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="55.88">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="53.921">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="59.056">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="60.96">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="51.205">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="34.931">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="46.483">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="37.525">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,117 @@
+<testsuites id="" name="" tests="20" failures="1" skipped="0" errors="0" time="940.946286">
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T16:14:44.419Z" hostname="escritorio" tests="10" failures="1" skipped="0" time="478.502" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="57.149">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../../visual/lineas-base/spec-4-quedan-intentos--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/spec-4-quedan-intentos-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/spec-4-quedan-intentos-diff.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [escritorio] › salidas/spec-4/pruebas/intentos-restantes.spec.ts:98:1 › [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+
+      Snapshot: spec-4-quedan-intentos.png
+
+    Call log:
+      - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+
+
+      101 |   await abrirQuiz(page);
+      102 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 3 intentos.');
+    > 103 |   await expect(page).toHaveScreenshot('spec-4-quedan-intentos.png', { fullPage: true, mask: await prepararCaptura(page) });
+          |                      ^
+      104 | });
+      105 |
+      106 | test('[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2', async ({ page }) => {
+        at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:103:22
+
+    attachment #1: spec-4-quedan-intentos (image/png) ──────────────────────────────────────────────
+    Expected: visual/lineas-base/spec-4-quedan-intentos--escritorio.png
+    Received: corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/spec-4-quedan-intentos-actual.png
+    Diff:     corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/spec-4-quedan-intentos-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261102-151215-spec-4/spec/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="55.443">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="53.782">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="46.889">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="50.842">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="55.746">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="47.539">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="30.585">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="43.042">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="37.485">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-02T16:14:44.419Z" hostname="movil" tests="10" failures="0" skipped="0" time="453.128" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="41.168">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="52.88">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="51.818">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="45.906">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="51.685">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="54.014">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="45.789">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="30.933">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="43.211">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="35.724">
+</testcase>
+</testsuite>
+</testsuites>

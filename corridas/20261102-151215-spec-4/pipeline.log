@@ -1,0 +1,1015 @@
+[2026-11-02T15:12:15.280Z] [inicio] Spec specs/spec-4-intentos-restantes.md (spec-4). Corrida corridas/20261102-151215-spec-4. Rama factory/spec-4-20261102-151215.
+[2026-11-02T15:12:15.765Z] [ia:analista] Llamada 01 con plantilla analista.md (herramientas: Read, Glob, Grep)
+    prompt: corridas/20261102-151215-spec-4/ia/01-analista.prompt.md
+[2026-11-02T15:15:23.374Z] [uso-ia] Ventana de 5 h: 28 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T15:15:23.375Z] [ia:analista] Fin llamada 01: OK en 188s, costo USD 1.19
+    respuesta final:
+    ```json
+    {
+      "spec_id": "spec-4",
+      "titulo": "Intentos restantes en la página del quiz",
+      "naturaleza": "agrega",
+      "componente": "quizaccess_attemptsremaining",
+      "ruta_moodle": "public/mod/quiz/accessrule/attemptsremaining",
+      "capa_justificacion": "Regla de acceso de quiz usada solo por su descripción: no impide ni condiciona nada. Es la capa más específica, porque el mensaje entra en la lista de información que view.php ya muestra al estudiante, junto a 'Intentos permitidos' del core. Verificado: access_manager.php:78-83 instancia toda clase quizaccess_* con make() y descarta las que devuelven null; access_manager.php:103 las descubre por rule.php; access_rule_base.php:174 define description(); access_manager.php:321-326 acumula las descripciones; view.php:214 las pasa a infomessages; renderer.php:910 y renderer.php:1063 las pintan en el recuadro .quizinfo. Precedente directo: accessrule/numattempts/rule.php:29-40, que usa get_num_attempts_allowed() == 0 en make() para no actuar en quizzes sin límite. Eso resuelve CA-4 sin ramas de presentación: sin regla no hay salida. Se descarta un hook de salida (before_footer_html_generation y similares): obligaría a filtrar por pagetype, a recalcular quiz, overrides y capacidades, y a inyectar HTML fuera del recuadro de información. Se descarta local_* con observer: CA-2 no necesita reaccionar a un evento, porque el conteo se calcula en vivo en cada carga. No hace falta persistencia propia: el dato sale de quiz_attempts, así que no hay db/ ni tablas. El proveedor de privacidad es null_provider. Restricciones verificadas: la regla no recibe userid (usar $USER, el usuario actual) y describe_rules también lo usa la API externa (external.php:2133).",
+      "bordes": [
+        {
+          "descripcion": "Intento en curso: el spec habla de 'empezar o retomar', pero no dice si un intento sin enviar cuenta como usado.",
+          "decision": "Cuenta como usado, igual que el core: view.php:86-106 suma terminados y no terminados en numattempts, y numattempts/rule.php:42-50 compara contra ese total. Con un intento en curso el mensaje lo aclara: 'Te quedan N intentos además del que está en curso', 'Te queda 1 intento además del que está en curso' o 'No te quedan intentos después del que está en curso'.",
+          "criterio": "El número debe coincidir con los intentos nuevos que Moodle realmente va a permitir. La aclaración evita decir 'no te quedan intentos' mientras la página ofrece 'Continuar el último intento'.",
+          "preguntaria": "Con un intento abierto, ¿el contador debe descontarlo ya o solo al enviarlo? ¿Sirve la aclaración 'además del que está en curso'?",
+          "bloqueante": false
+        },
+        {
+          "descripcion": "Qué estados de intento se cuentan.",
+          "decision": "Contar quiz_get_user_attempts(quizid, userid, 'finished', true) más 'unfinished', igual que view.php:86 y :91. No usar 'all': incluiría NOT_STARTED (quiz_attempt.php:57), que el core no cuenta. Finished incluye SUBMITTED y ABANDONED (lib.php:544-547). El 
+[2026-11-02T15:15:23.376Z] [analisis] Plan válido en intento 1: capa quizaccess_attemptsremaining — 5 criterios, 10 bordes.
+[2026-11-02T15:15:23.377Z] [ia:implementador] Llamada 02 con plantilla implementador.md (herramientas: Read, Glob, Grep, Write(salidas/spec-4/**), Edit(salidas/spec-4/**))
+    prompt: corridas/20261102-151215-spec-4/ia/02-implementador.prompt.md
+[2026-11-02T15:21:14.559Z] [uso-ia] Ventana de 5 h: 47 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T15:21:14.559Z] [ia:implementador] Fin llamada 02: OK en 351s, costo USD 2.34
+    respuesta final:
+    El plugin y las 10 pruebas quedaron escritos en `salidas/spec-4/`, pero **no ejecuté nada**: en esta sesión no tengo shell. Ni el PHP ni las pruebas se corrieron. Los selectores salen de leer el código de Moodle, así que el bucle de validación de la fábrica es su primera ejecución real.
+    
+    ## Archivos creados
+    Plugin en `salidas/spec-4/codigo/public/mod/quiz/accessrule/attemptsremaining/`:
+    - `version.php`
+    - `rule.php`: `make()` devuelve `null` si no hay límite efectivo, si el usuario no tiene `mod/quiz:attempt` o si tiene `mod/quiz:preview`. `description()` cuenta intentos terminados más no terminados.
+    - `classes/privacy/provider.php`: `null_provider`.
+    - `lang/en/` y `lang/es/quizaccess_attemptsremaining.php`
+    
+    Pruebas en `salidas/spec-4/pruebas/intentos-restantes.spec.ts`. Corren en escritorio y móvil.
+    
+    ## Cobertura
+    | Criterio | Pruebas | Qué verifican |
+    |---|---|---|
+    | CA-1 (`@requiere-feature`) | 4 | Le quedan 3 (captura `spec-4-quedan-intentos`); le quedan 2 con uno enviado; singular; intento en curso con botón de continuar |
+    | CA-2 (`@requiere-feature`) | 1 | Camino completo: ve 3, hace un intento, lo envía, vuelve y ve 2; el mensaje con 3 desaparece |
+    | CA-3 (`@requiere-feature`) | 2 | Sin intentos y sin botón (captura `spec-4-sin-intentos`); último intento en curso que se puede continuar |
+    | CA-4 | 3 | Sin mensaje y con botón funcionando (captura `spec-4-sin-limite`); sin mensaje tras enviar un intento; el profesor no lo ve |
+    | CA-5 | proceso | Lo cubren las evidencias de la corrida |
+    
+    ## Decisiones fuera del plan
+    - **Limpieza antes y después de cada prueba:** `reset.php` no borra overrides, así que un override que quede de una corrida cortada se quita al arrancar la siguiente prueba.
+    - **Intentos enviados en blanco:** el spec no depende de las respuestas, y la confirmación usa el mismo botón con preguntas sin responder.
+    - **Borrado con `pagesize=100`:** evita que la fila de estudiante11 quede en otra página del informe. El ajuste es solo de esa URL y no se guarda como preferencia.
+    - **Selectores por `id` en formularios e informes:** el paquete de idioma español no está en `.moodle-src`, así que no pude comprobar esos textos.
+    - **Prueba CA-4 más estricta:** además de lo pedido, exige un solo párrafo en `.quizinfo`, para detectar cualquier mensaje nuevo.
+    
+    ## Riesgos y limitaciones
+    - **La prueba del profesor no detecta un fallo en la verificación de capacidades:** para el profesor QUIZ-REG sigue sin límite, y `make()` devuelve `null` antes de llegar a esa verificación. Si se quitara la verificación, la prueba seguiría pasando. Probarlo de verdad exige un límite general en el quiz, que el plan descarta. Hay que declararlo en el PR, junto con la limitación que el plan ya pide declarar.
+    - **CA-4 no prueba "idéntica a la actual" con la captura:** la línea base se genera con el plugin instalado y CA-4 no entra en la mutación. Lo que más sostiene ese criterio es la cuenta de párrafos más la lógica de `make()`.
+    - **Móvil sin antecedente:** la prueba de
+[2026-11-02T15:21:16.907Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T15:21:56.418Z] [despliegue] Plugins: quizaccess_attemptsremaining — upgrade OK
+[2026-11-02T15:40:13.581Z] [pruebas] Intento 1: 13 OK, 7 fallidas, 0 omitidas.
+    ### movil · [CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Borrar</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m  6 × retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m    
+    
+    ### movil · [CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Sí</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m  6 × retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="
+    
+    ### movil · [CA-2] @requiere-feature el número baja después de enviar un intento
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Sí</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not stable[22m
+    [2m  6 × retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts
+    
+    ### movil · [CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Sí</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  2 × retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m  6 × retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="
+    
+    ### movil · [CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Borrar</button>[22m
+    [2m  - attempting click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    3 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m    6 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    
+    ### movil · [CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.modal-footer [data-action="delete"]')[22m
+    [2m    - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Borrar</button>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is visible, enabled and stable[22m
+    [2m    - scrolling into view if needed[22m
+    [2m    - done scrolling[22m
+    [2m    - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    - waiting for element to be visible, enabled and stable[22m
+    [2m    - element is not stable[22m
+    [2m  - retrying click action[22m
+    [2m    - waiting 100ms[22m
+    [2m    3 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m    6 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is visible, enabled and stable[22m
+    [2m      - scrolling into view if needed[22m
+    [2m      - done scrolling[22m
+    [2m      - <div data-region="header" class="modal-header ">…</div> intercepts pointer events[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 500ms[22m
+    [2m      - waiting for element to be visible, enabled and stable[22m
+    [2m      - element is vis
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-4/pruebas/intentos-restantes.spec.ts >> [CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos
+    - Location: salidas/spec-4/pruebas/intentos-restantes.spec.ts:143:1
+    
+    # Error details
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('.modal-footer [data-action="delete"]')
+        - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Sí</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div data-region="header" class="modal-header ">…</div> intercepts pointer events
+      6 × retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div data-region="header" class="modal-header ">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div data-region="header" class="modal-header ">…</div> intercepts pointer events
+      2 × retrying click action
+          - waiting 500ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+    
+    ```
+    
+    ```
+    TimeoutError: locator.click: Timeout 15000ms exceeded.
+    Call log:
+      - waiting for locator('.modal-footer [data-action="delete"]')
+        - locator resolved to <button type="button" data-action="delete" class="btn btn-danger">Sí</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+      - retrying click action
+        - waiting 100ms
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting 100ms
+        3 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <button type="button" data-action="cancel" class="btn btn-secondary">Cancelar</button> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+        6 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div data-region="header" class="modal-header ">…</div> intercepts pointer events
+        - retrying click action
+          - waiting 500ms
+[2026-11-02T15:40:13.588Z] [reintento] Intento 1 no quedó verde. Se le pide a la IA que corrija (1/3).
+[2026-11-02T15:40:13.603Z] [ia:corrector] Llamada 03 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-4/**), Edit(salidas/spec-4/**))
+    prompt: corridas/20261102-151215-spec-4/ia/03-corrector.prompt.md
+[2026-11-02T15:40:57.292Z] [uso-ia] Ventana de 5 h: 51 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T15:40:57.292Z] [ia:corrector] Fin llamada 03: OK en 44s, costo USD 0.38
+    respuesta final:
+    **Causa raíz:** el plugin no falla, y los asserts de las pruebas tampoco. Fallan los pasos de limpieza (`beforeEach`/`afterEach`) en el proyecto móvil, en `borrarIntentos` de la prueba. En Pixel 7 la tabla del informe `report.php?mode=overview` desborda horizontalmente. Con eso, el modal de confirmación de Moodle queda desplazado y recortado, como se ve en la captura `test-failed-1.png`. Playwright intenta llevar el botón "Sí"/"Borrar" a la vista y el botón se mueve ("element is not stable"). Mientras tanto, Cancelar o el encabezado del modal interceptan el puntero hasta agotar los 15 s. En escritorio no pasa. Como el fallo está en la limpieza, rompe todas las pruebas móviles que borran intentos (CA-1 singular, CA-1 en curso, CA-2, CA-3 ×2, CA-4). Las que sí pasaron en móvil son las que no llegan a ese paso de borrado de intentos.
+    
+    **Qué cambié:** en `salidas/spec-4/pruebas/intentos-restantes.spec.ts`, `borrarIntentos` ahora hace `dispatchEvent('click')` sobre `.modal-footer [data-action="delete"]` en lugar de `.click()`. Lo hice así porque este clic no depende de la geometría del modal, que es lo que se desplaza. El `expect(casillas).toHaveCount(0)` que sigue verifica el borrado real. No toqué ningún assert, ni agregué skip/only/force, ni cambié umbrales.
+    
+    **No ejecuté nada:** la prueba no se volvió a correr tras el cambio, así que no confirmé que las pruebas móviles pasen.
+    
+    **Para la fábrica (no lo toqué):** es posible que `factory/regresion/helpers.ts` merezca un helper de "borrar intentos como profesor" que resuelva esto en móvil. Si otros specs repiten el patrón, conviene centralizarlo allí.
+[2026-11-02T15:41:00.028Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T15:41:02.139Z] [despliegue] Plugins: quizaccess_attemptsremaining — upgrade OK
+[2026-11-02T15:56:59.933Z] [pruebas] Intento 2: 19 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-4/pruebas/intentos-restantes.spec.ts >> [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    - Location: salidas/spec-4/pruebas/intentos-restantes.spec.ts:98:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f22e1]:
+      - status
+      - generic [ref=f22e2]:
+        - link "Salta al contenido principal" [ref=f22e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f22e4]:
+          - generic [ref=f22e5]:
+            - link "Viaro" [ref=f22e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f22e9]:
+              - menuitem "Área personal" [ref=f22e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f22e12]:
+              - generic [ref=f22e15]:
+                - switch "Modo de edición" [ref=f22e16] [cursor=pointer]
+                - generic [ref=f22e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f22e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f22e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e31]: 
+              - button "Menú de usuario" [ref=f22e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f22e41]: PP
+                - generic [aria-hidden] [ref=f22e42]: Paula
+                - text: 
+        - generic [ref=f22e43]:
+          - generic [ref=f22e44]:
+            - button "Abrir índice del curso" [ref=f22e46] [cursor=pointer]
+            - banner [ref=f22e50]:
+              - generic [ref=f22e51]:
+                - navigation "Camino de migas" [ref=f22e54]:
+                  - list [ref=f22e55]:
+                    - listitem [ref=f22e56]:
+                      - link "QA101" [ref=f22e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f22e58]:
+                      - text: /
+                      - link "General" [ref=f22e59] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f22e60]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f22e61] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f22e62]:
+                      - text: /
+                      - generic [ref=f22e63]: Excepciones
+                - heading "Examen de regresión" [level=1] [ref=f22e72]
+            - navigation "Menú de Actividad" [ref=f22e75]:
+              - menubar [ref=f22e76]:
+                - menuitem "Cuestionario" [ref=f22e77] [cursor=pointer]
+                - menuitem "Configuración" [ref=f22e79] [cursor=pointer]
+                - menuitem "Preguntas" [ref=f22e81] [cursor=pointer]
+                - menuitem "Resultados" [ref=f22e83] [cursor=pointer]
+                - menuitem "Banco de preguntas" [ref=f22e85] [cursor=pointer]
+                - menuitem "Más " [ref=f22e87] [cursor=pointer]:
+                  - generic [ref=f22e89]: Más
+                  - text: 
+                - text: 
+            - main [ref=f22e94]:
+              - generic [ref=f22e96]:
+                - navigation [ref=f22e98]:
+                  - generic [ref=f22e99]:
+                    - generic [ref=f22e100]: Excepciones
+                    - combobox "Excepciones" [ref=f22e101] [cursor=pointer]: Excepciones de usuario 
+                    - text: 
+                - button "Agregar excepción de usuario" [ref=f22e105] [cursor=pointer]
+              - heading "Excepciones de usuario" [level=2] [ref=f22e106]
+              - alert [ref=f22e108]: No se han creado anulaciones de configuración de usuario para este cuestionario.
+          - contentinfo:
+            - button "Mostrar pie de página" [ref=f22e109] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f22e110]: "?"
+            - text:  
+    ```
+    
+    # Test source
+    
+    ```ts
+      3   | // como profesor, sin tocar el ajuste general del quiz. reset.php no borra overrides y cada prueba corre en dos proyectos
+      4   | // con el mismo estudiante: por eso cada prueba arranca y termina sin override y sin intentos de estudiante11.
+      5   | import { test, expect, type Page } from '@playwright/test';
+      6   | import {
+      7   |   login, abrirQuiz, botonIntento, enviarIntento, esperarJS, prepararCaptura, siguientePagina,
+      8   | } from '../../../factory/regresion/helpers';
+      9   | 
+      10  | const ESTUDIANTE = 'estudiante11';
+      11  | const APELLIDO = 'Número 11'; // Identifica su fila en informes y overrides; no coincide con "Número 1".
+      12  | 
+      13  | let cmid: number;
+      14  | 
+      15  | /** El mensaje del plugin dentro del recuadro de información. El aviso nativo de intentos agotados va al pie, fuera de .quizinfo. */
+      16  | const mensajeIntentos = (page: Page) => page.locator('.quizinfo p', { hasText: /\bte quedan?\s/i });
+      17  | 
+      18  | /** Cualquier rastro del mensaje en toda la página, dentro o fuera del recuadro. */
+      19  | const mensajeEnLaPagina = (page: Page) => page.getByText(/\bte quedan?\s/i);
+      20  | 
+      21  | /** Como profesor: borra los intentos de estudiante11 en el informe
+[2026-11-02T15:56:59.933Z] [reintento] Intento 2 no quedó verde. Se le pide a la IA que corrija (2/3).
+[2026-11-02T15:56:59.934Z] [ia:corrector] Llamada 04 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-4/**), Edit(salidas/spec-4/**))
+    prompt: corridas/20261102-151215-spec-4/ia/04-corrector.prompt.md
+[2026-11-02T15:57:48.947Z] [uso-ia] Ventana de 5 h: 54 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T15:57:48.947Z] [ia:corrector] Fin llamada 04: OK en 49s, costo USD 0.36
+    respuesta final:
+    **Causa raíz:** el fallo no viene del plugin ni de la prueba. Viene del entorno de captura, y hay que arreglarlo en la fábrica.
+    
+    - **Qué pasó:** comparé `expected`, `actual` y `diff` de `spec-4-quedan-intentos`. Lo único distinto es el **cajón del índice del curso**: está abierto en la línea base y cerrado en esta corrida. Eso explica los 32.279 píxeles de diferencia, porque la columna de contenido se corre.
+    - **El plugin hace lo que pide CA-1:** el mensaje "Te quedan 3 intentos." se ve idéntico en ambas capturas. La aserción `toHaveText` anterior pasó.
+    - **Es el único fallo de este intento:** los `TimeoutError` del log son del intento anterior. En el intento 2 solo falla este screenshot (desktop). Móvil no lo muestra porque el cajón empieza cerrado.
+    - **Por qué cambia el cajón:** Moodle guarda su estado en la preferencia de usuario `drawer-open-index`. `estudiante11` se usa en escritorio y móvil, y los helpers de `factory/regresion/helpers.ts` no normalizan esa preferencia. `prepararCaptura` solo oculta los botones del cajón. `reset.php` tampoco la limpia. Si el cajón queda guardado de una corrida o proyecto anterior, la línea base y la captura nueva divergen. No verifiqué en qué orden se guardó.
+    
+    **Qué cambié:** nada. Sigo las reglas del proyecto, así que no toqué el plugin ni la prueba:
+    - Cambiar el plugin no arregla nada, porque el mensaje ya es correcto.
+    - Meter en la prueba un clic al cajón o un reintento sería envolver un helper, que está prohibido, y taparía una inestabilidad del entorno.
+    - Aceptar `actual` como nueva línea base es decisión humana (`aprobar-linea-base`).
+    
+    **Qué debe arreglar la fábrica (fuera de mi alcance):** fijar el estado del cajón de forma determinista antes de cada captura. Puede ser en `prepararCaptura` o en `login()`, o borrando `drawer-open-index` en `reset.php`. Después hay que regenerar las líneas base de spec-4 con ese estado fijo y aprobarlas explícitamente. Mientras tanto, cualquier captura de página completa de un estudiante puede dar este falso positivo.
+[2026-11-02T15:57:51.020Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T15:57:52.960Z] [despliegue] Plugins: quizaccess_attemptsremaining — upgrade OK
+[2026-11-02T16:13:52.820Z] [pruebas] Intento 3: 19 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-4/pruebas/intentos-restantes.spec.ts >> [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    - Location: salidas/spec-4/pruebas/intentos-restantes.spec.ts:98:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f22e1]:
+      - status
+      - generic [ref=f22e2]:
+        - link "Salta al contenido principal" [ref=f22e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f22e4]:
+          - generic [ref=f22e5]:
+            - link "Viaro" [ref=f22e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f22e9]:
+              - menuitem "Área personal" [ref=f22e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f22e12]:
+              - generic [ref=f22e15]:
+                - switch "Modo de edición" [ref=f22e16] [cursor=pointer]
+                - generic [ref=f22e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f22e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f22e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e31]: 
+              - button "Menú de usuario" [ref=f22e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f22e41]: PP
+                - generic [aria-hidden] [ref=f22e42]: Paula
+                - text: 
+        - generic [ref=f22e43]:
+          - generic [ref=f22e44]:
+            - button "Abrir índice del curso" [ref=f22e46] [cursor=pointer]
+            - banner [ref=f22e50]:
+              - generic [ref=f22e51]:
+                - navigation "Camino de migas" [ref=f22e54]:
+                  - list [ref=f22e55]:
+                    - listitem [ref=f22e56]:
+                      - link "QA101" [ref=f22e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f22e58]:
+                      - text: /
+                      - link "General" [ref=f22e59] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f22e60]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f22e61] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f22e62]:
+                      - text: /
+                      - generic [ref=f22e63]: Excepciones
+                - heading "Examen de regresión" [level=1] [ref=f22e72]
+            - navigation "Menú de Actividad" [ref=f22e75]:
+              - menubar [ref=f22e76]:
+                - menuitem "Cuestionario" [ref=f22e77] [cursor=pointer]
+                - menuitem "Configuración" [ref=f22e79] [cursor=pointer]
+                - menuitem "Preguntas" [ref=f22e81] [cursor=pointer]
+                - menuitem "Resultados" [ref=f22e83] [cursor=pointer]
+                - menuitem "Banco de preguntas" [ref=f22e85] [cursor=pointer]
+                - menuitem "Más " [ref=f22e87] [cursor=pointer]:
+                  - generic [ref=f22e89]: Más
+                  - text: 
+                - text: 
+            - main [ref=f22e94]:
+              - generic [ref=f22e96]:
+                - navigation [ref=f22e98]:
+                  - generic [ref=f22e99]:
+                    - generic [ref=f22e100]: Excepciones
+                    - combobox "Excepciones" [ref=f22e101] [cursor=pointer]: Excepciones de usuario 
+                    - text: 
+                - button "Agregar excepción de usuario" [ref=f22e105] [cursor=pointer]
+              - heading "Excepciones de usuario" [level=2] [ref=f22e106]
+              - alert [ref=f22e108]: No se han creado anulaciones de configuración de usuario para este cuestionario.
+          - contentinfo:
+            - button "Mostrar pie de página" [ref=f22e109] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f22e110]: "?"
+            - text:  
+    ```
+    
+    # Test source
+    
+    ```ts
+      3   | // como profesor, sin tocar el ajuste general del quiz. reset.php no borra overrides y cada prueba corre en dos proyectos
+      4   | // con el mismo estudiante: por eso cada prueba arranca y termina sin override y sin intentos de estudiante11.
+      5   | import { test, expect, type Page } from '@playwright/test';
+      6   | import {
+      7   |   login, abrirQuiz, botonIntento, enviarIntento, esperarJS, prepararCaptura, siguientePagina,
+      8   | } from '../../../factory/regresion/helpers';
+      9   | 
+      10  | const ESTUDIANTE = 'estudiante11';
+      11  | const APELLIDO = 'Número 11'; // Identifica su fila en informes y overrides; no coincide con "Número 1".
+      12  | 
+      13  | let cmid: number;
+      14  | 
+      15  | /** El mensaje del plugin dentro del recuadro de información. El aviso nativo de intentos agotados va al pie, fuera de .quizinfo. */
+      16  | const mensajeIntentos = (page: Page) => page.locator('.quizinfo p', { hasText: /\bte quedan?\s/i });
+      17  | 
+      18  | /** Cualquier rastro del mensaje en toda la página, dentro o fuera del recuadro. */
+      19  | const mensajeEnLaPagina = (page: Page) => page.getByText(/\bte quedan?\s/i);
+      20  | 
+      21  | /** Como profesor: borra los intentos de estudiante11 en el informe
+[2026-11-02T16:13:52.821Z] [reintento] Intento 3 no quedó verde. Se le pide a la IA que corrija (3/3).
+[2026-11-02T16:13:52.825Z] [ia:corrector] Llamada 05 con plantilla corrector.md (herramientas: Read, Glob, Grep, Write(salidas/spec-4/**), Edit(salidas/spec-4/**))
+    prompt: corridas/20261102-151215-spec-4/ia/05-corrector.prompt.md
+[2026-11-02T16:14:28.671Z] [uso-ia] Ventana de 5 h: 57 % usado (se reinicia 2026-11-02T17:10:00.000Z).
+[2026-11-02T16:14:28.671Z] [ia:corrector] Fin llamada 05: OK en 36s, costo USD 0.30
+    respuesta final:
+    **Causa raíz:** no es el plugin, y no cambié nada.
+    
+    - **Qué muestran las capturas.** El diff entre `…-expected.png` y `…-actual.png` es solo el layout. En el baseline, el índice del curso (el drawer izquierdo con "Curso QA de Exámenes") está abierto. En la corrida actual está cerrado, y todo el contenido se corre unos 143 px a la izquierda.
+    - **El contenido del plugin es correcto.** En ambas imágenes se lee "Te quedan 3 intentos." dentro de `.quizinfo`, junto a "Intentos permitidos: 3". La aserción `toHaveText('Te quedan 3 intentos.')`, que va antes de la captura, pasó.
+    - **Por qué cambia el drawer.** El estado del drawer es una preferencia persistente del usuario (`drawer-open-index`). `estudiante11` la comparte entre los proyectos de escritorio y móvil. Mi lectura es que el proyecto móvil cierra el drawer y la preferencia queda guardada, así que el escritorio siguiente lo ve cerrado. No lo verifiqué. Ni `reset.php` ni `prepararCaptura()` normalizan esa preferencia. El helper solo oculta `.drawer-toggles`, no fija el estado del drawer.
+    - **El ARIA que vino con el fallo es engañoso.** Es la página de overrides del profesor, porque se tomó después del `afterEach`. No describe la captura que falló.
+    
+    **Por qué no edité:** las reglas prohíben, para arreglar esto:
+    - envolver `prepararCaptura()` con pasos propios;
+    - actualizar el baseline para que pase;
+    - relajar el umbral.
+    
+    Cualquier retoque en `salidas/spec-4/` sería un parche sobre un problema de la fábrica.
+    
+    **Qué debe arreglar la fábrica:** hacer determinista el estado del drawer antes de cada captura, de una de estas dos formas:
+    1. En `prepararCaptura()`, forzar el estado del drawer o ocultar `[data-region="drawer"]` junto con `.drawer-toggles`. Así el layout no depende de la preferencia del usuario.
+    2. En `reset.php` o en el `setup` de los proyectos, borrar la preferencia `drawer-open-index` (y `drawer-open-block`) de los usuarios de prueba.
+    
+    Después hay que regenerar los baselines de spec-4 (`spec-4-*--escritorio.png` y `--movil.png`). Aprobarlos es decisión humana con `aprobar-linea-base --razon`. Las otras dos capturas de spec-4 (`sin-intentos` y `sin-limite`) probablemente tengan el mismo problema, porque se capturan con el mismo usuario y el mismo helper.
+[2026-11-02T16:14:31.088Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-02T16:14:33.229Z] [despliegue] Plugins: quizaccess_attemptsremaining — upgrade OK
+[2026-11-02T16:30:22.289Z] [pruebas] Intento 4: 19 OK, 1 fallidas, 0 omitidas.
+    ### escritorio · [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 32279 pixels (ratio 0.03 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-4/pruebas/intentos-restantes.spec.ts >> [CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3
+    - Location: salidas/spec-4/pruebas/intentos-restantes.spec.ts:98:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+      Snapshot: spec-4-quedan-intentos.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-4-quedan-intentos.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 32279 pixels (ratio 0.03 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f22e1]:
+      - status
+      - generic [ref=f22e2]:
+        - link "Salta al contenido principal" [ref=f22e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f22e4]:
+          - generic [ref=f22e5]:
+            - link "Viaro" [ref=f22e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f22e9]:
+              - menuitem "Área personal" [ref=f22e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f22e12]:
+              - generic [ref=f22e15]:
+                - switch "Modo de edición" [ref=f22e16] [cursor=pointer]
+                - generic [ref=f22e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f22e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f22e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f22e31]: 
+              - button "Menú de usuario" [ref=f22e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f22e41]: PP
+                - generic [aria-hidden] [ref=f22e42]: Paula
+                - text: 
+        - generic [ref=f22e43]:
+          - generic [ref=f22e44]:
+            - button "Abrir índice del curso" [ref=f22e46] [cursor=pointer]
+            - banner [ref=f22e50]:
+              - generic [ref=f22e51]:
+                - navigation "Camino de migas" [ref=f22e54]:
+                  - list [ref=f22e55]:
+                    - listitem [ref=f22e56]:
+                      - link "QA101" [ref=f22e57] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/view.php?id=2
+                    - listitem [ref=f22e58]:
+                      - text: /
+                      - link "General" [ref=f22e59] [cursor=pointer]:
+                        - /url: http://localhost:8090/course/section.php?id=1
+                    - listitem [ref=f22e60]:
+                      - text: /
+                      - link "Examen de regresión" [ref=f22e61] [cursor=pointer]:
+                        - /url: http://localhost:8090/mod/quiz/view.php?id=2
+                    - listitem [ref=f22e62]:
+                      - text: /
+                      - generic [ref=f22e63]: Excepciones
+                - heading "Examen de regresión" [level=1] [ref=f22e72]
+            - navigation "Menú de Actividad" [ref=f22e75]:
+              - menubar [ref=f22e76]:
+                - menuitem "Cuestionario" [ref=f22e77] [cursor=pointer]
+                - menuitem "Configuración" [ref=f22e79] [cursor=pointer]
+                - menuitem "Preguntas" [ref=f22e81] [cursor=pointer]
+                - menuitem "Resultados" [ref=f22e83] [cursor=pointer]
+                - menuitem "Banco de preguntas" [ref=f22e85] [cursor=pointer]
+                - menuitem "Más " [ref=f22e87] [cursor=pointer]:
+                  - generic [ref=f22e89]: Más
+                  - text: 
+                - text: 
+            - main [ref=f22e94]:
+              - generic [ref=f22e96]:
+                - navigation [ref=f22e98]:
+                  - generic [ref=f22e99]:
+                    - generic [ref=f22e100]: Excepciones
+                    - combobox "Excepciones" [ref=f22e101] [cursor=pointer]: Excepciones de usuario 
+                    - text: 
+                - button "Agregar excepción de usuario" [ref=f22e105] [cursor=pointer]
+              - heading "Excepciones de usuario" [level=2] [ref=f22e106]
+              - alert [ref=f22e108]: No se han creado anulaciones de configuración de usuario para este cuestionario.
+          - contentinfo:
+            - button "Mostrar pie de página" [ref=f22e109] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f22e110]: "?"
+            - text:  
+    ```
+    
+    # Test source
+    
+    ```ts
+      3   | // como profesor, sin tocar el ajuste general del quiz. reset.php no borra overrides y cada prueba corre en dos proyectos
+      4   | // con el mismo estudiante: por eso cada prueba arranca y termina sin override y sin intentos de estudiante11.
+      5   | import { test, expect, type Page } from '@playwright/test';
+      6   | import {
+      7   |   login, abrirQuiz, botonIntento, enviarIntento, esperarJS, prepararCaptura, siguientePagina,
+      8   | } from '../../../factory/regresion/helpers';
+      9   | 
+      10  | const ESTUDIANTE = 'estudiante11';
+      11  | const APELLIDO = 'Número 11'; // Identifica su fila en informes y overrides; no coincide con "Número 1".
+      12  | 
+      13  | let cmid: number;
+      14  | 
+      15  | /** El mensaje del plugin dentro del recuadro de información. El aviso nativo de intentos agotados va al pie, fuera de .quizinfo. */
+      16  | const mensajeIntentos = (page: Page) => page.locator('.quizinfo p', { hasText: /\bte quedan?\s/i });
+      17  | 
+      18  | /** Cualquier rastro del mensaje en toda la página, dentro o fuera del recuadro. */
+      19  | const mensajeEnLaPagina = (page: Page) => page.getByText(/\bte quedan?\s/i);
+      20  | 
+      21  | /** Como profesor: borra los intentos de estudiante11 en el informe
+[2026-11-02T16:30:22.290Z] [pruebas] DETENIDO: Las pruebas del spec no quedaron en verde tras 3 reintentos. Se detiene sin PR; la rama factory/spec-4-20261102-151215 queda para diagnóstico.

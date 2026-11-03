@@ -110,5 +110,53 @@
     "aprobado_por": "Steven",
     "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
     "fecha": "2026-11-02T15:06:34.410Z"
+  },
+  "spec-4-quedan-intentos--escritorio.png": {
+    "sha256": "6bbdc42cf95b1a648644d846d7f0de2938fbf685c7090f48c4f61d3622432466",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.805Z"
+  },
+  "spec-4-quedan-intentos--movil.png": {
+    "sha256": "c29b76a08b26ff46648c600a523078f77e1407d15c0095472bcb290f26e4b65a",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.805Z"
+  },
+  "spec-4-sin-intentos--escritorio.png": {
+    "sha256": "ff181edccdb6d9e2fae298a9b4d47f2cd2a7aa08883d9d672ee632349898b274",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.806Z"
+  },
+  "spec-4-sin-intentos--movil.png": {
+    "sha256": "7fc81c6a7fd2fd9dacb72887719847272a497447a3ec91d7786b5ff3a783c360",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.806Z"
+  },
+  "spec-4-sin-limite--escritorio.png": {
+    "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.807Z"
+  },
+  "spec-4-sin-limite--movil.png": {
+    "sha256": "95f817ecbcf0fd207ae4e17666894dba3817edb54bda1e1f49b713656574ea4d",
+    "origen": "pipeline",
+    "estado": "pendiente-aprobacion-humana",
+    "spec": "spec-4",
+    "razon": "Pantalla nueva introducida por spec-4",
+    "fecha": "2026-11-03T02:14:50.807Z"
   }
 }
