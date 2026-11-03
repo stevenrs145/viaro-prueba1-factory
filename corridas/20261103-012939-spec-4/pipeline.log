@@ -11,3 +11,6 @@
 [2026-11-03T02:14:51.504Z] [honestidad] OK.
     HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
     
+[2026-11-03T02:16:46.054Z] [fin] PR propuesto: (no creado: Warning: 7 uncommitted changes
+a pull request for branch "factory/spec-4-20261102-151215" into branch "main" already exists:
+https://github.com/stevenrs145/viaro-prueba1-factory/pull/4) corridas/20261103-012939-spec-4/pr.md. El pipeline se detiene en aprobación humana: no mergea ni despliega.
