@@ -71,7 +71,16 @@ Si el analista encuentra una decisión que solo producto puede tomar, la corrida
 
 ## Ramas
 - `main`: fábrica, entorno, regresión aprobada y referencias del control de honestidad.
-- `factory/spec-N-<fecha>`: una por corrida de spec, con su PR **abierto**.
+- `factory/spec-N-<fecha>`: una por corrida de spec, con su PR **abierto**. Las salidas de cada spec (código, pruebas,
+  `trazabilidad.md`, `cambios.diff`) y su corrida completa viven en esa rama; `salidas/spec-N/README.md` en `main` dice dónde.
+
+| Spec | Qué hace | PR (abierto) |
+|---|---|---|
+| spec-0 | Regresión del camino feliz | [#1](https://github.com/stevenrs145/viaro-prueba1-factory/pull/1), mergeado a propósito |
+| spec-1 | Reconocimiento obligatorio antes de iniciar un quiz | [#2](https://github.com/stevenrs145/viaro-prueba1-factory/pull/2) |
+| spec-2 | Notificación del resultado a un sistema externo | [#3](https://github.com/stevenrs145/viaro-prueba1-factory/pull/3) |
+| spec-3 | Reemplazo de la retroalimentación global por un resumen por tema | [#5](https://github.com/stevenrs145/viaro-prueba1-factory/pull/5) |
+| spec-4 | Spec desconocido de ensayo: intentos restantes | [#4](https://github.com/stevenrs145/viaro-prueba1-factory/pull/4) |
 - La regresión (spec-0) también salió de la fábrica; su PR se mergeó a `main` a propósito, después de aprobar
   sus líneas base, porque es la línea base compartida contra la que se miden los demás specs. Los PR de los specs 1–4 quedan abiertos.
 

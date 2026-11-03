@@ -50,13 +50,21 @@ NUNCA se modifica nada fuera del directorio del plugin generado. El pipeline lo 
 - Estudiantes por spec (para que las pruebas de distintos specs no compartan intentos):
   regresión (spec-0): estudiante1..4 · spec-1: estudiante5..6 · spec-2: estudiante7..8 · spec-3: estudiante9..10 ·
   cualquier spec nuevo: estudiante11 · prueba de humo: estudiante12.
-- La UI está en inglés (en). Botones verificados: "Attempt quiz", "Next page", "Previous page", "Finish attempt ...",
-  "Submit all and finish" (y de nuevo en el modal de confirmación). Revisión: tabla `table.quizreviewsummary`
-  con filas Status/Started/Completed/Duration/Marks/Grade/Feedback. Con un ensayo sin calificar: "Grade: Not yet graded"
-  y NO aparecen Marks ni Feedback.
+- La UI está en español (es), con coma decimal: "9,17 de 10,00 (91,67%)", "1,00/6,00". Botones verificados: "Intento de cuestionario",
+  "Continuar el último intento", "Reintentar el cuestionario", "Siguiente página", "Página anterior", "Terminar intento...", "Enviar todo y terminar"
+  (y de nuevo en el modal de confirmación). Revisión: tabla `table.quizreviewsummary` con filas Estado/Comenzado/Completado/Duración/Puntos/Calificación/Retroalimentación.
+  Con un ensayo sin calificar: Calificación = "Sin calificar aún" y NO aparecen Puntos ni Retroalimentación. V/F: "Verdadero"/"Falso".
+  Las preguntas sembradas tienen la opción correcta primero: ALG-1 "12", GEO-1 "6"; ALG-2, GEO-2 e HIS-1 son "Verdadero".
 - Informe de intentos del profesor: /mod/quiz/report.php?id=<cmid>&mode=overview ; calificación manual: mode=grading.
 - Curso `QA101`; examen `QUIZ-REG` (6 preguntas: 3 temas = categorías Álgebra/Geometría/Historia; incluye ensayo;
   tiene retroalimentación global configurada).
 - Receptor externo de pruebas: desde Moodle `http://receptor/`, desde el host `http://localhost:8091/`.
   `POST /_control {"mode": "...", "times": N}` fuerza fallos; `GET /_recibidos` muestra lo recibido.
 - Ejecutar PHP dentro de Moodle: `docker compose -f entorno/docker-compose.yml exec -T -u www-data web php <script>`.
+
+## Pruebas en Moodle 5.3 (verificado)
+- Nunca esperar `'networkidle'`: el índice del curso hace peticiones periódicas y no se cumple.
+- El login se hace SIEMPRE con `login()`: `core/togglesensitive` reemplaza el input de la clave y borra lo escrito, y una
+  petición de la página anterior puede invalidar el `logintoken`. Por eso Moodle responde "Unable to log in" con la clave correcta.
+- Una página tiene su JS listo cuando `M.util.pending_js` está vacío: usar `esperarJS()` de los helpers al cargar y tras acciones con JS (filtros, autocompletar, modales). Hacer clic antes puede saltarse el manejador.
+- Los cajones (índice del curso, bloques) guardan su estado por usuario en `drawer-open-*`. `reset` los borra; dentro de una corrida, cerrar uno afecta a las pruebas siguientes de ese usuario.

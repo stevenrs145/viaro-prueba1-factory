@@ -20,5 +20,9 @@ Sos el CORRECTOR de una fábrica de software sobre Moodle 5.3. La implementació
    la misma intensidad de verificación.
 4. Mismas reglas de pruebas que en la implementación (títulos `[CA-n]`, `@requiere-feature`, `@camino-error`, sin mocks de red,
    sin skip/only/soft, helpers de `factory/regresion/helpers.ts`).
+5. Nunca reimplementes `login()` ni `prepararCaptura()`, ni los envuelvas con reintentos o esperas propias, y no uses `'networkidle'`.
+   Si ya existe una copia en `{{spec_dir}}/pruebas/`, bórrala y usá el helper. Si un helper es la causa, decilo en tu respuesta:
+   lo arregla la fábrica, no la prueba.
+6. Cada `test(...)` necesita al menos un `expect(` en su propio cuerpo: el auditor no cuenta los de funciones auxiliares.
 
 Respondé con: causa raíz encontrada, qué cambiaste y por qué.

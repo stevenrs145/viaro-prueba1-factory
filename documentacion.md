@@ -28,7 +28,8 @@ de que pueda producir las pruebas de un spec sorpresa. Fue su primera corrida re
 **Herramientas.** Una sesión de Claude que operó mi máquina (WSL2) para construir la fábrica, y Claude Code CLI en
 modo headless (`claude -p`) como motor del pipeline, con plantillas versionadas (`factory/prompts/`), conocimiento
 verificado de la plataforma (`factory/conocimiento/moodle-5.3.md`) y herramientas restringidas por rol. Cada llamada
-deja prompt y transcripción en `ia/transcripciones/<corrida>/`. Las decisiones de construcción están en `ia/bitacora.md`.
+deja prompt y transcripción en `ia/transcripciones/<corrida>/`. La sesión de dirección de Claude Code está depurada en
+`ia/transcripciones/sesion-direccion-claude-code.md`; la primera etapa no dejó transcripción exportable y se resume en `ia/bitacora.md`. Las decisiones de construcción están en `ia/bitacora.md`.
 
 | Delegué a la IA | Decidí yo |
 |---|---|
