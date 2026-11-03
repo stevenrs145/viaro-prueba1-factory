@@ -113,34 +113,34 @@
   },
   "spec-1-ajustes--escritorio.png": {
     "sha256": "86449f6d353f6fd4157fb926e00068d6d84890f8b6a24ec85a7660709731cc19",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-1",
-    "razon": "Pantalla nueva introducida por spec-1",
-    "fecha": "2026-11-02T22:09:49.898Z"
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar la galería de capturas pendientes (spec spec-1)",
+    "fecha": "2026-11-03T03:01:38.555Z"
   },
   "spec-1-ajustes--movil.png": {
     "sha256": "fe49b17498783c5fdf82f9fab51d6e2868578c7ea0f06f5cd60049c19b708588",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-1",
-    "razon": "Pantalla nueva introducida por spec-1",
-    "fecha": "2026-11-02T22:09:49.900Z"
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar la galería de capturas pendientes (spec spec-1)",
+    "fecha": "2026-11-03T03:01:38.556Z"
   },
   "spec-1-prechequeo--escritorio.png": {
     "sha256": "a3b5f071b7c381f65990757ed35f68604601342a8638f552161944094c5bc0bb",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-1",
-    "razon": "Pantalla nueva introducida por spec-1",
-    "fecha": "2026-11-02T22:09:49.901Z"
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar la galería de capturas pendientes (spec spec-1)",
+    "fecha": "2026-11-03T03:01:38.556Z"
   },
   "spec-1-prechequeo--movil.png": {
     "sha256": "acec639eb513d6a8eb00e05591961d1897eef5ccd59593c8996791244b634a50",
-    "origen": "pipeline",
-    "estado": "pendiente-aprobacion-humana",
-    "spec": "spec-1",
-    "razon": "Pantalla nueva introducida por spec-1",
-    "fecha": "2026-11-02T22:09:49.902Z"
+    "origen": "humano",
+    "estado": "aprobada",
+    "aprobado_por": "Steven",
+    "razon": "Aprobadas por Steven tras revisar la galería de capturas pendientes (spec spec-1)",
+    "fecha": "2026-11-03T03:01:38.557Z"
   }
 }
