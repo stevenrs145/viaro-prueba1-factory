@@ -1,0 +1,405 @@
+[2026-11-03T02:35:09.139Z] [suite] Funcional + visual: 3 OK, 6 fallidas, 1 omitidas. Reporte: corridas/20261103-022949-suite/visual/index.html
+    ### escritorio · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      20607 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-crear-examen.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-crear-examen.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 20607 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 20607 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ### escritorio · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      6832 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-examen-estudiante.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-examen-estudiante.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 6832 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 6832 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ### escritorio · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      2835 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-calificacion-manual.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-calificacion-manual.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ### movil · [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      12040 pixels (ratio 0.02 of all image pixels) are different.
+    
+      Snapshot: spec-0-crear-examen.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-crear-examen.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.[22m
+    
+    
+    ### movil · [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      6832 pixels (ratio 0.02 of all image pixels) are different.
+    
+      Snapshot: spec-0-examen-estudiante.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-examen-estudiante.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.[22m
+    
+    
+    ### movil · [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza
+    Error: [2mexpect([22m[31mpage[39m[2m).[22mtoHaveScreenshot[2m([22m[32mexpected[39m[2m)[22m failed
+    
+      2835 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-calificacion-manual.png
+    
+    Call log:
+    [2m  - Expect "toHaveScreenshot(spec-0-calificacion-manual.png)" with timeout 5000ms[22m
+    [2m    - verifying given screenshot expectation[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.[22m
+    [2m  - waiting 100ms before taking screenshot[22m
+    [2m  - taking page screenshot[22m
+    [2m    - disabled all CSS animations[22m
+    [2m  - waiting for fonts to load...[22m
+    [2m  - fonts loaded[22m
+    [2m  - captured a stable screenshot[22m
+    [2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.[22m
+    
+    
+    ## Estado de la página al fallar (ARIA)
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      20607 pixels (ratio 0.01 of all image pixels) are different.
+    
+      Snapshot: spec-0-crear-examen.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-crear-examen.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 20607 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 20607 pixels (ratio 0.01 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Salta al contenido principal" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - link "Viaro" [ref=f3e6] [cursor=pointer]:
+              - /url: http://localhost:8090/my/
+            - menubar [ref=f3e9]:
+              - menuitem "Área personal" [ref=f3e10] [cursor=pointer]
+              - text: 
+            - generic [ref=f3e12]:
+              - generic [ref=f3e15]:
+                - switch "Modo de edición" [ref=f3e16] [cursor=pointer]
+                - generic [ref=f3e17] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f3e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e28]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f3e30] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e31]: 
+              - button "Menú de usuario" [ref=f3e37] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f3e41]: PP
+                - generic [aria-hidden] [ref=f3e42]: Paula
+                - text: 
+        - generic [ref=f3e43]:
+          - generic [ref=f3e44]:
+            - banner [ref=f3e45]:
+              - heading "Curso QA de Exámenes" [level=1] [ref=f3e52]
+            - navigation "Menú de Curso" [ref=f3e55]:
+              - menubar [ref=f3e56]:
+                - menuitem "Curso" [ref=f3e57] [cursor=pointer]
+                - menuitem "Configuración" [ref=f3e60] [cursor=pointer]
+                - menuitem "Participantes" [ref=f3e62] [cursor=pointer]
+                - menuitem "Calificaciones" [ref=f3e64] [cursor=pointer]
+                - menuitem "Actividades" [ref=f3e66] [cursor=pointer]
+                - menuitem "Más " [ref=f3e68] [cursor=pointer]:
+                  - generic [ref=f3e69]: Más
+                  - text: 
+            - main [ref=f3e73]:
+              - heading "Nuevo Cuestionario" [level=2] [ref=f3e75]
+              - generic [ref=f3e76]:
+                - button "Expandir todo" [ref=f3e78] [cursor=pointer]
+                - group "General" [ref=f3e80]:
+                  - generic [ref=f3e83]:
+                    - button "General" [expanded] [ref=f3e84] [cursor=pointer]:
+                      - generic "Colapsar" [ref=f3e85]:
+                        - generic [aria-hidden] [ref=f3e86]: 
+                      - text:  
+                    - heading [level=3] [aria-hidden] [ref=f3e88]: General
+                  - generic [ref=f3e89]:
+                    - generic [ref=f3e90]:
+                      - generic [ref=f3e91]:
+                        - generic [ref=f3e92]: Nombre
+                        - generic [aria-hidden] [ref=f3e95]: 
+                      - textbox "Nombre" [ref=f3e97]
+                    - generic [ref=f3e98]:
+                      - generic [ref=f3e99]: Descripción
+                      - application [ref=f3e104]:
+                        - generic [ref=f3e105]:
+                          - generic [ref=f3e106]:
+                            - menubar [ref=f3e108]:
+                              - menuitem "Editar" [ref=f3e109] [cursor=pointer]
+                              - menuitem "Ver" [ref=f3e111] [cursor=pointer]
+                              - menuitem "Insertar" [ref=f3e113] [cursor=pointer]
+                              - menuitem "Formato" [ref=f3e115] [cursor=pointer]
+                              - menuitem "Herramientas" [ref=f3e117] [cursor=pointer]
+                              - menuitem "Tabla" [ref=f3e119] [cursor=pointer]
+                              - menuitem "Ayuda" [ref=f3e121] [cursor=pointer]
+                            - group [ref=f3e123]:
+                              - toolbar [ref=f3e124]:
+                                - group "historial" [ref=f3e125]:
+                                  - button "Deshacer" [disabled] [ref=f3e126]
+                                  - button "Rehacer" [disabled] [ref=f3e127]
+                                - group "formato" [ref=f3e128]:
+                                  - button "Negrita" [ref=f3e129] [cursor=pointer]
+                                  - button "Cursiva" [ref=f3e130] [cursor=pointer]
+                                - group "content" [ref=f3e131]:
+                                  - button "Imagen" [ref=f3e132] [cursor=pointer]
+                                  - button "Multimedios" [ref=f3e133] [cursor=pointer]
+                                  - button "Grabar audio" [ref=f3e134] [cursor=pointer]
+                                  - button "Grabar video" [ref=f3e135] [cursor=pointer]
+                                  - button "Configurar contenido H5P" [ref=f3e136] [cursor=pointer]
+                                  - button "Enlace" [ref=f3e137] [cursor=pointer]
+                                  - button "Desenlanzar" [ref=f3e138] [cursor=pointer]
+                                - group "Ver" [ref=f3e139]:
+                                  - button "Pantalla completa" [ref=f3e140] [cursor=pointer]
+                                - group [ref=f3e141]
+    ---
+    # Instructions
+    
+    - Following Playwright test failed.
+    - Explain why, be concise, respect Playwright best practices.
+    - Provide a snippet of code with the fix, if possible.
+    
+    # Test info
+    
+    - Name: salidas/spec-0/pruebas/01-profesor-examen.spec.ts >> [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso
+    - Location: salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1
+    
+    # Error details
+    
+    ```
+    Error: expect(page).toHaveScreenshot(expected) failed
+    
+      12040 pixels (ratio 0.02 of all image pixels) are different.
+    
+      Snapshot: spec-0-crear-examen.png
+    
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-crear-examen.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 12040 pixels (ratio 0.02 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 12040 pixels (ratio 0.02 of all image pixels) are different.
+    
+    ```
+    
+    # Page snapshot
+    
+    ```yaml
+    - generic [active] [ref=f3e1]:
+      - status
+      - generic [ref=f3e2]:
+        - link "Salta al contenido principal" [ref=f3e3] [cursor=pointer]:
+          - /url: "#maincontent"
+        - navigation "Navegación del sitio" [ref=f3e4]:
+          - generic [ref=f3e5]:
+            - button "Panel lateral" [ref=f3e6] [cursor=pointer]
+            - text: 
+            - generic [ref=f3e9]:
+              - generic [ref=f3e12]:
+                - switch "Modo de edición" [ref=f3e13] [cursor=pointer]
+                - generic [ref=f3e14] [cursor=pointer]: Modo de edición
+              - button "Mostrar la ventana de notificaciones cuando no hay ninguna" [ref=f3e24] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e25]: 
+              - button "Mostrar/ocultar cajón de mensajería" [ref=f3e27] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e28]: 
+              - button "Menú de usuario" [ref=f3e34] [cursor=pointer]:
+                - img "Paula Profesora" [ref=f3e38]: PP
+                - text: 
+        - generic [ref=f3e39]:
+          - generic [ref=f3e40]:
+            - banner [ref=f3e41]:
+              - heading "Curso QA de Exámenes" [level=1] [ref=f3e48]
+            - navigation "Menú de Curso" [ref=f3e51]:
+              - menubar [ref=f3e52]:
+                - menuitem "Curso" [ref=f3e53] [cursor=pointer]
+                - menuitem "Configuración" [ref=f3e56] [cursor=pointer]
+                - menuitem "Más " [ref=f3e58] [cursor=pointer]:
+                  - generic [ref=f3e59]: Más
+                  - text: 
+            - main [ref=f3e63]:
+              - heading "Nuevo Cuestionario" [level=2] [ref=f3e65]
+              - generic [ref=f3e66]:
+                - button "Expandir todo" [ref=f3e68] [cursor=pointer]
+                - group "General" [ref=f3e70]:
+                  - generic [ref=f3e73]:
+                    - button "General" [expanded] [ref=f3e74] [cursor=pointer]:
+                      - generic "Colapsar" [ref=f3e75]:
+                        - generic [aria-hidden] [ref=f3e76]: 
+                      - text:  
+                    - heading [level=3] [aria-hidden] [ref=f3e78]: General
+                  - generic [ref=f3e79]:
+                    - generic [ref=f3e80]:
+                      - generic [ref=f3e81]:
+                        - generic [ref=f3e82]: Nombre
+                        - generic [aria-hidden] [ref=f3e85]: 
+                      - textbox "Nombre" [ref=f3e87]
+                    - generic [ref=f3e88]:
+                      - generic [ref=f3e89]: Descripción
+                      - application [ref=f3e94]:
+                        - generic [ref=f3e95]:
+                          - toolbar [ref=f3e97]:
+                            - group "historial" [ref=f3e98]:
+                              - button "Deshacer" [disabled] [ref=f3e99]
+                              - button "Rehacer" [disabled] [ref=f3e100]
+                            - group "formato" [ref=f3e101]:
+                              - button "Negrita" [ref=f3e102] [cursor=pointer]
+                              - button "Cursiva" [ref=f3e103] [cursor=pointer]
+                            - group "content" [ref=f3e104]:
+                              - button "Imagen" [ref=f3e105] [cursor=pointer]
+                              - button "Multimedios" [ref=f3e106] [cursor=pointer]
+                              - button "Grabar audio" [ref=f3e107] [cursor=pointer]
+                              - button "Grabar video" [ref=f3e108] [cursor=pointer]
+                              - button "Configurar contenido H5P" [ref=f3e109] [cursor=pointer]
+                              - button "Enlace" [ref=f3e110] [cursor=pointer]
+                              - button "Desenlanzar" [ref=f3e111] [cursor=pointer]
+                            - group "Ver" [ref=f3e112]:
+                              - button "Pantalla completa" [ref=f3e113] [cursor=pointer]
+                            - group "alineación" [ref=f3e114]:
+                              - button "Alinear a la izquierda" [ref=f3e115] [cursor=pointer]
+                              - button "Alinear al centro" [ref=f3e116] [cursor=pointer]
+                              - button "Alinear a la derecha" [ref=f3e117] [cursor=pointer]
+                            - group "directionality" [ref=f3e118]:
+                              - button "Izquierda a derecha" [ref=f3e119] [cursor=pointer]
+                              - button "Derecha a izquierda" [ref=f3e120] [cursor=pointer]
+                            - group "sangría" [ref=f3e121]:
+                              - button "Disminuir sangría" [disabled] [ref=f3e122]
+                              - button "Incrementar sangría" [ref=f3e123] [cursor=pointer]
+                            - group "lists" [ref=f3e124]:
+                              - button "Lista de viñetas" [ref=f3e125] [cursor=pointer]
+                              - button "Lista de viñetas" [ref=f3e126] [cursor=pointer]
+                              - button "Lista numerada" [ref=f3e129] [cursor=pointer]
+                              - button "Lista numerada" [ref=f3e130] [cursor=pointer]
+                          
+[2026-11-03T02:35:09.174Z] [visual] Imágenes esperada/obtenida/diferencia copiadas a visual/diferencias/20261103-022949-suite/
+[2026-11-03T02:35:09.457Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    

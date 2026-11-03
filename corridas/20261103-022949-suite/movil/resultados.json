@@ -1,0 +1,557 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "--project=movil",
+      "--update-snapshots=none"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261103-022949-suite/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261103-022949-suite/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261103-022949-suite/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261103-022949-suite/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261103-022949-suite/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261103-022949-suite/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "factory/regresion/humo-helpers.spec.ts",
+      "file": "factory/regresion/humo-helpers.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "[HUMO] helpers de prueba",
+          "file": "factory/regresion/humo-helpers.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "La infraestructura se valida una vez, en escritorio",
+                      "location": {
+                        "file": "/work/factory/regresion/humo-helpers.spec.ts",
+                        "line": 7,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "movil",
+                  "projectName": "movil",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-03T02:33:13.248Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "La infraestructura se valida una vez, en escritorio",
+                          "location": {
+                            "file": "/work/factory/regresion/humo-helpers.spec.ts",
+                            "line": 7,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cce5222644551a905f9e-866aaa190a46a6dde08f",
+              "file": "factory/regresion/humo-helpers.spec.ts",
+              "line": 9,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13174,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  12040 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-crear-examen.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-crear-examen.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  12040 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-crear-examen.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-crear-examen.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\n    at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:25:24",
+                    "location": {
+                      "file": "/work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+                      "column": 24,
+                      "line": 25
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 23 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39misMobile) \u001b[36mawait\u001b[39m cerrarIndiceCurso(page)\u001b[33m;\u001b[39m\n \u001b[90m 24 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_name'\u001b[39m))\u001b[33m.\u001b[39mtoHaveValue(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-0-crear-examen.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(page) })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m\n \u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#id_name'\u001b[39m)\u001b[33m.\u001b[39mfill(nombre)\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'a.collapseexpand'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+                        "column": 24,
+                        "line": 25
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  12040 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-crear-examen.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-crear-examen.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 12040 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\n\n  23 |     if (!isMobile) await cerrarIndiceCurso(page);\n  24 |     await expect(page.locator('#id_name')).toHaveValue('');\n> 25 |     await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });\n     |                        ^\n  26 |\n  27 |     await page.locator('#id_name').fill(nombre);\n  28 |     await page.locator('a.collapseexpand').click();\n    at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:25:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:33:13.310Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-crear-examen-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-crear-examen--movil.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/spec-0-crear-examen-actual.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-diff.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/spec-0-crear-examen-diff.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+                    "column": 24,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-184ca25cc7acdea2695d",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] un profesor crea preguntas en el banco y las agrega a un examen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 57866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:33:27.886Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-7c07824f10cb31023381",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9198,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  6832 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-examen-estudiante.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-examen-estudiante.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  6832 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-examen-estudiante.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-examen-estudiante.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\n    at /work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:15:22",
+                    "location": {
+                      "file": "/work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+                      "column": 22,
+                      "line": 15
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 13 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m isMobile \u001b[33m?\u001b[39m \u001b[32m'estudiante2'\u001b[39m \u001b[33m:\u001b[39m \u001b[32m'estudiante1'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 15 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-0-examen-estudiante.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(page) })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 16 |\u001b[39m\n \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m botonIntento(page)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/mod\\/quiz\\/attempt\\.php/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+                        "column": 22,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  6832 pixels (ratio 0.02 of all image pixels) are different.\n\n  Snapshot: spec-0-examen-estudiante.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-examen-estudiante.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 6832 pixels (ratio 0.02 of all image pixels) are different.\u001b[22m\n\n\n  13 |   await login(page, isMobile ? 'estudiante2' : 'estudiante1');\n  14 |   await abrirQuiz(page);\n> 15 |   await expect(page).toHaveScreenshot('spec-0-examen-estudiante.png', { fullPage: true, mask: await prepararCaptura(page) });\n     |                      ^\n  16 |\n  17 |   await botonIntento(page).click();\n  18 |   await expect(page).toHaveURL(/mod\\/quiz\\/attempt\\.php/);\n    at /work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:15:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:34:25.887Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-examen-estudiante-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-examen-estudiante--movil.png"
+                    },
+                    {
+                      "name": "spec-0-examen-estudiante-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-examen-estudiante-actual.png"
+                    },
+                    {
+                      "name": "spec-0-examen-estudiante-diff.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-examen-estudiante-diff.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+                    "column": 22,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a2efd32d1040fb4097eb-bb6755c4d1dc098e7271",
+          "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 30686,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  2835 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: spec-0-calificacion-manual.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-calificacion-manual.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  2835 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: spec-0-calificacion-manual.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-calificacion-manual.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:55:23",
+                    "location": {
+                      "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                      "column": 23,
+                      "line": 55
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 53 |\u001b[39m   \u001b[36mawait\u001b[39m expect(popup\u001b[33m.\u001b[39mlocator(\u001b[33mEDITOR_COMENTARIO\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[33mESPERA_EDITOR\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 54 |\u001b[39m   \u001b[90m// prepararCaptura ya tapa la columna de tiempo del historial (encabezado \"Tiempo\"/\"Hora\") además de fechas y contadores.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 55 |\u001b[39m   \u001b[36mawait\u001b[39m expect(popup)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-0-calificacion-manual.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(popup) })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 56 |\u001b[39m\n \u001b[90m 57 |\u001b[39m   \u001b[36mawait\u001b[39m escribirEditor(popup\u001b[33m,\u001b[39m \u001b[33mEDITOR_COMENTARIO\u001b[39m\u001b[33m,\u001b[39m \u001b[33mCOMENTARIO\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 58 |\u001b[39m   \u001b[36mawait\u001b[39m popup\u001b[33m.\u001b[39mlocator(\u001b[32m'input[name$=\"_-mark\"]'\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m'0.5'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                        "column": 23,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveScreenshot\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\n  2835 pixels (ratio 0.01 of all image pixels) are different.\n\n  Snapshot: spec-0-calificacion-manual.png\n\nCall log:\n\u001b[2m  - Expect \"toHaveScreenshot(spec-0-calificacion-manual.png)\" with timeout 5000ms\u001b[22m\n\u001b[2m    - verifying given screenshot expectation\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m    - disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 2835 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n  53 |   await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible({ timeout: ESPERA_EDITOR });\n  54 |   // prepararCaptura ya tapa la columna de tiempo del historial (encabezado \"Tiempo\"/\"Hora\") además de fechas y contadores.\n> 55 |   await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', { fullPage: true, mask: await prepararCaptura(popup) });\n     |                       ^\n  56 |\n  57 |   await escribirEditor(popup, EDITOR_COMENTARIO, COMENTARIO);\n  58 |   await popup.locator('input[name$=\"_-mark\"]').fill('0.5');\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:55:23"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T02:34:36.359Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-calificacion-manual-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-calificacion-manual--movil.png"
+                    },
+                    {
+                      "name": "spec-0-calificacion-manual-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-calificacion-manual-actual.png"
+                    },
+                    {
+                      "name": "spec-0-calificacion-manual-diff.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/spec-0-calificacion-manual-diff.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-2.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-022949-suite/movil/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                    "column": 23,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c568a1b773f06a27f6f0-78251fa2d0b1db273db6",
+          "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+          "line": 13,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T02:32:50.226Z",
+    "duration": 138425.609,
+    "expected": 1,
+    "skipped": 1,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

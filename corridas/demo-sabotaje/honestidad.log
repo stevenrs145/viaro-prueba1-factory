@@ -1,0 +1,13 @@
+# Demo: se debilita una prueba aprobada (toHaveText -> toBeTruthy) en salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts
+
+-  await expect(filaResumen(page, 'Estado')).toHaveText('Finalizado');
++  await expect(filaResumen(page, 'Estado')).toBeTruthy();
+
+$ node factory/cli.mjs honestidad
+HONESTIDAD: BLOQUEADO — 2 hallazgo(s). El pipeline no puede llegar al pull request.
+
+1. [MATCHER-DEBILITADO] salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts::[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada
+   Matchers fuertes: 19 -> 18. Antes: [not.toBeChecked, toBeChecked, toBeChecked, toBeChecked, toBeChecked, toContainText, toContainText, toHaveClass, toHaveClass, toHaveScreenshot, toHaveScreenshot, toHaveScreenshot, toHaveScreenshot, toHaveText, toHaveText, toHaveText, toHaveText, toHaveURL, toHaveURL] Ahora: [not.toBeChecked, toBeChecked, toBeChecked, toBeChecked, toBeChecked, toBeTruthy, toContainText, toContainText, toHaveClass, toHaveClass, toHaveScreenshot, toHaveScreenshot, toHaveScreenshot, toHaveScreenshot, toHaveText, toHaveText, toHaveText, toHaveURL, toHaveURL]
+2. [PRUEBA-APROBADA-MODIFICADA] salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts
+   Difiere de la versión aprobada en main y no coincide con los cambios declarados en pruebas_afectadas.
+exit=1

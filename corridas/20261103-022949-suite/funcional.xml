@@ -1,0 +1,239 @@
+<testsuites id="" name="" tests="5" failures="3" skipped="0" errors="0" time="163.879305">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-03T02:30:20.704Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="23.735" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="23.735">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-03T02:30:20.704Z" hostname="escritorio" tests="2" failures="1" skipped="0" time="73.849" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="13.833">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../visual/lineas-base/spec-0-crear-examen--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-diff.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/01-profesor-examen.spec.ts:14:1 › [CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      20607 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: spec-0-crear-examen.png
+
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-crear-examen.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 20607 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 20607 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      23 |     if (!isMobile) await cerrarIndiceCurso(page);
+      24 |     await expect(page.locator('#id_name')).toHaveValue('');
+    > 25 |     await expect(page).toHaveScreenshot('spec-0-crear-examen.png', { fullPage: true, mask: await prepararCaptura(page) });
+         |                        ^
+      26 |
+      27 |     await page.locator('#id_name').fill(nombre);
+      28 |     await page.locator('a.collapseexpand').click();
+        at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:25:24
+
+    attachment #1: spec-0-crear-examen (image/png) ─────────────────────────────────────────────────
+    Expected: visual/lineas-base/spec-0-crear-examen--escritorio.png
+    Received: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png
+    Diff:     corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="60.016">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-03T02:30:20.704Z" hostname="escritorio" tests="1" failures="1" skipped="0" time="9.353" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="9.353">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../visual/lineas-base/spec-0-examen-estudiante--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-diff.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:11:1 › [CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      6832 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: spec-0-examen-estudiante.png
+
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-examen-estudiante.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 6832 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 6832 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      13 |   await login(page, isMobile ? 'estudiante2' : 'estudiante1');
+      14 |   await abrirQuiz(page);
+    > 15 |   await expect(page).toHaveScreenshot('spec-0-examen-estudiante.png', { fullPage: true, mask: await prepararCaptura(page) });
+         |                      ^
+      16 |
+      17 |   await botonIntento(page).click();
+      18 |   await expect(page).toHaveURL(/mod\/quiz\/attempt\.php/);
+        at /work/salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts:15:22
+
+    attachment #1: spec-0-examen-estudiante (image/png) ────────────────────────────────────────────
+    Expected: visual/lineas-base/spec-0-examen-estudiante--escritorio.png
+    Received: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-actual.png
+    Diff:     corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-03T02:30:20.704Z" hostname="escritorio" tests="1" failures="1" skipped="0" time="29.85" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="29.85">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../../visual/lineas-base/spec-0-calificacion-manual--escritorio.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-actual.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-diff.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-2.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md]]
+
+[[ATTACHMENT|artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [escritorio] › salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:13:1 › [CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
+      2835 pixels (ratio 0.01 of all image pixels) are different.
+
+      Snapshot: spec-0-calificacion-manual.png
+
+    Call log:
+      - Expect "toHaveScreenshot(spec-0-calificacion-manual.png)" with timeout 5000ms
+        - verifying given screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 2835 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - captured a stable screenshot
+      - 2835 pixels (ratio 0.01 of all image pixels) are different.
+
+
+      53 |   await expect(popup.locator(EDITOR_COMENTARIO)).toBeVisible({ timeout: ESPERA_EDITOR });
+      54 |   // prepararCaptura ya tapa la columna de tiempo del historial (encabezado "Tiempo"/"Hora") además de fechas y contadores.
+    > 55 |   await expect(popup).toHaveScreenshot('spec-0-calificacion-manual.png', { fullPage: true, mask: await prepararCaptura(popup) });
+         |                       ^
+      56 |
+      57 |   await escribirEditor(popup, EDITOR_COMENTARIO, COMENTARIO);
+      58 |   await popup.locator('input[name$="_-mark"]').fill('0.5');
+        at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:55:23
+
+    attachment #1: spec-0-calificacion-manual (image/png) ──────────────────────────────────────────
+    Expected: visual/lineas-base/spec-0-calificacion-manual--escritorio.png
+    Received: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-actual.png
+    Diff:     corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/spec-0-calificacion-manual-diff.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+    Usage:
+
+        npx playwright show-trace corridas/20261103-022949-suite/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>

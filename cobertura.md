@@ -115,6 +115,13 @@ recibió resultados de ejecución sintéticos: prueba la regla, no una corrida r
 - **`factory/cli.mjs` alterado en una rama**: un `cli.mjs` que no llame al auditor no lo ejecuta. Lo cubre el control de
   alcance del pipeline (la IA solo escribe en `salidas/<spec>/`), no el auditor. Plan: CI que ejecute el auditor de `main`.
 
+## Demos con evidencia
+- **Fallo visual intencional**: se cambió solo el color del botón principal (`.btn-primary`) desde los ajustes del tema y se corrió
+  `node factory/cli.mjs suite`. Lo funcional siguió pasando y fallaron 6 comparaciones (3 pantallas × 2 tamaños).
+  Esperada, obtenida y diferencia en `visual/diferencias/20261103-022949-suite/`; reporte en `corridas/20261103-022949-suite/`.
+- **Sabotaje**: se debilitó una prueba aprobada de spec-0 (`toHaveText('Finalizado')` → `toBeTruthy()`) y se corrió
+  `node factory/cli.mjs honestidad`: bloqueó con `MATCHER-DEBILITADO` y `PRUEBA-APROBADA-MODIFICADA`. Salida en `corridas/demo-sabotaje/honestidad.log`.
+
 ## 4. Qué queda fuera y plan (en orden de prioridad)
 | # | Área | Por qué esa prioridad | Plan |
 |---|---|---|---|
