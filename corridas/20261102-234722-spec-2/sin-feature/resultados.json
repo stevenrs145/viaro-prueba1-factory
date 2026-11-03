@@ -1,0 +1,1265 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+      "--project=escritorio",
+      "--update-snapshots=none",
+      "--grep",
+      "@requiere-feature"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "escritorio",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "escritorio"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261102-234722-spec-2/sin-feature/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261102-234722-spec-2/sin-feature/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261102-234722-spec-2/sin-feature/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+      "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 52798,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:24:55.918Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-f81fd-da-exitoso-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-a473503d96d30738d75a",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 53108,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:25:49.842Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-88baa-rlo-a-mano-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-d5c4151bb89919301437",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 52364,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:26:44.438Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-afcbd-os-ajustes-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-beb678d41d0cc9c606a8",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] pantalla de ajustes del plugin @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 58592,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:27:39.322Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6c471-del-plugin-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-15d48a0ab5421a3f0127",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 53595,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:28:39.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-fffc6-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-eeb9905453c9bb9d63a7",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 54514,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:29:34.892Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-0bcd5-da-omitido-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-0cf6a927b3ac61ebc6d3",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 54070,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:30:30.989Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-65628-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-f772366064b55fe920fb",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 55386,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:31:26.577Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-215b4-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-2c0a53283794c9f74999",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 153,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 57436,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:32:23.874Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-c3b64-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-40e8a96c7c9ab3489855",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 175,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 55718,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:33:23.578Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6f268-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-3cbf0c754947d6fed93c",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error",
+          "ok": false,
+          "tags": [
+            "requiere-feature",
+            "camino-error"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 59662,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:34:20.849Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-87ebc-quiere-feature-camino-error-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-5d0dc1ef381df9460f7b",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 56338,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:35:22.080Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-6fbb1-e-no-puede-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-71a4fb4711ad83e7b49a",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 226,
+          "column": 1
+        },
+        {
+          "title": "[CA-4] pantalla del registro sin envíos @requiere-feature",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 360000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 12,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 52742,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3",
+                    "location": {
+                      "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                      "column": 63,
+                      "line": 28
+                    },
+                    "snippet": "   at salidas/spec-2/pruebas/apoyo.ts:28\n\n\u001b[0m \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[33mAJUSTES\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mawait\u001b[39m esperarJS(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mdestino \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoDestino(page)\u001b[33m.\u001b[39mfill(ajustes\u001b[33m.\u001b[39mdestino)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 29 |\u001b[39m   \u001b[36mif\u001b[39m (ajustes\u001b[33m.\u001b[39mmaxintentos \u001b[33m!==\u001b[39m undefined) \u001b[36mawait\u001b[39m campoMaxIntentos(page)\u001b[33m.\u001b[39mselectOption(\u001b[33mString\u001b[39m(ajustes\u001b[33m.\u001b[39mmaxintentos))\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mconst\u001b[39m guardado \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForResponse((r) \u001b[33m=>\u001b[39m r\u001b[33m.\u001b[39mrequest()\u001b[33m.\u001b[39mmethod() \u001b[33m===\u001b[39m \u001b[32m'POST'\u001b[39m \u001b[33m&&\u001b[39m r\u001b[33m.\u001b[39murl()\u001b[33m.\u001b[39mincludes(\u001b[32m'/admin/settings.php'\u001b[39m))\u001b[33m;\u001b[39m\n \u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'#adminsettings button[type=\"submit\"]'\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:18:3"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                        "column": 63,
+                        "line": 28
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#id_s_local_resultadoext_destino')\u001b[22m\n\n\n   at salidas/spec-2/pruebas/apoyo.ts:28\n\n  26 |   await page.goto(AJUSTES);\n  27 |   await esperarJS(page);\n> 28 |   if (ajustes.destino !== undefined) await campoDestino(page).fill(ajustes.destino);\n     |                                                               ^\n  29 |   if (ajustes.maxintentos !== undefined) await campoMaxIntentos(page).selectOption(String(ajustes.maxintentos));\n  30 |   const guardado = page.waitForResponse((r) => r.request().method() === 'POST' && r.url().includes('/admin/settings.php'));\n  31 |   await page.locator('#adminsettings button[type=\"submit\"]').click();\n    at ajustarPlugin (/work/salidas/spec-2/pruebas/apoyo.ts:28:63)\n    at /work/salidas/spec-2/pruebas/spec-2-notificacion.spec.ts:23:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T00:36:19.683Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261102-234722-spec-2/sin-feature/artefactos/salidas-spec-2-pruebas-spe-72e50-sin-envíos-requiere-feature-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-2/pruebas/apoyo.ts",
+                    "column": 63,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d055c0a40dd1868aafd1-6667649e22603a5dbd79",
+          "file": "salidas/spec-2/pruebas/spec-2-notificacion.spec.ts",
+          "line": 236,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T00:24:25.550Z",
+    "duration": 767762.539,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 13,
+    "flaky": 0
+  }
+}

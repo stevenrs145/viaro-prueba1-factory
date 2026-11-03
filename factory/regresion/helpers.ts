@@ -24,7 +24,7 @@ export async function login(page: Page, usuario: string) {
   await page.goto('/login/index.php', { waitUntil: 'domcontentloaded' });
   // core/togglesensitive reemplaza el input de la clave (outerHTML) al cargar y se pierde lo ya escrito:
   // hay que esperar a su botón antes de rellenar, o Moodle rechaza el login con la clave vacía.
-  await expect(page.getByRole('button', { name: 'Alternar sensibilidad' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Alternar sensibilidad' })).toBeVisible({ timeout: 30_000 });
   await page.fill('#username', usuario);
   await page.fill('#password', CLAVE);
   await expect(page.locator('#password')).toHaveValue(CLAVE);
@@ -47,6 +47,7 @@ export function botonIntento(page: Page): Locator {
 
 /** Responde una pregunta de opción múltiple o V/F por el texto de la opción, dentro del bloque de la pregunta N (1-based, número visible). */
 export async function elegir(page: Page, pregunta: number, opcion: string) {
+  await esperarJS(page); // antes de que el JS de la página termine, el navegador revierte la selección
   const q = bloquePregunta(page, pregunta);
   // Opción múltiple: el nombre accesible incluye la numeración ("1. One"); V/F no ("True").
   const esc = opcion.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

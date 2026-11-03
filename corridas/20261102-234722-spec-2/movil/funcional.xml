@@ -1,0 +1,54 @@
+<testsuites id="" name="" tests="18" failures="0" skipped="1" errors="0" time="1025.60156">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-03T01:12:12.664Z" hostname="movil" tests="1" failures="0" skipped="1" time="0.003" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts">
+<properties>
+<property name="skip" value="La infraestructura se valida una vez, en escritorio">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-03T01:12:12.664Z" hostname="movil" tests="2" failures="0" skipped="0" time="75.664" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="20.379">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="55.285">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-03T01:12:12.664Z" hostname="movil" tests="1" failures="0" skipped="0" time="27.753" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="27.753">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-03T01:12:12.664Z" hostname="movil" tests="1" failures="0" skipped="0" time="36.637" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="36.637">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" timestamp="2026-11-03T01:12:12.664Z" hostname="movil" tests="13" failures="0" skipped="0" time="862.533" errors="0">
+<testcase name="[CA-1] un intento con nota llega con estudiante, examen, notas y marca de tiempo, y queda exitoso @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="32.191">
+</testcase>
+<testcase name="[CA-1] con ensayo sale un aviso pendiente y otro con nota al calificarlo a mano @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="48.596">
+</testcase>
+<testcase name="[CA-2] el admin guarda el destino, persiste al recargar y un estudiante no puede abrir los ajustes @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="24.297">
+</testcase>
+<testcase name="[CA-2] pantalla de ajustes del plugin @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="16.543">
+</testcase>
+<testcase name="[CA-2] se usa la URL configurada: la ruta mala da 404 y al corregirla sale el envío en cola @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="103.068">
+</testcase>
+<testcase name="[CA-2] con el destino vacío no hay POST y el registro queda omitido @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="37.565">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 500 se reintenta con la misma clave, sin error para el estudiante, y el registro conserva cada llamada @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="102.823">
+</testcase>
+<testcase name="[CA-3] [CA-4] con el destino colgado el envío no demora al estudiante y el registro muestra el error real de cURL @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="119.85">
+</testcase>
+<testcase name="[CA-3] [CA-4] un 200 con error en el cuerpo no cuenta como éxito y se reintenta @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="109.863">
+</testcase>
+<testcase name="[CA-4] una respuesta HTML de proxy se muestra como texto escapado @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="105.865">
+</testcase>
+<testcase name="[CA-3] al fallar la última ejecución el envío queda agotado, con la causa y sin más intentos @requiere-feature @camino-error" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="126.422">
+</testcase>
+<testcase name="[CA-4] el admin abre el registro y un estudiante no puede @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="19.247">
+</testcase>
+<testcase name="[CA-4] pantalla del registro sin envíos @requiere-feature" classname="salidas/spec-2/pruebas/spec-2-notificacion.spec.ts" time="16.203">
+</testcase>
+</testsuite>
+</testsuites>
