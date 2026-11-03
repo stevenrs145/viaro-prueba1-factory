@@ -51,6 +51,12 @@ export function correrPruebas(archivos, out, { crearLineasBaseFaltantes = false,
     code = code || r.code;
     salida += r.out + r.err;
     resultados = resultados.concat(leerResultados(path.join(RAIZ, destino, 'resultados.json')));
+    // Si Playwright no llegó a ejecutar (por ejemplo, falló el calentamiento), no hay pruebas que fallen: hay que fallar igual.
+    const errores = erroresDeEjecucion(path.join(RAIZ, destino, 'resultados.json'));
+    if (errores.length) {
+      resultados.push({ titulo: `[EJECUCIÓN] ${tamano}: Playwright no pudo ejecutar las pruebas`, archivo: '(ejecución)', proyecto: tamano,
+        estado: 'failed', error: errores.join('\n').slice(0, 3000), tags: [], anotaciones: [] });
+    }
     if (i > 0 && fs.existsSync(path.join(RAIZ, destino, 'artefactos'))) {
       fs.cpSync(path.join(RAIZ, destino, 'artefactos'), path.join(RAIZ, out, 'artefactos'), { recursive: true });
     }
@@ -103,4 +109,14 @@ export function contextoFallos(out, resultados, max = 6) {
     : [];
   return fallidas.map((f) => `### ${f.proyecto} · ${f.titulo}\n${f.error}`).join('\n\n')
     + (contextos.length ? `\n\n## Estado de la página al fallar (ARIA)\n${contextos.slice(0, 3).map((c) => fs.readFileSync(c, 'utf8').slice(0, 6000)).join('\n---\n')}` : '');
+}
+
+/** Errores globales del reporte de Playwright (fuera de una prueba). Sin reporte también es un error. */
+export function erroresDeEjecucion(archivo) {
+  if (!fs.existsSync(archivo)) return [`No se generó ${archivo}`];
+  try {
+    return (JSON.parse(fs.readFileSync(archivo, 'utf8')).errors || []).map((e) => (e.message || String(e)).replace(/\x1b\[[0-9;]*m/g, ''));
+  } catch (e) {
+    return [`Reporte ilegible ${archivo}: ${e.message}`];
+  }
 }
