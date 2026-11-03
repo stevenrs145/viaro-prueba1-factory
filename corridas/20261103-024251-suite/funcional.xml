@@ -1,0 +1,20 @@
+<testsuites id="" name="" tests="5" failures="0" skipped="0" errors="0" time="212.220217">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-03T02:43:41.189Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="26.629" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="26.629">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-03T02:43:41.189Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="84.211" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="21.241">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="62.97">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-03T02:43:41.189Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="29.92" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="29.92">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-03T02:43:41.189Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="46.016" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="46.016">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,21 @@
+{
+  "corrida": "20261103-024251-suite",
+  "estado": "VALIDADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde.",
+      "actualizado": "2026-11-03T02:42:51.811Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "9 OK, 0 fallidas, 1 omitidas.",
+      "actualizado": "2026-11-03T02:49:48.483Z"
+    },
+    "honestidad": {
+      "estado": "VALIDADO",
+      "detalle": "Sin hallazgos.",
+      "actualizado": "2026-11-03T02:49:48.775Z"
+    }
+  }
+}

@@ -51,6 +51,8 @@ sembrado contra la base de datos (no confía en los códigos de salida de Moodle
 | Solo el control de verificación honesta | `node factory/cli.mjs honestidad` |
 | Probar el control con sabotajes reales, en un clon temporal | `node factory/sabotajes.mjs` |
 | Probar `estado.json` y la detención BLOQUEADO | `node factory/estados.mjs` |
+| Demo: romper un estilo / volver al aprobado | `bash factory/demos/romper-estilo.sh` · `bash factory/demos/restaurar-estilo.sh` |
+| Ver el plugin de un spec en Moodle | `bash factory/demos/mostrar-spec.sh <rama-del-PR> spec-N` (`--retirar` para quitarlo) |
 | Aprobar líneas base visuales (**humano**) | `node factory/cli.mjs aprobar-linea-base --pendientes --razon "..."` |
 | Aprobar el manifiesto de pruebas (**humano**) | `node factory/cli.mjs aprobar-pruebas --razon "..."` |
 

@@ -115,6 +115,18 @@ recibió resultados de ejecución sintéticos: prueba la regla, no una corrida r
 - **`factory/cli.mjs` alterado en una rama**: un `cli.mjs` que no llame al auditor no lo ejecuta. Lo cubre el control de
   alcance del pipeline (la IA solo escribe en `salidas/<spec>/`), no el auditor. Plan: CI que ejecute el auditor de `main`.
 
+## Resultados (corridas reales)
+| Corrida | Pruebas | Visual | Honestidad | Dónde |
+|---|---|---|---|---|
+| Instalación limpia: clon de GitHub, README, suite de `main` | 9 OK, 0 fallidas, 1 omitida con razón (humo solo en escritorio) | 14 capturas iguales a las aprobadas | OK | `corridas/20261103-024251-suite/` |
+| spec-1 (PR #2) | spec 26/26 · suite 35 OK | 4 capturas nuevas, pendientes de aprobación | OK · mutación 24/24 | rama del PR |
+| spec-2 (PR #3) | spec 26/26 · suite 35 OK | 4 capturas nuevas, pendientes | OK · mutación 26/26 | rama del PR |
+| spec-3 (PR #5) | spec 20/20 · suite 29 OK | 6 nuevas + 6 cambios propuestos a spec-0 | OK · mutación 16/16 | rama del PR |
+| spec-4, desconocido (PR #4) | spec 20/20 · suite 29 OK | 6 capturas nuevas, pendientes | OK · mutación 14/14 | rama del PR |
+
+La suite de cada PR incluye la regresión de spec-0. "Mutación n/n" es cuántas pruebas `@requiere-feature` fallaron al
+retirar el plugin; si alguna pasara sin el plugin, el control la bloquea.
+
 ## Demos con evidencia
 - **Fallo visual intencional**: se cambió solo el color del botón principal (`.btn-primary`) desde los ajustes del tema y se corrió
   `node factory/cli.mjs suite`. Lo funcional siguió pasando y fallaron 6 comparaciones (3 pantallas × 2 tamaños).
