@@ -14,7 +14,7 @@ pasa por controles deterministas que la IA no puede saltarse.
 | Corrección (×3) | IA, con el fallo real + snapshot ARIA de la página | Cada intento queda en `pipeline.log`. |
 | Mutación sin funcionalidad | Código | Se desinstala el plugin: las pruebas `@requiere-feature` deben fallar. Si pasan sin el código, no prueban nada. |
 | Alcance y core intacto | Código | `git status` del repo y del árbol de Moodle: solo pueden aparecer directorios de plugins nuevos. |
-| Control de verificación honesta | Código independiente | No importa nada del generador; compara contra referencias en `main`. |
+| Control de verificación honesta | Código independiente | No importa nada del generador; se ejecuta desde la versión de `main` y compara contra referencias en `main`. |
 | PR | Código | Rama + PR con razonamiento, bordes, diff, evidencia. Nunca mergea. |
 
 **Playwright en su imagen oficial de Docker**, no en el navegador del host: las capturas dependen de fuentes y
@@ -48,10 +48,10 @@ confiar en él. Y en cada spec, el pipeline se verifica a sí mismo.
 Detalle, reglas y límites en `cobertura.md §3`. Resumen: análisis estático por prueba (cantidad y fuerza de asserts,
 `await`, omisiones, `only`, `catch` vacíos, mocks de red, `expect.soft`, umbrales y máscaras) comparado contra el
 manifiesto aprobado en `main`; **mutación** (las pruebas deben fallar sin el plugin); y **líneas base** verificadas por
-hash contra aprobaciones firmadas. Un cambio de línea base existente solo es legítimo con aprobación humana con razón,
+hash contra aprobaciones firmadas. El auditor corre desde `main`, y bloquea si cambia él mismo, la configuración de pruebas o una prueba aprobada. Un cambio de línea base existente solo es legítimo con aprobación humana con razón,
 o como *propuesta* del pipeline para una pantalla que el spec declaró afectada (queda pendiente en el PR). Límites
-declarados: asserts dentro de helpers, valores esperados cambiados por otros igual de fuertes, datos fijados de forma
-coherente, y que quien escribe en `main` puede mover las referencias.
+declarados: asserts dentro de helpers, datos fijados de forma coherente, y que quien escribe en `main` puede mover las
+referencias. Se prueba con `node factory/sabotajes.mjs`.
 
 ## 4. Qué mockeé, asumí o quedó manual
 - **Sistema externo (spec 2)**: receptor propio en `entorno/receptor/`, con contrato real (422 si faltan campos,
@@ -59,6 +59,8 @@ coherente, y que quien escribe en `main` puede mover las referencias.
   mock del destino, no de Moodle: el plugin le habla por HTTP real.
 - **Seguridad de salida de Moodle**: se desbloqueó solo el rango de la red de Docker en `curlsecurityblockedhosts`.
 - **Datos**: sintéticos (curso QA101, 12 estudiantes con rangos por spec para que las pruebas no compartan intentos).
+- **Spec desconocido (spec-4)**: lo redactó la sesión de IA a partir de una idea de producto, no lo escribió producto. Prueba que la
+  fábrica resuelve un spec nuevo sin cambios en su salida; su corrida sí destapó un defecto del entorno, que se arregló en el entorno.
 - **Manual (declarado)**: merge de PR, aprobación de líneas base y del manifiesto de pruebas. Login de Claude Code y `gh`.
 - **Retomar tras límite de uso de la IA** (`--reanudar`): agregado tras quedarme sin cuota en plena corrida; reutiliza
   plan y código y rehace todas las verificaciones.
@@ -91,9 +93,24 @@ Además, cada plan de la fábrica registra los bordes que encontró la IA y qué
 7. La imagen `moodlehq/moodle-php-apache` toma el DocumentRoot de `APACHE_DOCUMENT_ROOT`.
 8. Salidas HTTP a rangos privados y puertos ≠ 80/443 bloqueadas por defecto (impacta al spec 2).
 9. La mezcla de opciones de respuesta está activa por defecto y hace no determinista cualquier QA visual.
-10. Con un ensayo respondido, la revisión muestra "Grade: Not yet graded" y **no** muestra Marks ni Feedback.
+10. Con un ensayo respondido, la revisión muestra "Sin calificar aún" y **no** muestra Puntos ni Retroalimentación.
+11. `core/togglesensitive` reemplaza el input de la clave al cargar y borra lo escrito: Moodle rechaza el login con la clave correcta.
+12. Al descargarse, la página lanza un POST a `service.php`: sin cookie crea otra sesión e invalida el `logintoken`.
+13. Tras purgar cachés, TinyMCE y `styles.php` tardan más de 20 s en el navegador. Un `globalSetup` calienta Moodle con un navegador real.
+14. Guardar el formulario del examen reescribe sus opciones de revisión, y desaparece la columna Puntos; la interfaz no permite restaurarlo.
+    Por eso `reset` las restaura y cada tamaño corre con Moodle restablecido.
+15. El estado de los cajones persiste por usuario y mueve toda la página.
+16. El paquete `es` deja cadenas sin traducir ("Attempt submitted.") y otras mal ("Comentario -"): se corrigen como traducción local.
+17. Playwright no admite `maskColor` global: la máscara se pinta en la página para no dejar bloques magenta en las capturas.
 
 **Decisiones que cambié:** el modelo inicial de líneas base (el pipeline nunca toca una existente) bloqueaba al
 spec 3, que cambia la pantalla de cierre a propósito; pasó a "propuesta pendiente de aprobación humana, solo para
 pantallas declaradas en el plan". Los timeouts por prueba (180 s) hacían que cada fallo costara minutos; pasaron a
 15 s por acción.
+
+**Lo que la fábrica detectó sola:** en el spec 3 el analista detuvo la corrida antes de construir, porque dos pruebas aprobadas de spec-0
+exigían el bloque que el spec ordena quitar. Producto autorizó el cambio y nació `pruebas_afectadas`. En el spec 4 el corrector
+agotó sus reintentos sin tocar la prueba y señaló que el problema estaba en el entorno, no en el plugin.
+**Revisión de producto:** las primeras capturas de spec-0 se rechazaron por estar en inglés y con el diseño por defecto. Se pasó el sitio a
+español con identidad propia y se regeneró la regresión con la fábrica. Primero atribuí la columna Puntos faltante al plugin del spec 3; la
+evidencia mostró que era un defecto del entorno, porque también faltaba con el plugin retirado.

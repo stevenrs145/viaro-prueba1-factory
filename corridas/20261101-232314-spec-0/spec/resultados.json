@@ -1,0 +1,732 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "--update-snapshots=missing"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261101-232314-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261101-232314-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261101-232314-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "escritorio",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "en-US",
+          "timezoneId": "America/Guatemala",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "escritorio"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261101-232314-spec-0/spec/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "en-US",
+          "timezoneId": "America/Guatemala",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261101-232314-spec-0/spec/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261101-232314-spec-0/spec/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261101-232314-spec-0/spec/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 75441,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--escritorio.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:42:39.463Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-crear-examen-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-crear-examen--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-escritorio/spec-0-crear-examen-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 29241,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-crear-examen--movil.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:49:20.510Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-crear-examen-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-crear-examen--movil.png"
+                    },
+                    {
+                      "name": "spec-0-crear-examen-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--d6d94-un-examen-nuevo-en-el-curso-movil/spec-0-crear-examen-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-65bda176cac9d075efd7",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] un profesor crea preguntas en el banco y las agrega a un examen",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 241950,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/soporte.ts",
+                        "column": 14,
+                        "line": 149
+                      },
+                      "message": "Error: page.goto: Target page, context or browser has been closed\n\n   at salidas/spec-0/pruebas/soporte.ts:149\n\n  147 | /** Borra todas las preguntas de la categoría con la confirmación del banco y comprueba que ya no se listan. */\n  148 | export async function eliminarPreguntas(page: Page, banco: number, categoria: Categoria) {\n> 149 |   await page.goto(urlBanco(banco, categoria));\n      |              ^\n  150 |   const nombres = await page.locator('#categoryquestions tbody input[type=\"checkbox\"]')\n  151 |     .evaluateAll((casillas) => casillas.map((c) => (c as HTMLInputElement).name));\n  152 |   const ids = nombres.filter((n) => /^q\\d+$/.test(n));\n    at eliminarPreguntas (/work/salidas/spec-0/pruebas/soporte.ts:149:14)\n    at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:76:13"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:43:55.272Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-escritorio/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 242209,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 240000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/soporte.ts",
+                        "column": 14,
+                        "line": 149
+                      },
+                      "message": "Error: page.goto: Target page, context or browser has been closed\n\n   at salidas/spec-0/pruebas/soporte.ts:149\n\n  147 | /** Borra todas las preguntas de la categoría con la confirmación del banco y comprueba que ya no se listan. */\n  148 | export async function eliminarPreguntas(page: Page, banco: number, categoria: Categoria) {\n> 149 |   await page.goto(urlBanco(banco, categoria));\n      |              ^\n  150 |   const nombres = await page.locator('#categoryquestions tbody input[type=\"checkbox\"]')\n  151 |     .evaluateAll((casillas) => casillas.map((c) => (c as HTMLInputElement).name));\n  152 |   const ids = nombres.filter((n) => /^q\\d+$/.test(n));\n    at eliminarPreguntas (/work/salidas/spec-0/pruebas/soporte.ts:149:14)\n    at /work/salidas/spec-0/pruebas/01-profesor-examen.spec.ts:76:13"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:49:49.914Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-01--62ea2-co-y-las-agrega-a-un-examen-movil/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "14c3b5d50a0b7f8ee4ed-357d70a0935211817564",
+          "file": "salidas/spec-0/pruebas/01-profesor-examen.spec.ts",
+          "line": 46,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 40504,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-examen-estudiante--escritorio.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-intento--escritorio.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-resumen-envio--escritorio.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre--escritorio.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:47:58.748Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-examen-estudiante-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-examen-estudiante--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-examen-estudiante-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-examen-estudiante-actual.png"
+                    },
+                    {
+                      "name": "spec-0-intento-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-intento--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-intento-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-intento-actual.png"
+                    },
+                    {
+                      "name": "spec-0-resumen-envio-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-resumen-envio--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-resumen-envio-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-resumen-envio-actual.png"
+                    },
+                    {
+                      "name": "spec-0-cierre-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-cierre--escritorio.png"
+                    },
+                    {
+                      "name": "spec-0-cierre-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-escritorio/spec-0-cierre-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 45228,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-examen-estudiante--movil.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-intento--movil.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-resumen-envio--movil.png, writing actual.\n"
+                    },
+                    {
+                      "text": "A snapshot doesn't exist at /work/visual/lineas-base/spec-0-cierre--movil.png, writing actual.\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:53:54.558Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "spec-0-examen-estudiante-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-examen-estudiante--movil.png"
+                    },
+                    {
+                      "name": "spec-0-examen-estudiante-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-examen-estudiante-actual.png"
+                    },
+                    {
+                      "name": "spec-0-intento-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-intento--movil.png"
+                    },
+                    {
+                      "name": "spec-0-intento-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-intento-actual.png"
+                    },
+                    {
+                      "name": "spec-0-resumen-envio-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-resumen-envio--movil.png"
+                    },
+                    {
+                      "name": "spec-0-resumen-envio-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-resumen-envio-actual.png"
+                    },
+                    {
+                      "name": "spec-0-cierre-expected.png",
+                      "contentType": "image/png",
+                      "path": "/work/visual/lineas-base/spec-0-cierre--movil.png"
+                    },
+                    {
+                      "name": "spec-0-cierre-actual.png",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-02--ffaf5-nvía-y-ve-su-nota-calculada-movil/spec-0-cierre-actual.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a2efd32d1040fb4097eb-1cc1b507495c3159f0d9",
+          "file": "salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "escritorio",
+              "projectName": "escritorio",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 37988,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\u001b[22m\n\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:40:138",
+                    "location": {
+                      "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                      "column": 138,
+                      "line": 40
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 38 |\u001b[39m   \u001b[36mconst\u001b[39m cmid \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/mod/quiz/report.php?id=${cmid}&mode=overview`\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 40 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'#mod-quiz-report-overview-report'\u001b[39m)\u001b[33m.\u001b[39mgetByRole(\u001b[32m'link'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m`Estudiante Número ${numero}`\u001b[39m\u001b[33m,\u001b[39m exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 41 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m`/mod/quiz/report.php?id=${cmid}&mode=grading`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 42 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'cell'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[35m/HIS-2 Ensayo/\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                        "column": 138,
+                        "line": 40
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#mod-quiz-report-overview-report').getByRole('link', { name: 'Estudiante Número 3', exact: true })\u001b[22m\n\n\n  38 |   const cmid = await abrirQuiz(page);\n  39 |   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=overview`);\n> 40 |   await expect(page.locator('#mod-quiz-report-overview-report').getByRole('link', { name: `Estudiante Número ${numero}`, exact: true })).toBeVisible();\n     |                                                                                                                                          ^\n  41 |   await page.goto(`/mod/quiz/report.php?id=${cmid}&mode=grading`);\n  42 |   await expect(page.getByRole('cell', { name: /HIS-2 Ensayo/ })).toBeVisible();\n  43 |\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:40:138"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:48:39.462Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-escritorio/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+                    "column": 138,
+                    "line": 40
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 37539,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.modal-footer button').filter({ hasText: 'Submit all and finish' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.modal-footer button').filter({ hasText: 'Submit all and finish' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\u001b[22m\n\n    at enviarIntento (/work/factory/regresion/helpers.ts:74:27)\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:30:3",
+                    "location": {
+                      "file": "/work/factory/regresion/helpers.ts",
+                      "column": 27,
+                      "line": 74
+                    },
+                    "snippet": "   at factory/regresion/helpers.ts:74\n\n\u001b[0m \u001b[90m 72 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Submit all and finish'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 73 |\u001b[39m   \u001b[36mconst\u001b[39m confirmar \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.modal-footer button'\u001b[39m\u001b[33m,\u001b[39m { hasText\u001b[33m:\u001b[39m \u001b[32m'Submit all and finish'\u001b[39m })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m   \u001b[36mawait\u001b[39m expect(confirmar)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m15\u001b[39m_000 })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m   \u001b[36mawait\u001b[39m confirmar\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/review\\.php/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 77 |\u001b[39m }\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/factory/regresion/helpers.ts",
+                        "column": 27,
+                        "line": 74
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\nExpected: visible\nTimeout: 15000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.modal-footer button').filter({ hasText: 'Submit all and finish' }) with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal-footer button').filter({ hasText: 'Submit all and finish' })\u001b[22m\n\n\n   at factory/regresion/helpers.ts:74\n\n  72 |   await page.getByRole('button', { name: 'Submit all and finish' }).click();\n  73 |   const confirmar = page.locator('.modal-footer button', { hasText: 'Submit all and finish' });\n> 74 |   await expect(confirmar).toBeVisible({ timeout: 15_000 });\n     |                           ^\n  75 |   await confirmar.click();\n  76 |   await expect(page).toHaveURL(/review\\.php/);\n  77 | }\n    at enviarIntento (/work/factory/regresion/helpers.ts:74:27)\n    at /work/salidas/spec-0/pruebas/03-calificacion-manual.spec.ts:30:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T23:54:39.993Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261101-232314-spec-0/spec/artefactos/salidas-spec-0-pruebas-03--3e10d-del-estudiante-se-actualiza-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/factory/regresion/helpers.ts",
+                    "column": 27,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c568a1b773f06a27f6f0-6b2f1e38fd08509120e9",
+          "file": "salidas/spec-0/pruebas/03-calificacion-manual.spec.ts",
+          "line": 14,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-01T23:42:35.440Z",
+    "duration": 763877.372,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}
