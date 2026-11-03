@@ -1,17 +1,19 @@
 diff --git a/visual/lineas-base/APROBACIONES.json b/visual/lineas-base/APROBACIONES.json
-new file mode 100644
-index 0000000..07fa9ef
---- /dev/null
+index 05fa45b..b1c0715 100644
+--- a/visual/lineas-base/APROBACIONES.json
 +++ b/visual/lineas-base/APROBACIONES.json
-@@ -0,0 +1,50 @@
-+{
+@@ -110,5 +110,53 @@
+     "aprobado_por": "Steven",
+     "razon": "Aprobadas por Steven tras revisar las 14 capturas de spec-0 en español con el diseño definitivo",
+     "fecha": "2026-11-02T15:06:34.410Z"
++  },
 +  "spec-4-quedan-intentos--escritorio.png": {
-+    "sha256": "45998bca1d62fa5fdec1f3a7043e27478f7c7e7c4450e6f85a8338254de43dfd",
++    "sha256": "6bbdc42cf95b1a648644d846d7f0de2938fbf685c7090f48c4f61d3622432466",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.691Z"
++    "fecha": "2026-11-03T02:14:50.805Z"
 +  },
 +  "spec-4-quedan-intentos--movil.png": {
 +    "sha256": "c29b76a08b26ff46648c600a523078f77e1407d15c0095472bcb290f26e4b65a",
@@ -19,23 +21,23 @@ index 0000000..07fa9ef
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.691Z"
++    "fecha": "2026-11-03T02:14:50.805Z"
 +  },
 +  "spec-4-sin-intentos--escritorio.png": {
-+    "sha256": "54799c1298742bd79df0fe9cadd25f90e50c3919d904ef9db2d1240acba104dd",
++    "sha256": "ff181edccdb6d9e2fae298a9b4d47f2cd2a7aa08883d9d672ee632349898b274",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.692Z"
++    "fecha": "2026-11-03T02:14:50.806Z"
 +  },
 +  "spec-4-sin-intentos--movil.png": {
-+    "sha256": "6cb02bf1149a3c467c27fc05799faac3982f71419124394b30b4ff4a8e655535",
++    "sha256": "7fc81c6a7fd2fd9dacb72887719847272a497447a3ec91d7786b5ff3a783c360",
 +    "origen": "pipeline",
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.692Z"
++    "fecha": "2026-11-03T02:14:50.806Z"
 +  },
 +  "spec-4-sin-limite--escritorio.png": {
 +    "sha256": "22ce34b350a7845264d672d903650f871f6f86ff5218950d31b077df470368ab",
@@ -43,7 +45,7 @@ index 0000000..07fa9ef
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.693Z"
++    "fecha": "2026-11-03T02:14:50.807Z"
 +  },
 +  "spec-4-sin-limite--movil.png": {
 +    "sha256": "95f817ecbcf0fd207ae4e17666894dba3817edb54bda1e1f49b713656574ea4d",
@@ -51,6 +53,30 @@ index 0000000..07fa9ef
 +    "estado": "pendiente-aprobacion-humana",
 +    "spec": "spec-4",
 +    "razon": "Pantalla nueva introducida por spec-4",
-+    "fecha": "2026-11-02T17:23:52.693Z"
-+  }
-+}
++    "fecha": "2026-11-03T02:14:50.807Z"
+   }
+ }
+diff --git a/visual/lineas-base/spec-4-quedan-intentos--escritorio.png b/visual/lineas-base/spec-4-quedan-intentos--escritorio.png
+new file mode 100644
+index 0000000..2ed6c39
+Binary files /dev/null and b/visual/lineas-base/spec-4-quedan-intentos--escritorio.png differ
+diff --git a/visual/lineas-base/spec-4-quedan-intentos--movil.png b/visual/lineas-base/spec-4-quedan-intentos--movil.png
+new file mode 100644
+index 0000000..cb2710c
+Binary files /dev/null and b/visual/lineas-base/spec-4-quedan-intentos--movil.png differ
+diff --git a/visual/lineas-base/spec-4-sin-intentos--escritorio.png b/visual/lineas-base/spec-4-sin-intentos--escritorio.png
+new file mode 100644
+index 0000000..e1c9395
+Binary files /dev/null and b/visual/lineas-base/spec-4-sin-intentos--escritorio.png differ
+diff --git a/visual/lineas-base/spec-4-sin-intentos--movil.png b/visual/lineas-base/spec-4-sin-intentos--movil.png
+new file mode 100644
+index 0000000..5c65ab1
+Binary files /dev/null and b/visual/lineas-base/spec-4-sin-intentos--movil.png differ
+diff --git a/visual/lineas-base/spec-4-sin-limite--escritorio.png b/visual/lineas-base/spec-4-sin-limite--escritorio.png
+new file mode 100644
+index 0000000..60e8cd7
+Binary files /dev/null and b/visual/lineas-base/spec-4-sin-limite--escritorio.png differ
+diff --git a/visual/lineas-base/spec-4-sin-limite--movil.png b/visual/lineas-base/spec-4-sin-limite--movil.png
+new file mode 100644
+index 0000000..8d6658a
+Binary files /dev/null and b/visual/lineas-base/spec-4-sin-limite--movil.png differ

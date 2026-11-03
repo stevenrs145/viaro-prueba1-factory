@@ -1,0 +1,42 @@
+<testsuites id="" name="" tests="15" failures="0" skipped="0" errors="0" time="550.010346">
+<testsuite name="factory/regresion/humo-helpers.spec.ts" timestamp="2026-11-03T01:57:01.467Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="23.507" errors="0">
+<testcase name="[HUMO] helpers de prueba › [HUMO] estudiante completa el examen con ensayo y el profesor lo ve pendiente de calificar" classname="factory/regresion/humo-helpers.spec.ts" time="23.507">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" timestamp="2026-11-03T01:57:01.467Z" hostname="escritorio" tests="2" failures="0" skipped="0" time="78.764" errors="0">
+<testcase name="[CA-1] [CA-6] un profesor crea y configura un examen nuevo en el curso" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="20.087">
+</testcase>
+<testcase name="[CA-2] un profesor crea preguntas en el banco y las agrega a un examen" classname="salidas/spec-0/pruebas/01-profesor-examen.spec.ts" time="58.677">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" timestamp="2026-11-03T01:57:01.467Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="28.72" errors="0">
+<testcase name="[CA-3] [CA-4] [CA-6] un estudiante responde, navega, envía y ve su nota calculada" classname="salidas/spec-0/pruebas/02-estudiante-sin-ensayo.spec.ts" time="28.72">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" timestamp="2026-11-03T01:57:01.467Z" hostname="escritorio" tests="1" failures="0" skipped="0" time="37.818" errors="0">
+<testcase name="[CA-5] [CA-6] un profesor califica un ensayo y la nota del estudiante se actualiza" classname="salidas/spec-0/pruebas/03-calificacion-manual.spec.ts" time="37.818">
+</testcase>
+</testsuite>
+<testsuite name="salidas/spec-4/pruebas/intentos-restantes.spec.ts" timestamp="2026-11-03T01:57:01.467Z" hostname="escritorio" tests="10" failures="0" skipped="0" time="361.977" errors="0">
+<testcase name="[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="31.027">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="42.149">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="42.063">
+</testcase>
+<testcase name="[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="36.421">
+</testcase>
+<testcase name="[CA-2] @requiere-feature el número baja después de enviar un intento" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="41.851">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="43.332">
+</testcase>
+<testcase name="[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="37.59">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite no aparece ningún mensaje y el botón de intento funciona" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="24.963">
+</testcase>
+<testcase name="[CA-4] en un quiz sin límite, tras enviar un intento sigue sin aparecer ningún mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="34.48">
+</testcase>
+<testcase name="[CA-4] fuera de alcance: con el override vigente, el profesor no ve el mensaje" classname="salidas/spec-4/pruebas/intentos-restantes.spec.ts" time="28.101">
+</testcase>
+</testsuite>
+</testsuites>

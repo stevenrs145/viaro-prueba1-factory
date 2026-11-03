@@ -1,0 +1,13 @@
+[2026-11-03T01:29:39.693Z] [inicio] Spec specs/spec-4-intentos-restantes.md (spec-4). Corrida corridas/20261103-012939-spec-4. Rama factory/spec-4-20261102-151215 (REANUDADA).
+[2026-11-03T01:29:40.825Z] [reanudar] Se reutiliza salidas/spec-4/plan.json y el código/pruebas de la rama. Análisis e implementación no se repiten.
+[2026-11-03T01:29:42.798Z] [validacion] Validaciones estáticas OK (estructura, sintaxis PHP, cobertura de criterios).
+[2026-11-03T01:30:21.078Z] [despliegue] Plugins: quizaccess_attemptsremaining — upgrade OK
+[2026-11-03T01:43:40.501Z] [pruebas] Intento 1: 20 OK, 0 fallidas, 0 omitidas.
+[2026-11-03T01:43:42.934Z] [mutacion] Plugin retirado para probar que las pruebas detectan su ausencia (OK).
+[2026-11-03T01:55:24.715Z] [mutacion] Sin la funcionalidad: 14 fallan (esperado), 0 pasan (cada una es un hallazgo).
+[2026-11-03T02:14:50.800Z] [regresion] Suite completa: 29 OK, 0 fallidas, 1 omitidas.
+[2026-11-03T02:14:50.808Z] [visual] Líneas base NUEVAS (pantallas que introduce el spec), pendientes de aprobación humana en el PR: spec-4-quedan-intentos--escritorio.png, spec-4-quedan-intentos--movil.png, spec-4-sin-intentos--escritorio.png, spec-4-sin-intentos--movil.png, spec-4-sin-limite--escritorio.png, spec-4-sin-limite--movil.png
+[2026-11-03T02:14:51.332Z] [alcance] Solo cambió salidas/ del spec; core de Moodle intacto (git status del árbol de Moodle).
+[2026-11-03T02:14:51.504Z] [honestidad] OK.
+    HONESTIDAD: OK — ninguna prueba verifica menos que lo aprobado; líneas base íntegras.
+    

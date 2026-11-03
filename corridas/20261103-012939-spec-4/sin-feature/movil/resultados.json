@@ -1,0 +1,699 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/work/node_modules/.bin/playwright",
+      "test",
+      "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+      "--project=movil",
+      "--update-snapshots=none",
+      "--grep",
+      "@requiere-feature"
+    ],
+    "configFile": "/work/playwright.config.ts",
+    "rootDir": "/work",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/work/factory/regresion/calentar.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "escritorio",
+        "name": "escritorio",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      },
+      {
+        "outputDir": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "movil",
+        "name": "movil",
+        "testDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "movil",
+        "testDir": "/work",
+        "snapshotDir": "/work",
+        "testIgnore": [],
+        "testMatch": [
+          "factory/regresion/**/*.spec.ts",
+          "salidas/*/pruebas/**/*.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:8090",
+          "locale": "es-GT",
+          "timezoneId": "America/Guatemala",
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "movil"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "corridas/20261103-012939-spec-4/sin-feature/movil/funcional.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "corridas/20261103-012939-spec-4/sin-feature/movil/resultados.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "corridas/20261103-012939-spec-4/sin-feature/movil/visual",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "none",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+      "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y sin intentos, el estudiante ve que le quedan 3",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 36623,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:102:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 102
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 100 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m \u001b[33mESTUDIANTE\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 101 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te quedan 3 intentos.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-4-quedan-intentos.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(page) })\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 105 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 102
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  100 |   await login(page, ESTUDIANTE);\n  101 |   await abrirQuiz(page);\n> 102 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 3 intentos.');\n      |                                       ^\n  103 |   await expect(page).toHaveScreenshot('spec-4-quedan-intentos.png', { fullPage: true, mask: await prepararCaptura(page) });\n  104 | });\n  105 |\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:102:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:50:00.424Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-e8637-tudiante-ve-que-le-quedan-3-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 102
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-49175f6f91e7db516bb0",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 98,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y un intento enviado, el estudiante ve que le quedan 2",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 48248,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:112:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 112
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 110 |\u001b[39m   \u001b[36mawait\u001b[39m hacerIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 111 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 112 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te quedan 2 intentos.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 113 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 114 |\u001b[39m\n \u001b[90m 115 |\u001b[39m test(\u001b[32m'[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 112
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  110 |   await hacerIntento(page);\n  111 |   await abrirQuiz(page);\n> 112 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos.');\n      |                                       ^\n  113 | });\n  114 |\n  115 | test('[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular', async ({ page }) => {\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:112:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:50:39.455Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-9c51d-tudiante-ve-que-le-quedan-2-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 112
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-2a98899fc3721064a48b",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 106,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 2 y un intento enviado, el mensaje va en singular",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 48944,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te queda 1 intento.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te queda 1 intento.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:121:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 121
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 119 |\u001b[39m   \u001b[36mawait\u001b[39m hacerIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 120 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 121 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te queda 1 intento.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 122 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 123 |\u001b[39m\n \u001b[90m 124 |\u001b[39m test(\u001b[32m'[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 121
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te queda 1 intento.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  119 |   await hacerIntento(page);\n  120 |   await abrirQuiz(page);\n> 121 |   await expect(mensajeIntentos(page)).toHaveText('Te queda 1 intento.');\n      |                                       ^\n  122 | });\n  123 |\n  124 | test('[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar', async ({ page }) => {\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:121:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:51:30.730Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-5c3b6-o-el-mensaje-va-en-singular-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 121
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-489299fc9ed2ff9e8f4b",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 115,
+          "column": 1
+        },
+        {
+          "title": "[CA-1] @requiere-feature con límite 3 y un intento en curso, el mensaje lo aclara y se puede continuar",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 42263,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos además del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos además del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:130:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 130
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 128 |\u001b[39m   \u001b[36mawait\u001b[39m iniciarIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 129 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 130 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te quedan 2 intentos además del que está en curso.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 131 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Continuar el último intento'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 132 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 133 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 130
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 2 intentos además del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  128 |   await iniciarIntento(page);\n  129 |   await abrirQuiz(page);\n> 130 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos además del que está en curso.');\n      |                                       ^\n  131 |   await expect(page.getByRole('button', { name: 'Continuar el último intento' })).toBeVisible();\n  132 | });\n  133 |\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:130:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:52:22.524Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-7bd12-aclara-y-se-puede-continuar-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 130
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-ca6467efd0e0a9765beb",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 124,
+          "column": 1
+        },
+        {
+          "title": "[CA-2] @requiere-feature el número baja después de enviar un intento",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 37010,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:138:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 138
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 136 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m \u001b[33mESTUDIANTE\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 137 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 138 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te quedan 3 intentos.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 139 |\u001b[39m   \u001b[36mawait\u001b[39m hacerIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 140 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n \u001b[90m 141 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Te quedan 2 intentos.'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 138
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"Te quedan 3 intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  136 |   await login(page, ESTUDIANTE);\n  137 |   await abrirQuiz(page);\n> 138 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 3 intentos.');\n      |                                       ^\n  139 |   await hacerIntento(page);\n  140 |   await abrirQuiz(page);\n  141 |   await expect(mensajeIntentos(page)).toHaveText('Te quedan 2 intentos.');\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:138:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:53:07.570Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-88e04-espués-de-enviar-un-intento-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 138
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-f3f265654702e25d1f77",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] @requiere-feature con límite 1 y ese intento enviado, el estudiante ve que no le quedan intentos",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 48829,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:151:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 151
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 149 |\u001b[39m   \u001b[36mawait\u001b[39m hacerIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 150 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 151 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'No te quedan intentos.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 152 |\u001b[39m   \u001b[36mawait\u001b[39m expect(botonIntento(page))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 153 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveScreenshot(\u001b[32m'spec-4-sin-intentos.png'\u001b[39m\u001b[33m,\u001b[39m { fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m mask\u001b[33m:\u001b[39m \u001b[36mawait\u001b[39m prepararCaptura(page) })\u001b[33m;\u001b[39m\n \u001b[90m 154 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 151
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  149 |   await hacerIntento(page);\n  150 |   await abrirQuiz(page);\n> 151 |   await expect(mensajeIntentos(page)).toHaveText('No te quedan intentos.');\n      |                                       ^\n  152 |   await expect(botonIntento(page)).toHaveCount(0);\n  153 |   await expect(page).toHaveScreenshot('spec-4-sin-intentos.png', { fullPage: true, mask: await prepararCaptura(page) });\n  154 | });\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:151:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:53:46.764Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-3acfa-e-que-no-le-quedan-intentos-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 151
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-cb0a7b843a05a6f054ae",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "[CA-3] @requiere-feature con límite 1 y ese intento en curso, el mensaje lo aclara y se puede continuar",
+          "ok": false,
+          "tags": [
+            "requiere-feature"
+          ],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "movil",
+              "projectName": "movil",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 42042,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos después del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos después del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:162:39",
+                    "location": {
+                      "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                      "column": 39,
+                      "line": 162
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 160 |\u001b[39m   \u001b[36mawait\u001b[39m iniciarIntento(page)\u001b[33m;\u001b[39m\n \u001b[90m 161 |\u001b[39m   \u001b[36mawait\u001b[39m abrirQuiz(page)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 162 |\u001b[39m   \u001b[36mawait\u001b[39m expect(mensajeIntentos(page))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'No te quedan intentos después del que está en curso.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 163 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'button'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Continuar el último intento'\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 164 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/attempt\\.php/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 165 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                        "column": 39,
+                        "line": 162
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\nExpected: \u001b[32m\"No te quedan intentos después del que está en curso.\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.quizinfo p').filter({ hasText: /\\bte quedan?\\s/i })\u001b[22m\n\n\n  160 |   await iniciarIntento(page);\n  161 |   await abrirQuiz(page);\n> 162 |   await expect(mensajeIntentos(page)).toHaveText('No te quedan intentos después del que está en curso.');\n      |                                       ^\n  163 |   await page.getByRole('button', { name: 'Continuar el último intento' }).click();\n  164 |   await expect(page).toHaveURL(/attempt\\.php/);\n  165 | });\n    at /work/salidas/spec-4/pruebas/intentos-restantes.spec.ts:162:39"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T01:54:38.553Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/work/corridas/20261103-012939-spec-4/sin-feature/movil/artefactos/salidas-spec-4-pruebas-int-d5761-aclara-y-se-puede-continuar-movil/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/work/salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+                    "column": 39,
+                    "line": 162
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6780b1437b8afeb9bb37-69ea16e7007df0183785",
+          "file": "salidas/spec-4/pruebas/intentos-restantes.spec.ts",
+          "line": 156,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T01:49:37.681Z",
+    "duration": 345086.528,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

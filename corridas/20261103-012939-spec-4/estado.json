@@ -1,0 +1,59 @@
+{
+  "corrida": "20261103-012939-spec-4",
+  "spec": "specs/spec-4-intentos-restantes.md",
+  "rama": "factory/spec-4-20261102-151215",
+  "reanudada": true,
+  "estado": "EJECUTADO",
+  "etapas": {
+    "precondicion": {
+      "estado": "VALIDADO",
+      "detalle": "Moodle responde y el árbol de trabajo está limpio.",
+      "actualizado": "2026-11-03T01:29:40.824Z"
+    },
+    "analisis": {
+      "estado": "VALIDADO",
+      "detalle": "Plan reutilizado de la rama: 5 criterios, 10 bordes.",
+      "actualizado": "2026-11-03T01:29:40.826Z"
+    },
+    "sondas": {
+      "estado": "EJECUTADO",
+      "detalle": "0 sonda(s).",
+      "actualizado": "2026-11-03T01:29:40.826Z"
+    },
+    "implementacion": {
+      "estado": "EJECUTADO",
+      "detalle": "Código y pruebas reutilizados de la rama.",
+      "actualizado": "2026-11-03T01:29:40.827Z"
+    },
+    "pruebas": {
+      "estado": "VALIDADO",
+      "detalle": "Pruebas del spec en verde.",
+      "actualizado": "2026-11-03T01:43:40.502Z"
+    },
+    "mutacion": {
+      "estado": "VALIDADO",
+      "detalle": "Sin la funcionalidad: 14 fallan, 0 pasan.",
+      "actualizado": "2026-11-03T01:56:03.704Z"
+    },
+    "regresion": {
+      "estado": "VALIDADO",
+      "detalle": "29 OK, 0 fallidas, 1 omitidas.",
+      "actualizado": "2026-11-03T02:14:50.800Z"
+    },
+    "alcance": {
+      "estado": "VALIDADO",
+      "detalle": "Solo cambió salidas/ del spec; core de Moodle intacto.",
+      "actualizado": "2026-11-03T02:14:51.336Z"
+    },
+    "honestidad": {
+      "estado": "VALIDADO",
+      "detalle": "Sin hallazgos.",
+      "actualizado": "2026-11-03T02:14:51.504Z"
+    },
+    "pr": {
+      "estado": "PENDIENTE",
+      "detalle": null,
+      "actualizado": null
+    }
+  }
+}
